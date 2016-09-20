@@ -1,0 +1,10 @@
+---
+    author: "Claudio Cardinale"
+    date: \today
+    title: "Masther tesis"
+    subtitle: "Realtime databases"
+    toc: true
+    lang: "en"
+    papersize: "a4"
+    documentclass: "article"
+---
