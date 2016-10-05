@@ -7,8 +7,8 @@ TEMPLATE = template.tex
 
 all: $(TARGET)
 
-$(TARGET): *.yaml *.md
-	pandoc --template $(TEMPLATE) -f $(IN_FORMAT) -t $(OUT_FORMAT) -s -o $(TARGET) $^
+$(TARGET): *.yaml *.md **/*.tex *tex
+	pandoc --template $(TEMPLATE) -f $(IN_FORMAT) -t $(OUT_FORMAT) -s -o $(TARGET) *.yaml *.md
 
 clean:
 	-@rm -fR **/*.pdf
