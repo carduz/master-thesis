@@ -102,7 +102,7 @@ Inquadramento generale
 \begin_layout Plain Layout
 La prima parte contiene una frase che spiega l’area generale dove si svolge
  il lavoro; una che spiega la sottoarea più specifica dove si svolge il
- lavoro e la terza, che dovrebbe cominciare con le seguenti parole 
+ lavoro e la terza, che dovrebbe cominciare con le seguenti parole
 \begin_inset Quotes fld
 \end_inset
 
@@ -161,7 +161,6 @@ Struttura della tesi
 \begin_layout Plain Layout
 La terza parte contiene la descrizione della struttura della tesi ed è organizza
 ta nel modo seguente.
- 
 \begin_inset Quotes fld
 \end_inset
 
@@ -181,7 +180,57 @@ La tesi è strutturata nel modo seguente
 \end_layout
 
 \begin_layout Standard
+Today there are a lot of
+\begin_inset Quotes fld
+\end_inset
 
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ applications of different types: from the simple web chat to the realtime
+ embedded applications.
+\end_layout
+
+\begin_layout Standard
+At the same time most applications are built over HTTP protocol, this is
+ caused by a lot things: easy to develop an application over HTTP (also
+ a secure application based on SSL), high tested protocol and so on.
+\begin_inset Newline newline
+\end_inset
+
+So we need to build an application stack built over HTTP protocol, in booth
+ cases: traditional an realtime databases approach.
+\begin_inset Newline newline
+\end_inset
+
+We will cover see the HTTP based application, that are the most class of
+ application.
+ So we will not see topics such as realtime embedded applications, since
+ they are a very specif field that requires an independent study.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subparagraph*{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we will see in the first chapter, in the traditional approach we have
+ two main ways to do that: polling or implement a Publish/Subscribe protocol
+ over HTTP; while using a realtime database everything is already implemented
+ in efficient way.
 \end_layout
 
 \end_body
