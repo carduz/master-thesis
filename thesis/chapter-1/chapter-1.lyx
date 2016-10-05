@@ -73,7 +73,7 @@
 
 \begin_layout Standard
 Since we will cover only HTTP based application we will start analyzing
- the traditional HTTP based approach.
+ the an HTTP application stack.
  Then we will see how to make it 
 \begin_inset Quotes fld
 \end_inset
@@ -87,6 +87,13 @@ realtime
 \end_inset
 
 Finally we will analyze the realtime databases approach.
+\end_layout
+
+\begin_layout Standard
+Of course the protocol is not the only element need to build a realtime
+ application but it is a must, without a right protocol that allow us to
+ receive messages from the server we are not able to build a real realtime
+ application.
 \end_layout
 
 \begin_layout Section
@@ -135,12 +142,83 @@ Modern web application stack
 
 \end_layout
 
+\begin_layout Standard
+We will see the evolution of the HTTP that allow to create a real realtime
+ application.
+ The core of the issue is the HTTP handshake, in fact we need to have asynchrono
+us requests, i.e.
+ the server should be able to send messages to client at any time.
+\end_layout
+
 \begin_layout Subsection
-aaa
+HTTP handshake
+\end_layout
+
+\begin_layout Subsubsection
+HTTP 1.0
 \end_layout
 
 \begin_layout Standard
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Original version of HTTP (HTTP 1.0) allowed just connections that must be
+ closed immediately after the receiving of data:
+\end_layout
+
+\begin_layout Enumerate
+The client request something
+\end_layout
+
+\begin_layout Enumerate
+The server reply
+\end_layout
+
+\begin_layout Enumerate
+The connection is closed
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO INSERT IMAGE
+\end_layout
+
+\begin_layout Standard
+In this version the only approaches available to build a realtime application
+ are:
+\end_layout
+
+\begin_layout Itemize
+Short polling: schedule new request every a fixed small amount of time to
+ check if the data are changed
+\end_layout
+
+\begin_layout Itemize
+Long polling: create a normal request to the server.
+ But the server reply only when there are new data, then the client create
+ a new request
+\end_layout
+
+\begin_layout Itemize
+Event Stream: a long request without end, where the server continues to
+ send data to the client, this approach is used in video/music streaming.
+\end_layout
+
+\begin_layout Standard
+Booth approaches have a lot of issues that reduce the performances 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PollingStreamProblems"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+HTTP 1.1
+\end_layout
+
+\begin_layout Standard
+AAAAALorem ipsum dolor sit amet, consectetur adipiscing elit.
  Quisque lectus mi, aliquet ac lectus at, luctus ornare enim.
  Donec eleifend ornare ante.
  Curabitur non adipiscing risus.

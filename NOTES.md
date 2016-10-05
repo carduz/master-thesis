@@ -2,3 +2,5 @@
 * talk about PUB/SUB over HTTP
 * complex queries not supported in soem commerical NOSQL db
 * a lot of application over HTTP
+* http://www.rfc-editor.org/info/rfc6202
+* pouchdb uses a long polling
