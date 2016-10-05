@@ -285,7 +285,7 @@ status open
 \begin_layout Standard
 \align center
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -311,9 +311,9 @@ Thesis
 \begin_inset Newline newline
 \end_inset
 
-Title
+Realtime Databases: a serverless challenge
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 

@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass book
@@ -14,13 +14,13 @@
 \font_roman default
 \font_sans default
 \font_typewriter default
+\font_math auto
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
-
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -31,15 +31,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry false
-\use_amsmath 2
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -133,6 +142,45 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In today applications the data are increasing exponentially, data need to
+ be 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Both issues can be solved by traditional approaches, but in the last years
+ new approaches were born.
+\end_layout
+
+\begin_layout Standard
+A traditional approach consist of a relational database with a server for
+ API; while a realtime approach consist of a realtime database without a
+ dedicated server for API, the database itself is the API server.
+\end_layout
+
+\begin_layout Standard
+We will analyze both approaches in software engineering view; i.e.
+ we will not analyze the implementation detail of each technology, but we
+ will see each technology as a module of the application, we will see how
+ to integrate them.
+\begin_inset Newline newline
+\end_inset
+
+Using the same view, we will demonstrate for which classes of application
+ this approach has a less cost in terms of maintainability and developing,
+ finding the break even point.
+\end_layout
+
+\begin_layout Standard
+Finally we will proof the economic advantage in a real financial trading
+ application.
 \end_layout
 
 \end_body
