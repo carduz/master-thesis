@@ -265,7 +265,14 @@ The keep alive options allows to use a the same connection multiple times,
 This was originally projected to request different files over the same connectio
 n.
  But it allowed to do a lot of other things, as we will see in the section
- 1.1.2 it is the enabling technology for websocket.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "1.1.2"
+
+\end_inset
+
+ it is the enabling technology for websocket.
 \end_layout
 
 \begin_layout Standard
@@ -308,7 +315,14 @@ key "HTTP2.0Energy"
 \end_layout
 
 \begin_layout Standard
-But, since it is new, it is not supported in efficient way by a lot of devices
+But, since it is new, it is not supported in efficient way by a lot of browsers
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HTTP2.0Support"
+
+\end_inset
+
  and by a lot of websites 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -324,9 +338,19 @@ key "HTTP2.0WebSites"
 
 \series bold
 TODO INSERT IMAGE
+\begin_inset space \space{}
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "1.1.2"
+
+\end_inset
+
 WebSocket
 \end_layout
 
