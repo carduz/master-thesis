@@ -101,7 +101,7 @@ We will also analyze the database itself, because in traditional database
 \end_layout
 
 \begin_layout Section
-HTTP Application Stack
+Traditional HTTP Application Stack
 \end_layout
 
 \begin_layout Standard
@@ -156,15 +156,15 @@ In all the classical HTTP applications we have:
 \end_layout
 
 \begin_layout Enumerate
-the client request something to the HTTP server
+the client request something to the HTTP server (application server)
 \end_layout
 
 \begin_layout Enumerate
-the HTTP server request data to DatabaseServer
+the HTTP server (application server) request data to Database Server
 \end_layout
 
 \begin_layout Enumerate
-the HTTP server send the data to the client
+the HTTP server (application server) send the data to the client
 \end_layout
 
 \begin_layout Standard
@@ -602,8 +602,135 @@ key "WebsocketImg"
 Data retrieve
 \end_layout
 
+\begin_layout Standard
+Relational databases are not developed to send notification, the basic idea
+ is: 
+\begin_inset Quotes fld
+\end_inset
+
+when you want data you get them
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+So in the traditional HTTP applications, a shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Modern-web-application"
+
+\end_inset
+
+ for each request the HTTP server checks the database server.
+\end_layout
+
+\begin_layout Standard
+If we want to make this process 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ we have to solve two main issues:
+\end_layout
+
+\begin_layout Enumerate
+How to have a notification of a change? considering also distributed system
+ case.
+ The trivial solution is the usage of a database 
+\begin_inset Quotes fld
+\end_inset
+
+trigger
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+How to manage clients in efficient way that want to have information about
+ changes of only somethings and not of everything? The solution is to use
+ the 
+\begin_inset Quotes fld
+\end_inset
+
+Publish/Subscribe
+\begin_inset Quotes frd
+\end_inset
+
+ pattern 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubSubDB"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Database trigger
+\end_layout
+
+\begin_layout Standard
+A trigger is a small snippet of code that is executed for some events such
+ as inserting of data into a row 
+\end_layout
+
+\begin_layout Subsubsection
+Publish/Subscribe
+\end_layout
+
+\begin_layout Standard
+In Publish/Subscribe pattern each client that is interested to some data/events
+ 
+\begin_inset Quotes fld
+\end_inset
+
+subscribe
+\begin_inset Quotes frd
+\end_inset
+
+ to these, while the server service 
+\begin_inset Quotes fld
+\end_inset
+
+publish
+\begin_inset Quotes frd
+\end_inset
+
+ the data that will be sent to the clients without knowing which are the
+ client 
+\begin_inset Quotes fld
+\end_inset
+
+subscribed
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubSub"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Realtime databases stack
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO NO SQL MODEL AND DVANTAGES
 \end_layout
 
 \end_body
