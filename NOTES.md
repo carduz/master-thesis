@@ -4,3 +4,4 @@
 * a lot of application over HTTP
 * http://www.rfc-editor.org/info/rfc6202
 * pouchdb uses a long polling
+* #http://caniuse.com/#feat=http2

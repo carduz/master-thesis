@@ -94,10 +94,9 @@ Of course the protocol is not the only element need to build a realtime
 \end_layout
 
 \begin_layout Standard
-We will also analyze the database itself, because in standard traditional
- database there is no an event notification system: we have to check it
- every time or we have to create a trigger to do that as we will see in
- the next sections.
+We will also analyze the database itself, because in traditional database
+ there is no an event notification system: we have to check it every time
+ or we have to create a trigger to do that as we will see in the next sections.
  Of course the realtime databases resolve this.
 \end_layout
 
@@ -170,7 +169,14 @@ HTTP 1.0
 
 \begin_layout Standard
 Original version of HTTP (HTTP 1.0) allowed just connections that must be
- closed immediately after the receiving of data:
+ closed immediately after the receiving of data 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HTTP1.0"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Enumerate
@@ -273,9 +279,51 @@ HTTP 2.0
 \end_layout
 
 \begin_layout Standard
+It is the newest HTTP standard (2015), it introduced a lot of improvements.
+ The most important are: the possibility fort the server to 
+\begin_inset Quotes fld
+\end_inset
+
+push
+\begin_inset Quotes frd
+\end_inset
+
+ data, that the client has not request explicitly and the possibility to
+ have multiple parallel requests over a single TCP connection 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HTTP2.0"
+
+\end_inset
+
+.
+ These features should allow also to increase the energy efficiency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HTTP2.0Energy"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+But, since it is new, it is not supported in efficient way by a lot of devices
+ and by a lot of websites 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HTTP2.0WebSites"
+
+\end_inset
+
+.
+ So at the moment other solutions are preferred (like websockets).
+\end_layout
+
+\begin_layout Standard
 
 \series bold
-TODO
+TODO INSERT IMAGE
 \end_layout
 
 \begin_layout Subsection

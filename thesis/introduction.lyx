@@ -204,8 +204,8 @@ So we need to build an application stack built over HTTP protocol, in booth
 \begin_inset Newline newline
 \end_inset
 
-We will cover see the HTTP based application, that are the most class of
- application.
+We will see the HTTP based applications, that are the most common class
+ of applications.
  So we will not see topics such as realtime embedded applications, since
  they are a very specif field that requires an independent study.
 \end_layout
