@@ -767,7 +767,42 @@ Realtime databases stack
 
 \begin_layout Standard
 As we seen in the previous section with a standard HTTP application stack
- we can create
+ we can create a real realtime application, so why a 
+\begin_inset Quotes fld
+\end_inset
+
+realtime databses
+\begin_inset Quotes frd
+\end_inset
+
+ were born?
+\begin_inset Newline newline
+\end_inset
+
+They were born to increaser the performance and allow to create a realtime
+ application a easier way (without implementing in manual way the entire
+ stack):
+\end_layout
+
+\begin_layout Itemize
+They use an unstructured data model, like a NOSQL database, with a lot of
+ advantages:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+the database can be easily partitioned and distributed over different nodes
+\end_layout
+
+\begin_layout Itemize
+the client can subscribe only to a small portion of the data 
+\series bold
+TODO SEE NOSQL SECTION
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+aa
 \end_layout
 
 \begin_layout Standard
