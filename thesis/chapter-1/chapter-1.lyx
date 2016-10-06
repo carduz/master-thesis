@@ -315,6 +315,12 @@ key "HTTPPersistent"
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:HTTP-1.1"
+
+\end_inset
+
 HTTP 1.1
 \end_layout
 
@@ -425,7 +431,7 @@ key "HTTP2.0WebSites"
 \end_inset
 
 .
- So at the moment other solutions are preferred (like websockets).
+ So at the moment other solutions are preferred (like websocket).
 \end_layout
 
 \begin_layout Standard
@@ -433,7 +439,7 @@ key "HTTP2.0WebSites"
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -485,6 +491,111 @@ name "1.1.2"
 \end_inset
 
 WebSocket
+\end_layout
+
+\begin_layout Standard
+It is a protocol built over 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:HTTP-1.1"
+
+\end_inset
+
+ that allows to create a sort of 
+\begin_inset Quotes fld
+\end_inset
+
+socket
+\begin_inset Quotes frd
+\end_inset
+
+ where both the client and the server can send and receive messages in any
+ time 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebSocket"
+
+\end_inset
+
+.
+ This is done using an HTTP connection with 
+\begin_inset Quotes fld
+\end_inset
+
+keep-alive
+\begin_inset Quotes frd
+\end_inset
+
+ option.
+\end_layout
+
+\begin_layout Standard
+So this protocol allows to create a real efficient realtime application,
+ where the client receives immediately a notification from the server (for
+ server events) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebSocketRealTime"
+
+\end_inset
+
+ as shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Websocket-with-server"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename websocket.gif
+	width 40col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Websocket-with-server"
+
+\end_inset
+
+Websocket with server events 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebsocketImg"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
