@@ -679,7 +679,7 @@ Database trigger
 
 \begin_layout Standard
 A trigger is a small snippet of code that is executed for some events such
- as inserting of data into a row 
+ as inserting of data into a row.
 \end_layout
 
 \begin_layout Subsubsection
@@ -723,8 +723,51 @@ key "PubSub"
 .
 \end_layout
 
+\begin_layout Subsubsection
+Realtime retrieve
+\end_layout
+
+\begin_layout Standard
+Now we have all elements to create a real realtime application:
+\end_layout
+
+\begin_layout Itemize
+Each client 
+\begin_inset Quotes fld
+\end_inset
+
+subscribes
+\begin_inset Quotes frd
+\end_inset
+
+ to the data that it needs.
+\end_layout
+
+\begin_layout Itemize
+A trigger on the server 
+\begin_inset Quotes fld
+\end_inset
+
+publish
+\begin_inset Quotes frd
+\end_inset
+
+ the data when they are updated.
+\end_layout
+
+\begin_layout Itemize
+The communication between the client and server is over a websocket channel,
+ so immediately after the data are published the server send data on this
+ channel.
+\end_layout
+
 \begin_layout Section
 Realtime databases stack
+\end_layout
+
+\begin_layout Standard
+As we seen in the previous section with a standard HTTP application stack
+ we can create
 \end_layout
 
 \begin_layout Standard
