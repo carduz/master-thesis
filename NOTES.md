@@ -6,3 +6,4 @@
 * pouchdb uses a long polling
 * #http://caniuse.com/#feat=http2
 * pub/sub can be seen as async
+* https://www.rethinkdb.com/
