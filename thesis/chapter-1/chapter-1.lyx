@@ -170,7 +170,7 @@ the HTTP server (application server) send the data to the client
 \end_layout
 
 \begin_layout Standard
-as shown in figure
+as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modern-web-application"
@@ -205,7 +205,7 @@ key "HTTP1.0"
 
 \end_inset
 
-, as shown in figure
+, as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP1.0-vs-HTTP1.1"
@@ -350,7 +350,7 @@ key "HTTP1.1"
 The keep alive options allows to use a the same connection multiple times,
  i.e.
  after a server reply the client can send another message over the same
- connection as shown in figure
+ connection as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP1.0-vs-HTTP1.1"
@@ -389,7 +389,7 @@ push
 
  data, that the client has not request explicitly and the possibility to
  have multiple parallel requests over a single TCP connection as shown in
- figure
+ figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP2-multiple-parallel"
@@ -538,7 +538,7 @@ key "WebSocketRealTime"
 
 \end_inset
 
- as shown in figure
+ as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Websocket-with-server"
@@ -615,7 +615,7 @@ when you want data you get them
 \begin_inset Newline newline
 \end_inset
 
-So in the traditional HTTP applications, a shown in figure
+So in the traditional HTTP applications, a shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modern-web-application"
@@ -827,21 +827,21 @@ key "NoSQL"
 \begin_layout Standard
 They can be easily partitioned but to ensure this in efficient way they
  have to renounce to the Consistency or to the Availability as shown in
- the figure
+ the figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:-Database-triangle"
 
 \end_inset
 
- (more details are explained in
+ (more details are explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Consistency,-Partition-tolerance"
 
 \end_inset
 
-), we will see more details on the chapter
+), we will see more details on the chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
@@ -902,14 +902,28 @@ key "DBTriangle"
 
 \begin_layout Standard
 The data are stored in JSON format or other unstructured formats, the advantages
- and structure of JSON is explained in
+ and structure of JSON is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:JSON"
 
 \end_inset
 
+.
+\begin_inset Newline newline
+\end_inset
 
+Data are organized in 
+\begin_inset Quotes fld
+\end_inset
+
+documents
+\begin_inset Quotes frd
+\end_inset
+
+ not tables.
+ Each document is a something that can contains data in JSON format, file
+ or other things.
 \end_layout
 
 \begin_layout Subsubsection
@@ -923,7 +937,7 @@ JSON
 \end_layout
 
 \begin_layout Standard
-JSON is an easy standard to store data 
+JSON (JavaScript Object Notation) is an easy standard to store data 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JSON"
@@ -939,12 +953,14 @@ key "JSONvsXML"
 \end_inset
 
 .
-\end_layout
+ On listening 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Simple-JSON-example"
 
-\begin_layout Standard
+\end_inset
 
-\series bold
-TODO NO SQL MODEL AND DVANTAGES
+ there is a simple example of a JSON structure.
 \end_layout
 
 \begin_layout Standard
@@ -1070,6 +1086,76 @@ Simple JSON example
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+On the JSON structure there can be simple types, array or objects, in the
+ previous example we have:
+\end_layout
+
+\begin_layout Itemize
+main object
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+an array (called 
+\begin_inset Quotes fld
+\end_inset
+
+Main Array
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+two arrays
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+two objects (with 
+\begin_inset Quotes fld
+\end_inset
+
+title
+\begin_inset Quotes frd
+\end_inset
+
+ property)
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Standard
+So in a NoSQL database a 
+\begin_inset Quotes fld
+\end_inset
+
+document
+\begin_inset Quotes frd
+\end_inset
+
+ is composed by a JSON data like that.
+ This structure is very powerful structure that allows to store a lot of
+ complex structure.
+\begin_inset Newline newline
+\end_inset
+
+A simple example can be a system where we have some users, each of them
+ with a complex structure, each user is stored as object in a main array
+ we will see this case and other on the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:class-of-applications"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection

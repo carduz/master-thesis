@@ -158,7 +158,6 @@ abstract.lyx
 \family default
 , \SpecialChar ldots
 ) that you can edit independently.
-
 \family sans
 thesis.lyx
 \family default
@@ -196,20 +195,8 @@ title-page
 add your personal information and the thesis's title in the property of
  this pdf (
 \family sans
-Document
-\family default
-
-\family sans
-\SpecialChar menuseparator
- Properties
-\family default
-
-\family sans
-\SpecialChar menuseparator
-
-\family default
-
-\family sans
+Document\SpecialChar menuseparator
+ Properties\SpecialChar menuseparator
 PDF Properties
 \family default
 )
@@ -679,10 +666,10 @@ filename "chapter-2/chapter-2.lyx"
 \end_layout
 
 \begin_layout Chapter
-Third chapter
+Class of Applications
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:third-chapter"
+name "chap:class-of-applications"
 
 \end_inset
 
