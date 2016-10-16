@@ -816,6 +816,10 @@ TODO SEE NOSQL SECTION
 aaANOTRHR CHAPTER?
 \end_layout
 
+\begin_layout Itemize
+EXPLAIN PARTIONED
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1247,21 +1251,55 @@ key "CAPNoSQL,CAP"
 \end_layout
 
 \begin_layout Itemize
-Consistency: 
+Consistency: all nodes receive the most recent data (write)
 \end_layout
 
 \begin_layout Itemize
-Availability:
+Availability: all requests receive a response with data (this doesn't ensure
+ that data are the newest)
 \end_layout
 
 \begin_layout Itemize
-Partition tolerance:
+Partition tolerance: the system work properly even if the data are partitioned
+ among nodes, also if some of them are unreachable
 \end_layout
 
 \begin_layout Standard
+In the distributed systems the main issue is the synchronization among nodes:
+ there is no a common clock, so it is not so easy determinate the order
+ of commits.
+\end_layout
 
-\series bold
-TODO nosql and next chapter
+\begin_layout Standard
+ACID (Atomicity, Consistency, Isolation, Durability) databases (traditional
+ relational databases) choose Availability and Consistency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Instead NoSQL choose Availability and Partition tolerance or Consistency
+ and Partition tolerance 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+.
+ In the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ we will see NoSQL databases of both types.
 \end_layout
 
 \end_body

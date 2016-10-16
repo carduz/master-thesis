@@ -1,5 +1,5 @@
 * state of art
-* technologies
+* technologies: nosql of AP and CP
 * class of applications: talk also about data structure
 * performance evulation
 * cost of developing

@@ -8,3 +8,5 @@
 * pub/sub can be seen as async
 * https://www.rethinkdb.com/
 * check "chapter, section, subsection" correctly used when a ref is used
+* search pages and other things using "cite" function of google shcoolar
+* initial space after a list
