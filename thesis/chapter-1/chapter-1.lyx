@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -74,7 +76,7 @@
 \begin_layout Standard
 Since we will cover only HTTP based application we will start analyzing
  the an HTTP application stack.
- Then we will see how to make it 
+ Then we will see how to make it
 \begin_inset Quotes fld
 \end_inset
 
@@ -168,7 +170,7 @@ the HTTP server (application server) send the data to the client
 \end_layout
 
 \begin_layout Standard
-as shown in figure 
+as shown in figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modern-web-application"
@@ -196,14 +198,14 @@ HTTP 1.0
 
 \begin_layout Standard
 Original version of HTTP (HTTP 1.0) allowed just connections that must be
- closed immediately after the receiving of data 
+ closed immediately after the receiving of data
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP1.0"
 
 \end_inset
 
-, as shown in figure 
+, as shown in figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP1.0-vs-HTTP1.1"
@@ -247,7 +249,7 @@ Event Stream: a long request without end, where the server continues to
 \end_layout
 
 \begin_layout Standard
-All approaches have a lot of issues that reduce the performances 
+All approaches have a lot of issues that reduce the performances
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PollingStreamProblems"
@@ -286,7 +288,7 @@ name "fig:HTTP1.0-vs-HTTP1.1"
 
 \end_inset
 
-HTTP1.0 vs HTTP1.1 (using 
+HTTP1.0 vs HTTP1.1 (using
 \begin_inset Quotes fld
 \end_inset
 
@@ -294,7 +296,7 @@ keep-alive
 \begin_inset Quotes frd
 \end_inset
 
-) 
+)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTPPersistent"
@@ -317,7 +319,7 @@ key "HTTPPersistent"
 \begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:HTTP-1.1"
+name "subsec:HTTP-1.1"
 
 \end_inset
 
@@ -326,7 +328,7 @@ HTTP 1.1
 
 \begin_layout Standard
 It is a new version of HTTP that fixed some issues and improved some things,
- it enabled the 
+ it enabled the
 \begin_inset Quotes fld
 \end_inset
 
@@ -335,7 +337,6 @@ keep-alive
 \end_inset
 
  option (this option was implemented unofficial by a lot of HTTP 1.0 clients)
- 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP1.1"
@@ -349,7 +350,7 @@ key "HTTP1.1"
 The keep alive options allows to use a the same connection multiple times,
  i.e.
  after a server reply the client can send another message over the same
- connection as shown in figure 
+ connection as shown in figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP1.0-vs-HTTP1.1"
@@ -363,7 +364,6 @@ reference "fig:HTTP1.0-vs-HTTP1.1"
 This was originally projected to request different files over the same connectio
 n.
  But it allowed to do a lot of other things, as we will see in the section
- 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "1.1.2"
@@ -379,7 +379,7 @@ HTTP 2.0
 
 \begin_layout Standard
 It is the newest HTTP standard (2015), it introduced a lot of improvements.
- The most important are: the possibility fort the server to 
+ The most important are: the possibility fort the server to
 \begin_inset Quotes fld
 \end_inset
 
@@ -389,14 +389,14 @@ push
 
  data, that the client has not request explicitly and the possibility to
  have multiple parallel requests over a single TCP connection as shown in
- figure 
+ figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP2-multiple-parallel"
 
 \end_inset
 
- 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0"
@@ -404,7 +404,7 @@ key "HTTP2.0"
 \end_inset
 
 .
- These features allow also to increase the energy efficiency 
+ These features allow also to increase the energy efficiency
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0Energy"
@@ -416,14 +416,13 @@ key "HTTP2.0Energy"
 
 \begin_layout Standard
 But, since it is new, it is not supported in efficient way by a lot of browsers
- 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0Support"
 
 \end_inset
 
- and by a lot of websites 
+ and by a lot of websites
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0WebSites"
@@ -463,7 +462,7 @@ name "fig:HTTP2-multiple-parallel"
 
 \end_inset
 
-HTTP2 multiple parallel requests 
+HTTP2 multiple parallel requests
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0Multiplex"
@@ -494,14 +493,14 @@ WebSocket
 \end_layout
 
 \begin_layout Standard
-It is a protocol built over 
+It is a protocol built over
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:HTTP-1.1"
+reference "subsec:HTTP-1.1"
 
 \end_inset
 
- that allows to create a sort of 
+ that allows to create a sort of
 \begin_inset Quotes fld
 \end_inset
 
@@ -510,7 +509,7 @@ socket
 \end_inset
 
  where both the client and the server can send and receive messages in any
- time 
+ time
 \begin_inset CommandInset citation
 LatexCommand cite
 key "WebSocket"
@@ -518,7 +517,7 @@ key "WebSocket"
 \end_inset
 
 .
- This is done using an HTTP connection with 
+ This is done using an HTTP connection with
 \begin_inset Quotes fld
 \end_inset
 
@@ -532,14 +531,14 @@ keep-alive
 \begin_layout Standard
 So this protocol allows to create a real efficient realtime application,
  where the client receives immediately a notification from the server (for
- server events) 
+ server events)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "WebSocketRealTime"
 
 \end_inset
 
- as shown in figure 
+ as shown in figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Websocket-with-server"
@@ -578,7 +577,7 @@ name "fig:Websocket-with-server"
 
 \end_inset
 
-Websocket with server events 
+Websocket with server events
 \begin_inset CommandInset citation
 LatexCommand cite
 key "WebsocketImg"
@@ -604,7 +603,7 @@ Data retrieve
 
 \begin_layout Standard
 Relational databases are not developed to send notification, the basic idea
- is: 
+ is:
 \begin_inset Quotes fld
 \end_inset
 
@@ -616,7 +615,7 @@ when you want data you get them
 \begin_inset Newline newline
 \end_inset
 
-So in the traditional HTTP applications, a shown in figure 
+So in the traditional HTTP applications, a shown in figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modern-web-application"
@@ -627,7 +626,7 @@ reference "fig:Modern-web-application"
 \end_layout
 
 \begin_layout Standard
-If we want to make this process 
+If we want to make this process
 \begin_inset Quotes fld
 \end_inset
 
@@ -641,7 +640,7 @@ realtime
 \begin_layout Enumerate
 How to have a notification of a change? considering also distributed system
  case.
- The trivial solution is the usage of a database 
+ The trivial solution is the usage of a database
 \begin_inset Quotes fld
 \end_inset
 
@@ -655,7 +654,7 @@ trigger
 \begin_layout Enumerate
 How to manage clients in efficient way that want to have information about
  changes of only somethings and not of everything? The solution is to use
- the 
+ the
 \begin_inset Quotes fld
 \end_inset
 
@@ -663,7 +662,7 @@ Publish/Subscribe
 \begin_inset Quotes frd
 \end_inset
 
- pattern 
+ pattern
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PubSubDB"
@@ -688,7 +687,6 @@ Publish/Subscribe
 
 \begin_layout Standard
 In Publish/Subscribe pattern each client that is interested to some data/events
- 
 \begin_inset Quotes fld
 \end_inset
 
@@ -696,7 +694,7 @@ subscribe
 \begin_inset Quotes frd
 \end_inset
 
- to these, while the server service 
+ to these, while the server service
 \begin_inset Quotes fld
 \end_inset
 
@@ -705,7 +703,7 @@ publish
 \end_inset
 
  the data that will be sent to the clients without knowing which are the
- client 
+ client
 \begin_inset Quotes fld
 \end_inset
 
@@ -713,7 +711,7 @@ subscribed
 \begin_inset Quotes frd
 \end_inset
 
- 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PubSub"
@@ -732,7 +730,7 @@ Now we have all elements to create a real realtime application:
 \end_layout
 
 \begin_layout Itemize
-Each client 
+Each client
 \begin_inset Quotes fld
 \end_inset
 
@@ -744,7 +742,7 @@ subscribes
 \end_layout
 
 \begin_layout Itemize
-A trigger on the server 
+A trigger on the server
 \begin_inset Quotes fld
 \end_inset
 
@@ -767,7 +765,7 @@ Realtime databases stack
 
 \begin_layout Standard
 As we seen in the previous section with a standard HTTP application stack
- we can create a real realtime application, so why a 
+ we can create a real realtime application, so why a
 \begin_inset Quotes fld
 \end_inset
 
@@ -787,6 +785,10 @@ They were born to increaser the performance and allow to create a realtime
 \begin_layout Itemize
 They use an unstructured data model, like a NoSQL database, with a lot of
  advantages:
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -795,7 +797,7 @@ the database can be easily partitioned and distributed over different nodes
 \end_layout
 
 \begin_layout Itemize
-the client can subscribe only to a small portion of the data 
+the client can subscribe only to a small portion of the data
 \series bold
 TODO SEE NOSQL SECTION
 \end_layout
@@ -812,7 +814,7 @@ NoSQL databases
 \begin_layout Standard
 A NoSQL database is unstructured database, it can support a subset of the
  SQL instructions (but it is not mandatory).
- They were born to create scalable databases for Big Data applications 
+ They were born to create scalable databases for Big Data applications
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -824,36 +826,43 @@ key "NoSQL"
 
 \begin_layout Standard
 They can be easily partitioned but to ensure this in efficient way they
- have to renounce to the Consistency or to the Avaibility as shown in the
- figure 
+ have to renounce to the Consistency or to the Availability as shown in
+ the figure
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:-Database-triangle"
 
 \end_inset
 
-, we will see more details on the next chapter 
+ (more details are explained in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+), we will see more details on the chapter
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
-placement H
+placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename db-triangle.png
-	width 40col%
+	width 80col%
 	clip
 
 \end_inset
@@ -865,7 +874,6 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
- 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:-Database-triangle"
@@ -892,8 +900,45 @@ key "DBTriangle"
 
 \end_layout
 
+\begin_layout Standard
+The data are stored in JSON format or other unstructured formats, the advantages
+ and structure of JSON is explained in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:JSON"
+
+\end_inset
+
 JSON
+\end_layout
+
+\begin_layout Standard
+JSON is an easy standard to store data 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JSON"
+
+\end_inset
+
+, it is not so powerful like XML but it is simpler so the computation is
+ faster 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JSONvsXML"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -902,7 +947,138 @@ JSON
 TODO NO SQL MODEL AND DVANTAGES
 \end_layout
 
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Simple-JSON-example"
+
+\end_inset
+
+Simple JSON example
+\end_layout
+
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"Main Array":[
+\end_layout
+
+\begin_layout Plain Layout
+
+		[
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"title": "Element 11"
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"title": "Element 12"
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		],
+\end_layout
+
+\begin_layout Plain Layout
+
+		[
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"title": "Element 21"
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"title": "Element 22"
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
 Consistency, Partition tolerance, Availability
 \end_layout
 

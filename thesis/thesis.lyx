@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \begin_preamble
 % additional packages
@@ -48,16 +50,16 @@
 \language_package babel
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -145,23 +147,24 @@ Template structure
 
 \begin_layout Plain Layout
 The template is composed by several files.
- The idea is that each part of the thesis has a dedicated LyX file (
+ The idea is that each part of the thesis has a dedicated \SpecialChar LyX
+ file (
 \family sans
 introduction.lyx
 \family default
-, 
+,
 \family sans
 abstract.lyx
 \family default
-, \SpecialChar \ldots{}
+, \SpecialChar ldots
 ) that you can edit independently.
- 
+
 \family sans
 thesis.lyx
 \family default
  is used to organize all the parts into a single document.
  Each chapter has its own folder to better organize the external resources
- that you may include (images, pdfs, \SpecialChar \ldots{}
+ that you may include (images, pdfs, \SpecialChar ldots
 ).
 \begin_inset Newline newline
 \end_inset
@@ -182,7 +185,7 @@ This template does not have your personal information, in addition to the
 \end_layout
 
 \begin_layout Itemize
-modify the 
+modify the
 \family sans
 title-page
 \family default
@@ -195,17 +198,17 @@ add your personal information and the thesis's title in the property of
 \family sans
 Document
 \family default
- 
+
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
  Properties
 \family default
- 
+
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
- 
+
 \family sans
 PDF Properties
 \family default
@@ -292,6 +295,63 @@ pagestyle{empty}
 newgeometry{margin=3cm}
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+definecolor{lightgray}{rgb}{.9,.9,.9}
+\backslash
+definecolor{darkgray}{rgb}{.4,.4,.4}
+\backslash
+definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstdefinelanguage{JavaScript}{ keywords={typeof, new, true, false, catch,
+ function, return, null, catch, switch, var, if, in, while, do, else, case,
+ break},   keywordstyle=
+\backslash
+color{blue}
+\backslash
+bfseries,   ndkeywords={class, export, boolean, throw, implements, import,
+ this},   ndkeywordstyle=
+\backslash
+color{darkgray}
+\backslash
+bfseries,   identifierstyle=
+\backslash
+color{black},   sensitive=false,   comment=[l]{//},   morecomment=[s]{/*}{*/},
+   commentstyle=
+\backslash
+color{purple}
+\backslash
+ttfamily,   stringstyle=
+\backslash
+color{red}
+\backslash
+ttfamily,   morestring=[b]',   morestring=[b]" }
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+lstset{    language=JavaScript,    backgroundcolor=
+\backslash
+color{lightgray},    extendedchars=true,    basicstyle=
+\backslash
+footnotesize
+\backslash
+ttfamily,    showstringspaces=false,    showspaces=false,    numbers=left,
+    numberstyle=
+\backslash
+footnotesize,    numbersep=9pt,    tabsize=2,    breaklines=true,    showtabs=fa
+lse,    captionpos=b }
+\end_layout
+
 \end_inset
 
 
@@ -319,6 +379,10 @@ restoregeometry
 
 \begin_layout Standard
 \begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\begin_inset Separator latexpar
 \end_inset
 
 
@@ -594,7 +658,7 @@ filename "chapter-1/chapter-1.lyx"
 \end_layout
 
 \begin_layout Chapter
-Technologies 
+Technologies
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:technologies"
