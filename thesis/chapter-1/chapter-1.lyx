@@ -783,8 +783,15 @@ They were born to increaser the performance and allow to create a realtime
 \end_layout
 
 \begin_layout Itemize
-They use an unstructured data model, like a NoSQL database, with a lot of
- advantages:
+They use an unstructured data model, like a NoSQL database explained in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Simple-JSON-example"
+
+\end_inset
+
+, with a lot of advantages:
 \begin_inset Separator latexpar
 \end_inset
 
@@ -804,10 +811,18 @@ TODO SEE NOSQL SECTION
 
 \end_deeper
 \begin_layout Itemize
-aa
+
+\series bold
+aaANOTRHR CHAPTER?
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:NoSQL-databases"
+
+\end_inset
+
 NoSQL databases
 \end_layout
 
@@ -953,7 +968,7 @@ key "JSONvsXML"
 \end_inset
 
 .
- On listening 
+ On listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Simple-JSON-example"
@@ -1090,7 +1105,14 @@ Simple JSON example
 
 \begin_layout Standard
 On the JSON structure there can be simple types, array or objects, in the
- previous example we have:
+ previous example (listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Simple-JSON-example"
+
+\end_inset
+
+) we have:
 \end_layout
 
 \begin_layout Itemize
@@ -1143,12 +1165,15 @@ document
  is composed by a JSON data like that.
  This structure is very powerful structure that allows to store a lot of
  complex structure.
+\end_layout
+
+\begin_layout Standard
+A simple example can be a system where we have some users, each of them
+ with a complex structure, each user is stored as object in a main array.
 \begin_inset Newline newline
 \end_inset
 
-A simple example can be a system where we have some users, each of them
- with a complex structure, each user is stored as object in a main array
- we will see this case and other on the chapter 
+We will see this case and other on the chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:class-of-applications"
@@ -1156,6 +1181,40 @@ reference "chap:class-of-applications"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+It is easy to see how this structure can be useful to 
+\begin_inset Quotes fld
+\end_inset
+
+subscribe
+\begin_inset Quotes frd
+\end_inset
+
+ only to a portion of data.
+ For example using a structure like the one used in listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Simple-JSON-example"
+
+\end_inset
+
+, we can subscribe to the second element of the main array (an inner array)
+ then we receive notification when an object (or other inner elements also
+ complex elements):
+\end_layout
+
+\begin_layout Itemize
+is added
+\end_layout
+
+\begin_layout Itemize
+is updated
+\end_layout
+
+\begin_layout Itemize
+is removed
 \end_layout
 
 \begin_layout Subsubsection
@@ -1169,9 +1228,40 @@ Consistency, Partition tolerance, Availability
 \end_layout
 
 \begin_layout Standard
+The figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:-Database-triangle"
+
+\end_inset
+
+ shows the CAP theorem applied to the databases, it says that in the distributed
+ system only two of the following three properties can be guarantee 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL,CAP"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Consistency: 
+\end_layout
+
+\begin_layout Itemize
+Availability:
+\end_layout
+
+\begin_layout Itemize
+Partition tolerance:
+\end_layout
+
+\begin_layout Standard
 
 \series bold
-TODO search schoolar
+TODO nosql and next chapter
 \end_layout
 
 \end_body
