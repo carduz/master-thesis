@@ -779,15 +779,22 @@ realtime databses
 
 They were born to increaser the performance and allow to create a realtime
  application a easier way (without implementing in manual way the entire
- stack):
+ stack), we can see analogous tiers shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Modern-web-application"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Itemize
-They use an unstructured data model, like a NoSQL database explained in
- 
+DB: they use an unstructured data model, like a NoSQL database explained
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lis:Simple-JSON-example"
+reference "subsec:NoSQL-databases"
 
 \end_inset
 
@@ -800,24 +807,59 @@ reference "lis:Simple-JSON-example"
 
 \begin_deeper
 \begin_layout Itemize
-the database can be easily partitioned and distributed over different nodes
+the database can be easily partitioned and distributed over different nodes,
+ an important property as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Partitioning-and-Distribution"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-the client can subscribe only to a small portion of the data
-\series bold
-TODO SEE NOSQL SECTION
+the client can 
+\begin_inset Quotes fld
+\end_inset
+
+subscribe
+\begin_inset Quotes frd
+\end_inset
+
+ only to a small portion of the data as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
+Application: they create a distributed Publish/Subscribe server, the distributio
+n is not an easy task as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution"
 
-\series bold
-aaANOTRHR CHAPTER?
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-EXPLAIN PARTIONED
+Client: They provide client libraries to use Publish/Subscribe in efficient
+ and transparent way as we will see in th chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -833,7 +875,16 @@ NoSQL databases
 \begin_layout Standard
 A NoSQL database is unstructured database, it can support a subset of the
  SQL instructions (but it is not mandatory).
- They were born to create scalable databases for Big Data applications
+ They were born to create scalable databases for Big Data applications,
+ in fact they can have 
+\begin_inset Quotes fld
+\end_inset
+
+multiple masters
+\begin_inset Quotes frd
+\end_inset
+
+ support (the ability to write data using different master nodes) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -1206,19 +1257,19 @@ reference "lis:Simple-JSON-example"
 
 , we can subscribe to the second element of the main array (an inner array)
  then we receive notification when an object (or other inner elements also
- complex elements):
+ complex elements) is:
 \end_layout
 
 \begin_layout Itemize
-is added
+added
 \end_layout
 
 \begin_layout Itemize
-is updated
+updated
 \end_layout
 
 \begin_layout Itemize
-is removed
+removed
 \end_layout
 
 \begin_layout Subsubsection
@@ -1300,6 +1351,104 @@ reference "chap:technologies"
 \end_inset
 
  we will see NoSQL databases of both types.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Partitioning-and-Distribution"
+
+\end_inset
+
+Partitioning and Distribution
+\end_layout
+
+\begin_layout Standard
+There are some systems that use booth the ideas.
+ For example HDFS (a distributed file system) that replicates the data among
+ nodes and partitions the data among nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HDFS"
+
+\end_inset
+
+.
+ So a chunk of data is replicated some times but it is not present in all
+ nodes.
+\end_layout
+
+\begin_layout Subsubsection
+Partitioning
+\end_layout
+
+\begin_layout Standard
+Partition data among different nodes means split the data into chunks according
+ to some rules defined and put different chunks into different nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL,NoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Distribution"
+
+\end_inset
+
+Distribution
+\end_layout
+
+\begin_layout Standard
+The distribution is the replication of the infrastructure among different
+ nodes, each node do the same thing.
+ It is not a so easy concept, in fact there is the synchronization problem
+ (formally know as consistency) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAP"
+
+\end_inset
+
+ for example in the following scenarios:
+\end_layout
+
+\begin_layout Itemize
+Commit data in a distributed database: the problem is find the correct commits
+ order since there is no a common clock
+\end_layout
+
+\begin_layout Itemize
+Publish/Subscribe: in a Publish/Subscribe application distributed among
+ different nodes, how a published data in a node is sent to all subscribed
+ clients also the ones subscribed on other nodes?
+\end_layout
+
+\begin_layout Standard
+As said previously in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:NoSQL-databases"
+
+\end_inset
+
+ the NoSQL database are distributed.
+ Also the master node can be distributed, so the client can commit on different
+ nodes.
+ This increase the performance, since there are no saturation issues of
+ the server or of the locks need to write data (commit) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
 \end_layout
 
 \end_body
