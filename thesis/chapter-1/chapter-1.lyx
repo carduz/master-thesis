@@ -785,7 +785,7 @@ They were born to increaser the performance and allow to create a realtime
 \end_layout
 
 \begin_layout Itemize
-They use an unstructured data model, like a NOSQL database, with a lot of
+They use an unstructured data model, like a NoSQL database, with a lot of
  advantages:
 \end_layout
 
@@ -805,10 +805,111 @@ TODO SEE NOSQL SECTION
 aa
 \end_layout
 
+\begin_layout Subsection
+NoSQL databases
+\end_layout
+
+\begin_layout Standard
+A NoSQL database is unstructured database, it can support a subset of the
+ SQL instructions (but it is not mandatory).
+ They were born to create scalable databases for Big Data applications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+They can be easily partitioned but to ensure this in efficient way they
+ have to renounce to the Consistency or to the Avaibility as shown in the
+ figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:-Database-triangle"
+
+\end_inset
+
+, we will see more details on the next chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename db-triangle.png
+	width 40col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:-Database-triangle"
+
+\end_inset
+
+Database triangle
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBTriangle"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+JSON
+\end_layout
+
 \begin_layout Standard
 
 \series bold
 TODO NO SQL MODEL AND DVANTAGES
+\end_layout
+
+\begin_layout Subsubsection
+Consistency, Partition tolerance, Availability
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO search schoolar
 \end_layout
 
 \end_body

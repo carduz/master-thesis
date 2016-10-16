@@ -594,10 +594,10 @@ filename "chapter-1/chapter-1.lyx"
 \end_layout
 
 \begin_layout Chapter
-Second chapter
+Technologies 
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:second-chapter"
+name "chap:technologies"
 
 \end_inset
 
