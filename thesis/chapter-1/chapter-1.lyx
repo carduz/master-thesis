@@ -75,8 +75,15 @@
 
 \begin_layout Standard
 Since we will cover only HTTP based application we will start analyzing
- the an HTTP application stack.
- Then we will see how to make it
+ the an HTTP application stack on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-HTTP-Application"
+
+\end_inset
+
+.
+ Then we will see how to make it 
 \begin_inset Quotes fld
 \end_inset
 
@@ -85,7 +92,14 @@ realtime
 \end_inset
 
  and the limits that are the causes of creation of realtime databases.
- Finally we will analyze the realtime databases approach.
+ Finally we will analyze the realtime databases approach on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Realtime-databases-stack"
+
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -103,6 +117,12 @@ We will also analyze the database itself, because in traditional database
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Traditional-HTTP-Application"
+
+\end_inset
+
 Traditional HTTP Application Stack
 \end_layout
 
@@ -760,6 +780,12 @@ The communication between the client and server is over a websocket channel,
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Realtime-databases-stack"
+
+\end_inset
+
 Realtime databases stack
 \end_layout
 

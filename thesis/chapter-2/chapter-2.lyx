@@ -84,9 +84,9 @@ reference "chap:State-of-Art"
  the most important class of realtime databases are based on NoSQL databases,
  which use JSON structure to store data.
  So we will analyze only this types of realtime databases.
-\begin_inset Newline newline
-\end_inset
+\end_layout
 
+\begin_layout Standard
 On 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -141,7 +141,8 @@ event-drive
 \begin_inset Quotes frd
 \end_inset
 
- approach 
+ approach.
+ 
 \series bold
 TODO check and search scoolar
 \end_layout
@@ -168,12 +169,39 @@ name "sec:Main-Realtime-Databases"
 Main Realtime Databases Servers
 \end_layout
 
+\begin_layout Standard
+Even if the realtime databases are young some systems were born, there are
+ both OpenSource and Cloud systems.
+\begin_inset Newline newline
+\end_inset
+
+Some cloud systems are very famous and used but they do not allow to do
+ all tests and performance measurements needed for our study, since we do
+ not know the internal structure and replication, so we will analyze only
+ OpenSource systems.
+ Of course we will see quickly the characteristics of main cloud systems
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Cloud"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 OpenSource
 \end_layout
 
 \begin_layout Subsection
-In Cloud
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Cloud"
+
+\end_inset
+
+Cloud
 \end_layout
 
 \begin_layout Section
