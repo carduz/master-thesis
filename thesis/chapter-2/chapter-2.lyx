@@ -83,7 +83,7 @@ reference "chap:State-of-Art"
 
  the most important class of realtime databases are based on NoSQL databases,
  which use JSON structure to store data.
- So we will analyze only this types of realtime databases.
+ So we will analyze only this type of realtime databases.
 \end_layout
 
 \begin_layout Standard
