@@ -202,6 +202,12 @@ CouchBase
 PouchDB
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+//TODO couchdb and other referneces
+\end_layout
+
 \begin_layout Subsubsection
 AAAA
 \end_layout
@@ -356,6 +362,13 @@ end{algorithmic}
 
 \series bold
 TODO also approaches like firebase
+\end_layout
+
+\begin_layout Standard
+we will use EcmaScript 5.0, commonly know with its dialect name: javascript,
+ to use libraries/frameworks 
+\series bold
+//TODO searhc scoolar
 \end_layout
 
 \begin_layout Section

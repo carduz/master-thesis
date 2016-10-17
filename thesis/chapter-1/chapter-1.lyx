@@ -779,6 +779,18 @@ The communication between the client and server is over a websocket channel,
  channel.
 \end_layout
 
+\begin_layout Standard
+Of course there are still issues related to distribution and partitioning
+ of the infrastructure as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Partitioning-and-Distribution"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
