@@ -687,7 +687,7 @@ filename "chapter-3/chapter-3.lyx"
 \end_layout
 
 \begin_layout Chapter
-Fourth chapter
+Performance Evaluation
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:fourth-chapter"
@@ -708,7 +708,7 @@ filename "chapter-4/chapter-4.lyx"
 \end_layout
 
 \begin_layout Chapter
-Fifth chapter
+Cost of Developing
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:fifth-chapter"
@@ -729,7 +729,7 @@ filename "chapter-5/chapter-5.lyx"
 \end_layout
 
 \begin_layout Chapter
-Sixth chapter
+Real Application Issues and Maintainability
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:sixth-chapter"
@@ -750,7 +750,7 @@ filename "chapter-6/chapter-6.lyx"
 \end_layout
 
 \begin_layout Chapter
-Seventh chapter
+Develop a Real Application: financial trading application 
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:seventh-chapter"

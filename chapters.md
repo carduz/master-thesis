@@ -3,4 +3,5 @@
 * class of applications: talk also about data structure
 * performance evulation
 * cost of developing
-* develop a real application: talk also about tests
+* Real Application Issues: talk also about tests
+* develop a real application
