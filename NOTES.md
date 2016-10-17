@@ -11,3 +11,4 @@
 * search pages and other things using "cite" function of google shcoolar
 * initial space after a list
 * see the right pdf creator
+* talk about serverless

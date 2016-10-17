@@ -627,7 +627,7 @@ filename "introduction.lyx"
 State of Art
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:first-chapter"
+name "chap:State-of-Art"
 
 \end_inset
 

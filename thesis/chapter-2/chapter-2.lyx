@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -31,15 +33,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry false
-\use_amsmath 2
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -63,22 +74,144 @@
 \begin_body
 
 \begin_layout Standard
-These are general tips about few LaTeX and LyX functionalities.
+As explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:State-of-Art"
+
+\end_inset
+
+ the most important class of realtime databases are based on NoSQL databases,
+ which use JSON structure to store data.
+ So we will analyze only this types of realtime databases.
+\begin_inset Newline newline
+\end_inset
+
+On 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Main-Realtime-Databases"
+
+\end_inset
+
+we will see different databases according to the following criterias:
 \end_layout
 
-\begin_layout Section
-Copy and paste raw LaTeX code
+\begin_layout Itemize
+Partitioning and Distribution
+\end_layout
+
+\begin_layout Itemize
+Data structure, constraints and queries resistivity
+\end_layout
+
+\begin_layout Itemize
+Protocol over HTTP used to 
+\begin_inset Quotes fld
+\end_inset
+
+push
+\begin_inset Quotes frd
+\end_inset
+
+ data
 \end_layout
 
 \begin_layout Standard
-Sometimes it is necessary to insert raw LaTeX code in your document, LyX
- has a dedicated environment for that (
+Then on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Client-best-practices"
+
+\end_inset
+
+ we will see the best practices to use the 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ on the client side, we will see how to use the 
+\begin_inset Quotes fld
+\end_inset
+
+event-drive
+\begin_inset Quotes frd
+\end_inset
+
+ approach 
+\series bold
+TODO check and search scoolar
+\end_layout
+
+\begin_layout Standard
+Finally on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Comparison"
+
+\end_inset
+
+ we will do a general comparison of the system viewed from server and client
+ sides
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Main-Realtime-Databases"
+
+\end_inset
+
+Main Realtime Databases Servers
+\end_layout
+
+\begin_layout Subsection
+OpenSource
+\end_layout
+
+\begin_layout Subsection
+In Cloud
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Client-best-practices"
+
+\end_inset
+
+Client best practices
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Comparison"
+
+\end_inset
+
+Comparison
+\end_layout
+
+\begin_layout Section
+Copy and paste raw \SpecialChar LaTeX
+ code
+\end_layout
+
+\begin_layout Standard
+Sometimes it is necessary to insert raw \SpecialChar LaTeX
+ code in your document, \SpecialChar LyX
+ has a dedicated
+ environment for that (
 \family sans
 Insert
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
  
@@ -103,8 +236,8 @@ Edit
 \family default
  
 \family sans
-\SpecialChar \menuseparator
- Paste Special \SpecialChar \menuseparator
+\SpecialChar menuseparator
+ Paste Special \SpecialChar menuseparator
 Plain Text
 \family default
 ).
@@ -129,7 +262,7 @@ Insert
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
  
@@ -166,8 +299,9 @@ Figures
 \begin_layout Standard
 Figures, but also tables and algorithms, must be placed inside a floating
  environment.
- This type of LaTeX environment is very useful and automagically mix up
- text and images.
+ This type of \SpecialChar LaTeX
+ environment is very useful and automagically mix up text
+ and images.
  Usually the 
 \family sans
 Here if possible
@@ -183,7 +317,8 @@ Settings
 ).
  However, if the figure is not placed correctly you may enable the 
 \family sans
-Ignore LaTeX rules
+Ignore \SpecialChar LaTeX
+ rules
 \family default
  option, usually that option solves every problem.
 \end_layout
@@ -219,10 +354,10 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -252,7 +387,8 @@ Detailed caption of this marvelous animal
 \end_layout
 
 \begin_layout Standard
-A rarely known feature of LyX is the possibility to add the short caption.
+A rarely known feature of \SpecialChar LyX
+ is the possibility to add the short caption.
  The short caption is the description of the figure used in the 
 \family sans
 List of Figures
@@ -281,7 +417,8 @@ Subfigures
 \end_layout
 
 \begin_layout Standard
-A very cool feature of LaTeX's figures is the possibility to have subfigures.
+A very cool feature of \SpecialChar LaTeX
+'s figures is the possibility to have subfigures.
  For example, if there are two figures that represent the result of a test
  executed with two different values of a parameter, then a subfigure is
  a good way to organize the images.
@@ -347,7 +484,7 @@ status open
 \end_inset
 
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -386,7 +523,7 @@ status open
 \end_inset
 
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -413,7 +550,7 @@ A beautiful peacock
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -480,10 +617,10 @@ status open
 
 \begin_layout Plain Layout
 \align center
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -514,7 +651,7 @@ Detailed caption of this beautiful table
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
@@ -760,7 +897,7 @@ More
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
  
@@ -769,7 +906,7 @@ Settings
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
  
@@ -813,7 +950,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -836,10 +973,10 @@ This table is very wide
 <lyxtabular version="3" rows="3" columns="5">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
@@ -1035,7 +1172,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1073,10 +1210,10 @@ linewidth}{!}{
 <lyxtabular version="3" rows="3" columns="5">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
@@ -1283,7 +1420,7 @@ More
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
  
@@ -1292,7 +1429,7 @@ Settings
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
 
 \family default
  
@@ -1336,7 +1473,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1359,7 +1496,7 @@ This table is a bit tight
 <lyxtabular version="3" rows="3" columns="2">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
@@ -1450,7 +1587,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1488,7 +1625,7 @@ arraystretch}{1.5}
 <lyxtabular version="3" rows="3" columns="2">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
-<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top">
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
@@ -1580,7 +1717,8 @@ Algorithms
 \end_layout
 
 \begin_layout Standard
-If you have to add some algorithms there is a dedicated LyX environment.
+If you have to add some algorithms there is a dedicated \SpecialChar LyX
+ environment.
  As for tables, the caption of an algorithm must be placed before the pseudo
  code of the algorithm, short captions can be used also for algorithm.
  This placement of the caption may sound strange but is justified by the
@@ -1598,10 +1736,10 @@ sideways false
 status open
 
 \begin_layout Enumerate
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
-\begin_inset Argument
+\begin_inset Argument 1
 status open
 
 \begin_layout Plain Layout
@@ -1623,6 +1761,10 @@ Detailed caption of this complicated algorithm
 \end_inset
 
 Wake up
+\begin_inset Separator latexpar
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -1653,8 +1795,10 @@ Go to sleep
 \end_layout
 
 \begin_layout Standard
-Unfortunately LyX does not support algorithm commands offered by some LaTeX
- packages (
+Unfortunately \SpecialChar LyX
+ does not support algorithm commands offered by some \SpecialChar LaTeX
+ packages
+ (
 \family typewriter
 
 \backslash
@@ -1666,11 +1810,12 @@ If
 \backslash
 While
 \family default
-, \SpecialChar \ldots{}
+, \SpecialChar ldots
 ) out of the box.
  It is possible to use custom modules to handle those commands or use the
  2.1 beta version that supports some of them but, as for now, it is better
- to write directly LaTeX code.
+ to write directly \SpecialChar LaTeX
+ code.
  This template uses the 
 \family sans
 algorithmicx
@@ -1709,7 +1854,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -1852,7 +1997,8 @@ Source code
 
 \begin_layout Standard
 You may need to add some pieces of source code that you have written.
- LyX uses 
+ \SpecialChar LyX
+ uses 
 \family sans
 listings
 \family default
@@ -1862,15 +2008,16 @@ Insert
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
  Program Listing
 \family default
 ).
- Listings can have a caption, but LyX does not add it by default, if you
- want you can insert it (place the cursor inside the listing environment,
- then 
+ Listings can have a caption, but \SpecialChar LyX
+ does not add it by default, if you want
+ you can insert it (place the cursor inside the listing environment, then
+ 
 \family sans
-Insert \SpecialChar \menuseparator
+Insert \SpecialChar menuseparator
  Caption
 \family default
 ).
@@ -1895,7 +2042,7 @@ status open
 
 \begin_layout Plain Layout
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2081,7 +2228,7 @@ status open
 
 \begin_layout Plain Layout
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2189,9 +2336,10 @@ URLs
 \end_layout
 
 \begin_layout Standard
-LyX has a dedicated command to insert URLs (
+\SpecialChar LyX
+ has a dedicated command to insert URLs (
 \family sans
-Insert \SpecialChar \menuseparator
+Insert \SpecialChar menuseparator
  URL
 \family default
 ) that must be used to insert each URL.
@@ -2249,7 +2397,7 @@ status open
 
 \begin_layout Plain Layout
 
-\begin_inset Caption
+\begin_inset Caption Standard
 
 \begin_layout Plain Layout
 \begin_inset CommandInset label
@@ -2342,19 +2490,22 @@ url{http://google.com}}
 \end_layout
 
 \begin_layout Section
-LyX's guides
+\SpecialChar LyX
+'s guides
 \end_layout
 
 \begin_layout Standard
-LyX has a series of guides that describe all its features, if want to exploit
+\SpecialChar LyX
+ has a series of guides that describe all its features, if want to exploit
  all the available functionalities you need to read them.
- Those manuals are available directly in LyX (for example, 
+ Those manuals are available directly in \SpecialChar LyX
+ (for example, 
 \family sans
 Help
 \family default
  
 \family sans
-\SpecialChar \menuseparator
+\SpecialChar menuseparator
  Embedded Objects
 \family default
 ).
