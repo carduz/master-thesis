@@ -159,6 +159,29 @@ reference "sec:Comparison"
  sides
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+//TODO classic approach technology, 
+\begin_inset Quotes fld
+\end_inset
+
+JSON vs XML
+\begin_inset Quotes frd
+\end_inset
+
+, salesforce example, firebase client server less with db on the client
+ (also login), serverless chap, 
+\begin_inset Quotes fld
+\end_inset
+
+we will proof the results on the chapter ...
+\begin_inset Quotes frd
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
