@@ -170,6 +170,10 @@ JSON vs XML, Pub/Sub is not Rest, Talk about rest
 \begin_inset Quotes frd
 \end_inset
 
+, 
+\series default
+, redis,
+\series bold
 , salesforce example, firebase client server less with db on the client
  (also login), serverless chap, 
 \begin_inset Quotes fld
@@ -389,7 +393,7 @@ TODO also approaches like firebase
 
 \begin_layout Standard
 we will use EcmaScript 5.0, commonly know with its dialect name: javascript,
- to use libraries/frameworks, redis, 
+ to use libraries/frameworks 
 \series bold
 //TODO searhc scoolar
 \end_layout
