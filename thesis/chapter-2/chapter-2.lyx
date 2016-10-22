@@ -389,7 +389,7 @@ TODO also approaches like firebase
 
 \begin_layout Standard
 we will use EcmaScript 5.0, commonly know with its dialect name: javascript,
- to use libraries/frameworks 
+ to use libraries/frameworks, redis, 
 \series bold
 //TODO searhc scoolar
 \end_layout
