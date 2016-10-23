@@ -185,7 +185,14 @@ event-drive
 \begin_inset Quotes frd
 \end_inset
 
- approach.
+ approach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EventDriven"
+
+\end_inset
+
+.
  
 \series bold
 TODO check and search scoolar
@@ -219,7 +226,7 @@ we will proof the results on the chapter ...
 \begin_inset Quotes frd
 \end_inset
 
-, queue, scalability and easy to configure
+, queue, scalability and easy to configure, SOA
 \end_layout
 
 \begin_layout Subsection
@@ -285,6 +292,10 @@ name "subsec:Cloud"
 Cloud
 \end_layout
 
+\begin_layout Paragraph
+Firebase
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -293,6 +304,66 @@ name "subsec:Client-best-practices"
 \end_inset
 
 Client best practices
+\end_layout
+
+\begin_layout Standard
+In this sub section we will see the best practices to use the realtime database
+ from the client view.
+ Some choices, like the data returned in some cases, can be imposed by the
+ server technology chosen.
+\end_layout
+
+\begin_layout Standard
+In tests, benchmarks and example we will use EcmaScript 5.0, commonly know
+ with its dialect name: javascript, to use libraries/frameworks.
+ In fact the most known EcmaScript interpreter: V8 is very efficient for
+ event driven programs, it is the interpreter used by the desktop porting
+ that we will use: nodejs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NodeEventDriven"
+
+\end_inset
+
+.
+ This efficiency is due to a good Just in Time compiler written in C 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "V8"
+
+\end_inset
+
+.
+ All server technology chosen have EcmaScript clients, of course we can
+ create clients in other language since the protocol used are standard and
+ opened.
+ 
+\series bold
+//TODO CHECK BOTH
+\end_layout
+
+\begin_layout Subsubsection
+Event driven approach
+\end_layout
+
+\begin_layout Standard
+On algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Event-driven-retrieve"
+
+\end_inset
+
+ we show a common and simple realtime retrieve of data in event driven approach.
+ The basic idea of event driven approach is call a callback when an event
+ is fired, a known example of event driven programming is programming for
+ desktop interfaces where the events are the user inputs.
+\begin_inset Newline newline
+\end_inset
+
+Of course this is not the only approach available but it is easy to understand
+ how it is very useful in asynchronous application like realtime applications
+ that we discuss in this thesis.
 \end_layout
 
 \begin_layout Standard
@@ -308,11 +379,11 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "alg:best-algorithm-ever-1"
+name "alg:Event-driven-retrieve"
 
 \end_inset
 
-Best algorithm ever
+Event driven retrieve of data
 \end_layout
 
 \end_inset
@@ -362,10 +433,9 @@ Comment{Select document}
 \backslash
 State $
 \backslash
-Call{get}{document, PATH, CALLBACK}$ 
+Call{onchange}{document, PATH, CALLBACK}$ 
 \backslash
-Comment{subscribe to change events of a specif PATH of a document, calling
- a callback for every change}
+Comment{subscribe to change events}
 \end_layout
 
 \begin_layout Plain Layout
@@ -383,7 +453,7 @@ State $
 \backslash
 Call{log}{oldVal}$ 
 \backslash
-Comment{Log new value on the path}
+Comment{Log new value of the path}
 \end_layout
 
 \begin_layout Plain Layout
@@ -394,7 +464,7 @@ State $
 \backslash
 Call{log}{newVal}$ 
 \backslash
-Comment{Log old value on the path, it doens't exits for new objects}
+Comment{Log old value of the path}
 \end_layout
 
 \begin_layout Plain Layout
@@ -422,16 +492,40 @@ end{algorithmic}
 \end_layout
 
 \begin_layout Standard
+The basic idea is to subscribe a callback to change events of a specif path
+ of a document, thinking of JSON documents the path is a reference to a
+ specifc level of the JSON document.
+ For example a path for the JSON listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Simple-JSON-example"
 
+\end_inset
+
+ can be 
+\begin_inset Quotes fld
+\end_inset
+
+/main_array/0/
+\begin_inset Quotes frd
+\end_inset
+
+ to subscribe to change events of the first array inside main array.
+\begin_inset Newline newline
+\end_inset
+
+On the callback the entire new path can be passed or only the the part changed,
+ in the case of an array only the child changed.
+ the last approach is the one used by firebase.
+ 
 \series bold
-TODO also approaches like firebase
+//TODO ref to firebase and this sentence
 \end_layout
 
 \begin_layout Standard
-we will use EcmaScript 5.0, commonly know with its dialect name: javascript,
- to use libraries/frameworks 
+
 \series bold
-//TODO searhc scoolar
+TODO also approaches like firebase
 \end_layout
 
 \begin_layout Subsubsection
@@ -442,6 +536,14 @@ name "subsec:REST-Approach"
 \end_inset
 
 REST Approach
+\end_layout
+
+\begin_layout Standard
+as said previously for path....
+\end_layout
+
+\begin_layout Standard
+best partice
 \end_layout
 
 \begin_layout Standard

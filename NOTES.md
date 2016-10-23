@@ -19,3 +19,4 @@
 * check refer to cahpter 2
 * improove chap 1 introduction
 * improove chap 2 introduction
+* explaine difference with pure realtiem application that are sync

@@ -748,7 +748,8 @@ htttp://example.com/customers/10/contacts
 \end_deeper
 \begin_layout Standard
 It is easy to understand how this can be useful to surf cross a JSON structure
- that we will see on 
+ (the URI can be the refer to a specific level of the JSON structure) that
+ we will see on 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:JSON"
@@ -1309,7 +1310,7 @@ Simple JSON example
 
 \begin_layout Plain Layout
 
-	"Main Array":[
+	"main_array":[
 \end_layout
 
 \begin_layout Plain Layout
@@ -1429,7 +1430,7 @@ an array (called
 \begin_inset Quotes fld
 \end_inset
 
-Main Array
+main_array
 \begin_inset Quotes frd
 \end_inset
 
@@ -1496,7 +1497,15 @@ subscribe
 \begin_inset Quotes frd
 \end_inset
 
- only to a portion of data.
+ only to a portion of data, to a 
+\begin_inset Quotes fld
+\end_inset
+
+path
+\begin_inset Quotes frd
+\end_inset
+
+.
  For example using a structure like the one used in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1514,11 +1523,30 @@ added
 \end_layout
 
 \begin_layout Itemize
-updated
+removed
 \end_layout
 
 \begin_layout Itemize
-removed
+updated
+\end_layout
+
+\begin_layout Standard
+We see better what means subscribe to a specif 
+\begin_inset Quotes fld
+\end_inset
+
+path
+\begin_inset Quotes frd
+\end_inset
+
+ of the JSON structure in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1830,7 +1858,7 @@ reference "subsec:Platform-as-a"
 As we will see on 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Main-Realtime-Databases"
+reference "subsec:Main-Realtime-Databases"
 
 \end_inset
 
