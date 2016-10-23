@@ -673,7 +673,14 @@ put
 \begin_inset Quotes frd
 \end_inset
 
- call must be done.
+ call must be done, this is the CRUD approach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CRUD"
+
+\end_inset
+
+.
  The idea is to do simple actions on resources that returns immediately
  an answer (like GET call) or execute immediatelly an action (like POST
  call)
@@ -684,7 +691,7 @@ There is another protocol older than RESTful, still used: SOAP, it is very
  powerful but as we will see to manage resource RESTfull is better 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "RESTSOAP"
+key "RESTSOAP,SOAPvsREST"
 
 \end_inset
 
@@ -1489,6 +1496,25 @@ reference "chap:class-of-applications"
 \end_layout
 
 \begin_layout Standard
+As introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+ the RESTful is a good protocol for JSON and, in general, NoSQL databases
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RESTNOSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 It is easy to see how this structure can be useful to 
 \begin_inset Quotes fld
 \end_inset
@@ -2155,8 +2181,8 @@ key "GoogleWork"
 \end_inset
 
 , a service where the employees of a company have access to company mail,
- company docs, company cloud storage and so o; everything is done only by
- configure a system without develop anything.
+ company docs, company cloud storage and so on; everything is done only
+ by configure a system without develop anything.
  The price system of 
 \begin_inset Quotes fld
 \end_inset

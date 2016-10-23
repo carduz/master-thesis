@@ -104,7 +104,7 @@ reference "chap:Performance-Evaluation"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Section
@@ -371,7 +371,7 @@ Of course this is not the only approach available but it is easy to understand
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
