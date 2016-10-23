@@ -74,6 +74,50 @@
 \begin_body
 
 \begin_layout Standard
+In this chapter we will analyze the real technologies to build application
+ booth realtime (in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Realtime-technologies"
+
+\end_inset
+
+) and traditional (in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-technologies"
+
+\end_inset
+
+) technologies.
+ This is a needed step to analyze the class of application in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:class-of-applications"
+
+\end_inset
+
+ then to prove the hypothesis done in that chapter in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Realtime-technologies"
+
+\end_inset
+
+Realtime technologies
+\end_layout
+
+\begin_layout Standard
 As explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -90,7 +134,7 @@ reference "chap:State-of-Art"
 On 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Main-Realtime-Databases"
+reference "subsec:Main-Realtime-Databases"
 
 \end_inset
 
@@ -121,7 +165,7 @@ push
 Then on 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Client-best-practices"
+reference "subsec:Client-best-practices"
 
 \end_inset
 
@@ -151,7 +195,7 @@ TODO check and search scoolar
 Finally on 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Comparison"
+reference "subsec:Comparison"
 
 \end_inset
 
@@ -162,15 +206,7 @@ reference "sec:Comparison"
 \begin_layout Standard
 
 \series bold
-//TODO classic approach technology, 
-\begin_inset Quotes fld
-\end_inset
-
-Pub/Sub is not Rest
-\begin_inset Quotes frd
-\end_inset
-
-, 
+//TODO classic approach technology
 \series default
 , redis (pub/sub, quqeue and replication),
 \series bold
@@ -186,10 +222,10 @@ we will proof the results on the chapter ...
 , queue, scalability and easy to configure
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Main-Realtime-Databases"
+name "subsec:Main-Realtime-Databases"
 
 \end_inset
 
@@ -217,15 +253,15 @@ reference "subsec:Cloud"
 .
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 OpenSource
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 CouchBase
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 PouchDB
 \end_layout
 
@@ -235,11 +271,11 @@ PouchDB
 //TODO couchdb and other referneces
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 AAAA
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Cloud"
@@ -249,10 +285,10 @@ name "subsec:Cloud"
 Cloud
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Client-best-practices"
+name "subsec:Client-best-practices"
 
 \end_inset
 
@@ -398,7 +434,7 @@ we will use EcmaScript 5.0, commonly know with its dialect name: javascript,
 //TODO searhc scoolar
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:REST-Approach"
@@ -414,10 +450,10 @@ REST Approach
 //TODO SCHOOLAR
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Comparison"
+name "subsec:Comparison"
 
 \end_inset
 
@@ -670,6 +706,16 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Traditional-technologies"
+
+\end_inset
+
+Traditional technologies
 \end_layout
 
 \begin_layout Section

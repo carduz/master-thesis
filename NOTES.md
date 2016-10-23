@@ -17,3 +17,5 @@
 * we and developer in 1.2.3
 * do the things in economic view
 * check refer to cahpter 2
+* improove chap 1 introduction
+* improove chap 2 introduction

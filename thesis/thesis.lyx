@@ -690,7 +690,7 @@ filename "chapter-3/chapter-3.lyx"
 Performance Evaluation
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:fourth-chapter"
+name "chap:Performance-Evaluation"
 
 \end_inset
 
