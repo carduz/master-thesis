@@ -226,7 +226,7 @@ we will proof the results on the chapter ...
 \begin_inset Quotes frd
 \end_inset
 
-, queue, scalability and easy to configure, SOA
+, queue, scalability and easy to configure, SOA, locla database
 \end_layout
 
 \begin_layout Subsection
@@ -340,9 +340,33 @@ key "V8"
  
 \series bold
 //TODO CHECK BOTH
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Furthermore JSON, as the acronym suggests, is derivative by javascript.
+ In fact the javascript can parse it in easily way and JSON objects/arrays
+ become javascript native objects/arrays.
+ So we can access to them in native way without calling parsing methods
+ to iterate the structure or without map the JSON into already defined class
+ (deserialize to objects), like other language do like JAVA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JAVAJSON"
+
+\end_inset
+
+, in fact both approaches are not easily adaptable to structure change.
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Event-driven-approach"
+
+\end_inset
+
 Event driven approach
 \end_layout
 
@@ -371,7 +395,7 @@ Of course this is not the only approach available but it is easy to understand
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -433,9 +457,9 @@ Comment{Select document}
 \backslash
 State $
 \backslash
-Call{onchange}{document, PATH, CALLBACK}$ 
+Call{onChange}{document, PATH, CALLBACK}$ 
 \backslash
-Comment{subscribe to change events}
+Comment{Subscribe to change events}
 \end_layout
 
 \begin_layout Plain Layout
@@ -447,7 +471,7 @@ Procedure{callback}{newVal, oldVal}
 
 \begin_layout Plain Layout
 
-			
+		
 \backslash
 State $
 \backslash
@@ -458,7 +482,7 @@ Comment{Log new value of the path}
 
 \begin_layout Plain Layout
 
-			
+		
 \backslash
 State $
 \backslash
@@ -531,25 +555,66 @@ TODO also approaches like firebase
 \begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:REST-Approach"
+name "subsec:RESTful-Approach"
 
 \end_inset
 
-REST Approach
+RESTful Approach
 \end_layout
 
 \begin_layout Standard
-as said previously for path....
+What we said previously in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+ for path is valid also for RESTful URI as introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+.
+ RESTful is useful to post/put/delete data and to retrieve them in synchronous
+ way, synchronous retrieve can be useful to populate local database at the
+ beginning, in fact RESTful is not compatible with asynchronous application.
 \end_layout
 
 \begin_layout Standard
-best partice
+So the best practice is to use RESTful for all synchronous operations, let
+ the possibility to use RESTfull get to get all data or a portion of them,
+ but give also an asynchronous
+\end_layout
+
+\begin_layout Standard
+interface integrated with the event driven approach like websocket.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+//TODO cite local tabase
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+//TODO write more
 \end_layout
 
 \begin_layout Standard
 
 \series bold
 //TODO SCHOOLAR
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+//TODO other sections
 \end_layout
 
 \begin_layout Subsection
