@@ -384,9 +384,10 @@ reference "fig:HTTP1.0-vs-HTTP1.1"
 This was originally projected to request different files over the same connectio
 n.
  But it allowed to do a lot of other things, as we will see in the section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "1.1.2"
+reference "subsec:WebSocket"
 
 \end_inset
 
@@ -505,7 +506,7 @@ key "HTTP2.0Multiplex"
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
-name "1.1.2"
+name "subsec:WebSocket"
 
 \end_inset
 
@@ -513,14 +514,14 @@ WebSocket
 \end_layout
 
 \begin_layout Standard
-It is a protocol built over
+It is a protocol built over 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:HTTP-1.1"
 
 \end_inset
 
- that allows to create a sort of
+ that allows to create a sort of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -660,12 +661,19 @@ realtime
 \begin_layout Enumerate
 How to have a notification of a change? considering also distributed system
  case.
- The trivial solution is the usage of a database
+ The trivial solution is the usage of a database 
 \begin_inset Quotes fld
 \end_inset
 
 trigger
 \begin_inset Quotes frd
+\end_inset
+
+ as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database-trigger"
+
 \end_inset
 
 
@@ -689,10 +697,23 @@ key "PubSubDB"
 
 \end_inset
 
+ as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Database-trigger"
+
+\end_inset
+
 Database trigger
 \end_layout
 
@@ -702,6 +723,12 @@ A trigger is a small snippet of code that is executed for some events such
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Publish/Subscribe"
+
+\end_inset
+
 Publish/Subscribe
 \end_layout
 
@@ -714,7 +741,7 @@ subscribe
 \begin_inset Quotes frd
 \end_inset
 
- to these, while the server service
+ to these, while the server service 
 \begin_inset Quotes fld
 \end_inset
 
@@ -750,7 +777,7 @@ Now we have all elements to create a real realtime application:
 \end_layout
 
 \begin_layout Itemize
-Each client
+Each client 
 \begin_inset Quotes fld
 \end_inset
 
@@ -762,7 +789,7 @@ subscribes
 \end_layout
 
 \begin_layout Itemize
-A trigger on the server
+A trigger on the server 
 \begin_inset Quotes fld
 \end_inset
 
@@ -788,7 +815,114 @@ reference "subsec:Partitioning-and-Distribution"
 
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Subsection
+RESTful
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Modern-web-application"
+
+\end_inset
+
+ we can use 
+\begin_inset Quotes fld
+\end_inset
+
+RESTful call
+\begin_inset Quotes frd
+\end_inset
+
+ to retrieve data, RESTful is a sort of protocol to exchange messages between
+ client and server over HTTP 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RESTful"
+
+\end_inset
+
+.
+ It is simple protocol the uses the the HTTP verbs, for example to create
+ a new data a 
+\begin_inset Quotes fld
+\end_inset
+
+post
+\begin_inset Quotes frd
+\end_inset
+
+ call must be done, while to update a data a 
+\begin_inset Quotes fld
+\end_inset
+
+put
+\begin_inset Quotes frd
+\end_inset
+
+ call must be done.
+ There is another protocol older than RESTfull, still used: SOAP, it is
+ very powerful but as we will see to manage resource RESTfull is better
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RESTSOAP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+RESTfull is designed to work with resources, in fact each resource is identified
+ by an unique URI and we have standard actions (HTTP verbs) for each resources.
+ For example we can have:
+\end_layout
+
+\begin_layout Itemize
+Customers identified by htttp://example.com/customers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Customer details with an unique ID (for example id = 10) identified by htttp://e
+xample.com/customers/10
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Contacts of a customer identified by htttp://example.com/customers/10/contacts
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+It is easy to understand how this can be useful to surf cross a JSON structure
+ that we will see on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+.
+ In fact, often, RESTfull service retrieve JSON data, but they can also
+ retrieve XML.
+\end_layout
+
+\begin_layout Standard
+We will see real examples on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:REST-Approach"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1649,8 +1783,8 @@ reference "subsec:Software-as-a"
 
 \end_inset
 
- we will understand how the difference among these three kind of architecture
- is minimal and often there is overlapping.
+ we will know how that the difference among these three kind of architecture
+ is minimal and that often there is overlapping among the architectures.
 \begin_inset Newline newline
 \end_inset
 

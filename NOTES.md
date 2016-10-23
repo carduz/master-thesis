@@ -15,3 +15,5 @@
 * acronyms section
 * check serverless section
 * we and developer in 1.2.3
+* do the things in economic view
+* check refer to cahpter 2

@@ -166,7 +166,7 @@ reference "sec:Comparison"
 \begin_inset Quotes fld
 \end_inset
 
-JSON vs XML, Pub/Sub is not Rest, Talk about rest
+Pub/Sub is not Rest, Talk about rest and soap
 \begin_inset Quotes frd
 \end_inset
 
@@ -396,6 +396,22 @@ we will use EcmaScript 5.0, commonly know with its dialect name: javascript,
  to use libraries/frameworks 
 \series bold
 //TODO searhc scoolar
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:REST-Approach"
+
+\end_inset
+
+REST Approach
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+//TODO SCHOOLAR
 \end_layout
 
 \begin_layout Section
