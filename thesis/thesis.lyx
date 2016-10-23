@@ -851,23 +851,20 @@ filename "conclusions.lyx"
 \end_inset
 
 
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "bibliography"
-options "plain"
+\end_layout
 
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
 \end_inset
 
 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-addcontentsline{toc}{chapter}{Bibliography}
 \end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliography"
+options "bibtotoc,plain"
 
 \end_inset
 
