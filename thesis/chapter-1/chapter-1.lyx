@@ -619,6 +619,127 @@ key "WebsocketImg"
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:RESTful"
+
+\end_inset
+
+RESTful
+\end_layout
+
+\begin_layout Standard
+As shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Modern-web-application"
+
+\end_inset
+
+ we can use 
+\begin_inset Quotes fld
+\end_inset
+
+RESTful call
+\begin_inset Quotes frd
+\end_inset
+
+ to retrieve data, RESTful is a sort of protocol to exchange messages between
+ client and server over HTTP (it uses standard HTTP methods) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RESTful"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+It is simple protocol the uses the the HTTP verbs, for example to create
+ a new data a 
+\begin_inset Quotes fld
+\end_inset
+
+post
+\begin_inset Quotes frd
+\end_inset
+
+ call must be done, while to update a data a 
+\begin_inset Quotes fld
+\end_inset
+
+put
+\begin_inset Quotes frd
+\end_inset
+
+ call must be done.
+ The idea is to do simple actions on resources that returns immediately
+ an answer (like GET call) or execute immediatelly an action (like POST
+ call)
+\begin_inset Newline newline
+\end_inset
+
+There is another protocol older than RESTful, still used: SOAP, it is very
+ powerful but as we will see to manage resource RESTfull is better 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RESTSOAP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+RESTfull is designed to work with resources, in fact each resource is identified
+ by an unique URI and there are standard actions (HTTP verbs) for each resources.
+ For example we can have:
+\end_layout
+
+\begin_layout Itemize
+Customers identified by htttp://example.com/customers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Customer details with an unique ID (for example id = 10) identified by htttp://e
+xample.com/customers/10
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Contacts of a customer identified by htttp://example.com/customers/10/contacts
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+It is easy to understand how this can be useful to surf cross a JSON structure
+ that we will see on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+.
+ In fact, often, RESTfull service retrieve JSON data, but they can also
+ retrieve XML.
+\end_layout
+
+\begin_layout Standard
+We will see real examples on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:REST-Approach"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
 Data retrieve
 \end_layout
 
@@ -766,6 +887,16 @@ key "PubSub"
 \end_inset
 
 .
+ Of course Publish/Subscribe is not compatible with RESTful calls since
+ in the RESTfull approach the data must be returned immediately when a request
+ is done as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -804,6 +935,14 @@ publish
 The communication between the client and server is over a websocket channel,
  so immediately after the data are published the server send data on this
  channel.
+ As said in in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+ RESTful cannot be used.
 \end_layout
 
 \begin_layout Standard
@@ -812,113 +951,6 @@ Of course there are still issues related to distribution and partitioning
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Partitioning-and-Distribution"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-RESTful
-\end_layout
-
-\begin_layout Standard
-As shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Modern-web-application"
-
-\end_inset
-
- we can use 
-\begin_inset Quotes fld
-\end_inset
-
-RESTful call
-\begin_inset Quotes frd
-\end_inset
-
- to retrieve data, RESTful is a sort of protocol to exchange messages between
- client and server over HTTP 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "RESTful"
-
-\end_inset
-
-.
- It is simple protocol the uses the the HTTP verbs, for example to create
- a new data a 
-\begin_inset Quotes fld
-\end_inset
-
-post
-\begin_inset Quotes frd
-\end_inset
-
- call must be done, while to update a data a 
-\begin_inset Quotes fld
-\end_inset
-
-put
-\begin_inset Quotes frd
-\end_inset
-
- call must be done.
- There is another protocol older than RESTfull, still used: SOAP, it is
- very powerful but as we will see to manage resource RESTfull is better
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "RESTSOAP"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-RESTfull is designed to work with resources, in fact each resource is identified
- by an unique URI and we have standard actions (HTTP verbs) for each resources.
- For example we can have:
-\end_layout
-
-\begin_layout Itemize
-Customers identified by htttp://example.com/customers
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Customer details with an unique ID (for example id = 10) identified by htttp://e
-xample.com/customers/10
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Contacts of a customer identified by htttp://example.com/customers/10/contacts
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-It is easy to understand how this can be useful to surf cross a JSON structure
- that we will see on 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:JSON"
-
-\end_inset
-
-.
- In fact, often, RESTfull service retrieve JSON data, but they can also
- retrieve XML.
-\end_layout
-
-\begin_layout Standard
-We will see real examples on 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:REST-Approach"
 
 \end_inset
 
