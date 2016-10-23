@@ -13,3 +13,5 @@
 * see the right pdf creator
 * talk about serverless
 * acronyms section
+* check serverless section
+* we and developer in 1.2.3

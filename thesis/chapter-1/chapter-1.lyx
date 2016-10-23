@@ -900,6 +900,18 @@ reference "chap:technologies"
 
 \end_layout
 
+\begin_layout Standard
+Everything can be implemented in a serverless approach as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Serverless"
+
+\end_inset
+
+, an efficient approach that can also give a lot of economic advantages
+ in different situations.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1487,6 +1499,478 @@ key "NoSQL"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Serverless"
+
+\end_inset
+
+Serverless
+\end_layout
+
+\begin_layout Standard
+A serverless is a cloud computing architecture, where the developer has
+ not to think about the infrastructure.
+ It is something at the middle between 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ and 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+, for that reason it is also know as 
+\begin_inset Quotes fld
+\end_inset
+
+Function as a Service
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+The serverless idea is a general idea that can be implemented for different
+ things, a classic implementation is for file systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ServerlessFilesystem"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In serverless architecture the developer has to think only to develop the
+ application without thinking how to scale the infrastructure, how to store
+ data in secure way and so on.
+ In serveless architecture the developer has not to develop a real server,
+ the server is already set, he has only to configure it and eventually develop
+ some small extension (in database case the extension can be simply the
+ triggers).
+\begin_inset Newline newline
+\end_inset
+
+Like 
+\begin_inset Quotes fld
+\end_inset
+
+Function as a service
+\begin_inset Quotes frd
+\end_inset
+
+ suggest we can have also system where we have to develop just a piece of
+ code, a function, that is executed in a 
+\begin_inset Quotes fld
+\end_inset
+
+unknown
+\begin_inset Quotes frd
+\end_inset
+
+ infrastructure, where we have not to think about scalability, we pay just
+ for usage.
+ For example we pay the number of execution of that function, this is the
+ way used by 
+\begin_inset Quotes fld
+\end_inset
+
+Amazon AWS
+\begin_inset Quotes frd
+\end_inset
+
+ implementation: 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSLambda,AWSLambdaPricing"
+
+\end_inset
+
+.
+ This is a big advantage for user, because there is an instant scalability
+ that there is not on 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ as we will see on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Platform-as-a"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As we will see on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Main-Realtime-Databases"
+
+\end_inset
+
+ this kind of architecture is entirely developed on cloud architecture and
+ partially developed on Open Source architectures, in open source architecture
+ we have the facility to configure and develop the server but we don't have
+ an easy scalability like the cloud systems.
+\end_layout
+
+\begin_layout Standard
+After we will see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Software-as-a"
+
+\end_inset
+
+ we will understand how the difference among these three kind of architecture
+ is minimal and often there is overlapping.
+\begin_inset Newline newline
+\end_inset
+
+An example of overlapping is 
+\begin_inset Quotes fld
+\end_inset
+
+Salesforce.com
+\begin_inset Quotes frd
+\end_inset
+
+, a CRM (customer relationship management) service born like a 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SAAS"
+
+\end_inset
+
+.
+ But it became a sort of Serverless architecture to build business applications,
+ it has also bought 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ company.
+ However, even if now it is like a serverless service, the price system
+ has remained the same as that of 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ system, where you don't pay the usage, you pay for accounts and each account
+ has some limits 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SalesforcePricing"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Platform-as-a"
+
+\end_inset
+
+Platform as a Service
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ is cloud computing architecture where the developer have not to think about
+ infrastructure, he chooses the platform where to develop that is automatically
+ configured and ready to use 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PAAS"
+
+\end_inset
+
+.
+ In this kind of architecture the developer has to choose how to scale (it
+ can be an automatic process) but in an easy way, often he has only to choose
+ the number of nodes.
+\end_layout
+
+\begin_layout Standard
+One of the most known 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ service is 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Heroku"
+
+\end_inset
+
+, comparing the price system of 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HerokuPricing"
+
+\end_inset
+
+ with the price system of 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSLambdaPricing"
+
+\end_inset
+
+ we can see that in 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ we pay for number of nodes per seconds, while in 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ we pay just for execution time.
+ In 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ we have not to do anything to execute just one 
+\begin_inset Quotes fld
+\end_inset
+
+function
+\begin_inset Quotes frd
+\end_inset
+
+ per second or thousands per second, while on 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ we have to set the right number of nodes or set a correct strategy to dynamical
+ly create/remove nodes.
+ So the serverless approach can reach the maximum grade of sharing resources
+ in cloud computing.
+\end_layout
+
+\begin_layout Standard
+For what concern the concept of platform ready to use to develop the serverless
+ architecture is similar to 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ but it is different for other things like scalability as we have seen with
+ 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ example.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Software-as-a"
+
+\end_inset
+
+Software as a Service
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+Software as a service
+\begin_inset Quotes frd
+\end_inset
+
+ is a cloud computing architecture where there is no need or possibility
+ to develop anything 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SAAS"
+
+\end_inset
+
+.
+ One classic example is a webmail service, that can be configured for a
+ private company.
+\end_layout
+
+\begin_layout Standard
+One of the most known 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a service
+\begin_inset Quotes frd
+\end_inset
+
+ service is 
+\begin_inset Quotes fld
+\end_inset
+
+Google apps for work
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoogleWork"
+
+\end_inset
+
+, a service where the employees of a company have access to company mail,
+ company docs, company cloud storage and so o; everything is done only by
+ configure a system without develop anything.
+ The price system of 
+\begin_inset Quotes fld
+\end_inset
+
+Google apps for work
+\begin_inset Quotes frd
+\end_inset
+
+ is system where the company has to pay for the number of user not for the
+ usage 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoogleWorkPricing"
+
+\end_inset
+
+ an approach completely different from other cloud system, but it is a good
+ approach for company because in that way they are able to predict the cost
+ in reliable way.
+\end_layout
+
+\begin_layout Standard
+The serverless approach is very similar to 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a service
+\begin_inset Quotes frd
+\end_inset
+
+ since the developer has not to think about the infrastructure or how to
+ build a reliable server, but instead of the 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a service
+\begin_inset Quotes frd
+\end_inset
+
+ in the serverless architecture the developer can develop something, not
+ only configure.
 \end_layout
 
 \end_body
