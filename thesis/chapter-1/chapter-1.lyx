@@ -698,18 +698,50 @@ RESTfull is designed to work with resources, in fact each resource is identified
 \end_layout
 
 \begin_layout Itemize
-Customers identified by htttp://example.com/customers
+Customers identified by 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+htttp://example.com/customers
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Customer details with an unique ID (for example id = 10) identified by htttp://e
-xample.com/customers/10
+Customer details with an unique ID (for example id = 10) identified by 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+htttp://example.com/customers/10
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Contacts of a customer identified by htttp://example.com/customers/10/contacts
+Contacts of a customer identified by 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+htttp://example.com/customers/10/contacts
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -855,6 +887,7 @@ Publish/Subscribe
 
 \begin_layout Standard
 In Publish/Subscribe pattern each client that is interested to some data/events
+ 
 \begin_inset Quotes fld
 \end_inset
 
