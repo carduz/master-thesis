@@ -291,6 +291,24 @@ https://pouchdb.com/
 \end_inset
 
  is just a Javascript library that interact with a NoSQL database: CouchDB.
+ Since PouchDB uses a stable and used system like CouchDB is a system that
+ is tested in the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+.
+ PouchDB, in addition to the interface, implements also a local database
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subparagraph
