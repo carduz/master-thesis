@@ -403,6 +403,13 @@ reference "fig:-Database-triangle"
 
 \end_inset
 
+ and CAP theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
 , to allow these features you have to renounce to consistency 
 \begin_inset CommandInset citation
 LatexCommand cite
