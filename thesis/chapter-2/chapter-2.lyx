@@ -285,7 +285,17 @@ PuchDB
 status open
 
 \begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
 https://pouchdb.com/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -321,7 +331,17 @@ CouchDB
 status open
 
 \begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
 https://couchdb.apache.org
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -394,7 +414,117 @@ key "CouchDBConsistency"
 \end_layout
 
 \begin_layout Standard
-These feature allow to interface to it in an efficient and realtime way
+These feature allow to interface to it in an efficient and realtime way.
+ The only negative aspect of CouchDB is that has a lower query expressiveness
+ power (for exaple there is no SQL 
+\begin_inset Quotes fld
+\end_inset
+
+join
+\begin_inset Quotes frd
+\end_inset
+
+ equivalent) than other NoSQL databases like MongoDB 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MongoDB"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+MemSQL
+\end_layout
+
+\begin_layout Standard
+MemSQL
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.memsql.com/product/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is scalable and realtime in memory SQL database (it is like traditional
+ databases).
+ It is very interesting but, since it is an hybrid system that doesn't use
+ the potentiality of NoSQL, it is not analyzed in this thesis.
+\end_layout
+
+\begin_layout Paragraph
+Meteor
+\end_layout
+
+\begin_layout Standard
+Meteor
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.meteor.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is Javascript Client and Server Framework that uses MongDB
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MongoDB"
+
+\end_inset
+
+ to create a realtime application.
+\begin_inset Newline newline
+\end_inset
+
+But it is not fully opened to other technologies and the server side can
+ be fully developed.
+ The last issue can be a problem for the scalability and efficiency, in
+ fact it cannot be used as 
+\begin_inset Quotes fld
+\end_inset
+
+servless
+\begin_inset Quotes frd
+\end_inset
+
+ but instead like a classic application, like classic approach explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-technologies"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+For this reason it is not analyzed in this thesis.
 \end_layout
 
 \begin_layout Paragraph
@@ -443,10 +573,6 @@ http://kinto.readthedocs.io/en/latest/index.html
 
 \begin_layout Standard
 https://www.rethinkdb.com/
-\end_layout
-
-\begin_layout Standard
-http://www.memsql.com/product/ IN MEM
 \end_layout
 
 \begin_layout Standard
@@ -518,7 +644,17 @@ Firebase
 status open
 
 \begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
 https://firebase.google.com/
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
