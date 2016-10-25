@@ -213,6 +213,12 @@ HTTP handshake
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:HTTP-1.0"
+
+\end_inset
+
 HTTP 1.0
 \end_layout
 
@@ -772,7 +778,7 @@ reference "subsec:JSON"
 We will see real examples on 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:REST-Approach"
+reference "subsec:RESTful-Approach"
 
 \end_inset
 

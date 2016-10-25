@@ -226,7 +226,8 @@ we will proof the results on the chapter ...
 \begin_inset Quotes frd
 \end_inset
 
-, queue, scalability and easy to configure, SOA, another SaaS
+, queue, scalability and easy to configure, SOA, another SaaS, check jvascript
+ and ecma script, say which are tested
 \end_layout
 
 \begin_layout Subsection
@@ -264,6 +265,12 @@ reference "subsec:SaaS-realtime"
 OpenSource
 \end_layout
 
+\begin_layout Standard
+We will not test all the systems described below but only those which are
+ relevant for the topic of the thesis, not tested system are listed only
+ to be cited.
+\end_layout
+
 \begin_layout Paragraph
 CouchBase
 \end_layout
@@ -273,9 +280,103 @@ PouchDB
 \end_layout
 
 \begin_layout Standard
+PuchDB
+\begin_inset Foot
+status open
 
-\series bold
-//TODO couchdb and other referneces
+\begin_layout Plain Layout
+https://pouchdb.com/
+\end_layout
+
+\end_inset
+
+ is just a Javascript library that interact with a NoSQL database: CouchDB.
+\end_layout
+
+\begin_layout Subparagraph
+CouchDB
+\end_layout
+
+\begin_layout Standard
+CouchDB
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://couchdb.apache.org
+\end_layout
+
+\end_inset
+
+ is one of the most famous NoSQL database, it is very simple but have the
+ following useful features (the features listed below are those are used
+ by PouchDB) such as:
+\end_layout
+
+\begin_layout Itemize
+Long polling to receive events 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBChanges"
+
+\end_inset
+
+, the idea beyond long polling is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:HTTP-1.0"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+RESTful native interface
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBREST"
+
+\end_inset
+
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Partitioning (that allows scaling) and availability 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBScaling,CouchDBPartitioning"
+
+\end_inset
+
+.
+ But remember database triangle shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:-Database-triangle"
+
+\end_inset
+
+, to allow these features you have to renounce to consistency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBConsistency"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+These feature allow to interface to it in an efficient and realtime way
 \end_layout
 
 \begin_layout Paragraph
@@ -284,6 +385,10 @@ AAAA
 
 \begin_layout Standard
 http://firehose.io/
+\end_layout
+
+\begin_layout Standard
+https://www.pubnub.com/
 \end_layout
 
 \begin_layout Standard
@@ -331,6 +436,22 @@ https://www.pipelinedb.com/
 \end_layout
 
 \begin_layout Standard
+https://www.pubnub.com/
+\end_layout
+
+\begin_layout Standard
+https://pusher.com/
+\end_layout
+
+\begin_layout Standard
+https://www.compose.com/
+\end_layout
+
+\begin_layout Standard
+http://www.couchbase.com/couchbase-vs-couchdb
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 NOT test all, like meteor
@@ -357,7 +478,16 @@ serverles
 \begin_inset Quotes frd
 \end_inset
 
+.
+ In fact all commercial systems advertise the ability to 
+\begin_inset Quotes fld
+\end_inset
 
+build the application without thinking the structure
+\begin_inset Quotes frd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph
@@ -365,11 +495,21 @@ Firebase
 \end_layout
 
 \begin_layout Standard
-Firebase is one of the most famous commercial in cloud realtime database,
- it is owned by google.
-\begin_inset Newline newline
+Firebase
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+https://firebase.google.com/
+\end_layout
+
 \end_inset
 
+ is one of the most famous commercial in cloud realtime database, it is
+ owned by google.
+\end_layout
+
+\begin_layout Standard
 To offer scalability in efficient way it doesn't allow to write any line
  of code on the backend, you can put only static resource on the backend
  (that of course are not CPU time expensive).
@@ -382,6 +522,32 @@ triggers
 \end_inset
 
  to validate data and has some useful additional features like login system.
+\begin_inset Newline newline
+\end_inset
+
+Of course it provides libraries and protocol to access it in efficient and
+ realtime way such as: RESTful interface (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+), Websocket (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:WebSocket"
+
+\end_inset
+
+) and Event Stream (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:HTTP-1.0"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
