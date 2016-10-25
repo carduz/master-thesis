@@ -226,7 +226,7 @@ we will proof the results on the chapter ...
 \begin_inset Quotes frd
 \end_inset
 
-, queue, scalability and easy to configure, SOA, locla database
+, queue, scalability and easy to configure, SOA, another SaaS
 \end_layout
 
 \begin_layout Subsection
@@ -241,19 +241,19 @@ Main Realtime Databases Servers
 
 \begin_layout Standard
 Even if the realtime databases are young some systems were born, there are
- both OpenSource and Cloud systems.
+ both OpenSource and SaaS systems.
 \begin_inset Newline newline
 \end_inset
 
-Some cloud systems are very famous and used but they do not allow to do
- all tests and performance measurements needed for our study, since we do
- not know the internal structure and replication, so we will analyze only
- OpenSource systems.
- Of course we will see quickly the characteristics of main cloud systems
+Some SaaS systems are very famous and used but they do not allow to do all
+ tests and performance measurements needed for our study, since we do not
+ know the internal structure and replication, so we will analyze only OpenSource
+ systems.
+ Of course we will see quickly the characteristics of main SaaS systems
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Cloud"
+reference "subsec:SaaS-realtime"
 
 \end_inset
 
@@ -282,18 +282,128 @@ PouchDB
 AAAA
 \end_layout
 
+\begin_layout Standard
+http://firehose.io/
+\end_layout
+
+\begin_layout Standard
+meteor
+\end_layout
+
+\begin_layout Standard
+http://deployd.com/
+\end_layout
+
+\begin_layout Standard
+hood.ie
+\end_layout
+
+\begin_layout Standard
+https://www.backand.com/
+\end_layout
+
+\begin_layout Standard
+http://gun.js.org
+\end_layout
+
+\begin_layout Standard
+https://deepstream.io/
+\end_layout
+
+\begin_layout Standard
+http://www.parse.com/
+\end_layout
+
+\begin_layout Standard
+http://kinto.readthedocs.io/en/latest/index.html
+\end_layout
+
+\begin_layout Standard
+https://www.rethinkdb.com/
+\end_layout
+
+\begin_layout Standard
+http://www.memsql.com/product/ IN MEM
+\end_layout
+
+\begin_layout Standard
+https://www.pipelinedb.com/
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+NOT test all, like meteor
+\end_layout
+
 \begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
-name "subsec:Cloud"
+name "subsec:SaaS-realtime"
 
 \end_inset
 
-Cloud
+SaaS
+\end_layout
+
+\begin_layout Standard
+Realtime databases are system that can be easily adapted to a SaaS service,
+ since they can have no code on the backend, even if a more correct classificati
+on should be 
+\begin_inset Quotes fld
+\end_inset
+
+serverles
+\begin_inset Quotes frd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
 Firebase
+\end_layout
+
+\begin_layout Standard
+Firebase is one of the most famous commercial in cloud realtime database,
+ it is owned by google.
+\begin_inset Newline newline
+\end_inset
+
+To offer scalability in efficient way it doesn't allow to write any line
+ of code on the backend, you can put only static resource on the backend
+ (that of course are not CPU time expensive).
+ On the other hand it allows to define backend rules that acts like 
+\begin_inset Quotes fld
+\end_inset
+
+triggers
+\begin_inset Quotes frd
+\end_inset
+
+ to validate data and has some useful additional features like login system.
+\end_layout
+
+\begin_layout Standard
+So on firebase a lot of realtime systems can be implemented.
+ Furthermore the cost system can be easily adapted to the data used; in
+ fact, since the infrastructure is closed it can be very efficient and the
+ 
+\begin_inset Quotes fld
+\end_inset
+
+queries
+\begin_inset Quotes frd
+\end_inset
+
+ are not complex 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FirebasePricing"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -579,8 +689,16 @@ reference "subsec:RESTful"
 
 .
  RESTful is useful to post/put/delete data and to retrieve them in synchronous
- way, synchronous retrieve can be useful to populate local database at the
- beginning, in fact RESTful is not compatible with asynchronous application.
+ way, synchronous retrieve can be useful to populate local database (explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+) at the beginning, in fact RESTful is not compatible with asynchronous
+ application.
 \end_layout
 
 \begin_layout Standard
@@ -591,12 +709,6 @@ So the best practice is to use RESTful for all synchronous operations, let
 
 \begin_layout Standard
 interface integrated with the event driven approach like websocket.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-//TODO cite local tabase
 \end_layout
 
 \begin_layout Standard
@@ -615,6 +727,44 @@ interface integrated with the event driven approach like websocket.
 
 \series bold
 //TODO other sections
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Local-database"
+
+\end_inset
+
+Local database
+\end_layout
+
+\begin_layout Standard
+The best practices is to create a local database on the client (with only
+ the data needed), this allow to have 
+\begin_inset Quotes fld
+\end_inset
+
+optimistic UI
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticUI"
+
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+The ability to update the local database (and consequentially the user interface
+) eve if there are network delays or the network is down.
+ So the developer can call all methods on the db, seeing the effect, even
+ if there is no connection; of course some server constraints/modification
+ are applied when the network come back up.
 \end_layout
 
 \begin_layout Subsection

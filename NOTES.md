@@ -20,3 +20,4 @@
 * improove chap 1 introduction
 * improove chap 2 introduction
 * explaine difference with pure realtiem application that are sync
+* definition of realtiem databases: https://en.wikipedia.org/wiki/Real-time_database
