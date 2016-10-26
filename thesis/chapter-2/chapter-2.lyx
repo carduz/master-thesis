@@ -227,7 +227,8 @@ we will proof the results on the chapter ...
 \end_inset
 
 , queue, scalability and easy to configure, SOA, another SaaS, check jvascript
- and ecma script, say which are tested
+ and ecma script, say which are tested, short polling can be doen using
+ REST
 \end_layout
 
 \begin_layout Subsection
