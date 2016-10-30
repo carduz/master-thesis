@@ -138,7 +138,7 @@ reference "subsec:Main-Realtime-Databases"
 
 \end_inset
 
-we will see different databases according to the following criterias:
+ we will see different databases according to the following criterias:
 \end_layout
 
 \begin_layout Itemize
@@ -207,8 +207,15 @@ reference "subsec:Comparison"
 
 \end_inset
 
- we will do a general comparison of the system viewed from server and client
- sides
+ we will do a general comparison of the systems (only those we will analyze
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+) viewed from server and client sides.
 \end_layout
 
 \begin_layout Standard
@@ -241,6 +248,10 @@ reference "chap:technologies"
 \end_inset
 
  we will see NoSQL databases of both types.
+ 
+\series bold
+Search schoolar for main databases.
+ searhc statistics
 \end_layout
 
 \begin_layout Subsection
@@ -286,6 +297,14 @@ We will not test all the systems described below but only those which are
 
 \begin_layout Paragraph
 CouchBase
+\end_layout
+
+\begin_layout Standard
+TODO cite
+\end_layout
+
+\begin_layout Standard
+full text, query, vs mongodb
 \end_layout
 
 \begin_layout Paragraph
@@ -529,13 +548,6 @@ key "CouchdbSecurity"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Itemize
-Reliable storage.
- 
-\series bold
-TODO
 \end_layout
 
 \begin_layout Standard
@@ -805,12 +817,6 @@ amazon
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO
 \end_layout
 
 \begin_layout Paragraph
@@ -1666,7 +1672,7 @@ linewidth}{!}{
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="3" columns="5">
+<lyxtabular version="3" rows="4" columns="5">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
@@ -1680,7 +1686,7 @@ linewidth}{!}{
 \begin_layout Plain Layout
 
 \series bold
-Method
+Database
 \end_layout
 
 \end_inset
@@ -1691,7 +1697,7 @@ Method
 \begin_layout Plain Layout
 
 \series bold
-Parameter one
+CAP
 \end_layout
 
 \end_inset
@@ -1702,7 +1708,7 @@ Parameter one
 \begin_layout Plain Layout
 
 \series bold
-Parameter two
+Client Framework
 \end_layout
 
 \end_inset
@@ -1735,7 +1741,9 @@ Parameter four
 \begin_inset Text
 
 \begin_layout Plain Layout
-A
+
+\series bold
+Couchbase
 \end_layout
 
 \end_inset
@@ -1744,10 +1752,7 @@ A
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $1$
-\end_inset
-
-
+CP
 \end_layout
 
 \end_inset
@@ -1790,11 +1795,62 @@ A
 </cell>
 </row>
 <row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+PouchDB
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+AP
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-B
+
+\series bold
+Gun.js
 \end_layout
 
 \end_inset
@@ -1803,10 +1859,7 @@ B
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $5$
-\end_inset
-
-
+AP
 \end_layout
 
 \end_inset
