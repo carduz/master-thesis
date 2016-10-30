@@ -547,10 +547,6 @@ http://firehose.io/
 \end_layout
 
 \begin_layout Standard
-https://www.pubnub.com/
-\end_layout
-
-\begin_layout Standard
 http://deployd.com/
 \end_layout
 
@@ -603,10 +599,6 @@ http://www.couchbase.com/couchbase-vs-couchdb
 \end_layout
 
 \begin_layout Standard
-socketio
-\end_layout
-
-\begin_layout Standard
 
 \series bold
 NOT test all, like meteor
@@ -646,6 +638,12 @@ build the application without thinking the structure
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Firebase"
+
+\end_inset
+
 Firebase
 \end_layout
 
@@ -741,6 +739,12 @@ key "FirebasePricing"
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Pubnub"
+
+\end_inset
+
 Pubnub
 \end_layout
 
@@ -782,10 +786,25 @@ channels
 \begin_inset Quotes frd
 \end_inset
 
-.
-\begin_inset Newline newline
+ instead of 
+\begin_inset Quotes fld
 \end_inset
 
+path
+\begin_inset Quotes frd
+\end_inset
+
+ of the JSON structure (as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
 Of course there are opensource Pub/Sub implementations like 
 \begin_inset Quotes fld
 \end_inset
@@ -807,6 +826,66 @@ key "Socketio"
  
 \series bold
 //TODO other cloud advantages
+\end_layout
+
+\begin_layout Paragraph
+backand
+\end_layout
+
+\begin_layout Standard
+backand 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.backand.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a proprietary serverless architecture for web application, it is a Pub/Sub
+ service like 
+\begin_inset Quotes fld
+\end_inset
+
+Pubnub
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Pubnub"
+
+\end_inset
+
+).
+ But it allows also to have more control on the backend, like 
+\begin_inset Quotes fld
+\end_inset
+
+firebase
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Firebase"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection
@@ -1031,7 +1110,7 @@ end{algorithmic}
 \begin_layout Standard
 The basic idea is to subscribe a callback to change events of a specif path
  of a document, thinking of JSON documents the path is a reference to a
- specifc level of the JSON document.
+ specif level of the JSON document.
  For example a path for the JSON listing 
 \begin_inset CommandInset ref
 LatexCommand ref
