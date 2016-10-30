@@ -659,7 +659,15 @@ peer to peer
 \begin_inset Quotes frd
 \end_inset
 
- 
+ (commonly know as 
+\begin_inset Quotes fld
+\end_inset
+
+P2P
+\begin_inset Quotes frd
+\end_inset
+
+)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "P2P"
@@ -745,11 +753,64 @@ ID
 \end_layout
 
 \begin_layout Itemize
-auth
+Authentication support in a P2P environment, using asymmetric cryptography
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsSecurity"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
-Reliable storage S3
+Reliable storage, it allows to store data on 
+\begin_inset Quotes fld
+\end_inset
+
+AWS S3
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsStorage"
+
+\end_inset
+
+.
+ 
+\begin_inset Quotes fld
+\end_inset
+
+AWS S3
+\begin_inset Quotes frd
+\end_inset
+
+ is a reliable cloud storage 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSS3"
+
+\end_inset
+
+ implemented by 
+\begin_inset Quotes fld
+\end_inset
+
+amazon
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO
 \end_layout
 
 \begin_layout Paragraph
