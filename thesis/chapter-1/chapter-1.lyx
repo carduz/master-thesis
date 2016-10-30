@@ -909,7 +909,15 @@ subscribe
 \begin_inset Quotes frd
 \end_inset
 
- to these, while the server service 
+ to these (they are called 
+\begin_inset Quotes fld
+\end_inset
+
+channels
+\begin_inset Quotes frd
+\end_inset
+
+), while the server service 
 \begin_inset Quotes fld
 \end_inset
 
@@ -918,7 +926,7 @@ publish
 \end_inset
 
  the data that will be sent to the clients without knowing which are the
- client
+ client 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1660,6 +1668,52 @@ reference "chap:technologies"
 \end_inset
 
  we will see NoSQL databases of both types.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Eventual-consistency"
+
+\end_inset
+
+Eventual consistency
+\end_layout
+
+\begin_layout Standard
+So, often, in NoSQL the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is not implemented, but instead the 
+\begin_inset Quotes fld
+\end_inset
+
+eventual consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is implemented: 
+\begin_inset Quotes fld
+\end_inset
+
+the storage system guarantees that if no new updates are made to the object,
+ eventually all accesses will return the last updated value
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EventuallyConsistent"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection

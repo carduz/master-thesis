@@ -231,7 +231,16 @@ we will proof the results on the chapter ...
  and ecma script, say which are tested, short polling can be doen using
  REST, use cases from sites: https://www.pubnub.com/solutions/ (also for real
  example https://www.pubnub.com/solutions/realtime-auction-and-price-updates/),
- cloud advantages
+ cloud advantages, say which we will test, CHECK 
+\series default
+In the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ we will see NoSQL databases of both types.
 \end_layout
 
 \begin_layout Subsection
@@ -304,9 +313,9 @@ https://pouchdb.com/
 
 \end_inset
 
- is just a Javascript library that interact with a NoSQL database: CouchDB.
+ is just a javascript library that interact with a NoSQL database: CouchDB.
  Since PouchDB uses a stable and used system like CouchDB is a system that
- is tested in the chapter 
+ is tested as shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Performance-Evaluation"
@@ -326,6 +335,12 @@ reference "subsec:Local-database"
 \end_layout
 
 \begin_layout Subparagraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:CouchDB"
+
+\end_inset
+
 CouchDB
 \end_layout
 
@@ -370,7 +385,7 @@ reference "subsec:HTTP-1.0"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -388,7 +403,7 @@ reference "subsec:RESTful"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -397,6 +412,14 @@ Partitioning (that allows scaling) and availability
 LatexCommand cite
 key "CouchDBScaling,CouchDBPartitioning"
 
+\end_inset
+
+, commonly know as 
+\begin_inset Quotes fld
+\end_inset
+
+AP
+\begin_inset Quotes frd
 \end_inset
 
 .
@@ -414,7 +437,31 @@ reference "subsec:Consistency,-Partition-tolerance"
 
 \end_inset
 
-, to allow these features you have to renounce to consistency 
+.
+ To allow these features we have to renounce to 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+, using 
+\begin_inset Quotes fld
+\end_inset
+
+eventual consistency
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Eventual-consistency"
+
+\end_inset
+
+) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CouchDBConsistency"
@@ -424,10 +471,84 @@ key "CouchDBConsistency"
 .
 \end_layout
 
+\begin_layout Itemize
+It is like a Pub/Sub (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+) since you can subscribe only to the 
+\begin_inset Quotes fld
+\end_inset
+
+documents level
+\begin_inset Quotes frd
+\end_inset
+
+ (that act like 
+\begin_inset Quotes fld
+\end_inset
+
+channels
+\begin_inset Quotes frd
+\end_inset
+
+), not to JSON structure 
+\begin_inset Quotes fld
+\end_inset
+
+paths
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBChanges"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Simple user management 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbSecurity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Reliable storage.
+ 
+\series bold
+TODO
+\end_layout
+
 \begin_layout Standard
-These feature allow to interface to it in an efficient and realtime way.
+These feature allow to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsRealtime"
+
+\end_inset
+
+interface to it in an efficient and realtime way.
  The only negative aspect of CouchDB is that has a lower query expressiveness
- power (for exaple there is no SQL 
+ power (for example there is no SQL 
 \begin_inset Quotes fld
 \end_inset
 
@@ -443,6 +564,192 @@ key "MongoDB"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Paragraph
+Gun.js
+\end_layout
+
+\begin_layout Standard
+Gun.js 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://gun.js.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is full stack 
+\begin_inset Quotes fld
+\end_inset
+
+realtime database
+\begin_inset Quotes frd
+\end_inset
+
+ implemented in javascript.
+ It doesn't use any already implemented software, but everything is ad hoc
+ implemented.
+ For that reason, for some features and for the fact that is implemented
+ in javascript (advantages are explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
+
+\end_inset
+
+) it is useful test it as shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The main characteristics are:
+\end_layout
+
+\begin_layout Itemize
+JSON path support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsData"
+
+\end_inset
+
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+No centralized structure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsDistributed"
+
+\end_inset
+
+, there is no a central server required, any client can be a server, so
+ it is 
+\begin_inset Quotes fld
+\end_inset
+
+peer to peer
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "P2P"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+AP
+\begin_inset Quotes frd
+\end_inset
+
+ (partitioning and availability) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsCAP"
+
+\end_inset
+
+, for that topic it is like 
+\begin_inset Quotes fld
+\end_inset
+
+Couchdb
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:CouchDB"
+
+\end_inset
+
+) except for the 
+\begin_inset Quotes fld
+\end_inset
+
+no centralized
+\begin_inset Quotes frd
+\end_inset
+
+ structure.
+\end_layout
+
+\begin_layout Itemize
+Realtime sync using websocket , the idea beyond websocket is explained in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:WebSocket"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Graph support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsGraphs"
+
+\end_inset
+
+, the ability to explicitly link document together.
+ Of course in any NoSQL database a link can be done in a manual way using
+ a sort of 
+\begin_inset Quotes fld
+\end_inset
+
+ID
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+auth
+\end_layout
+
+\begin_layout Itemize
+Reliable storage S3
 \end_layout
 
 \begin_layout Paragraph
@@ -552,10 +859,6 @@ http://deployd.com/
 
 \begin_layout Standard
 hood.ie
-\end_layout
-
-\begin_layout Standard
-https://www.backand.com/
 \end_layout
 
 \begin_layout Standard
@@ -1245,8 +1548,8 @@ key "OptimisticUI"
 The ability to update the local database (and consequentially the user interface
 ) eve if there are network delays or the network is down.
  So the developer can call all methods on the db, seeing the effect, even
- if there is no connection; of course some server constraints/modification
- are applied when the network come back up.
+ if there is no connection (often called offline mode); of course some server
+ constraints/modification are applied when the network come back up.
 \end_layout
 
 \begin_layout Subsection
