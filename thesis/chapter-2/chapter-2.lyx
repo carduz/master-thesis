@@ -251,7 +251,8 @@ reference "chap:technologies"
  
 \series bold
 Search schoolar for main databases.
- searhc statistics
+ searhc statistics, data classes http://developer.couchbase.com/documentation/mobi
+le/1.3/develop/guides/modeling/basics/index.html, see also firebase
 \end_layout
 
 \begin_layout Subsection
