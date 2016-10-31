@@ -25,3 +25,4 @@
 * cite wiki for mOssington definitions 
 * in tradign example the clint has to subscribe to multiple rows
 * define asycn task
+* explain promises
