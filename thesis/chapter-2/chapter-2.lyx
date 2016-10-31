@@ -223,7 +223,7 @@ reference "chap:Performance-Evaluation"
 \series bold
 //TODO classic approach technology
 \series default
-, redis (pub/sub, quqeue and replication),
+, redis (pub/sub, quqeue and replication), QUEUE generlal like sqs (also in stae of art?),
 \series bold
 , salesforce example, firebase client server less with db on the client
  (also login), serverless chap, 
