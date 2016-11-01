@@ -565,7 +565,7 @@ PouchDB
 \end_layout
 
 \begin_layout Standard
-PuchDB
+PuchDB 
 \begin_inset Foot
 status open
 
@@ -617,7 +617,7 @@ CouchDB
 \end_layout
 
 \begin_layout Standard
-CouchDB
+CouchDB 
 \begin_inset Foot
 status open
 
@@ -1085,7 +1085,7 @@ MemSQL
 \end_layout
 
 \begin_layout Standard
-MemSQL
+MemSQL 
 \begin_inset Foot
 status open
 
@@ -1116,7 +1116,7 @@ Meteor
 \end_layout
 
 \begin_layout Standard
-Meteor
+Meteor 
 \begin_inset Foot
 status open
 
@@ -1279,7 +1279,7 @@ Firebase
 \end_layout
 
 \begin_layout Standard
-Firebase
+Firebase 
 \begin_inset Foot
 status open
 
