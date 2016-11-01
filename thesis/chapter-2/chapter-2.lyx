@@ -272,12 +272,8 @@ le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
  data in JSON instead of relational, partitioning of classic databases,
  pipelinedb, streaming databases differences, no query support and advantages,
  define realtiem application and realtime database, couchbase map reduce,
- versioning of config issue, SQL
-\end_layout
-
-\begin_layout Standard
-http://developer.couchbase.com/documentation/mobile/1.1.0/get-started/sync-gateway-o
-verview/index.html
+ versioning of config issue, SQL, asycn GET/PUT, async in state of art,
+ mongodb or not in couchbase N1QL?
 \end_layout
 
 \begin_layout Subsection
@@ -364,7 +360,8 @@ status open
 
 \begin_layout Plain Layout
 
-http://www.couchbase.com/nosql-databases/couchbase-mobile
+http://developer.couchbase.com/documentation/mobile/1.1.0/get-started/sync-gateway-o
+verview/index.html
 \end_layout
 
 \end_inset
@@ -454,6 +451,102 @@ key "CouchbaseWebsocket"
 .
 \end_layout
 
+\begin_layout Itemize
+It is like a Pub/Sub (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+) since you can subscribe only to the 
+\begin_inset Quotes fld
+\end_inset
+
+documents level
+\begin_inset Quotes frd
+\end_inset
+
+ (that act like 
+\begin_inset Quotes fld
+\end_inset
+
+channels
+\begin_inset Quotes frd
+\end_inset
+
+), not to JSON structure 
+\begin_inset Quotes fld
+\end_inset
+
+paths
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBChanges"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+User management 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseUsers"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Powerful cluster configuration 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseCluster"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Full text search 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseFullText"
+
+\end_inset
+
+: 
+\begin_inset Quotes fld
+\end_inset
+
+Fulltext allows you to search and find what you're looking for even without
+ exact matches.
+ Just like the LIKE keyword in SQL? Not really.
+ It's something else.
+ LIKE allow the use of wildcards, which is quite different.[...] This means
+ it's case insensitive, it can ignore unimportant words like 'is' (stop
+ word is the technical term), and is tolerant to mistakes like typos.
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 On listing 
 \begin_inset CommandInset ref
@@ -465,14 +558,6 @@ reference "lis:SyncGateway-configuration"
  you will find the configuration used for syncGateway, the configuration
  for couchbase is trivial and depends on the environment that you want (nodes,
  RAM and so on).
-\end_layout
-
-\begin_layout Standard
-TODO cite
-\end_layout
-
-\begin_layout Standard
-full text, query, vs mongodb
 \end_layout
 
 \begin_layout Paragraph
@@ -736,7 +821,15 @@ join
 \begin_inset Quotes frd
 \end_inset
 
- equivalent) than other NoSQL databases like MongoDB 
+ equivalent) than other NoSQL databases like 
+\begin_inset Quotes fld
+\end_inset
+
+MongoDB
+\begin_inset Quotes frd
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MongoDB"
@@ -819,7 +912,7 @@ reference "subsec:JSON"
 
 \end_inset
 
-.
+, for change events and for direct retrieve.
 \end_layout
 
 \begin_layout Itemize
