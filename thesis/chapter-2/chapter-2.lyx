@@ -107,6 +107,17 @@ reference "chap:Performance-Evaluation"
 .
 \end_layout
 
+\begin_layout Standard
+On appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "app:Technologies-configurations-and"
+
+\end_inset
+
+ you will find the configurations and examples of the technologies used.
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -223,7 +234,8 @@ reference "chap:Performance-Evaluation"
 \series bold
 //TODO classic approach technology
 \series default
-, redis (pub/sub, quqeue and replication), QUEUE generlal like sqs (also in stae of art?),
+, redis (pub/sub, quqeue and replication), QUEUE generlal like sqs (also
+ in stae of art?),
 \series bold
 , salesforce example, firebase client server less with db on the client
  (also login), serverless chap, 
@@ -253,7 +265,19 @@ reference "chap:technologies"
 Search schoolar for main databases.
  searhc statistics, data classes http://developer.couchbase.com/documentation/mobi
 le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
- firenbase external itnegrations
+ firenbase external itnegrations.
+ mongodb realtiem databases, key-value vs JSON difference (here and in state
+ of art).
+ appendix with confgiurations and get data examples, advantages of store
+ data in JSON instead of relational, partitioning of classic databases,
+ pipelinedb, streaming databases differences, no query support and advantages,
+ define realtiem application and realtime database, couchbase map reduce,
+ versioning of config issue, SQL
+\end_layout
+
+\begin_layout Standard
+http://developer.couchbase.com/documentation/mobile/1.1.0/get-started/sync-gateway-o
+verview/index.html
 \end_layout
 
 \begin_layout Subsection
@@ -299,6 +323,148 @@ We will not test all the systems described below but only those which are
 
 \begin_layout Paragraph
 CouchBase
+\end_layout
+
+\begin_layout Standard
+CouchBase 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://couchbase.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a NoSQL database with realtime extension called 
+\begin_inset Quotes fld
+\end_inset
+
+syncGateway
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.couchbase.com/nosql-databases/couchbase-mobile
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (every action must be done passing by this gateway).
+ It is one of the most famous open source system, for that reason we tested
+ it in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The main characteristics of syncGateway + couchbase are:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+N1QL
+\begin_inset Quotes frd
+\end_inset
+
+: a super set of 
+\begin_inset Quotes fld
+\end_inset
+
+SQL
+\begin_inset Quotes frd
+\end_inset
+
+ to query JSON 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseN1QL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+CP
+\begin_inset Quotes frd
+\end_inset
+
+ (partitioning and consistency) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseCAP"
+
+\end_inset
+
+ 
+\series bold
+TODO
+\end_layout
+
+\begin_layout Itemize
+Websocket and all ways explained in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-HTTP-Application"
+
+\end_inset
+
+ to receive events 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseWebsocket"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:SyncGateway-configuration"
+
+\end_inset
+
+ you will find the configuration used for syncGateway, the configuration
+ for couchbase is trivial and depends on the environment that you want (nodes,
+ RAM and so on).
 \end_layout
 
 \begin_layout Standard

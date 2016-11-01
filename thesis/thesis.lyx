@@ -873,10 +873,10 @@ options "bibtotoc,plain"
 
 \begin_layout Chapter
 \start_of_appendix
-First appendix
+Technologies configurations and examples
 \begin_inset CommandInset label
 LatexCommand label
-name "app:first-appendix"
+name "app:Technologies-configurations-and"
 
 \end_inset
 
