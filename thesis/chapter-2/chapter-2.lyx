@@ -273,7 +273,7 @@ le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
  pipelinedb, streaming databases differences, no query support and advantages,
  define realtiem application and realtime database, couchbase map reduce,
  versioning of config issue, SQL, asycn GET/PUT, async in state of art,
- mongodb or not in couchbase N1QL?
+ mongodb or not in couchbase N1QL?, examples in in appendix
 \end_layout
 
 \begin_layout Subsection
