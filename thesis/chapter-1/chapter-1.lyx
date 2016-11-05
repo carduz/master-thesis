@@ -1781,18 +1781,54 @@ key "HDFS"
 .
  So a chunk of data is replicated some times but it is not present in all
  nodes.
+ A group of nodes is called 
+\begin_inset Quotes fld
+\end_inset
+
+cluster
+\begin_inset Quotes frd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-To elaborate the data in a distributed environment one simple, powerfull
- and commmonly programming model is: MapReduce (shortly explained in 
+To elaborate the data in a distributed environment one simple, powerful
+ and commonly programming model is: MapReduce (shortly explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:MapReduce"
 
 \end_inset
 
-)
+).
+\end_layout
+
+\begin_layout Standard
+The two main pattern to structure an architecture are: 
+\begin_inset Quotes fld
+\end_inset
+
+multi master
+\begin_inset Quotes frd
+\end_inset
+
+ and 
+\begin_inset Quotes fld
+\end_inset
+
+master-salves
+\begin_inset Quotes frd
+\end_inset
+
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1825,7 +1861,22 @@ Distribution
 The distribution is the replication of the infrastructure among different
  nodes, each node do the same thing.
  It is not a so easy concept, in fact there is the synchronization problem
- (formally know as consistency) 
+ (formally know as consistency as shown by the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAP"
@@ -1897,6 +1948,105 @@ Map: fitering and sorting data
 
 \begin_layout Enumerate
 Reduce: summary operations
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+Multi Master & Master-Slaves
+\end_layout
+
+\begin_layout Paragraph
+Multi Master
+\end_layout
+
+\begin_layout Standard
+All data can be written in every node of the cluster that replicates them
+ to other nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MultiMasterReplication"
+
+\end_inset
+
+.
+ Of course in this kind of architecture there can be issues due to the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Master-Slaves
+\end_layout
+
+\begin_layout Standard
+All data are written in one node that replicates them to the other that
+ can be used only in 
+\begin_inset Quotes fld
+\end_inset
+
+read only mode
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MasterSlaveReplication"
+
+\end_inset
+
+.
+ Of course in this kind of architecture there are less issues than all issues
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution"
+
+\end_inset
+
+.
+ There can be still issues due to 
+\begin_inset Quotes fld
+\end_inset
+
+Availability
+\begin_inset Quotes frd
+\end_inset
+
+ as explained by the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection

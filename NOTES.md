@@ -27,3 +27,4 @@
 * define asycn task
 * explain promises
 * map-reduce
+* trading slaves like db slaves

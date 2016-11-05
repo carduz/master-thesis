@@ -273,7 +273,7 @@ le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
  pipelinedb, streaming databases differences, no query support and advantages,
  define realtiem application and realtime database, SQL, asycn GET/PUT in
  js, mongodb or not in couchbase N1QL?, examples in in appendix, data granulaty,
- zapier, https://en.wikipedia.org/wiki/Multitenancy
+ zapier, https://en.wikipedia.org/wiki/Multitenancy, master/slave in realtime
 \end_layout
 
 \begin_layout Subsection
@@ -2356,9 +2356,37 @@ reference "fig:-Database-triangle"
 
 , i.e.
  they don't support a partition of the data in efficient way.
- 
+\end_layout
+
+\begin_layout Standard
+The data can be partitioned
 \series bold
-TODO SCHOLAR PARTITION
+ TODO SCHOLAR PARTITION.
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+But, at the same time, like some realtime databases systems the structure
+ can be a 
+\begin_inset Quotes fld
+\end_inset
+
+master-master
+\begin_inset Quotes frd
+\end_inset
+
+ or 
+\begin_inset Quotes fld
+\end_inset
+
+master-slaves
+\begin_inset Quotes frd
+\end_inset
+
+.
+\series bold
+TODO
 \end_layout
 
 \begin_layout Section
