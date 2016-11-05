@@ -1621,7 +1621,7 @@ key-value
 \begin_inset Quotes frd
 \end_inset
 
- 
+, where the value can be a JSON document 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL"
