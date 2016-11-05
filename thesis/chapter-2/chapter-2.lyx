@@ -549,7 +549,7 @@ Fulltext allows you to search and find what you're looking for even without
 \end_layout
 
 \begin_layout Itemize
-MapReduce based 
+MapReduce support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CouchbaseMapReduce"
@@ -816,6 +816,24 @@ Simple user management
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CouchdbSecurity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+MapReduce support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbMapReduce"
+
+\end_inset
+
+: MapReduce is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MapReduce"
 
 \end_inset
 
