@@ -1571,7 +1571,15 @@ updated
 \end_layout
 
 \begin_layout Standard
-We see better what means subscribe to a specif 
+We see better what means 
+\begin_inset Quotes fld
+\end_inset
+
+subscribe
+\begin_inset Quotes frd
+\end_inset
+
+ to a specif 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1583,6 +1591,33 @@ path
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Client-best-practices"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If the the 
+\begin_inset Quotes fld
+\end_inset
+
+subscription
+\begin_inset Quotes frd
+\end_inset
+
+ is just to one level of the structure, the system is called 
+\begin_inset Quotes fld
+\end_inset
+
+key-value
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
 
 \end_inset
 
@@ -1741,6 +1776,18 @@ key "HDFS"
  nodes.
 \end_layout
 
+\begin_layout Standard
+To elaborate the data in a distributed environment one simple, powerfull
+ and commmonly programming model is: MapReduce (shortly explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MapReduce"
+
+\end_inset
+
+)
+\end_layout
+
 \begin_layout Subsubsection
 Partitioning
 \end_layout
@@ -1812,6 +1859,37 @@ key "NoSQL"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:MapReduce"
+
+\end_inset
+
+MapReduce
+\end_layout
+
+\begin_layout Standard
+MapReduce is a programming model where the data are split among different
+ nodes and are elaborated by different nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MapReduce"
+
+\end_inset
+
+.
+ It is composed by two main actions:
+\end_layout
+
+\begin_layout Enumerate
+Map: fitering and sorting data
+\end_layout
+
+\begin_layout Enumerate
+Reduce: summary operations
 \end_layout
 
 \begin_layout Subsection
