@@ -205,7 +205,14 @@ We will see the evolution of the HTTP that allow to create a real realtime
  application.
  The core of the issue is the HTTP handshake, in fact we need to have asynchrono
 us requests, i.e.
- the server should be able to send messages to client at any time.
+ the server should be able to send messages to client at any time 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SyncAsync"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -580,7 +587,7 @@ reference "fig:Websocket-with-server"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
