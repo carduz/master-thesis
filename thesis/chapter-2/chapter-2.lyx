@@ -273,7 +273,8 @@ le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
  pipelinedb, streaming databases differences, no query support and advantages,
  define realtiem application and realtime database, SQL, asycn GET/PUT in
  js, mongodb or not in couchbase N1QL?, examples in in appendix, data granulaty,
- zapier, https://en.wikipedia.org/wiki/Multitenancy, master/slave in realtime
+ zapier, https://en.wikipedia.org/wiki/Multitenancy, master/slave in realtime,
+ document based
 \end_layout
 
 \begin_layout Subsection
@@ -565,6 +566,31 @@ reference "subsec:MapReduce"
 .
 \end_layout
 
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+master-slave
+\begin_inset Quotes frd
+\end_inset
+
+ replication support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchBaseReplication"
+
+\end_inset
+
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 On listing 
 \begin_inset CommandInset ref
@@ -839,6 +865,31 @@ reference "subsec:MapReduce"
 .
 \end_layout
 
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+multi master
+\begin_inset Quotes frd
+\end_inset
+
+ replication support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbReplication"
+
+\end_inset
+
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 These feature allow to 
 \begin_inset CommandInset citation
@@ -984,7 +1035,22 @@ key "P2P"
 \end_inset
 
 .
- 
+ So the replication is 
+\begin_inset Quotes fld
+\end_inset
+
+multi master
+\begin_inset Quotes frd
+\end_inset
+
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -2058,7 +2124,7 @@ MapReduce
 \begin_layout Plain Layout
 
 \series bold
-Parameter four
+Replication
 \end_layout
 
 \end_inset
@@ -2372,7 +2438,7 @@ But, at the same time, like some realtime databases systems the structure
 \begin_inset Quotes fld
 \end_inset
 
-master-master
+multi master
 \begin_inset Quotes frd
 \end_inset
 
@@ -2384,9 +2450,16 @@ master-slaves
 \begin_inset Quotes frd
 \end_inset
 
+, the details of these kind of structure are explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
 .
 \series bold
-TODO
+TODO bib
 \end_layout
 
 \begin_layout Section
