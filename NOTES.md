@@ -28,3 +28,4 @@
 * explain promises
 * map-reduce
 * trading slaves like db slaves
+* compelx queries are ot object of the study

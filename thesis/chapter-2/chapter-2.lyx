@@ -2597,6 +2597,25 @@ TODO bib
 Publish/Subscribe
 \end_layout
 
+\begin_layout Standard
+Redis 
+\end_layout
+
+\begin_layout Standard
+https://blog.heroku.com/javascript_in_your_postgres
+\end_layout
+
+\begin_layout Standard
+aaa 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Websocket Server
 \end_layout
@@ -2868,7 +2887,7 @@ reference "subsec:RESTful-Approach"
 
 \end_inset
 
-,), we have also to create a local databases (explained in 
+), we have also to create a local databases (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Local-database"
@@ -2876,6 +2895,17 @@ reference "subsec:Local-database"
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Standard
+The Client framework is like the server one shown in listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Socket.io-customization"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
