@@ -2491,7 +2491,7 @@ Client framework/libraries: to communicate to the server (cluster).
 \end_layout
 
 \begin_layout Standard
-We try to use javascript where it is possible for the same reason explained
+We tried to use javascript where it is possible for the same reason explained
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2728,6 +2728,35 @@ key "SocketIOUsers"
 
 \end_layout
 
+\begin_layout Standard
+Of course to simply the architecture we will use the websocket server for
+ 
+\begin_inset Quotes fld
+\end_inset
+
+synchronous requests
+\begin_inset Quotes frd
+\end_inset
+
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful-Approach"
+
+\end_inset
+
+, instead of implement a RESTful server this because only 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ retrieve is the object of our study.
+ Of course to handle these request we have to write custom logic.
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
@@ -2804,6 +2833,49 @@ socket.on('chat message', function(msg){
 
 \begin_layout Subsection
 Client framework
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ has implemented a simple client framework, with the channel support, it
+ is a event driven implementation explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+.
+ Of course we have to define 
+\begin_inset Quotes fld
+\end_inset
+
+REST actions
+\begin_inset Quotes frd
+\end_inset
+
+ and libraries to do them in a custom way (the approach is explained in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful-Approach"
+
+\end_inset
+
+,), we have also to create a local databases (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Section
