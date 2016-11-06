@@ -1095,7 +1095,7 @@ no centralized
 \end_layout
 
 \begin_layout Itemize
-Realtime sync using websocket , the idea beyond websocket is explained in
+Realtime sync using websocket, the idea beyond websocket is explained in
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1329,6 +1329,12 @@ https://www.compose.com/
 
 \begin_layout Standard
 http://www.couchbase.com/couchbase-vs-couchdb
+\end_layout
+
+\begin_layout Standard
+https://github.com/sysunite/gun-server 
+\series bold
+IMP
 \end_layout
 
 \begin_layout Standard
@@ -2066,9 +2072,12 @@ linewidth}{!}{
 
 
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="5">
+<lyxtabular version="3" rows="4" columns="8">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2129,6 +2138,39 @@ Replication
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+User management
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Communication
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Data level subscription
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
@@ -2155,10 +2197,7 @@ CP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $2$
-\end_inset
-
-
+Partial
 \end_layout
 
 \end_inset
@@ -2167,10 +2206,7 @@ CP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $3$
-\end_inset
-
-
+Yes
 \end_layout
 
 \end_inset
@@ -2179,10 +2215,34 @@ CP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $4$
+Master slave
+\end_layout
+
 \end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
 
+\begin_layout Plain Layout
+Yes
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+All
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Key-value
 \end_layout
 
 \end_inset
@@ -2213,7 +2273,7 @@ AP
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Full
 \end_layout
 
 \end_inset
@@ -2222,7 +2282,7 @@ AP
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+Yes
 \end_layout
 
 \end_inset
@@ -2231,7 +2291,34 @@ AP
 \begin_inset Text
 
 \begin_layout Plain Layout
+Multi master
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Yes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Long polling
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Key-value
 \end_layout
 
 \end_inset
@@ -2262,10 +2349,7 @@ AP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $7$
-\end_inset
-
-
+Full
 \end_layout
 
 \end_inset
@@ -2274,10 +2358,7 @@ AP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $9$
-\end_inset
-
-
+No
 \end_layout
 
 \end_inset
@@ -2286,10 +2367,34 @@ AP
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $11$
+Multi master
+\end_layout
+
 \end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
 
+\begin_layout Plain Layout
+Yes
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Websocket
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Full
 \end_layout
 
 \end_inset
