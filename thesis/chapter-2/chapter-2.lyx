@@ -1567,6 +1567,12 @@ key "Socketio"
 //TODO other cloud advantages
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO remove socket io cite and make reference to the below section
+\end_layout
+
 \begin_layout Paragraph
 backand
 \end_layout
@@ -2438,7 +2444,7 @@ Since the traditional technologies are not the topic of the thesis but are
  need only to compare the performance of realtime databases, we will shortly
  describe just one solution.
  One of the best solution, it is chosen using knowledges from the literature
- using opensource and widespread technlogies.
+ using opensource and widespread technologies.
 \end_layout
 
 \begin_layout Standard
@@ -2454,7 +2460,15 @@ RDBMS database: that must be scalable among nodes and trigger support to
 \end_layout
 
 \begin_layout Itemize
-Publish/Subscribe system: to publish notification of changes.
+Publish/Subscribe system: to publish notification of changes as explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -2477,6 +2491,18 @@ Client framework/libraries: to communicate to the server (cluster).
 \end_layout
 
 \begin_layout Standard
+We try to use javascript where it is possible for the same reason explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 On appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2484,7 +2510,7 @@ reference "app:Technologies-configurations-and"
 
 \end_inset
 
- the configuration of the technologies used are shown.
+ the configurations and codes of the technologies used are shown.
  In fact, while the realtime database implements the full stack in an easy
  way, here we have to use different technologies and configure them to communica
 te each other in efficient way.
@@ -2565,6 +2591,219 @@ reference "subsec:Multi-Master-&-Master-Slaves"
 .
 \series bold
 TODO bib
+\end_layout
+
+\begin_layout Subsection
+Publish/Subscribe
+\end_layout
+
+\begin_layout Subsection
+Websocket Server
+\end_layout
+
+\begin_layout Standard
+One of the most famous websocket server, written in javascript, is 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://socket.io/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ It is built on top of 
+\begin_inset Quotes fld
+\end_inset
+
+engine.io
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/socketio/engine.io
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ that is like the transportation level in the ISO/OSI stack, it is very
+ efficient but it is only websocket implementation.
+ As we will see 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ has a lot of integrations and native implementation hat make it the best
+ choice for our test.
+ Furthermore it is the best open source websocket server 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebsocketServersComparison"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will use 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ for the following features:
+\end_layout
+
+\begin_layout Itemize
+Channels (publish/subscribe) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOChannels"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Redis integration to create websocket cluster 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIORedis"
+
+\end_inset
+
+
+\series bold
+ TODO check if ti is needed
+\end_layout
+
+\begin_layout Itemize
+user/session support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOUsers"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Custom Logic
+\end_layout
+
+\begin_layout Standard
+Since the websocket server is written in javascript it is easy to customize
+ it.
+ This can be very useful if we want, for example, customize the user management
+ using an api key system.
+ The customization is very easy since everything is done via callbacks,
+ on listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Socket.io-customization"
+
+\end_inset
+
+ a simple customization for a channel is shown: when a message on the channel
+ 
+\begin_inset Quotes fld
+\end_inset
+
+chat message
+\begin_inset Quotes frd
+\end_inset
+
+ is received the message reversed is retransmitted in the same channel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Socket.io-customization"
+
+\end_inset
+
+Socket.io customization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.on('chat message', function(msg){
+\end_layout
+
+\begin_layout Plain Layout
+
+    io.emit('chat message', msg.split('').reverse().join(''));
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Client framework
 \end_layout
 
 \begin_layout Section
