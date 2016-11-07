@@ -2598,6 +2598,34 @@ Publish/Subscribe
 \end_layout
 
 \begin_layout Standard
+As we will see on the proper section (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Websocket-Server"
+
+\end_inset
+
+) the websocket server implements publish/subscribe, so a publish/subscribe
+ system is not required for this purpose.
+ However 
+\begin_inset Quotes fld
+\end_inset
+
+redis
+\begin_inset Quotes frd
+\end_inset
+
+, that is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Redis"
+
+\end_inset
+
+, can be used as publish/subscribe.
+\end_layout
+
+\begin_layout Standard
 Redis 
 \end_layout
 
@@ -2617,6 +2645,12 @@ key "CAPNoSQL"
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Websocket-Server"
+
+\end_inset
+
 Websocket Server
 \end_layout
 
@@ -2733,7 +2767,18 @@ key "SocketIORedis"
 
 
 \series bold
- TODO check if ti is needed
+ 
+\series default
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Redis"
+
+\end_inset
+
+.
+\series bold
+TODO check if ti is needed
 \end_layout
 
 \begin_layout Itemize
@@ -2774,6 +2819,16 @@ realtime
 
  retrieve is the object of our study.
  Of course to handle these request we have to write custom logic.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Redis"
+
+\end_inset
+
+Redis
 \end_layout
 
 \begin_layout Subsection
