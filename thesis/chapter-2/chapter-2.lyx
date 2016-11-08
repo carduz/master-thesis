@@ -2960,6 +2960,12 @@ key "RedisReplication,RedisLock"
 DISTRIBUTION, CAP
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+ADVANTAGES for us
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
