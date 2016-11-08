@@ -2966,6 +2966,12 @@ DISTRIBUTION, CAP
 ADVANTAGES for us
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO reference to redis here and above
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
