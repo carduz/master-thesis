@@ -274,7 +274,16 @@ le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
  define realtiem application and realtime database, SQL, asycn GET/PUT in
  js, mongodb or not in couchbase N1QL?, examples in in appendix, data granulaty,
  zapier, https://en.wikipedia.org/wiki/Multitenancy, master/slave in realtime,
- document based
+ document based.
+ Use 
+\begin_inset Quotes fld
+\end_inset
+
+survey on nosql
+\begin_inset Quotes frd
+\end_inset
+
+ as reference for nosql databases, define in memory
 \end_layout
 
 \begin_layout Subsection
@@ -2829,6 +2838,126 @@ name "subsec:Redis"
 \end_inset
 
 Redis
+\end_layout
+
+\begin_layout Standard
+Redis 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://redis.io/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a key-value storage in memory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+, the data can be written to the disk every a fixed amount of time.
+ It allows to do a lot of different things:
+\end_layout
+
+\begin_layout Itemize
+Cache system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisCache"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Publish/subscribe system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisPUBSUB"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Queue system, using lists 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisQueue,RedisDataTypes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the following features:
+\end_layout
+
+\begin_layout Itemize
+Data partitioning support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisPartitioning"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Everything (image, text, json and so on) can be insert as the 
+\begin_inset Quotes fld
+\end_inset
+
+value
+\begin_inset Quotes frd
+\end_inset
+
+ (key-value storage), with high storage limit (512 megabyte per value) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisDataTypes"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+TOODO CAP and multi master 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisReplication,RedisLock"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+DISTRIBUTION, CAP
 \end_layout
 
 \begin_layout Subsection

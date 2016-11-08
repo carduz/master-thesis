@@ -1269,7 +1269,14 @@ documents
 \begin_inset Quotes frd
 \end_inset
 
- not tables.
+ not tables 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+.
  Each document is a something that can contains data in JSON format, file
  or other things.
 \end_layout
@@ -1613,7 +1620,7 @@ subscription
 \begin_inset Quotes frd
 \end_inset
 
- is just to one level of the structure, the system is called 
+ is just to one level of the structure, the system is so called 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1621,7 +1628,15 @@ key-value
 \begin_inset Quotes frd
 \end_inset
 
-, where the value can be a JSON document 
+ not 
+\begin_inset Quotes fld
+\end_inset
+
+document
+\begin_inset Quotes frd
+\end_inset
+
+ based, where the value can be also a JSON document 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL"
