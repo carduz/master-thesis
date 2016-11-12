@@ -3112,5 +3112,17 @@ Ideas:
 versioning of config issue,
 \end_layout
 
+\begin_layout Itemize
+pub sub is event based
+\end_layout
+
+\begin_layout Itemize
+promises
+\end_layout
+
+\begin_layout Itemize
+event dispacher in pubsub
+\end_layout
+
 \end_body
 \end_document
