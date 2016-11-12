@@ -3124,5 +3124,9 @@ promises
 event dispacher in pubsub
 \end_layout
 
+\begin_layout Itemize
+shuffle phase in mapreduce
+\end_layout
+
 \end_body
 \end_document
