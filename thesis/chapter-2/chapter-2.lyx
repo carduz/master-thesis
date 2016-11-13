@@ -3128,5 +3128,9 @@ event dispacher in pubsub
 shuffle phase in mapreduce
 \end_layout
 
+\begin_layout Itemize
+explain ACID better
+\end_layout
+
 \end_body
 \end_document
