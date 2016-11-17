@@ -3129,7 +3129,7 @@ shuffle phase in mapreduce
 \end_layout
 
 \begin_layout Itemize
-explain ACID better, https://www.npmjs.com/package/level-hyper
+explain ACID better, https://www.npmjs.com/package/level-hyper, websocket cluster is needed also when #read >> #writes
 \end_layout
 
 \end_body
