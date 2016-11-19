@@ -3138,5 +3138,9 @@ explain ACID better, https://www.npmjs.com/package/level-hyper, websocket
 pub/sub: content or sub? hierarchy or distributed? search scholar and motivate
 \end_layout
 
+\begin_layout Itemize
+differences with a streaming db
+\end_layout
+
 \end_body
 \end_document
