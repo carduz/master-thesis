@@ -1,0 +1,4 @@
+CREATE or REPLACE FUNCTION test(text) RETURNS text AS '
+#!/bin/bash
+redis-cli -h 192.168.3.89 RPUSH mylist $1
+' LANGUAGE plsh;

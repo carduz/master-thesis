@@ -2972,6 +2972,12 @@ ADVANTAGES for us
 TODO reference to redis here and above
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO authentication
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
@@ -3140,6 +3146,32 @@ pub/sub: content or sub? hierarchy or distributed? search scholar and motivate
 
 \begin_layout Itemize
 differences with a streaming db
+\end_layout
+
+\begin_layout Itemize
+secuirty problems that can be soolved using a VPN
+\end_layout
+
+\begin_layout Itemize
+this is not the only cofngiruation posisible, but it is the most singiificative
+ for our topic in fact we tried also to use the same languages
+\end_layout
+
+\begin_layout Itemize
+redis as queue
+\end_layout
+
+\begin_layout Itemize
+script to install the entire env with vagrant (explain it)
+\end_layout
+
+\begin_layout Itemize
+trigger async
+\end_layout
+
+\begin_layout Itemize
+type of consistency with queue -> casual consistency (describe it in the
+ state of art)
 \end_layout
 
 \end_body
