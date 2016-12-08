@@ -2996,6 +2996,12 @@ data retrieve via lib, replication, id subscribe
 put data socket or rest? rest but not implemented
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+scoekt io emitter??
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
@@ -3190,6 +3196,10 @@ trigger async
 \begin_layout Itemize
 type of consistency with queue -> casual consistency (describe it in the
  state of art)
+\end_layout
+
+\begin_layout Itemize
+dependencies for all configurations (also nosql)
 \end_layout
 
 \end_body
