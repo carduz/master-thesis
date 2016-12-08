@@ -3025,6 +3025,7 @@ rooms
 
 \series bold
 room is efficient http://socket.io/docs/rooms-and-namespaces/#default-room
+ a lot of rooms, find other things
 \end_layout
 
 \begin_layout Subsection
