@@ -3028,6 +3028,12 @@ room is efficient http://socket.io/docs/rooms-and-namespaces/#default-room
  a lot of rooms, find other things
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+security: i cannot read other rooms, i cannot write other rooms
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
