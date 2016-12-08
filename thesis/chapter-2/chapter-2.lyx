@@ -3002,6 +3002,12 @@ put data socket or rest? rest but not implemented
 scoekt io emitter??
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+reference for pub/sub is not correct, they are namspace not pub/sub
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
