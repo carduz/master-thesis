@@ -3009,8 +3009,22 @@ reference for pub/sub is not correct, they are namspace not pub/sub
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 with namespaces and rooms it is a complex key value (with limited levels
  but cusotomizable)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+rooms
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+room is efficient http://socket.io/docs/rooms-and-namespaces/#default-room
 \end_layout
 
 \begin_layout Subsection
