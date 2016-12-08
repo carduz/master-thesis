@@ -3278,5 +3278,11 @@ msgpack schoolar
 persistance: if the server die, problem for both types of approaches
 \end_layout
 
+\begin_layout Itemize
+for the next chapter: I can use this in app lication like chat where reads
+ = writes (for private chats) or in case where reads >> writes.
+ Prove that for writes >> reads this is not a good idea.
+\end_layout
+
 \end_body
 \end_document
