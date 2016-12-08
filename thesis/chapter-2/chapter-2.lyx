@@ -3047,6 +3047,13 @@ explain different socket io libraries
 https://github.com/socketio/socket.io-protocol
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+https://github.com/socketio/socket.io-p2p can be useful considering the realtime
+ cited before
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
