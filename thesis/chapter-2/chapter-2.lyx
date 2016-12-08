@@ -3025,7 +3025,8 @@ rooms
 
 \series bold
 room is efficient http://socket.io/docs/rooms-and-namespaces/#default-room
- a lot of rooms, find other things
+ a lot of rooms, find other things But this link is sueful to explain rooms
+ and how they are used here
 \end_layout
 
 \begin_layout Standard
