@@ -3207,5 +3207,9 @@ the key aspect of realtime database is also the ability to subscribe to
  specif paths and have unsturctured data
 \end_layout
 
+\begin_layout Itemize
+https://github.com/socketio/socket.io#namespace
+\end_layout
+
 \end_body
 \end_document
