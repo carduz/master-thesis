@@ -3061,6 +3061,12 @@ distributed, there is no a global vision of the network, like a p2p I don't
  know all clients connected
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+rooms equivalent in realtime tested
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
