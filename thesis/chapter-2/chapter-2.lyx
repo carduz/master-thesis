@@ -2978,6 +2978,24 @@ TODO reference to redis here and above
 TODO authentication
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Expressjs?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+data retrieve via lib, replication, id subscribe
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+put data socket or rest? rest but not implemented
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
