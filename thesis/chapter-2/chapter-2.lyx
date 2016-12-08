@@ -3054,6 +3054,13 @@ https://github.com/socketio/socket.io-p2p can be useful considering the realtime
  cited before
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+distributed, there is no a global vision of the network, like a p2p I don't
+ know all clients connected
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
@@ -3265,6 +3272,10 @@ https://github.com/socketio/socket.io#namespace
 
 \begin_layout Itemize
 msgpack schoolar
+\end_layout
+
+\begin_layout Itemize
+persistance: if the server die, problem for both types of approaches
 \end_layout
 
 \end_body
