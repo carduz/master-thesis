@@ -3305,5 +3305,9 @@ for the next chapter: I can use this in app lication like chat where reads
  Prove that for writes >> reads this is not a good idea.
 \end_layout
 
+\begin_layout Itemize
+app example https://docs.feathersjs.com/getting-started/readme.html
+\end_layout
+
 \end_body
 \end_document
