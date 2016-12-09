@@ -3086,6 +3086,12 @@ talk about rooms as feature then talk about it as an instrument to obtain
  (security middleware)
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+say that this is very cusotmizable stack
+\end_layout
+
 \begin_layout Subsection
 Custom Logic
 \end_layout
@@ -3311,6 +3317,11 @@ for the next chapter: I can use this in app lication like chat where reads
 
 \begin_layout Itemize
 app example https://docs.feathersjs.com/getting-started/readme.html
+\end_layout
+
+\begin_layout Itemize
+in the next chapter introduce the limitations (authentication and subscribe
+ level) and avantages (for example queries) of the different realtime databases
 \end_layout
 
 \end_body
