@@ -3324,5 +3324,9 @@ in the next chapter introduce the limitations (authentication and subscribe
  level) and avantages (for example queries) of the different realtime databases
 \end_layout
 
+\begin_layout Itemize
+talk about security at level data, fine grained security (search schoolar)
+\end_layout
+
 \end_body
 \end_document
