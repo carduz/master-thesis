@@ -1348,6 +1348,10 @@ http://www.couchbase.com/couchbase-vs-couchdb
 \end_layout
 
 \begin_layout Standard
+https://github.com/louischatriot/nedb
+\end_layout
+
+\begin_layout Standard
 https://github.com/sysunite/gun-server 
 \series bold
 IMP
