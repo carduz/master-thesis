@@ -122,7 +122,7 @@ SyncGateway configuration
 
 \begin_layout Plain Layout
 
-{   
+{
 \end_layout
 
 \begin_layout Plain Layout
@@ -223,14 +223,14 @@ Trigger on database
 On the following listing is shown a trigger to send the notification (it
  calls the postgresql NOTIFY command), the function is generic, so you can
  create all triggers that you want for all tables that you want.
- As said in 
+ As said in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Database"
 
 \end_inset
 
- this is inspired to an example found online 
+ this is inspired to an example found online
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PostgreNotifyListenExample"
@@ -443,6 +443,22 @@ Database Listener and Event Emitter
 \begin_layout Standard
 On the following listing is shown the nodejs task that listen the changes
  and send a notification to socket.io using redis.
+ As said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:traditional-Publish/Subscribe"
+
+\end_inset
+
+ and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Websocket-Server"
+
+\end_inset
+
+ the table name is used as namespace while the row id as room and finally
+ the event type as event.
 \end_layout
 
 \begin_layout Standard
@@ -472,7 +488,80 @@ Database listener
 
 \begin_layout Plain Layout
 
-...
+var pg = require ('pg');
+\end_layout
+
+\begin_layout Plain Layout
+
+var io = require('socket.io-emitter')({ host: '192.168.3.89', port: 6379 });
+\end_layout
+
+\begin_layout Plain Layout
+
+pg.connect("postgres://test:test@192.168.3.17/postgres", function(err, client)
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+    if(err) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        console.log(err);
+\end_layout
+
+\begin_layout Plain Layout
+
+        return ;
+\end_layout
+
+\begin_layout Plain Layout
+
+    }
+\end_layout
+
+\begin_layout Plain Layout
+
+    client.on('notification', function(msg) {
+\end_layout
+
+\begin_layout Plain Layout
+
+        if (msg.name === 'notification' && msg.channel === 'table_update')
+ {
+\end_layout
+
+\begin_layout Plain Layout
+
+            var pl = JSON.parse(msg.payload);
+\end_layout
+
+\begin_layout Plain Layout
+
+            io.of('/'+pl.table).to(pl.id).emit(pl.type.toLowerCase(), {old: pl.old,
+ new:pl.new});
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+    });
+\end_layout
+
+\begin_layout Plain Layout
+
+    client.query("LISTEN table_update");
+\end_layout
+
+\begin_layout Plain Layout
+
+});
 \end_layout
 
 \end_inset
@@ -493,7 +582,7 @@ Installers
 \begin_layout Standard
 Here are shown scripts to install different environments on different servers,
  each section means one server, for some things the server can be replicated.
- These scripts are tested to work with vagrant 
+ These scripts are tested to work with vagrant
 \begin_inset Foot
 status open
 

@@ -2990,6 +2990,14 @@ reference "subsec:Configurations"
 .
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO test if it is casual consistency, what happens if I send two update
+ in the meantime.
+ Is there a lock evne in the trigger?
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -3485,6 +3493,12 @@ postgree trigger on specific column as data level
 
 \series bold
 data granularity
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+explain napsace and rooms used
 \end_layout
 
 \begin_layout Subsection
