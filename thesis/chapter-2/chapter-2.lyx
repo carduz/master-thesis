@@ -2621,7 +2621,200 @@ reference "subsec:Multi-Master-&-Master-Slaves"
 TODO bib
 \end_layout
 
+\begin_layout Standard
+PostgreSQL is a very flexible database that allows to use custom languages
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreLanguages"
+
+\end_inset
+
+.
+ One of them is PL/sh 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/petere/plsh
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ a language that allows to execute shell commands, so we are able to call
+ an external program.
+ In our case we will call a command to send updated data (notify changes)
+ to the publish/subscribe system as described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:traditional-Publish/Subscribe"
+
+\end_inset
+
+.
+ To do that we create a postgreSQL function 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreFunctions"
+
+\end_inset
+
+ shown in the listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Notify-function"
+
+\end_inset
+
+ that calls our external program, then we create a a postgreSQL after trigger
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreTriggers"
+
+\end_inset
+
+ that call this function (so we receive insert/delete/update events) as
+ shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Notify-trigger"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Notify-function"
+
+\end_inset
+
+Notify function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE or REPLACE FUNCTION notify(text, text, text, text) RETURNS text AS
+ '
+\end_layout
+
+\begin_layout Plain Layout
+
+#!/bin/bash
+\end_layout
+
+\begin_layout Plain Layout
+
+node notify $1 $2 $3 $4
+\end_layout
+
+\begin_layout Plain Layout
+
+' LANGUAGE plsh;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Notify-trigger"
+
+\end_inset
+
+Notify trigger
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE TRIGGER notify_trigger
+\end_layout
+
+\begin_layout Plain Layout
+
+    AFTER UPDATE INSERT ON DATA_TABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+    FOR EACH ROW
+\end_layout
+
+\begin_layout Plain Layout
+
+    EXECUTE PROCEDURE notify(ID, EVENT, OLD DATA, NEW DATA);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO listing highligthed
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO notify parameters, pass entire new?
+\end_layout
+
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:traditional-Publish/Subscribe"
+
+\end_inset
+
 Publish/Subscribe
 \end_layout
 
@@ -3098,6 +3291,12 @@ talk about rooms as feature then talk about it as an instrument to obtain
 
 \series bold
 say that this is very cusotmizable stack
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+postgree trigger on specific column as data level
 \end_layout
 
 \begin_layout Subsection
