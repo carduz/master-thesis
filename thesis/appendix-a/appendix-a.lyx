@@ -191,6 +191,12 @@ SyncGateway configuration
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:appendix-Traditional-Stack"
+
+\end_inset
+
 Traditional Stack
 \end_layout
 
@@ -205,6 +211,272 @@ Configurations
 \end_layout
 
 \begin_layout Standard
+A lot of code is written in EcmaScript for nodejs, so all libraries are
+ NPM decencies.
+\end_layout
+
+\begin_layout Subsubsection
+Trigger on database
+\end_layout
+
+\begin_layout Standard
+On the following listing is shown a trigger to send the notification (it
+ calls the postgresql NOTIFY command), the function is generic, so you can
+ create all triggers that you want for all tables that you want.
+ As said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database"
+
+\end_inset
+
+ this is inspired to an example found online 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreNotifyListenExample"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Final-Notify-trigger"
+
+\end_inset
+
+Notify trigger
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE OR REPLACE FUNCTION table_update_notify() RETURNS trigger AS $$
+\end_layout
+
+\begin_layout Plain Layout
+
+DECLARE
+\end_layout
+
+\begin_layout Plain Layout
+
+  id bigint;
+\end_layout
+
+\begin_layout Plain Layout
+
+  old_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+  new_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+BEGIN
+\end_layout
+
+\begin_layout Plain Layout
+
+  IF TG_OP = 'INSERT' OR TG_OP = 'UPDATE' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+    id = NEW.id;
+\end_layout
+
+\begin_layout Plain Layout
+
+  ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    id = OLD.id;
+\end_layout
+
+\begin_layout Plain Layout
+
+  END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  IF TG_OP = 'INSERT' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+    old_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    old_v := (SELECT  ('[' || row_to_json(OLD) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ IF TG_OP = 'DELETE' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+    new_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+   new_v := (SELECT  ('[' || row_to_json(NEW) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ PERFORM pg_notify('table_update', json_build_object('table', TG_TABLE_NAME,
+ 'old',old_v, 'new', new_v, 'id', id, 'type', TG_OP)::text);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ RETURN NEW;
+\end_layout
+
+\begin_layout Plain Layout
+
+END;
+\end_layout
+
+\begin_layout Plain Layout
+
+$$ LANGUAGE plpgsql;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE TRIGGER notify_trigger
+\end_layout
+
+\begin_layout Plain Layout
+
+AFTER UPDATE INSERT OR UPDATE OR DELETE ON DATA_TABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+FOR EACH ROW
+\end_layout
+
+\begin_layout Plain Layout
+
+EXECUTE PROCEDURE table_update_notify();
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Database Listener and Event Emitter
+\end_layout
+
+\begin_layout Standard
+On the following listing is shown the nodejs task that listen the changes
+ and send a notification to socket.io using redis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Database-listener"
+
+\end_inset
+
+Database listener
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+...
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

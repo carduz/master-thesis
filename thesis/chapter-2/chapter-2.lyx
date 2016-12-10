@@ -1679,8 +1679,9 @@ In this sub section we will see the best practices to use the realtime database
 \end_layout
 
 \begin_layout Standard
-In tests, benchmarks and example we will use EcmaScript 5.0, commonly know
- with its dialect name: javascript, to use libraries/frameworks.
+In tests, benchmarks and example we will use EcmaScript 5.0 (in some case
+ we will use EcmaScript 6.0), commonly know with its dialect name: javascript,
+ to use libraries/frameworks.
  In fact the most known EcmaScript interpreter: V8 is very efficient for
  event driven programs, it is the interpreter used by the desktop porting
  that we will use: nodejs 
@@ -1716,6 +1717,16 @@ key "SyncAsync,AJAX"
 \end_inset
 
 .
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Nodejs has also a standard packet manager called NPM, with a lot of libraries,
+ this allows to write small examples with only the code needed to understand,
+ the other parts are done by the libraries
 \series bold
 
 \begin_inset Newline newline
@@ -2519,7 +2530,7 @@ Client framework/libraries: to communicate to the server (cluster).
 \end_layout
 
 \begin_layout Standard
-We tried to use javascript where it is possible for the same reason explained
+We tried to use Ecmascript where it is possible for the same reasons explained
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2545,6 +2556,12 @@ te each other in efficient way.
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Database"
+
+\end_inset
+
 Database
 \end_layout
 
