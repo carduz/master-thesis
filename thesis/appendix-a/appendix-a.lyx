@@ -194,6 +194,16 @@ SyncGateway configuration
 Traditional Stack
 \end_layout
 
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Configurations"
+
+\end_inset
+
+Configurations
+\end_layout
+
 \begin_layout Standard
 
 \end_layout

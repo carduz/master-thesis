@@ -2676,7 +2676,7 @@ reference "lis:Notify-function"
 
 \end_inset
 
- that calls our external program, then we create a a postgreSQL after trigger
+ that calls our external program, then we create a postgreSQL after trigger
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2733,7 +2733,7 @@ CREATE or REPLACE FUNCTION notify(text, text, text, text) RETURNS text AS
 
 \begin_layout Plain Layout
 
-node notify $1 $2 $3 $4
+node notify $1 $2 $3 $4 </dev/null   >/dev/null 2>&1 &
 \end_layout
 
 \begin_layout Plain Layout
@@ -2873,10 +2873,6 @@ $notify_trigger_proc$ LANGUAGE plpgsql;
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 CREATE TRIGGER notify_trigger
 \end_layout
 
@@ -2910,6 +2906,60 @@ TODO listing highligthed
 
 \series bold
 TODO notify parameters, pass entire new?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO improove -> stament update
+\end_layout
+
+\begin_layout Standard
+The way previously shown is a standard SQL way with triggers, of course
+ the languages change between the database systems and the needs, but the
+ idea is still valid.
+\end_layout
+
+\begin_layout Standard
+PostgreSQL has a feature to create in an easy way a sort of publish/subscribe
+ system, it is a queue where you can publish messages and read them in the
+ order, to do that NOTIFY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreNotify"
+
+\end_inset
+
+ and LISTEN 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreListen"
+
+\end_inset
+
+ commands are used.
+ Of course they are not SQL standard but we will use them to increase the
+ performance.
+\begin_inset Newline newline
+\end_inset
+
+There are a lot of examples useful for our use case, one of them (with javascrip
+t listener) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreNotifyListenExample"
+
+\end_inset
+
+ was modified and used in our final configuration as you can see on the
+ appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Configurations"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
