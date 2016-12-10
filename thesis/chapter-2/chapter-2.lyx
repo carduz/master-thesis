@@ -2773,12 +2773,116 @@ Notify trigger
 
 \begin_layout Plain Layout
 
+CREATE OR REPLACE FUNCTION notify_trigger_proc() RETURNS trigger AS $notify_trig
+ger_proc$
+\end_layout
+
+\begin_layout Plain Layout
+
+DECLARE
+\end_layout
+
+\begin_layout Plain Layout
+
+ old_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+new_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+BEGIN
+\end_layout
+
+\begin_layout Plain Layout
+
+ IF TG_OP = 'INSERT' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+   old_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    old_v := (SELECT  ('[' || row_to_json(OLD) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+ IF TG_OP = 'DELETE' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+   new_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    new_v := (SELECT  ('[' || row_to_json(NEW) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+ PERFORM notify(NEW.id, TG_OP, old_v,new_v);
+\end_layout
+
+\begin_layout Plain Layout
+
+   RETURN NEW;
+\end_layout
+
+\begin_layout Plain Layout
+
+END;
+\end_layout
+
+\begin_layout Plain Layout
+
+$notify_trigger_proc$ LANGUAGE plpgsql;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
 CREATE TRIGGER notify_trigger
 \end_layout
 
 \begin_layout Plain Layout
 
-    AFTER UPDATE INSERT ON DATA_TABLE
+    AFTER UPDATE INSERT OR UPDATE OR DELETE ON DATA_TABLE
 \end_layout
 
 \begin_layout Plain Layout
@@ -2788,7 +2892,7 @@ CREATE TRIGGER notify_trigger
 
 \begin_layout Plain Layout
 
-    EXECUTE PROCEDURE notify(ID, EVENT, OLD DATA, NEW DATA);
+    EXECUTE PROCEDURE notify_trigger_proc();
 \end_layout
 
 \end_inset
@@ -3297,6 +3401,12 @@ say that this is very cusotmizable stack
 
 \series bold
 postgree trigger on specific column as data level
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+data granularity
 \end_layout
 
 \begin_layout Subsection
