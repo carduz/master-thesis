@@ -2545,7 +2545,7 @@ reference "subsec:Client-best-practices"
 On appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "app:Technologies-configurations-and"
+reference "sec:appendix-Traditional-Stack"
 
 \end_inset
 
@@ -2553,6 +2553,17 @@ reference "app:Technologies-configurations-and"
  In fact, while the realtime database implements the full stack in an easy
  way, here we have to use different technologies and configure them to communica
 te each other in efficient way.
+\begin_inset Newline newline
+\end_inset
+
+While on appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Installers"
+
+\end_inset
+
+ the scripts to install the environments on different servers are shown.
 \end_layout
 
 \begin_layout Subsection

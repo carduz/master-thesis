@@ -480,5 +480,41 @@ Database listener
 
 \end_layout
 
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Installers"
+
+\end_inset
+
+Installers
+\end_layout
+
+\begin_layout Standard
+Here are shown scripts to install different environments on different servers,
+ each section means one server, for some things the server can be replicated.
+ These scripts are tested to work with vagrant 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.vagrantup.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, a system to create automatically virtual machines configured.
+\end_layout
+
 \end_body
 \end_document
