@@ -462,6 +462,24 @@ reference "subsec:Websocket-Server"
 \end_layout
 
 \begin_layout Standard
+As said in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database"
+
+\end_inset
+
+ this is inspired to an example found online
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreNotifyListenExample"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
 inline false
