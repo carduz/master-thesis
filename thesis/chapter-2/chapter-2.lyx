@@ -2549,7 +2549,7 @@ reference "sec:appendix-Traditional-Stack"
 
 \end_inset
 
- the configurations and codes of the technologies used are shown.
+ the configurations of the technologies used are shown.
  In fact, while the realtime database implements the full stack in an easy
  way, here we have to use different technologies and configure them to communica
 te each other in efficient way.
