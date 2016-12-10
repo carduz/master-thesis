@@ -2545,7 +2545,7 @@ reference "subsec:Client-best-practices"
 On appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:appendix-Traditional-Stack"
+reference "subsec:Configurations"
 
 \end_inset
 
