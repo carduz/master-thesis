@@ -211,7 +211,7 @@ Configurations, custom code, examples
 \end_layout
 
 \begin_layout Standard
-As said in 
+As said in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Traditional-technologies"
@@ -235,7 +235,7 @@ Trigger on database
 On the following listing is shown a trigger to send the notification (it
  calls the postgresql NOTIFY command), the function is generic, so you can
  create all triggers that you want for all tables that you want.
- As said in 
+ As said in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Database"
@@ -455,14 +455,14 @@ Database Listener and Event Emitter
 \begin_layout Standard
 On the following listing is shown the nodejs task that listen the changes
  and send a notification to socket.io using redis.
- As said in 
+ As said in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:traditional-Publish/Subscribe"
 
 \end_inset
 
- and in 
+ and in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Websocket-Server"
@@ -607,7 +607,7 @@ Simple websocket server
 On the following listing is shown a simple socket.io sever with a basic authentic
 ation, all the assumptions made about namespaces and rooms made for the
  previous listing are still valid.
- The only new assumption is the name of the table: 
+ The only new assumption is the name of the table:
 \begin_inset Quotes fld
 \end_inset
 
@@ -717,7 +717,6 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
-	
 \end_layout
 
 \begin_layout Plain Layout
@@ -732,7 +731,6 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
-	
 \end_layout
 
 \begin_layout Plain Layout
@@ -797,7 +795,6 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
-	
 \end_layout
 
 \begin_layout Plain Layout
@@ -987,7 +984,7 @@ Join on channel: 1
 
 \begin_layout Plain Layout
 
-Forbidden channel: 10 
+Forbidden channel: 10
 \end_layout
 
 \begin_layout Plain Layout
@@ -1037,7 +1034,7 @@ Forbidden channel: 10
 \backslash
 "testdesc
 \backslash
-"}"} 
+"}"}
 \end_layout
 
 \end_inset
@@ -1079,6 +1076,483 @@ https://www.vagrantup.com/
 \end_inset
 
 , a system to create automatically virtual machines configured.
+ They are designed to work with
+\begin_inset Quotes fld
+\end_inset
+
+Ubuntu Xenial
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+PostgreSQL Server
+\end_layout
+
+\begin_layout Standard
+This server can be replicated according to the rules/constraints explained
+ in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PostgreSQL installer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# update and upgrade
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get update -y
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get upgrade -y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#install postgresql
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get install postgresql-9.5 -y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#config postgresql
+\end_layout
+
+\begin_layout Plain Layout
+
+#sed -c -i "s/
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres sed  -i "s/#*listen_addresses *=.*/listen_addresses = '
+\backslash
+*'"
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres echo "host    all    all    md5" >> /etc/postgresql/9.5/main/pg_
+hba.conf
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres createuser test -s
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres psql -c "ALTER USER test WITH ENCRYPTED PASSWORD 'test';"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#create table, function and trigger
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres psql -c "CREATE TABLE test (
+\end_layout
+
+\begin_layout Plain Layout
+
+    id serial,
+\end_layout
+
+\begin_layout Plain Layout
+
+    name varchar(30),
+\end_layout
+
+\begin_layout Plain Layout
+
+    description text
+\end_layout
+
+\begin_layout Plain Layout
+
+);"
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres psql -c "CREATE OR REPLACE FUNCTION table_update_notify()
+ RETURNS trigger AS $$
+\end_layout
+
+\begin_layout Plain Layout
+
+DECLARE
+\end_layout
+
+\begin_layout Plain Layout
+
+  id bigint;
+\end_layout
+
+\begin_layout Plain Layout
+
+  old_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+  new_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+BEGIN
+\end_layout
+
+\begin_layout Plain Layout
+
+  IF TG_OP = 'INSERT' OR TG_OP = 'UPDATE' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+    id = NEW.id;
+\end_layout
+
+\begin_layout Plain Layout
+
+  ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    id = OLD.id;
+\end_layout
+
+\begin_layout Plain Layout
+
+  END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+  IF TG_OP = 'INSERT' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+    old_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    old_v := (SELECT  ('[' || row_to_json(OLD) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+ IF TG_OP = 'DELETE' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+    new_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+   new_v := (SELECT  ('[' || row_to_json(NEW) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+ PERFORM pg_notify('table_update', json_build_object('table', TG_TABLE_NAME,
+ 'old',old_v, 'new', new_v, 'id', id, 'type', TG_OP)::text);
+\end_layout
+
+\begin_layout Plain Layout
+
+ RETURN NEW;
+\end_layout
+
+\begin_layout Plain Layout
+
+END;
+\end_layout
+
+\begin_layout Plain Layout
+
+$$ LANGUAGE plpgsql;"
+\end_layout
+
+\begin_layout Plain Layout
+
+sudo -u postgres psql -c "CREATE TRIGGER notify_trigger
+\end_layout
+
+\begin_layout Plain Layout
+
+AFTER UPDATE INSERT OR UPDATE OR DELETE ON test
+\end_layout
+
+\begin_layout Plain Layout
+
+FOR EACH ROW
+\end_layout
+
+\begin_layout Plain Layout
+
+EXECUTE PROCEDURE table_update_notify();"
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#clean
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get autoremove
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get clean
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#reboot
+\end_layout
+
+\begin_layout Plain Layout
+
+reboot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Redis server
+\end_layout
+
+\begin_layout Standard
+....
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Redis installer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# update and upgrade
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get update -y
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get upgrade -y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#install redis
+\end_layout
+
+\begin_layout Plain Layout
+
+wget http://download.redis.io/releases/redis-3.2.6.tar.gz
+\end_layout
+
+\begin_layout Plain Layout
+
+tar xzf redis-3.2.6.tar.gz
+\end_layout
+
+\begin_layout Plain Layout
+
+cd redis-3.2.6
+\end_layout
+
+\begin_layout Plain Layout
+
+make
+\end_layout
+
+\begin_layout Plain Layout
+
+make install
+\end_layout
+
+\begin_layout Plain Layout
+
+cd utils
+\end_layout
+
+\begin_layout Plain Layout
+
+./install_server.sh
+\end_layout
+
+\begin_layout Plain Layout
+
+update-rc.d redis_6379 defaults
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#config redis
+\end_layout
+
+\begin_layout Plain Layout
+
+sed  -i "s/protected-mode.*/protected-mode no/" /etc/redis/6379.conf
+\end_layout
+
+\begin_layout Plain Layout
+
+sed  -i "s/bind.*//" /etc/redis/6379.conf
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#clean
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get autoremove
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get clean
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#reboot
+\end_layout
+
+\begin_layout Plain Layout
+
+reboot
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

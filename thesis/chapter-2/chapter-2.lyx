@@ -2659,6 +2659,12 @@ TODO bib
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+postgresql cluster
+\end_layout
+
+\begin_layout Standard
 PostgreSQL is a very flexible database that allows to use custom languages
  
 \begin_inset CommandInset citation
@@ -3787,6 +3793,16 @@ vagrant also for realtime
 
 \begin_layout Itemize
 flexibility and customization of both
+\end_layout
+
+\begin_layout Itemize
+frameworks in other languages compatibility, active records -> big applications
+ structures: how to build and structure reliable big applications
+\end_layout
+
+\begin_layout Itemize
+a server for each service? what kind of architecture is? microservice? search
+ schoolar
 \end_layout
 
 \end_body
