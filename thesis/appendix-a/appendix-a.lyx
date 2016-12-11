@@ -207,7 +207,19 @@ name "subsec:Configurations"
 
 \end_inset
 
-Configurations
+Configurations, custom code, examples
+\end_layout
+
+\begin_layout Standard
+As said in
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-technologies"
+
+\end_inset
+
+ these listings show configurations, custom code and example.
+ All together make a full basic example.
 \end_layout
 
 \begin_layout Standard
@@ -443,14 +455,14 @@ Database Listener and Event Emitter
 \begin_layout Standard
 On the following listing is shown the nodejs task that listen the changes
  and send a notification to socket.io using redis.
- As said in 
+ As said in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:traditional-Publish/Subscribe"
 
 \end_inset
 
- and in 
+ and in
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Websocket-Server"
@@ -580,6 +592,393 @@ pg.connect("postgres://test:test@192.168.3.17/postgres", function(err, client)
 \begin_layout Plain Layout
 
 });
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Simple websocket server
+\end_layout
+
+\begin_layout Standard
+On the following listing is shown a simple socket.io sever with a basic authentic
+ation, all the assumptions made about namespaces and rooms made for the
+ previous listing are still valid.
+ The only new assumption is the name of the table: 
+\begin_inset Quotes fld
+\end_inset
+
+test
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This example uses also express to provide the service and a simple webpage
+ (that could be a client).
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Websocket server
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var app = require('express')();
+\end_layout
+
+\begin_layout Plain Layout
+
+var http = require('http').Server(app);
+\end_layout
+
+\begin_layout Plain Layout
+
+var io = require('socket.io')(http);
+\end_layout
+
+\begin_layout Plain Layout
+
+var redis = require('socket.io-redis');
+\end_layout
+
+\begin_layout Plain Layout
+
+io.adapter(redis({ host: '192.168.3.89', port: 6379 }));
+\end_layout
+
+\begin_layout Plain Layout
+
+app.get('/', function(req, res){
+\end_layout
+
+\begin_layout Plain Layout
+
+    res.sendFile(__dirname + '/index.html');
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+io.of('/test').on('connection', function(socket){
+\end_layout
+
+\begin_layout Plain Layout
+
+    var authorizedChannels = [];
+\end_layout
+
+\begin_layout Plain Layout
+
+    socket.on('auth', function(msg){
+\end_layout
+
+\begin_layout Plain Layout
+
+        "use strict";
+\end_layout
+
+\begin_layout Plain Layout
+
+        if(msg == 'psw1') {
+\end_layout
+
+\begin_layout Plain Layout
+
+            authorizedChannels = [1, 2, 3, 4, 5];
+\end_layout
+
+\begin_layout Plain Layout
+
+            socket.emit('status','Auth ok');
+\end_layout
+
+\begin_layout Plain Layout
+
+        }else if(msg == 'psw2') {
+\end_layout
+
+\begin_layout Plain Layout
+
+            authorizedChannels = [6, 7, 8, 9, 10];
+\end_layout
+
+\begin_layout Plain Layout
+
+            socket.emit('status','Auth ok');
+\end_layout
+
+\begin_layout Plain Layout
+
+        }else
+\end_layout
+
+\begin_layout Plain Layout
+
+            socket.emit('status','No auth');
+\end_layout
+
+\begin_layout Plain Layout
+
+    });
+\end_layout
+
+\begin_layout Plain Layout
+
+    socket.on('join', function(msg){
+\end_layout
+
+\begin_layout Plain Layout
+
+        "use strict";
+\end_layout
+
+\begin_layout Plain Layout
+
+        if(authorizedChannels.indexOf(parseInt(msg))>=0){
+\end_layout
+
+\begin_layout Plain Layout
+
+            socket.join(msg);
+\end_layout
+
+\begin_layout Plain Layout
+
+            socket.emit('status','Join on channel: '+ msg);
+\end_layout
+
+\begin_layout Plain Layout
+
+        }else
+\end_layout
+
+\begin_layout Plain Layout
+
+            socket.emit('status','Forbidden channel: '+ msg);
+\end_layout
+
+\begin_layout Plain Layout
+
+    });
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+http.listen(3000, function(){
+\end_layout
+
+\begin_layout Plain Layout
+
+    console.log('listening on *:3000');
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Simple websocket client
+\end_layout
+
+\begin_layout Standard
+On the following listing is shown a simple socket.io client, all the assumptions
+ made previously are still valid.
+\end_layout
+
+\begin_layout Standard
+While on the next listing is shown a sample output
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Webscoket client
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+var socket = require('socket.io-client')('http://192.168.3.89:3000/test');
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.on('status', function(data){console.log(data)});
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.on('insert', function(data){console.log(JSON.stringify(data))});
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.on('update', function(data){console.log(JSON.stringify(data))});
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.on('delete', function(data){console.log(JSON.stringify(data))});
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.emit('auth', 'psw1');
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.emit('join','1');
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.emit('join','10');
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Webscoket client sample output
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+Auth ok
+\end_layout
+
+\begin_layout Plain Layout
+
+Join on channel: 1
+\end_layout
+
+\begin_layout Plain Layout
+
+Forbidden channel: 10 
+\end_layout
+
+\begin_layout Plain Layout
+
+//Do an update
+\end_layout
+
+\begin_layout Plain Layout
+
+{"old":"{
+\backslash
+"id
+\backslash
+":1,
+\backslash
+"name
+\backslash
+":
+\backslash
+"test
+\backslash
+",
+\backslash
+"description
+\backslash
+":
+\backslash
+"testdesc
+\backslash
+"}","new":"{
+\backslash
+"id
+\backslash
+":1,
+\backslash
+"name
+\backslash
+":
+\backslash
+"test2
+\backslash
+",
+\backslash
+"description
+\backslash
+":
+\backslash
+"testdesc
+\backslash
+"}"} 
 \end_layout
 
 \end_inset

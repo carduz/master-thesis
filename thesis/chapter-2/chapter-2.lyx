@@ -2549,7 +2549,9 @@ reference "subsec:Configurations"
 
 \end_inset
 
- the configurations of the technologies used are shown.
+ the configurations, custom code (e.g.
+ triggers) and basic examples of the technologies used are shown; the entire
+ section makes a full example.
  In fact, while the realtime database implements the full stack in an easy
  way, here we have to use different technologies and configure them to communica
 te each other in efficient way.
@@ -3499,6 +3501,24 @@ data granularity
 
 \series bold
 explain napsace and rooms used
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+If the websocket dies Do I lose the joins?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+improve appendix config, make it uniform and fix address, explaining them
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+channels and other things as websocket advantages that engine haven't
 \end_layout
 
 \begin_layout Subsection
