@@ -624,6 +624,11 @@ This example uses also express to provide the service and a simple webpage
 \end_layout
 
 \begin_layout Standard
+If the connection is lost the authentication and the subscriptions must
+ be redo.
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
 lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
 inline false
@@ -669,6 +674,15 @@ io.adapter(redis({ host: '192.168.3.89', port: 6379 }));
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+//return a webpage
+\end_layout
+
+\begin_layout Plain Layout
+
 app.get('/', function(req, res){
 \end_layout
 
@@ -693,7 +707,37 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
+	//say to the client that a new connection was enstablished
+\end_layout
+
+\begin_layout Plain Layout
+
+    socket.emit('status','New Connection');
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	//vector of authrized channels for the client
+\end_layout
+
+\begin_layout Plain Layout
+
     var authorizedChannels = [];
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	//simple authentication
 \end_layout
 
 \begin_layout Plain Layout
@@ -753,6 +797,16 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	//join(subscribe) to a channel (room)
+\end_layout
+
+\begin_layout Plain Layout
+
     socket.on('join', function(msg){
 \end_layout
 
@@ -798,6 +852,11 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+//start the server
 \end_layout
 
 \begin_layout Plain Layout
