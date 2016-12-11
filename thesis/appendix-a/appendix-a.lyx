@@ -1088,12 +1088,12 @@ Ubuntu Xenial
 \end_layout
 
 \begin_layout Subsubsection
-PostgreSQL Server
+PostgreSQL
 \end_layout
 
 \begin_layout Standard
 This server can be replicated according to the rules/constraints explained
- in
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Database"
@@ -1174,8 +1174,8 @@ sudo -u postgres sed  -i "s/#*listen_addresses *=.*/listen_addresses = '
 
 \begin_layout Plain Layout
 
-sudo -u postgres echo "host    all    all    md5" >> /etc/postgresql/9.5/main/pg_
-hba.conf
+sudo -u postgres echo "host    all    all    all    md5" >> /etc/postgresql/9.5/m
+ain/pg_hba.conf
 \end_layout
 
 \begin_layout Plain Layout
@@ -1408,7 +1408,7 @@ reboot
 \end_layout
 
 \begin_layout Subsubsection
-Redis server
+Redis
 \end_layout
 
 \begin_layout Standard
@@ -1553,6 +1553,84 @@ reboot
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Listener
+\end_layout
+
+\begin_layout Standard
+...
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Listener installer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# update and upgrade
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get update -y
+\end_layout
+
+\begin_layout Plain Layout
+
+apt-get upgrade -y
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+....
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+#reboot
+\end_layout
+
+\begin_layout Plain Layout
+
+reboot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Socket.io
+\end_layout
+
+\begin_layout Standard
+...
 \end_layout
 
 \end_body

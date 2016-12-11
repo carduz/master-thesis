@@ -3805,5 +3805,21 @@ a server for each service? what kind of architecture is? microservice? search
  schoolar
 \end_layout
 
+\begin_layout Itemize
+list of listings?
+\end_layout
+
+\begin_layout Itemize
+explain overlap between A.2.1 and A2.2
+\end_layout
+
+\begin_layout Itemize
+in appendix say where substitute addresses
+\end_layout
+
+\begin_layout Itemize
+fix indentation of sql trigger
+\end_layout
+
 \end_body
 \end_document
