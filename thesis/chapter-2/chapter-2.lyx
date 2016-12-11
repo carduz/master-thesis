@@ -2976,7 +2976,7 @@ key "PostgreListen"
 
  commands are used.
  Of course they are not SQL standard but we will use them to increase the
- performance.
+ performances.
 \begin_inset Newline newline
 \end_inset
 
