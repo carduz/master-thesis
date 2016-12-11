@@ -2538,6 +2538,13 @@ reference "subsec:Client-best-practices"
 
 \end_inset
 
+, using event driven approach explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
 .
 \end_layout
 
