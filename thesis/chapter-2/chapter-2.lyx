@@ -3821,5 +3821,10 @@ in appendix say where substitute addresses
 fix indentation of sql trigger
 \end_layout
 
+\begin_layout Itemize
+data nons tructured -> use of map, reduce, fitler and so on.
+ Explain this framework in the chapter of dev, this change the minds
+\end_layout
+
 \end_body
 \end_document
