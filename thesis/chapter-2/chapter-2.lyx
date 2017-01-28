@@ -3846,28 +3846,22 @@ difference with realtiem opereting systems
 \end_layout
 
 \begin_layout Itemize
-embedded realtime example in class of applications, IoT. But describe class of appplication in a formal way
+embedded realtime example in class of applications, IoT.
+ But describe class of appplication in a formal way
 \end_layout
-
 
 \begin_layout Itemize
 https://firebase.google.com/customers/
 \end_layout
 
-
-
 \begin_layout Itemize
-https://www.pubnub.com/solutions/
-
-Secure Data Streams for Financial Data
-Publish information by the millisecond to thousands of devices simultaneously.
+https://www.pubnub.com/solutions/Secure Data Streams for Financial DataPublish
+ information by the millisecond to thousands of devices simultaneously.
 \end_layout
-
 
 \begin_layout Itemize
 Pub/nub schoolar
 \end_layout
-
 
 \begin_layout Itemize
 in table posibility to define rules
@@ -3881,9 +3875,16 @@ async at js level and async at data transfer level
 case study
 \end_layout
 
-
 \begin_layout Itemize
 security int erms of ssl, encryption and so on
+\end_layout
+
+\begin_layout Itemize
+http://digitalcommons.calpoly.edu/cscsp/81/
+\end_layout
+
+\begin_layout Itemize
+...
 \end_layout
 
 \end_body
