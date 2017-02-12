@@ -206,8 +206,6 @@ key "EventDriven"
 
 .
  
-\series bold
-TODO check and search scoolar
 \end_layout
 
 \begin_layout Standard
@@ -227,63 +225,6 @@ reference "chap:Performance-Evaluation"
 \end_inset
 
 ) viewed from server and client sides.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-//TODO classic approach technology
-\series default
-, redis (pub/sub, quqeue and replication), QUEUE generlal like sqs (also
- in stae of art?),
-\series bold
-, salesforce example, firebase client server less with db on the client
- (also login), serverless chap, 
-\begin_inset Quotes fld
-\end_inset
-
-we will proof the results on the chapter ...
-\begin_inset Quotes frd
-\end_inset
-
-, queue, scalability and easy to configure, SOA, another SaaS, check jvascript
- and ecma script, say which are tested, short polling can be doen using
- REST, use cases from sites: https://www.pubnub.com/solutions/ (also for real
- example https://www.pubnub.com/solutions/realtime-auction-and-price-updates/),
- cloud advantages, say which we will test, CHECK 
-\series default
-In the chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:technologies"
-
-\end_inset
-
- we will see NoSQL databases of both types.
- 
-\series bold
-Search schoolar for main databases.
- searhc statistics, data classes http://developer.couchbase.com/documentation/mobi
-le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
- firenbase external itnegrations.
- mongodb realtiem databases, key-value vs JSON difference (here and in state
- of art).
- appendix with confgiurations and get data examples, advantages of store
- data in JSON instead of relational, partitioning of classic databases,
- pipelinedb, streaming databases differences, no query support and advantages,
- define realtiem application and realtime database, SQL, asycn GET/PUT in
- js, mongodb or not in couchbase N1QL?, examples in in appendix, data granulaty,
- zapier, https://en.wikipedia.org/wiki/Multitenancy, master/slave in realtime,
- document based.
- Use 
-\begin_inset Quotes fld
-\end_inset
-
-survey on nosql
-\begin_inset Quotes frd
-\end_inset
-
- as reference for nosql databases, define in memory
 \end_layout
 
 \begin_layout Subsection
@@ -2439,7 +2380,7 @@ Websocket
 \begin_inset Text
 
 \begin_layout Plain Layout
-Full
+Full (fine grained)
 \end_layout
 
 \end_inset
@@ -3881,6 +3822,69 @@ security int erms of ssl, encryption and so on
 
 \begin_layout Itemize
 http://digitalcommons.calpoly.edu/cscsp/81/
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO check and search scoolar for event driven approach at the begining
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+//TODO classic approach technology
+\series default
+, redis (pub/sub, quqeue and replication), QUEUE generlal like sqs (also
+ in stae of art?),
+\series bold
+, salesforce example, firebase client server less with db on the client
+ (also login), serverless chap, 
+\begin_inset Quotes fld
+\end_inset
+
+we will proof the results on the chapter ...
+\begin_inset Quotes frd
+\end_inset
+
+, queue, scalability and easy to configure, SOA, another SaaS, check jvascript
+ and ecma script, say which are tested, short polling can be doen using
+ REST, use cases from sites: https://www.pubnub.com/solutions/ (also for real
+ example https://www.pubnub.com/solutions/realtime-auction-and-price-updates/),
+ cloud advantages, say which we will test, CHECK 
+\series default
+In the chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ we will see NoSQL databases of both types.
+ 
+\series bold
+Search schoolar for main databases.
+ searhc statistics, data classes http://developer.couchbase.com/documentation/mobi
+le/1.3/develop/guides/modeling/basics/index.html, see also firebase, cite
+ firenbase external itnegrations.
+ mongodb realtiem databases, key-value vs JSON difference (here and in state
+ of art).
+ appendix with confgiurations and get data examples, advantages of store
+ data in JSON instead of relational, partitioning of classic databases,
+ pipelinedb, streaming databases differences, no query support and advantages,
+ define realtiem application and realtime database, SQL, asycn GET/PUT in
+ js, mongodb or not in couchbase N1QL?, examples in in appendix, data granulaty,
+ zapier, https://en.wikipedia.org/wiki/Multitenancy, master/slave in realtime,
+ document based.
+ Use 
+\begin_inset Quotes fld
+\end_inset
+
+survey on nosql
+\begin_inset Quotes frd
+\end_inset
+
+ as reference for nosql databases, define in memory
 \end_layout
 
 \begin_layout Itemize
