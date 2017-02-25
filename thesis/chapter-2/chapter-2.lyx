@@ -258,6 +258,16 @@ reference "subsec:SaaS-realtime"
 .
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Note:
+\series default
+ The information are retrieved via the data shown on official sites of the
+ products, but, in the most of the cases, they are not verified in a empirical
+ way.
+\end_layout
+
 \begin_layout Subsubsection
 OpenSource
 \end_layout
@@ -1281,10 +1291,6 @@ https://www.pipelinedb.com/
 \end_layout
 
 \begin_layout Standard
-https://www.pubnub.com/
-\end_layout
-
-\begin_layout Standard
 https://pusher.com/
 \end_layout
 
@@ -2013,6 +2019,19 @@ name "subsec:Comparison"
 \end_inset
 
 Comparison
+\end_layout
+
+\begin_layout Standard
+As explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPValidity"
+
+\end_inset
+
+ CAP theorem is not enough for a lot of things but, as explained, today
+ is not possible make a classification under other systems for a lot of
+ systems.
 \end_layout
 
 \begin_layout Standard

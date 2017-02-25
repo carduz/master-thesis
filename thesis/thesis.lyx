@@ -750,7 +750,7 @@ filename "chapter-6/chapter-6.lyx"
 \end_layout
 
 \begin_layout Chapter
-Develop a Real Application: financial trading application 
+Real use cases
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:seventh-chapter"
@@ -771,7 +771,7 @@ filename "chapter-7/chapter-7.lyx"
 \end_layout
 
 \begin_layout Chapter
-Eighth chapter
+Develop a Real Application: financial trading application
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:eighth-chapter"

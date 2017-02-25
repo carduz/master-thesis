@@ -1690,6 +1690,10 @@ Partition tolerance: the system work properly even if the data are partitioned
 \end_layout
 
 \begin_layout Standard
+Of course if there are no network errors all properties are hold.
+\begin_inset Newline newline
+\end_inset
+
 In the distributed systems the main issue is the synchronization among nodes:
  there is no a common clock, so it is not so easy determinate the order
  of commits.
@@ -1705,9 +1709,9 @@ key "CAPNoSQL"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 Instead NoSQL choose Availability and Partition tolerance or Consistency
  and Partition tolerance 
 \begin_inset CommandInset citation
@@ -1771,6 +1775,55 @@ key "EventuallyConsistent"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:CAP-validity"
+
+\end_inset
+
+Today validity
+\end_layout
+
+\begin_layout Standard
+Today there are new things to consider like distributed cluster over WAN,
+ that can cause different issues such as high latency, so CAP theorem is
+ not enough to classify these new situations.
+ New classifications are proposed like 
+\begin_inset Quotes fld
+\end_inset
+
+PACELC
+\begin_inset Quotes frd
+\end_inset
+
+ to solve these issues 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPValidity"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+But since this classification is not used yet by a lot of commercial and
+ non systems in the next chapters CAP classification will be used, since
+ used 
+\begin_inset Quotes fld
+\end_inset
+
+PACELC
+\begin_inset Quotes frd
+\end_inset
+
+ wold caused the classification inconsistent (since some systems aren't
+ classified under it).
+ Moreover some commercial systems don't give further details to make this
+ classification by yourself.
 \end_layout
 
 \begin_layout Subsection
