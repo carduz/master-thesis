@@ -1985,7 +1985,14 @@ Local database
 
 \begin_layout Standard
 The best practices is to create a local database on the client (with only
- the data needed), this allow to have 
+ the data needed) using optimistic replication 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
+
+\end_inset
+
+, this allow to have what commercial is called 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2004,11 +2011,57 @@ key "OptimisticUI"
 \begin_inset Newline newline
 \end_inset
 
-The ability to update the local database (and consequentially the user interface
-) eve if there are network delays or the network is down.
+It gives the ability to update the 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ (and consequentially the user interface) even if there are network delays
+ or the network is down.
  So the developer can call all methods on the db, seeing the effect, even
  if there is no connection (often called offline mode); of course some server
  constraints/modification are applied when the network come back up.
+\end_layout
+
+\begin_layout Standard
+Of course conflicts can occur and different ways exist to solve them 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
+
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+One of the simplest ways to solve conflict is 
+\begin_inset Quotes fld
+\end_inset
+
+Last Writes Wins
+\begin_inset Quotes frd
+\end_inset
+
+, in this way the write with the highest timestamps is used overwritten
+ the concurrent others.
+ This approach is used by different systems in implementation of 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+, the timestamps used is the one of the server when the message is really
+ received by the server (not the update time by client that can be very
+ old due to network delays).
+ Of course this approach is reliable when there are masters/supernodes in
+ other cases techniques that take in consideration consensus are needed.
 \end_layout
 
 \begin_layout Subsection
@@ -3624,6 +3677,64 @@ reference "lis:Socket.io-customization"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection
+Local database
+\end_layout
+
+\begin_layout Standard
+As explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+ one common way to implement 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ is 
+\begin_inset Quotes fld
+\end_inset
+
+last Writer Win
+\begin_inset Quotes frd
+\end_inset
+
+, this approach will be used.
+ 
+\begin_inset Newline newline
+\end_inset
+
+So a local database implementation is an object that contains data and provide
+ the read/write methods for user.
+\end_layout
+
+\begin_layout Standard
+We have the following situations
+\end_layout
+
+\begin_layout Itemize
+User calls write/update: local data are updated.
+ At the same time the local database tries to update the remote servers
+ until there are no network errors.
+\end_layout
+
+\begin_layout Itemize
+Data are updated by the server: a callback is called and it updates the
+ local data.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO IMPROVE according to real code
 \end_layout
 
 \begin_layout Section
