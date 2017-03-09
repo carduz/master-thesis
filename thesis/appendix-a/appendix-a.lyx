@@ -1162,14 +1162,9 @@ apt-get install postgresql-9.5 -y
 
 \begin_layout Plain Layout
 
-#sed -c -i "s/
-\end_layout
-
-\begin_layout Plain Layout
-
 sudo -u postgres sed  -i "s/#*listen_addresses *=.*/listen_addresses = '
 \backslash
-*'"
+*'/" /etc/postgresql/9.5/main/postgresql.conf
 \end_layout
 
 \begin_layout Plain Layout
@@ -1190,6 +1185,11 @@ sudo -u postgres psql -c "ALTER USER test WITH ENCRYPTED PASSWORD 'test';"
 
 \begin_layout Plain Layout
 
+sudo -u postgres psql -c "CREATE DATABASE test OWNER test;"
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1199,7 +1199,7 @@ sudo -u postgres psql -c "ALTER USER test WITH ENCRYPTED PASSWORD 'test';"
 
 \begin_layout Plain Layout
 
-sudo -u postgres psql -c "CREATE TABLE test (
+sudo -u postgres psql -d "test" -c "CREATE TABLE test (
 \end_layout
 
 \begin_layout Plain Layout
@@ -1224,8 +1224,12 @@ sudo -u postgres psql -c "CREATE TABLE test (
 
 \begin_layout Plain Layout
 
-sudo -u postgres psql -c "CREATE OR REPLACE FUNCTION table_update_notify()
- RETURNS trigger AS $$
+sudo -u postgres psql -d "test" -c "CREATE OR REPLACE FUNCTION table_update_noti
+fy() RETURNS trigger AS 
+\backslash
+$
+\backslash
+$
 \end_layout
 
 \begin_layout Plain Layout
@@ -1346,17 +1350,21 @@ END;
 
 \begin_layout Plain Layout
 
-$$ LANGUAGE plpgsql;"
+
+\backslash
+$
+\backslash
+$ LANGUAGE plpgsql;"
 \end_layout
 
 \begin_layout Plain Layout
 
-sudo -u postgres psql -c "CREATE TRIGGER notify_trigger
+sudo -u postgres psql -d "test" -c "CREATE TRIGGER notify_trigger
 \end_layout
 
 \begin_layout Plain Layout
 
-AFTER UPDATE INSERT OR UPDATE OR DELETE ON test
+AFTER INSERT OR UPDATE OR DELETE ON test
 \end_layout
 
 \begin_layout Plain Layout
@@ -1556,7 +1564,7 @@ reboot
 \end_layout
 
 \begin_layout Subsubsection
-Listener
+Listener 
 \end_layout
 
 \begin_layout Standard
