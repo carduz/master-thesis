@@ -721,7 +721,7 @@ io.of('/test').on('connection', function(socket){
 
 \begin_layout Plain Layout
 
-	//vector of authrized channels for the client
+	//vector of authorized channels for the client
 \end_layout
 
 \begin_layout Plain Layout
