@@ -3384,6 +3384,12 @@ key "RedisReplication,RedisLock"
 
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+//TODO using to and join we can also subscribe to different level of data
+\end_layout
+
 \begin_layout Standard
 
 \series bold
