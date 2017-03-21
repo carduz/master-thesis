@@ -75,7 +75,7 @@
 
 \begin_layout Standard
 Since we will cover only HTTP based application we will start analyzing
- the an HTTP application stack on 
+ an HTTP application stack on 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Traditional-HTTP-Application"
@@ -83,16 +83,9 @@ reference "sec:Traditional-HTTP-Application"
 \end_inset
 
 .
- Then we will see how to make it 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- and the limits that are the causes of creation of realtime databases.
- Finally we will analyze the realtime databases approach on 
+ Then we will see how to send realtime notifications of changes and the
+ limits that are the causes of the creation of NoSQL databases.
+ Finally we will analyze the NoSQL databases approach on 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Realtime-databases-stack"
@@ -103,17 +96,26 @@ reference "sec:Realtime-databases-stack"
 \begin_inset Newline newline
 \end_inset
 
-Of course the protocol is not the only element need to build a realtime
- application but it is a must, without a right protocol that allow us to
- receive messages from the server we are not able to build a real realtime
- application.
+Of course the protocol is not the only element needed to build an application
+ that receives realtime notifications of changes but it is a must.
+ Without a right protocol, that allows us to receive messages from the server,
+ we are not able to build an efficient application that receives 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ notifications of changes.
 \end_layout
 
 \begin_layout Standard
-We will also analyze the database itself, because in traditional database
- there is no an event notification system: we have to check it every time
- or we have to create a trigger to do that as we will see in the next sections.
- Of course the realtime databases resolve this.
+We will also analyze the database itself, because in traditional databases
+ there is no native event notification system: we have to check it every
+ time (polling) or we have to create a trigger to do that as we will see
+ in the next sections.
+ Of course the NoSQL databases that we will analyze solve this.
 \end_layout
 
 \begin_layout Section
@@ -178,15 +180,15 @@ In all the classical HTTP applications we have:
 \end_layout
 
 \begin_layout Enumerate
-the client request something to the HTTP server (application server)
+the client requests something to the HTTP server (application server)
 \end_layout
 
 \begin_layout Enumerate
-the HTTP server (application server) request data to Database Server
+the HTTP server (application server) requests data to Database Server
 \end_layout
 
 \begin_layout Enumerate
-the HTTP server (application server) send the data to the client
+the HTTP server (application server) sends the data to the client
 \end_layout
 
 \begin_layout Standard
@@ -201,11 +203,10 @@ reference "fig:Modern-web-application"
 \end_layout
 
 \begin_layout Standard
-We will see the evolution of the HTTP that allow to create a real realtime
- application.
+We will see the evolution of the HTTP that allows to send realtime notifications.
  The core of the issue is the HTTP handshake, in fact we need to have asynchrono
 us requests, i.e.
- the server should be able to send messages to client at any time 
+ the server should be able to send messages to the client at any time 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SyncAsync"
@@ -230,8 +231,8 @@ HTTP 1.0
 \end_layout
 
 \begin_layout Standard
-Original version of HTTP (HTTP 1.0) allowed just connections that must be
- closed immediately after the receiving of data
+The original version of HTTP (HTTP 1.0) allowed just connections that must
+ be closed immediately after the receiving of data 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP1.0"
@@ -249,11 +250,11 @@ reference "fig:HTTP1.0-vs-HTTP1.1"
 \end_layout
 
 \begin_layout Enumerate
-The client request something
+The client requests something
 \end_layout
 
 \begin_layout Enumerate
-The server reply
+The server replies
 \end_layout
 
 \begin_layout Enumerate
@@ -261,18 +262,18 @@ The connection is closed
 \end_layout
 
 \begin_layout Standard
-In this version the only approaches available to build a realtime application
+In this version the only approaches available to make realtime notifications
  are:
 \end_layout
 
 \begin_layout Itemize
-Short polling: schedule new request every a fixed small amount of time to
+Short polling: schedule new request every fixed small amount of time to
  check if the data are changed
 \end_layout
 
 \begin_layout Itemize
 Long polling: create a normal request to the server.
- But the server reply only when there are new data, then the client create
+ But the server replies only when there are new data, then the client creates
  a new request
 \end_layout
 
@@ -361,7 +362,7 @@ HTTP 1.1
 
 \begin_layout Standard
 It is a new version of HTTP that fixed some issues and improved some things,
- it enabled the
+ it enabled the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -369,7 +370,7 @@ keep-alive
 \begin_inset Quotes frd
 \end_inset
 
- option (this option was implemented unofficial by a lot of HTTP 1.0 clients)
+ option (this option was implemented unofficially by a lot of HTTP 1.0 clients)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP1.1"
@@ -380,9 +381,16 @@ key "HTTP1.1"
 \end_layout
 
 \begin_layout Standard
-The keep alive options allows to use a the same connection multiple times,
- i.e.
- after a server reply the client can send another message over the same
+The 
+\begin_inset Quotes fld
+\end_inset
+
+keep-alive
+\begin_inset Quotes frd
+\end_inset
+
+ option allows to use the same connection multiple times, i.e.
+ after a server replies the client can send another message over the same
  connection as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -413,7 +421,7 @@ HTTP 2.0
 
 \begin_layout Standard
 It is the newest HTTP standard (2015), it introduced a lot of improvements.
- The most important are: the possibility fort the server to
+ The most important are: the possibility for the server to 
 \begin_inset Quotes fld
 \end_inset
 
@@ -421,9 +429,9 @@ push
 \begin_inset Quotes frd
 \end_inset
 
- data, that the client has not request explicitly and the possibility to
- have multiple parallel requests over a single TCP connection as shown in
- figure 
+ data, that the client has not requested explicitly and the possibility
+ to have multiple parallel requests over a single TCP connection as shown
+ in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP2-multiple-parallel"
@@ -449,7 +457,8 @@ key "HTTP2.0Energy"
 \end_layout
 
 \begin_layout Standard
-But, since it is new, it is not supported in efficient way by a lot of browsers
+But, since it is new, it is not supported in an efficient way by a lot of
+ browsers
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0Support"
@@ -542,7 +551,7 @@ socket
 \begin_inset Quotes frd
 \end_inset
 
- where both the client and the server can send and receive messages in any
+ where both the client and the server can send and receive messages at any
  time
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -551,7 +560,7 @@ key "WebSocket"
 \end_inset
 
 .
- This is done using an HTTP connection with
+ This is done using an HTTP connection with the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -563,9 +572,9 @@ keep-alive
 \end_layout
 
 \begin_layout Standard
-So this protocol allows to create a real efficient realtime application,
- where the client receives immediately a notification from the server (for
- server events)
+So this protocol allows to create efficient realtime notifications, where
+ the client receives immediately a notification from the server (for server
+ events)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "WebSocketRealTime"
@@ -658,7 +667,7 @@ RESTful call
 \end_inset
 
  to retrieve data, RESTful is a sort of protocol to exchange messages between
- client and server over HTTP (it uses standard HTTP methods) 
+ the client and the server over HTTP (it uses standard HTTP methods) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RESTful"
@@ -669,7 +678,7 @@ key "RESTful"
 \begin_inset Newline newline
 \end_inset
 
-It is simple protocol the uses the the HTTP verbs, for example to create
+It is a simple protocol that uses the HTTP verbs, for example to create
  a new data a 
 \begin_inset Quotes fld
 \end_inset
@@ -694,14 +703,14 @@ key "CRUD"
 \end_inset
 
 .
- The idea is to do simple actions on resources that returns immediately
- an answer (like GET call) or execute immediatelly an action (like POST
- call)
+ The idea is to do simple actions on resources that return immediately an
+ answer (like GET call) or execute immediately an action (like POST call).
 \begin_inset Newline newline
 \end_inset
 
 There is another protocol older than RESTful, still used: SOAP, it is very
- powerful but as we will see to manage resource RESTfull is better 
+ powerful but as we will see in order to manage resources RESTful is better
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RESTSOAP,SOAPvsREST"
@@ -712,8 +721,8 @@ key "RESTSOAP,SOAPvsREST"
 \end_layout
 
 \begin_layout Standard
-RESTfull is designed to work with resources, in fact each resource is identified
- by an unique URI and there are standard actions (HTTP verbs) for each resources.
+RESTful is designed to work with resources, in fact each resource is identified
+ by a unique URI and there are standard actions (HTTP verbs) for each resources.
  For example we can have:
 \end_layout
 
@@ -734,7 +743,7 @@ htttp://example.com/customers
 
 \begin_deeper
 \begin_layout Itemize
-Customer details with an unique ID (for example id = 10) identified by 
+Customer details with a unique ID (for example id = 10) identified by 
 \begin_inset Flex URL
 status open
 
@@ -767,9 +776,9 @@ htttp://example.com/customers/10/contacts
 \end_deeper
 \end_deeper
 \begin_layout Standard
-It is easy to understand how this can be useful to surf cross a JSON structure
- (the URI can be the refer to a specific level of the JSON structure) that
- we will see on 
+It is easy to understand how this can be useful to surf across a JSON structure
+ (the URI can be the reference to a specific level of the JSON structure)
+ that we will see on 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:JSON"
@@ -777,7 +786,7 @@ reference "subsec:JSON"
 \end_inset
 
 .
- In fact, often, RESTfull service retrieve JSON data, but they can also
+ In fact, often, RESTful services retrieve JSON data, but they can also
  retrieve XML.
 \end_layout
 
@@ -790,6 +799,9 @@ reference "subsec:RESTful-Approach"
 \end_inset
 
 .
+ 
+\series bold
+TODO CHECKME
 \end_layout
 
 \begin_layout Subsection
@@ -797,8 +809,8 @@ Data retrieve
 \end_layout
 
 \begin_layout Standard
-Relational databases are not developed to send notification, the basic idea
- is:
+Relational databases are not developed to send notifications, the basic
+ idea is: 
 \begin_inset Quotes fld
 \end_inset
 
@@ -810,7 +822,7 @@ when you want data you get them
 \begin_inset Newline newline
 \end_inset
 
-So in the traditional HTTP applications, a shown in figure 
+So in the traditional HTTP applications, as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modern-web-application"
@@ -821,7 +833,7 @@ reference "fig:Modern-web-application"
 \end_layout
 
 \begin_layout Standard
-If we want to make this process
+If we want to make this process 
 \begin_inset Quotes fld
 \end_inset
 
@@ -833,9 +845,8 @@ realtime
 \end_layout
 
 \begin_layout Enumerate
-How to have a notification of a change? considering also distributed system
- case.
- The trivial solution is the usage of a database 
+How to have a notification of a change considering also distributed system
+ cases? The trivial solution is the usage of a database 
 \begin_inset Quotes fld
 \end_inset
 
@@ -850,13 +861,13 @@ reference "subsec:Database-trigger"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Enumerate
-How to manage clients in efficient way that want to have information about
- changes of only somethings and not of everything? The solution is to use
- the
+How to manage in an efficient way clients that want to have information
+ about changes of only some things and not of everything? The solution is
+ to use the
 \begin_inset Quotes fld
 \end_inset
 
@@ -878,7 +889,7 @@ reference "subsec:Publish/Subscribe"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -893,7 +904,7 @@ Database trigger
 
 \begin_layout Standard
 A trigger is a small snippet of code that is executed for some events such
- as inserting of data into a row.
+ as the insertion of data into a row.
 \end_layout
 
 \begin_layout Subsubsection
@@ -907,16 +918,16 @@ Publish/Subscribe
 \end_layout
 
 \begin_layout Standard
-In Publish/Subscribe pattern each client that is interested to some data/events
+In Publish/Subscribe pattern each client that is interested in some data/events
  
 \begin_inset Quotes fld
 \end_inset
 
-subscribe
+subscribes
 \begin_inset Quotes frd
 \end_inset
 
- to these (they are called 
+ to these ones (they are called 
 \begin_inset Quotes fld
 \end_inset
 
@@ -928,7 +939,7 @@ channels
 \begin_inset Quotes fld
 \end_inset
 
-publish
+publishes
 \begin_inset Quotes frd
 \end_inset
 
@@ -950,7 +961,7 @@ key "PubSub"
 
 .
  Of course Publish/Subscribe is not compatible with RESTful calls since
- in the RESTfull approach the data must be returned immediately when a request
+ in the RESTful approach data must be returned immediately when a request
  is done as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -966,7 +977,15 @@ Realtime retrieve
 \end_layout
 
 \begin_layout Standard
-Now we have all elements to create a real realtime application:
+Now we have all elements to create a 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ application:
 \end_layout
 
 \begin_layout Itemize
@@ -986,18 +1005,18 @@ A trigger on the server
 \begin_inset Quotes fld
 \end_inset
 
-publish
+published
 \begin_inset Quotes frd
 \end_inset
 
- the data when they are updated.
+ data when they are updated.
 \end_layout
 
 \begin_layout Itemize
-The communication between the client and server is over a websocket channel,
- so immediately after the data are published the server send data on this
- channel.
- As said in in 
+The communication between the client and the server is over a websocket
+ channel, so immediately after data are published the server sends data
+ on this channel.
+ As said in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/Subscribe"
@@ -1008,7 +1027,7 @@ reference "subsec:Publish/Subscribe"
 \end_layout
 
 \begin_layout Standard
-Of course there are still issues related to distribution and partitioning
+Of course there are still issues related to the distribution and partitioning
  of the infrastructure as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1026,25 +1045,33 @@ name "sec:Realtime-databases-stack"
 
 \end_inset
 
-Realtime databases stack
-\end_layout
-
-\begin_layout Standard
-As we seen in the previous section with a standard HTTP application stack
- we can create a real realtime application, so why a
+NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
-realtime databses
+Realtime
 \begin_inset Quotes frd
 \end_inset
 
- were born?
+ databases stack
+\end_layout
+
+\begin_layout Standard
+As we have seen in the previous section with a standard HTTP application
+ stack we can create a 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ application, so why were these NoSQL databases born?
 \begin_inset Newline newline
 \end_inset
 
-They were born to increaser the performance and allow to create a realtime
- application a easier way (without implementing in manual way the entire
+They were born to increase the performance and to allow to send realtime
+ notifications in an easier way (without implementing manually the entire
  stack), we can see analogous tiers shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1117,11 +1144,19 @@ reference "subsec:Distribution"
 \end_layout
 
 \begin_layout Itemize
-Client: They provide client libraries to use Publish/Subscribe in efficient
- and transparent way as we will see in th chapter 
+Client: they provide client libraries to use Publish/Subscribe in an efficient
+ and transparent way using what is called 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:technologies"
+reference "subsec:Client-best-practices"
 
 \end_inset
 
@@ -1151,8 +1186,8 @@ NoSQL databases
 \end_layout
 
 \begin_layout Standard
-A NoSQL database is unstructured database, it can support a subset of the
- SQL instructions (but it is not mandatory).
+A NoSQL database is an unstructured database, it can support a subset of
+ the SQL instructions (but it is not mandatory).
  They were born to create scalable databases for Big Data applications,
  in fact they can have 
 \begin_inset Quotes fld
@@ -1173,7 +1208,7 @@ key "NoSQL"
 \end_layout
 
 \begin_layout Standard
-They can be easily partitioned but to ensure this in efficient way they
+They can be easily partitioned but in order to ensure this efficiently they
  have to renounce to the Consistency or to the Availability as shown in
  the figure 
 \begin_inset CommandInset ref
@@ -1249,8 +1284,8 @@ key "DBTriangle"
 \end_layout
 
 \begin_layout Standard
-The data are stored in JSON format or other unstructured formats, the advantages
- and structure of JSON is explained in 
+Data are stored in JSON format or other unstructured formats, the advantages
+ and structure of JSON are explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:JSON"
@@ -1277,8 +1312,8 @@ key "CAPNoSQL"
 \end_inset
 
 .
- Each document is a something that can contains data in JSON format, file
- or other things.
+ Each document is something that can contain data in JSON format, file or
+ other things.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1503,8 +1538,8 @@ document
 \end_inset
 
  is composed by a JSON data like that.
- This structure is very powerful structure that allows to store a lot of
- complex structure.
+ This structure is a very powerful structure that allows to store a lot
+ of complex structures.
 \end_layout
 
 \begin_layout Standard
@@ -1513,7 +1548,7 @@ A simple example can be a system where we have some users, each of them
 \begin_inset Newline newline
 \end_inset
 
-We will see this case and other on the chapter 
+We will see this case and others on the chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:class-of-applications"
@@ -1585,7 +1620,7 @@ updated
 \end_layout
 
 \begin_layout Standard
-We see better what means 
+We see better what it means to 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1612,7 +1647,7 @@ reference "subsec:Client-best-practices"
 \end_layout
 
 \begin_layout Standard
-If the the 
+If the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1665,7 +1700,7 @@ reference "fig:-Database-triangle"
 \end_inset
 
  shows the CAP theorem applied to the databases, it says that in the distributed
- system only two of the following three properties can be guarantee 
+ systems only two of the following three properties can be guaranteed 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL,CAP"
@@ -1680,12 +1715,12 @@ Consistency: all nodes receive the most recent data (write)
 \end_layout
 
 \begin_layout Itemize
-Availability: all requests receive a response with data (this doesn't ensure
+Availability: all requests receive a response with data (this does not ensure
  that data are the newest)
 \end_layout
 
 \begin_layout Itemize
-Partition tolerance: the system work properly even if the data are partitioned
+Partition tolerance: the system works properly even if data are partitioned
  among nodes, also if some of them are unreachable
 \end_layout
 
@@ -1695,8 +1730,8 @@ Of course if there are no network errors all properties are hold.
 \end_inset
 
 In the distributed systems the main issue is the synchronization among nodes:
- there is no a common clock, so it is not so easy determinate the order
- of commits.
+ there is no common clock, so it is not so easy to determine the order of
+ commits.
 \end_layout
 
 \begin_layout Standard
@@ -1712,8 +1747,8 @@ key "CAPNoSQL"
 \begin_inset Newline newline
 \end_inset
 
-Instead NoSQL choose Availability and Partition tolerance or Consistency
- and Partition tolerance 
+Instead NoSQL, often, chooses Availability and Partition tolerance or Consistenc
+y and Partition tolerance 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL"
@@ -1788,7 +1823,7 @@ Today validity
 \end_layout
 
 \begin_layout Standard
-Today there are new things to consider like distributed cluster over WAN,
+Today there are new things to consider like partitioned cluster over WAN,
  that can cause different issues such as high latency, so CAP theorem is
  not enough to classify these new situations.
  New classifications are proposed like 
@@ -1807,6 +1842,11 @@ key "CAPValidity"
 \end_inset
 
 .
+ 
+\series bold
+TODO ADD
+\series default
+
 \begin_inset Newline newline
 \end_inset
 
@@ -1820,9 +1860,9 @@ PACELC
 \begin_inset Quotes frd
 \end_inset
 
- wold caused the classification inconsistent (since some systems aren't
+ would cause the classification inconsistent (since some systems are not
  classified under it).
- Moreover some commercial systems don't give further details to make this
+ Moreover some commercial systems do not give further details to make this
  classification by yourself.
 \end_layout
 
@@ -1837,9 +1877,9 @@ Partitioning and Distribution
 \end_layout
 
 \begin_layout Standard
-There are some systems that use booth the ideas.
- For example HDFS (a distributed file system) that replicates the data among
- nodes and partitions the data among nodes 
+There are some systems that use both ideas.
+ For example HDFS (a distributed file system) replicates the data among
+ nodes and it partitions data among nodes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HDFS"
@@ -1861,8 +1901,8 @@ cluster
 \end_layout
 
 \begin_layout Standard
-To elaborate the data in a distributed environment one simple, powerful
- and commonly programming model is: MapReduce (shortly explained in 
+To elaborate data in a distributed environment one simple, powerful and
+ commonly programming model is: MapReduce (shortly explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:MapReduce"
@@ -1873,7 +1913,7 @@ reference "subsec:MapReduce"
 \end_layout
 
 \begin_layout Standard
-The two main pattern to structure an architecture are: 
+The two main patterns to structure an architecture are: 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1904,8 +1944,9 @@ Partitioning
 \end_layout
 
 \begin_layout Standard
-Partition data among different nodes means split the data into chunks according
- to some rules defined and put different chunks into different nodes 
+Partitioning data among different nodes means to split data into chunks
+ according to some rules defined and to put different chunks into different
+ nodes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL,NoSQL"
@@ -1927,9 +1968,9 @@ Distribution
 
 \begin_layout Standard
 The distribution is the replication of the infrastructure among different
- nodes, each node do the same thing.
+ nodes, each node does the same thing.
  It is not a so easy concept, in fact there is the synchronization problem
- (formally know as consistency as shown by the 
+ (formally known as consistency as shown by the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1955,13 +1996,13 @@ key "CAP"
 \end_layout
 
 \begin_layout Itemize
-Commit data in a distributed database: the problem is find the correct commits
- order since there is no a common clock
+Commit data in a distributed database: the problem is to find the correct
+ commits order since there is no common clock
 \end_layout
 
 \begin_layout Itemize
 Publish/Subscribe: in a Publish/Subscribe application distributed among
- different nodes, how a published data in a node is sent to all subscribed
+ different nodes, how a published data in a node is sent to all the subscribed
  clients also the ones subscribed on other nodes?
 \end_layout
 
@@ -1976,8 +2017,8 @@ reference "subsec:NoSQL-databases"
  the NoSQL database are distributed.
  Also the master node can be distributed, so the client can commit on different
  nodes.
- This increase the performance, since there are no saturation issues of
- the server or of the locks need to write data (commit) 
+ This increases the performance, since there are no saturation issues of
+ the server or of the locks needed to write data (commit) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -1998,8 +2039,8 @@ MapReduce
 \end_layout
 
 \begin_layout Standard
-MapReduce is a programming model where the data are split among different
- nodes and are elaborated by different nodes 
+MapReduce is a programming model where data are split among different nodes
+ and are elaborated by different nodes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MapReduce"
@@ -2007,11 +2048,16 @@ key "MapReduce"
 \end_inset
 
 .
- It is composed by two main actions:
+ It is composed by three main actions:
 \end_layout
 
 \begin_layout Enumerate
-Map: fitering and sorting data
+Map: filtering and sorting data
+\end_layout
+
+\begin_layout Enumerate
+Shuffle: group data by key and send data with the same key to the same reducer
+ node
 \end_layout
 
 \begin_layout Enumerate
@@ -2082,8 +2128,8 @@ key "MasterSlaveReplication"
 \end_inset
 
 .
- Of course in this kind of architecture there are less issues than all issues
- explained in 
+ Of course in this kind of architecture there are less issues than all the
+ issues explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Distribution"
@@ -2120,6 +2166,466 @@ reference "subsec:Consistency,-Partition-tolerance"
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
+name "subsec:Client-best-practices"
+
+\end_inset
+
+Client best practices
+\end_layout
+
+\begin_layout Standard
+In this sub section we will see the best practices used in these kind of
+ applications from the client point of view.
+ Some choices, like data returned in some cases, can be imposed by the server
+ technology chosen.
+\end_layout
+
+\begin_layout Standard
+In tests, benchmarks and examples in the next chapters we will use EcmaScript
+ 5.0 (in some cases we will use EcmaScript 6.0), commonly known with its dialect
+ name: javascript, to use libraries/frameworks.
+ In fact the most known EcmaScript interpreter: V8 is very efficient for
+ event driven programs, it is the interpreter used by the desktop porting
+ that we will use: nodejs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NodeEventDriven"
+
+\end_inset
+
+.
+ This efficiency is due to a good Just in Time compiler written in C 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "V8"
+
+\end_inset
+
+.
+ All server technologies chosen analyzed in the next chapters have EcmaScript
+ clients, of course we can create clients in other languages since the protocols
+ used are standard and opened.
+ EcmaScript is a language where event driven approach is easy to implement,
+ in fact the language has the fundamentals to execute the asynchronous code
+ since it has the callbacks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SyncAsync,AJAX"
+
+\end_inset
+
+.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Moreover EcamScript is executed in only one thread, also the callbacks are
+ executed in this thread.
+ But some operations like network requests, database connections and so
+ on are executed by other threads in background (the result is passed to
+ the callback called in the main thread).
+ If there is no CPU intensive code, this approach is very efficient and
+ solves problems due to race conditions 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NodeEventDriven"
+
+\end_inset
+
+.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Nodejs has also a standard packet manager called NPM, with a lot of libraries,
+ this allows to write small examples with only the code needed to understand,
+ the other parts are done by the libraries.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Furthermore JSON, as the acronym suggests, is derived from javascript.
+ In fact the javascript can parse it easily and JSON objects/arrays become
+ javascript native objects/arrays.
+ So we can access to them in a native way without calling parsing methods
+ to iterate the structure or without mapping the JSON into already defined
+ classes (i.e.
+ deserialize it to objects), like other languages do like JAVA 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JAVAJSON"
+
+\end_inset
+
+, in fact both approaches are not easily adaptable to structure changes.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Event-driven-approach"
+
+\end_inset
+
+Event driven approach
+\end_layout
+
+\begin_layout Standard
+On algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Event-driven-retrieve"
+
+\end_inset
+
+ we show a common and simple realtime retrieve of data in event driven approach.
+ The basic idea of event driven approach is to call a callback when an event
+ is fired, a known example of event driven programming is programming for
+ desktop interfaces where the events are the user inputs.
+\begin_inset Newline newline
+\end_inset
+
+Of course this is not the only approach available but it is easy to understand
+ how it is very useful in asynchronous applications like 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ applications that we discuss in this thesis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Event-driven-retrieve"
+
+\end_inset
+
+Event driven retrieve of data
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{algorithmic}[1]
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $db 
+\backslash
+gets 
+\backslash
+Call{connect}{DB
+\backslash
+_ADDRESS}$ 
+\backslash
+Comment{Connect to DB}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $document 
+\backslash
+gets 
+\backslash
+Call{selectDocument}{db, DOCUMENT}$ 
+\backslash
+Comment{Select document}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+State $
+\backslash
+Call{onChange}{document, PATH, CALLBACK}$ 
+\backslash
+Comment{Subscribe to change events}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+Procedure{callback}{newVal, oldVal}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+Call{log}{oldVal}$ 
+\backslash
+Comment{Log new value of the path}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+State $
+\backslash
+Call{log}{newVal}$ 
+\backslash
+Comment{Log old value of the path}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+EndProcedure
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{algorithmic}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The basic idea is to subscribe a callback to change events of a specif path
+ of a document, thinking of JSON documents the path is a reference to a
+ specif level of the JSON document.
+ For example a path for the JSON listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Simple-JSON-example"
+
+\end_inset
+
+ can be 
+\begin_inset Quotes fld
+\end_inset
+
+/main_array/0/
+\begin_inset Quotes frd
+\end_inset
+
+ to subscribe to change events of the first array inside main array.
+\begin_inset Newline newline
+\end_inset
+
+On the callback the entire new path can be passed or only the part changed,
+ in the case of an array only the child changed.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:RESTful-Approach"
+
+\end_inset
+
+RESTful Approach
+\end_layout
+
+\begin_layout Standard
+What we said previously in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+ for path is valid also for RESTful URI as introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+.
+ RESTful is useful to post/put/delete data and to retrieve them in an synchronou
+s way, synchronous retrieve can be useful to populate local databases (explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+) at the beginning, in fact RESTful is not compatible with asynchronous
+ requests.
+ There is no reason to do this kind of operations in an asynchronous way,
+ of course they can be done via a websocket connection, but they are done
+ in a sort of synchronous way.
+\end_layout
+
+\begin_layout Standard
+So the best practice is to use RESTful for all synchronous operations, let
+ the possibility to use RESTful get all data or a portion of them, but give
+ also an asynchronous
+\end_layout
+
+\begin_layout Standard
+interface integrated with the event driven approach like websocket.
+\end_layout
+
+\begin_layout Standard
+Of course since JavaScript has asynchronous operations support the result
+ of these synchronous operations is returned via a callback.
+ These operations are synchronous, in the meaning that after the request
+ is sent a response is returned immediately, but there are network delays,
+ for that reason the code is executed in an asynchronous way 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AJAX"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Local-database"
+
+\end_inset
+
+Local database
+\end_layout
+
+\begin_layout Standard
+The best practice is to create a local database on the client (with only
+ the data needed) using optimistic replications 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
+
+\end_inset
+
+, this allows to have what commercially is called 
+\begin_inset Quotes fld
+\end_inset
+
+optimistic UI
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticUI"
+
+\end_inset
+
+:
+\begin_inset Newline newline
+\end_inset
+
+It gives the ability to update the 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ (and consequentially the user interface) even if there are network delays
+ or if the network is down.
+\begin_inset Newline newline
+\end_inset
+
+So the developer can call all the methods on the database, seeing the effect,
+ even if there is no connection (often called offline mode); of course some
+ server constraints/modifications are applied when the network comes back
+ up.
+ Some of constraints/modifications applied by the server can be implemented
+ in the client such as type constraints, integrity constraints and so on;
+ of course the server rechecks everything again.
+\end_layout
+
+\begin_layout Standard
+Conflicts can occur and different ways exist to solve them 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
+
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+One of the simplest ways to solve conflict is 
+\begin_inset Quotes fld
+\end_inset
+
+Last Writes Wins
+\begin_inset Quotes frd
+\end_inset
+
+, in this way the writing with the highest timestamps is used overwriting
+ the concurrent others.
+ This approach is used by different systems in implementation of 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+, the timestamp used is the one of the server when the message is really
+ received by the server (not the update time by client that can be very
+ old due to network delays).
+ Of course this approach is reliable when there are masters/supernodes,
+ in other cases techniques that take in consideration consensus are needed.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
 name "sec:Serverless"
 
 \end_inset
@@ -2146,7 +2652,7 @@ Software as a Service
 \begin_inset Quotes frd
 \end_inset
 
-, for that reason it is also know as 
+, for that reason it is also known as 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2172,11 +2678,11 @@ key "ServerlessFilesystem"
 \begin_layout Standard
 In serverless architecture the developer has to think only to develop the
  application without thinking how to scale the infrastructure, how to store
- data in secure way and so on.
+ data in a secure way and so on.
  In serveless architecture the developer has not to develop a real server,
  the server is already set, he has only to configure it and eventually develop
- some small extension (in database case the extension can be simply the
- triggers).
+ some small extensions (in the database case the extension can be simply
+ the triggers).
 \begin_inset Newline newline
 \end_inset
 
@@ -2184,12 +2690,12 @@ Like
 \begin_inset Quotes fld
 \end_inset
 
-Function as a service
+Function as a Service
 \begin_inset Quotes frd
 \end_inset
 
- suggest we can have also system where we have to develop just a piece of
- code, a function, that is executed in a 
+ suggests we can have also systems where we have to develop just a piece
+ of code, a function, that is executed in an 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2224,7 +2730,7 @@ key "AWSLambda,AWSLambdaPricing"
 \end_inset
 
 .
- This is a big advantage for user, because there is an instant scalability
+ This is a big advantage for the user, because there is an instant scalability
  that there is not on 
 \begin_inset Quotes fld
 \end_inset
@@ -2253,8 +2759,8 @@ reference "subsec:Main-Realtime-Databases"
 
  this kind of architecture is entirely developed on cloud architecture and
  partially developed on Open Source architectures, in open source architecture
- we have the facility to configure and develop the server but we don't have
- an easy scalability like the cloud systems.
+ we have the facility to configure and develop the server but we do not
+ have an easy scalability like the cloud systems.
 \end_layout
 
 \begin_layout Standard
@@ -2265,7 +2771,7 @@ reference "subsec:Software-as-a"
 
 \end_inset
 
- we will know how that the difference among these three kind of architecture
+ we will know how the difference among these three kinds of architecture
  is minimal and that often there is overlapping among the architectures.
 \begin_inset Newline newline
 \end_inset
@@ -2294,8 +2800,8 @@ key "SAAS"
 \end_inset
 
 .
- But it became a sort of Serverless architecture to build business applications,
- it has also bought 
+ But it has become a sort of Serverless architecture to build business applicati
+ons, it has also bought 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2321,7 +2827,7 @@ Software as a Service
 \begin_inset Quotes frd
 \end_inset
 
- system, where you don't pay the usage, you pay for accounts and each account
+ system, where you do not pay the usage, you pay for accounts and each account
  has some limits 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2350,9 +2856,9 @@ Platform as a Service
 \begin_inset Quotes frd
 \end_inset
 
- is cloud computing architecture where the developer have not to think about
- infrastructure, he chooses the platform where to develop that is automatically
- configured and ready to use 
+ is a cloud computing architecture where the developer has not to think
+ about infrastructure, he chooses the platform where to develop that is
+ automatically configured and ready to use 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PAAS"
@@ -2467,7 +2973,7 @@ ly create/remove nodes.
 \end_layout
 
 \begin_layout Standard
-For what concern the concept of platform ready to use to develop the serverless
+For what concerns the concept of platform ready to use to develop the serverless
  architecture is similar to 
 \begin_inset Quotes fld
 \end_inset
@@ -2524,7 +3030,7 @@ One of the most known
 \begin_inset Quotes fld
 \end_inset
 
-Software as a service
+Software as a Service
 \begin_inset Quotes frd
 \end_inset
 
@@ -2545,7 +3051,7 @@ key "GoogleWork"
 
 , a service where the employees of a company have access to company mail,
  company docs, company cloud storage and so on; everything is done only
- by configure a system without develop anything.
+ by configuring a system without developing anything.
  The price system of 
 \begin_inset Quotes fld
 \end_inset
@@ -2554,17 +3060,17 @@ Google apps for work
 \begin_inset Quotes frd
 \end_inset
 
- is system where the company has to pay for the number of user not for the
- usage 
+ is a system where the company has to pay for the number of users not for
+ the usage 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GoogleWorkPricing"
 
 \end_inset
 
- an approach completely different from other cloud system, but it is a good
- approach for company because in that way they are able to predict the cost
- in reliable way.
+, an approach completely different from other cloud systems, but it is a
+ good approach for companies because in that way they are able to predict
+ the cost in a reliable way.
 \end_layout
 
 \begin_layout Standard
@@ -2572,7 +3078,7 @@ The serverless approach is very similar to
 \begin_inset Quotes fld
 \end_inset
 
-Software as a service
+Software as a Service
 \begin_inset Quotes frd
 \end_inset
 
@@ -2581,7 +3087,7 @@ Software as a service
 \begin_inset Quotes fld
 \end_inset
 
-Software as a service
+Software as a Service
 \begin_inset Quotes frd
 \end_inset
 

@@ -666,7 +666,7 @@ filename "chapter-2/chapter-2.lyx"
 \end_layout
 
 \begin_layout Chapter
-Class of Applications
+A traditional approach
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:class-of-applications"
@@ -687,7 +687,7 @@ filename "chapter-3/chapter-3.lyx"
 \end_layout
 
 \begin_layout Chapter
-Performance Evaluation
+Class of Applications
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:Performance-Evaluation"
@@ -708,7 +708,7 @@ filename "chapter-4/chapter-4.lyx"
 \end_layout
 
 \begin_layout Chapter
-Cost of Developing
+Performance Evaluation
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:fifth-chapter"
@@ -729,7 +729,7 @@ filename "chapter-5/chapter-5.lyx"
 \end_layout
 
 \begin_layout Chapter
-Real Application Issues and Maintainability
+Cost of Developing
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:sixth-chapter"
@@ -750,7 +750,7 @@ filename "chapter-6/chapter-6.lyx"
 \end_layout
 
 \begin_layout Chapter
-Real use cases
+Real Application Issues and Maintainability
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:seventh-chapter"
@@ -771,7 +771,7 @@ filename "chapter-7/chapter-7.lyx"
 \end_layout
 
 \begin_layout Chapter
-Develop a Real Application: financial trading application
+Real use cases
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:eighth-chapter"
@@ -792,7 +792,7 @@ filename "chapter-8/chapter-8.lyx"
 \end_layout
 
 \begin_layout Chapter
-Ninth chapter
+Develop a Real Application: financial trading application
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:ninth-chapter"

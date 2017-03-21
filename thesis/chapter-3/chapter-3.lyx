@@ -64,309 +64,1329 @@
 \papercolumns 1
 \papersides 2
 \paperpagestyle fancy
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -898145728 "Michele,,,"
 \end_header
 
 \begin_body
 
-\begin_layout Standard
-These are very personal suggestions, no offense will be taken if you completely
- ignore this chapter.
-\end_layout
-
 \begin_layout Section
-Manage bibliography
-\end_layout
-
-\begin_layout Standard
-Manage a lot of bibliography resources by manually editing a 
-\family sans
-bibtex
-\family default
- file is very annoying, it is better to use something that manages for you
- all the references.
- Sadly, \SpecialChar LyX
- does not have an easy to use system for doing that.
- However, there are other programs that can be used to automagically organize
- dozens of papers.
-\end_layout
-
-\begin_layout Standard
-There are two famous programs
-\family sans
-, referencer
-\family default
- and 
-\family sans
-JabRef
-\family default
- (
-\family typewriter
-
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-https://launchpad.net/referencer
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Traditional-technologies"
 
 \end_inset
 
-,
-\family default
- 
-\begin_inset Flex URL
-status collapsed
-
-\begin_layout Plain Layout
-
-http://jabref.sourceforge.net/
-\end_layout
-
-\end_inset
-
-), both have a lot of useful features, the most notable are
-\end_layout
-
-\begin_layout Itemize
-copy from clipboard of 
-\family sans
-bibtex
-\family default
- formatted references
-\end_layout
-
-\begin_layout Itemize
-organization of references with labels
-\end_layout
-
-\begin_layout Itemize
-possibility to associate a 
-\family sans
-pdf
-\family default
- to each reference
-\end_layout
-
-\begin_layout Itemize
-the 
-\family sans
-Cite in \SpecialChar LyX
- 
-\family default
-button
-\end_layout
-
-\begin_layout Section
-Reviews
+Traditional technologies
 \end_layout
 
 \begin_layout Standard
-Your advisor will review what are you writing and he will, most likely,
- add annotations on a 
-\family sans
-pdf
-\family default
+Since the traditional technologies are not the topic of the thesis but are
+ need only to compare the performance of realtime databases, we will shortly
+ describe just one solution.
+ One of the best solution, it is chosen using knowledges from the literature
+ using opensource and widespread technologies.
+\end_layout
+
+\begin_layout Standard
+While the realtime database offers on full stack solution (or you have just
+ to do minor things) here we have to join different solutions that can have
+ possible overlapping, the main module to cover are the following (for each
+ of them a sub chapter is dedicated):
+\end_layout
+
+\begin_layout Itemize
+RDBMS database: that must be scalable among nodes and trigger support to
+ notify changes.
+\end_layout
+
+\begin_layout Itemize
+Publish/Subscribe system: to publish notification of changes as explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
 .
- However, correction contained inside annotations are difficult to integrate,
- manly because you will spend a lot of time in finding where to modify your
- document.
- \SpecialChar LyX
- supports a very powerful method to review a document, just look the examples
- below.
+\end_layout
+
+\begin_layout Itemize
+Websocket server: for the reason explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:WebSocket"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Custom logic level: An eventual level where introduce custom logic.
+\end_layout
+
+\begin_layout Itemize
+Client framework/libraries: to communicate to the server (cluster).
 \end_layout
 
 \begin_layout Standard
-Where 
-\change_deleted -898145728 1390600943
-you has learn
-\change_inserted -898145728 1390600950
-have you learned
-\change_unchanged
- english stupid dumbass?
-\end_layout
-
-\begin_layout Standard
-The derivative of 
-\begin_inset Formula $e^{x}$
-\end_inset
-
- is 
-\begin_inset Formula $e^{2x}$
-\end_inset
-
-
-\change_inserted -898145728 1390600903
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -898145728 1390600927
-Are you really sure of that?
-\change_unchanged
-
-\end_layout
+We tried to use Ecmascript where it is possible for the same reasons explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
 
 \end_inset
 
+, using event driven approach explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
 
-\change_unchanged
+\end_inset
+
 .
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -898145728 1390600833
-In my opinion
-\change_inserted -898145728 1390660018
-After having considered all the other solutions we proved that
-\change_unchanged
- this is the most efficient way to determine the medium length of horse's
- mane.
-\end_layout
-
-\begin_layout Standard
-These result shows that the first method is way better than the second.
- 
-\change_inserted -898145728 1390600778
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -898145728 1390600828
-explain why the first method is better
-\change_unchanged
-
-\end_layout
+On appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Configurations"
 
 \end_inset
 
-
-\change_unchanged
-
+ the configurations, custom code (e.g.
+ triggers) and basic examples of the technologies used are shown; the entire
+ section makes a full example.
+ In fact, while the realtime database implements the full stack in an easy
+ way, here we have to use different technologies and configure them to communica
+te each other in efficient way.
 \begin_inset Newline newline
 \end_inset
 
-The integration of these reviews is much easier than reviews inside annotation
- of a 
-\family sans
-pdf
-\family default
+While on appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Installers"
+
+\end_inset
+
+ the scripts to install the environments on different servers are shown.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Database"
+
+\end_inset
+
+Database
+\end_layout
+
+\begin_layout Standard
+The RDBS are 
+\begin_inset Quotes fld
+\end_inset
+
+CA
+\begin_inset Quotes frd
+\end_inset
+
+ according to the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+ and shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:-Database-triangle"
+
+\end_inset
+
+, i.e.
+ they don't support a partition of the data in efficient way.
+\end_layout
+
+\begin_layout Standard
+The data can be partitioned
+\series bold
+ TODO SCHOLAR PARTITION.
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+But, at the same time, like some realtime databases systems the structure
+ can be a 
+\begin_inset Quotes fld
+\end_inset
+
+multi master
+\begin_inset Quotes frd
+\end_inset
+
+ or 
+\begin_inset Quotes fld
+\end_inset
+
+master-slaves
+\begin_inset Quotes frd
+\end_inset
+
+, the details of these kind of structure are explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
 .
- Unfortunately you have to convince your advisor to use this system, I think
- it is worth a try.
+\series bold
+TODO bib
 \end_layout
 
 \begin_layout Standard
-This feature is called 
-\family sans
-Change Tracking
-\family default
-, there is a dedicated toolbar that you can show by activating the 
-\family sans
-Change Track
-\family default
- option (
-\family sans
-Document \SpecialChar menuseparator
- Change Tracking \SpecialChar menuseparator
- Track Changes
-\family default
- or simply 
-\family sans
-CTRL + SHIFT + E
-\family default
-).
- This document has the 
-\family sans
-Change Tracking
-\family default
- option already enabled.
-\end_layout
 
-\begin_layout Section
-Final presentation
+\series bold
+postgresql cluster
 \end_layout
 
 \begin_layout Standard
-Once you have written your thesis you will have to present it.
- Timing is critical.
- You will have from 
-\begin_inset Formula $15$
+PostgreSQL is a very flexible database that allows to use custom languages
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreLanguages"
+
 \end_inset
 
- to 
-\begin_inset Formula $20$
-\end_inset
+.
+ One of them is PL/sh 
+\begin_inset Foot
+status open
 
- minutes to present the work of months.
- A very useful tool that you may use during your presentation is 
-\family typewriter
-pdfpc
-\family default
- (
+\begin_layout Plain Layout
 \begin_inset Flex URL
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
-http://davvil.github.io/pdfpc/
+https://github.com/petere/plsh
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ a language that allows to execute shell commands, so we are able to call
+ an external program.
+ In our case we will call a command to send updated data (notify changes)
+ to the publish/subscribe system as described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:traditional-Publish/Subscribe"
+
+\end_inset
+
+.
+ To do that we create a postgreSQL function 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreFunctions"
+
+\end_inset
+
+ shown in the listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Notify-function"
+
+\end_inset
+
+ that calls our external program, then we create a postgreSQL after trigger
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreTriggers"
+
+\end_inset
+
+ that call this function (so we receive insert/delete/update events) as
+ shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Notify-trigger"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Notify-function"
+
+\end_inset
+
+Notify function
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE or REPLACE FUNCTION notify(text, text, text, text) RETURNS text AS
+ '
+\end_layout
+
+\begin_layout Plain Layout
+
+#!/bin/bash
+\end_layout
+
+\begin_layout Plain Layout
+
+node notify $1 $2 $3 $4 </dev/null   >/dev/null 2>&1 &
+\end_layout
+
+\begin_layout Plain Layout
+
+' LANGUAGE plsh;
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=sh"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Notify-trigger"
+
+\end_inset
+
+Notify trigger
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE OR REPLACE FUNCTION notify_trigger_proc() RETURNS trigger AS $notify_trig
+ger_proc$
+\end_layout
+
+\begin_layout Plain Layout
+
+DECLARE
+\end_layout
+
+\begin_layout Plain Layout
+
+ old_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+new_v TEXT;
+\end_layout
+
+\begin_layout Plain Layout
+
+BEGIN
+\end_layout
+
+\begin_layout Plain Layout
+
+ IF TG_OP = 'INSERT' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+   old_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    old_v := (SELECT  ('[' || row_to_json(OLD) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+ IF TG_OP = 'DELETE' THEN
+\end_layout
+
+\begin_layout Plain Layout
+
+   new_v := '{}';
+\end_layout
+
+\begin_layout Plain Layout
+
+ ELSE
+\end_layout
+
+\begin_layout Plain Layout
+
+    new_v := (SELECT  ('[' || row_to_json(NEW) || ']')::json ->> 0);
+\end_layout
+
+\begin_layout Plain Layout
+
+ END IF;
+\end_layout
+
+\begin_layout Plain Layout
+
+ PERFORM notify(NEW.id, TG_OP, old_v,new_v);
+\end_layout
+
+\begin_layout Plain Layout
+
+   RETURN NEW;
+\end_layout
+
+\begin_layout Plain Layout
+
+END;
+\end_layout
+
+\begin_layout Plain Layout
+
+$notify_trigger_proc$ LANGUAGE plpgsql;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+CREATE TRIGGER notify_trigger
+\end_layout
+
+\begin_layout Plain Layout
+
+    AFTER UPDATE INSERT OR UPDATE OR DELETE ON DATA_TABLE
+\end_layout
+
+\begin_layout Plain Layout
+
+    FOR EACH ROW
+\end_layout
+
+\begin_layout Plain Layout
+
+    EXECUTE PROCEDURE notify_trigger_proc();
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO listing highligthed
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO notify parameters, pass entire new?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO improove -> stament update
+\end_layout
+
+\begin_layout Standard
+The way previously shown is a standard SQL way with triggers, of course
+ the languages change between the database systems and the needs, but the
+ idea is still valid.
+\end_layout
+
+\begin_layout Standard
+PostgreSQL has a feature to create in an easy way a sort of publish/subscribe
+ system, it is a queue where you can publish messages and read them in the
+ order, to do that NOTIFY 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreNotify"
+
+\end_inset
+
+ and LISTEN 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreListen"
+
+\end_inset
+
+ commands are used.
+ Of course they are not SQL standard but we will use them to increase the
+ performances.
+\begin_inset Newline newline
+\end_inset
+
+There are a lot of examples useful for our use case, one of them (with javascrip
+t listener) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreNotifyListenExample"
+
+\end_inset
+
+ was modified and used in our final configuration as you can see on the
+ appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Configurations"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO test if it is casual consistency, what happens if I send two update
+ in the meantime.
+ Is there a lock evne in the trigger?
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:traditional-Publish/Subscribe"
+
+\end_inset
+
+Publish/Subscribe
+\end_layout
+
+\begin_layout Standard
+As we will see on the proper section (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Websocket-Server"
+
+\end_inset
+
+) the websocket server implements publish/subscribe, so a publish/subscribe
+ system is not required for this purpose.
+ However 
+\begin_inset Quotes fld
+\end_inset
+
+redis
+\begin_inset Quotes frd
+\end_inset
+
+, that is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Redis"
+
+\end_inset
+
+, can be used as publish/subscribe.
+\end_layout
+
+\begin_layout Standard
+Redis 
+\end_layout
+
+\begin_layout Standard
+https://blog.heroku.com/javascript_in_your_postgres
+\end_layout
+
+\begin_layout Standard
+aaa 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Websocket-Server"
+
+\end_inset
+
+Websocket Server
+\end_layout
+
+\begin_layout Standard
+One of the most famous websocket server, written in javascript, is 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://socket.io/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
+ It is built on top of 
+\begin_inset Quotes fld
+\end_inset
+
+engine.io
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/socketio/engine.io
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ that is like the transportation level in the ISO/OSI stack, it is very
+ efficient but it is only websocket implementation.
+ As we will see 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ has a lot of integrations and native implementation hat make it the best
+ choice for our test.
+ Furthermore it is the best open source websocket server 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebsocketServersComparison"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will use 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ for the following features:
+\end_layout
+
+\begin_layout Itemize
+Channels (publish/subscribe) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOChannels"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Redis integration to create websocket cluster 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIORedis"
+
+\end_inset
+
+
+\series bold
+ 
+\series default
+, it is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Redis"
+
+\end_inset
+
+.
+\series bold
+TODO check if ti is needed
+\end_layout
+
+\begin_layout Itemize
+user/session support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOUsers"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Of course to simply the architecture we will use the websocket server for
+ 
+\begin_inset Quotes fld
+\end_inset
+
+synchronous requests
+\begin_inset Quotes frd
+\end_inset
+
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful-Approach"
+
+\end_inset
+
+, instead of implement a RESTful server this because only 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ retrieve is the object of our study.
+ Of course to handle these request we have to write custom logic.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Redis"
+
+\end_inset
+
+Redis
+\end_layout
+
+\begin_layout Standard
+Redis 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://redis.io/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a key-value storage in memory 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+, the data can be written to the disk every a fixed amount of time.
+ It allows to do a lot of different things:
+\end_layout
+
+\begin_layout Itemize
+Cache system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisCache"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Publish/subscribe system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisPUBSUB"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Queue system, using lists 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisQueue,RedisDataTypes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the following features:
+\end_layout
+
+\begin_layout Itemize
+Data partitioning support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisPartitioning"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Everything (image, text, json and so on) can be insert as the 
+\begin_inset Quotes fld
+\end_inset
+
+value
+\begin_inset Quotes frd
+\end_inset
+
+ (key-value storage), with high storage limit (512 megabyte per value) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisDataTypes"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+TOODO CAP and multi master 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisReplication,RedisLock"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+//TODO using to and join we can also subscribe to different level of data
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+DISTRIBUTION, CAP
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+ADVANTAGES for us
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO reference to redis here and above
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO authentication
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Expressjs?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+data retrieve via lib, replication, id subscribe
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+put data socket or rest? rest but not implemented
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+scoekt io emitter??
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+reference for pub/sub is not correct, they are namspace not pub/sub
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+with namespaces and rooms it is a complex key value (with limited levels
+ but cusotomizable)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+rooms
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+room is efficient http://socket.io/docs/rooms-and-namespaces/#default-room
+ a lot of rooms, find other things But this link is sueful to explain rooms
+ and how they are used here
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+security: i cannot read other rooms, i cannot write other rooms
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+explain different socket io libraries
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+https://github.com/socketio/socket.io-protocol
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+https://github.com/socketio/socket.io-p2p can be useful considering the realtime
+ cited before
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+distributed, there is no a global vision of the network, like a p2p I don't
+ know all clients connected
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+rooms equivalent in realtime tested, or analogous way to obtain security
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+talk about rooms as feature then talk about it as an instrument to obtain
+ security maybne this should be inserted in custom logic or dedicated section
+ (security middleware)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+say that this is very cusotmizable stack
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+postgree trigger on specific column as data level
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+data granularity
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+explain napsace and rooms used
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+If the websocket dies Do I lose the joins?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+improve appendix config, make it uniform and fix address, explaining them
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+channels and other things as websocket advantages that engine haven't
+\end_layout
+
+\begin_layout Subsection
+Custom Logic
+\end_layout
+
+\begin_layout Standard
+Since the websocket server is written in javascript it is easy to customize
+ it.
+ This can be very useful if we want, for example, customize the user management
+ using an api key system.
+ The customization is very easy since everything is done via callbacks,
+ on listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Socket.io-customization"
+
+\end_inset
+
+ a simple customization for a channel is shown: when a message on the channel
+ 
+\begin_inset Quotes fld
+\end_inset
+
+chat message
+\begin_inset Quotes frd
+\end_inset
+
+ is received the message reversed is retransmitted in the same channel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Socket.io-customization"
+
+\end_inset
+
+Socket.io customization
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+socket.on('chat message', function(msg){
+\end_layout
+
+\begin_layout Plain Layout
+
+    io.emit('chat message', msg.split('').reverse().join(''));
+\end_layout
+
+\begin_layout Plain Layout
+
+});
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Client framework
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ has implemented a simple client framework, with the channel support, it
+ is a event driven implementation explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+.
+ Of course we have to define 
+\begin_inset Quotes fld
+\end_inset
+
+REST actions
+\begin_inset Quotes frd
+\end_inset
+
+ and libraries to do them in a custom way (the approach is explained in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful-Approach"
+
+\end_inset
+
+), we have also to create a local databases (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
 
 \end_inset
 
 ).
- By using this program, on the screen of your laptop you will have some
- additional information that are not showed on the external monitor.
- These extra information are
-\end_layout
-
-\begin_layout Description
-Time
-\begin_inset space ~
-\end_inset
-
-left you can set the duration of the presentation and see how many minutes
- and seconds you have left
-\end_layout
-
-\begin_layout Description
-Next
-\begin_inset space ~
-\end_inset
-
-slide you will see both the current and the next slide
-\end_layout
-
-\begin_layout Description
-Annotations you can add some annotation to remember you some key points
- that you may forget
 \end_layout
 
 \begin_layout Standard
-This tool is very very useful, but do not forget that there is always the
- demo effect.
- You MUST try it before even thinking to use for your final presentation.
+The Client framework is like the server one shown in listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Socket.io-customization"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Local database
 \end_layout
 
 \begin_layout Standard
-To install the program on a Linux system there should be a package named
+As explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+ one common way to implement 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ is 
+\begin_inset Quotes fld
+\end_inset
+
+last Writer Win
+\begin_inset Quotes frd
+\end_inset
+
+, this approach will be used.
  
-\family sans
-pdf-presenter-console
-\family default
-, for other OS on the websites of the program there are the instruction
- how to install it.
+\begin_inset Newline newline
+\end_inset
+
+So a local database implementation is an object that contains data and provide
+ the read/write methods for user.
+\end_layout
+
+\begin_layout Standard
+We have the following situations
+\end_layout
+
+\begin_layout Itemize
+User calls write/update: local data are updated.
+ At the same time the local database tries to update the remote servers
+ until there are no network errors.
+\end_layout
+
+\begin_layout Itemize
+Data are updated by the server: a callback is called and it updates the
+ local data.
+\end_layout
+
+\begin_layout Paragraph
+Critical data
+\end_layout
+
+\begin_layout Standard
+Often the data are modified by server: default values, data updated by triggers,
+ constraints, id auto generated and so on.
+ Since we write data on client database we have to implement all of them
+ in the client, but to do that we have to create a sort of 
+\begin_inset Quotes fld
+\end_inset
+
+SQL interpreter
+\begin_inset Quotes frd
+\end_inset
+
+ on client.
+ Of course if there are no network problems the issue could be solved waiting
+ the answer of the server, but this means make the application not optimistic.
+\end_layout
+
+\begin_layout Standard
+This issue is solved by other systems in the following ways (some of them
+ are already implemented since they are NoSQL) :
+\end_layout
+
+\begin_layout Itemize
+Simplify constraints (the client can replicate them easily)
+\end_layout
+
+\begin_layout Itemize
+Simplify defaults (the client can replicate them easily)
+\end_layout
+
+\begin_layout Itemize
+No triggers
+\end_layout
+
+\begin_layout Itemize
+Unique ID that can be generated by client.
+\end_layout
+
+\begin_layout Standard
+For our application and tests we can skip all things except ID, to solve
+ it we can use an UUID (Universally unique identifier) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UUID"
+
+\end_inset
+
+ that can be easily generated both the client and server.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO IMPROVE according to real code
 \end_layout
 
 \end_body
