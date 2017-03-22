@@ -624,6 +624,27 @@ filename "introduction.lyx"
 \end_layout
 
 \begin_layout Chapter
+Background
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Background"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "chapter-1/chapter-1.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
 State of Art
 \begin_inset CommandInset label
 LatexCommand label
@@ -637,7 +658,7 @@ name "chap:State-of-Art"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "chapter-1/chapter-1.lyx"
+filename "chapter-2/chapter-2.lyx"
 
 \end_inset
 
@@ -658,27 +679,6 @@ name "chap:technologies"
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand input
-filename "chapter-2/chapter-2.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-A traditional approach
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:class-of-applications"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
 filename "chapter-3/chapter-3.lyx"
 
 \end_inset
@@ -687,14 +687,7 @@ filename "chapter-3/chapter-3.lyx"
 \end_layout
 
 \begin_layout Chapter
-Class of Applications
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:Performance-Evaluation"
-
-\end_inset
-
-
+A traditional approach
 \end_layout
 
 \begin_layout Standard
@@ -708,7 +701,21 @@ filename "chapter-4/chapter-4.lyx"
 \end_layout
 
 \begin_layout Chapter
-Performance Evaluation
+Class of Applications-Performance Evaluation
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:class-of-applications"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Performance-Evaluation"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:fifth-chapter"
