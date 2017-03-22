@@ -1609,10 +1609,6 @@ reference "par:Firebase"
 \end_layout
 
 \begin_layout Subsection
-
-\end_layout
-
-\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Comparison"
@@ -2325,6 +2321,10 @@ TODO auth based on owner not id (insert problem)
 
 \begin_layout Itemize
 Install smae version of libraries
+\end_layout
+
+\begin_layout Itemize
+clients with different data in tests, netwrok down
 \end_layout
 
 \end_body
