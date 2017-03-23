@@ -2327,5 +2327,17 @@ Install smae version of libraries
 clients with different data in tests, netwrok down
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO EXPLAIN COMMIT; ROLLBACK; TRANSACTION
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO TRANSACTION SUPPORT
+\end_layout
+
 \end_body
 \end_document

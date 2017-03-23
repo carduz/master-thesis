@@ -83,20 +83,7 @@ reference "sec:Traditional-HTTP-Application"
 \end_inset
 
 .
- Then we will see how to send realtime notifications of changes and the
- limits that are the causes of the creation of NoSQL databases.
- Finally we will analyze the NoSQL databases approach on 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Realtime-databases-stack"
-
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-Of course the protocol is not the only element needed to build an application
+ Of course the protocol is not the only element needed to build an application
  that receives realtime notifications of changes but it is a must.
  Without a right protocol, that allows us to receive messages from the server,
  we are not able to build an efficient application that receives 
@@ -111,11 +98,37 @@ realtime
 \end_layout
 
 \begin_layout Standard
-We will also analyze the database itself, because in traditional databases
+Then we will see basic concept and issues of data in a distributed system
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Data-Management"
+
+\end_inset
+
+.
+ We will also analyze the database itself, because in traditional databases
  there is no native event notification system: we have to check it every
  time (polling) or we have to create a trigger to do that as we will see
  in the next sections.
- Of course the NoSQL databases that we will analyze solve this.
+\begin_inset Newline newline
+\end_inset
+
+We will analyze also the how to send realtime notifications of changes and
+ the limits that are the causes of the creation of NoSQL databases.
+\end_layout
+
+\begin_layout Standard
+Finally we will quickly see concepts beyond cloud computing from user point
+ of view in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Serverless"
+
+\end_inset
+
+, since a lot of systems that we will analyze in the next chapters are in
+ cloud.
 \end_layout
 
 \begin_layout Section
@@ -125,7 +138,7 @@ name "sec:Traditional-HTTP-Application"
 
 \end_inset
 
-Traditional HTTP Application Stack
+HTTP
 \end_layout
 
 \begin_layout Standard
@@ -204,8 +217,14 @@ reference "fig:Modern-web-application"
 
 \begin_layout Standard
 We will see the evolution of the HTTP that allows to send realtime notifications.
- The core of the issue is the HTTP handshake, in fact we need to have asynchrono
-us requests, i.e.
+ The core of the issue is the HTTP handshake analyzed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:HTTP-handshake"
+
+\end_inset
+
+, in fact we need to have asynchronous requests, i.e.
  the server should be able to send messages to the client at any time 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -216,7 +235,31 @@ key "SyncAsync"
 .
 \end_layout
 
+\begin_layout Standard
+We will also see standard related to HTTP: websocket in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:WebSocket"
+
+\end_inset
+
+ and RESTful in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:HTTP-handshake"
+
+\end_inset
+
 HTTP handshake
 \end_layout
 
@@ -790,21 +833,58 @@ reference "subsec:JSON"
  retrieve XML.
 \end_layout
 
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Data-Management"
+
+\end_inset
+
+Data Management
+\end_layout
+
 \begin_layout Standard
-We will see real examples on 
+We will see the basic concepts of database systems to retrieve data in a
+ realtime way in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:RESTful-Approach"
+reference "subsec:Data-retrieve"
 
 \end_inset
 
 .
- 
-\series bold
-TODO CHECKME
+\begin_inset Newline newline
+\end_inset
+
+Then we see basic concept and issues of data in a distributed system: consistenc
+y, partition tolerance and availability in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Finally we see general idea beyond a distributed system in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Partitioning-and-Distribution"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Data-retrieve"
+
+\end_inset
+
 Data retrieve
 \end_layout
 
@@ -892,6 +972,17 @@ reference "subsec:Publish/Subscribe"
 .
 \end_layout
 
+\begin_layout Standard
+Finally we recap everything needed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Realtime-retrieve"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -903,8 +994,53 @@ Database trigger
 \end_layout
 
 \begin_layout Standard
-A trigger is a small snippet of code that is executed for some events such
- as the insertion of data into a row.
+According to SQL:1999 (known as SQL3) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SQL1999"
+
+\end_inset
+
+ a trigger is a procedure automatically called by the database in case of
+ some events.
+\end_layout
+
+\begin_layout Standard
+It has the following components:
+\end_layout
+
+\begin_layout Itemize
+Unique name
+\end_layout
+
+\begin_layout Itemize
+Trigger event: insert, delete, update
+\end_layout
+
+\begin_layout Itemize
+Activation time: before or after the trigger event
+\end_layout
+
+\begin_layout Itemize
+Trigger granularity: for each row, for each statement
+\end_layout
+
+\begin_layout Itemize
+Trigger condition: SQL condition
+\end_layout
+
+\begin_layout Itemize
+trigger actions: SQL procedure to execute
+\end_layout
+
+\begin_layout Itemize
+trigger timestamp: when the trigger was created
+\end_layout
+
+\begin_layout Standard
+If the event is fired and the condition is valid the trigger is called,
+ if there are more than one trigger to call they are called in timestamp
+ ascending order.
 \end_layout
 
 \begin_layout Subsubsection
@@ -918,8 +1054,15 @@ Publish/Subscribe
 \end_layout
 
 \begin_layout Standard
-In Publish/Subscribe pattern each client that is interested in some data/events
- 
+In Publish/Subscribe pattern (originally know as 
+\begin_inset Quotes fld
+\end_inset
+
+news
+\begin_inset Quotes frd
+\end_inset
+
+ subsystem) each client that is interested in some data/events 
 \begin_inset Quotes fld
 \end_inset
 
@@ -927,15 +1070,7 @@ subscribes
 \begin_inset Quotes frd
 \end_inset
 
- to these ones (they are called 
-\begin_inset Quotes fld
-\end_inset
-
-channels
-\begin_inset Quotes frd
-\end_inset
-
-), while the server service 
+ to these ones, while the server service 
 \begin_inset Quotes fld
 \end_inset
 
@@ -943,8 +1078,8 @@ publishes
 \begin_inset Quotes frd
 \end_inset
 
- the data that will be sent to the clients without knowing which are the
- client 
+ the data that will be sent to the clients (by the broker server(s)) without
+ knowing which are the clients 
 \begin_inset Quotes fld
 \end_inset
 
@@ -960,9 +1095,14 @@ key "PubSub"
 \end_inset
 
 .
- Of course Publish/Subscribe is not compatible with RESTful calls since
- in the RESTful approach data must be returned immediately when a request
- is done as explained in 
+ Of course the publishers could not be a server, in fact every actor can
+ be a publisher.
+\begin_inset Newline newline
+\end_inset
+
+Publish/Subscribe is not compatible with RESTful calls since in the RESTful
+ approach data must be returned immediately when a request is done as explained
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:RESTful"
@@ -972,7 +1112,52 @@ reference "subsec:RESTful"
 .
 \end_layout
 
+\begin_layout Standard
+There are two types of subscriptions:
+\end_layout
+
+\begin_layout Itemize
+Topic based: channels, i.e.
+ an unique name the identifies the messages
+\end_layout
+
+\begin_layout Itemize
+Content-based: messages sent to subscribers interested to some attributes
+ or to the content of them
+\end_layout
+
+\begin_layout Standard
+The content-based system is more flexible but it is not so easy develop
+ an efficient distributed broker network 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubSubContent"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Since we need just to receive events of changes on tables the topic-based
+ is enough where the topic could be the couple 
+\begin_inset Quotes fld
+\end_inset
+
+table-record_id
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Realtime-retrieve"
+
+\end_inset
+
 Realtime retrieve
 \end_layout
 
@@ -1036,6 +1221,1055 @@ reference "subsec:Partitioning-and-Distribution"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+Consistency, Partition tolerance, Availability
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename db-triangle.png
+	width 80col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:-Database-triangle"
+
+\end_inset
+
+Database triangle
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DBTriangle"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:-Database-triangle"
+
+\end_inset
+
+ shows the CAP theorem applied to the databases, it says that in the distributed
+ systems only two of the following three properties can be guaranteed 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL,CAP"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Consistency: all nodes receive the most recent data (write)
+\end_layout
+
+\begin_layout Itemize
+Availability: all requests receive a response with data (this does not ensure
+ that data are the newest)
+\end_layout
+
+\begin_layout Itemize
+Partition tolerance: the system works properly even if data are partitioned
+ among nodes, also if some of them are unreachable
+\end_layout
+
+\begin_layout Standard
+Of course if there are no network errors all properties are hold.
+\begin_inset Newline newline
+\end_inset
+
+In the distributed systems the main issue is the synchronization among nodes:
+ there is no common clock, so it is not so easy to determine the order of
+ commits.
+\end_layout
+
+\begin_layout Standard
+ACID (Atomicity, Consistency, Isolation, Durability) databases (traditional
+ relational databases) choose Availability and Consistency 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Eventual-consistency"
+
+\end_inset
+
+Eventual consistency
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is not implemented, often the 
+\begin_inset Quotes fld
+\end_inset
+
+eventual consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is implemented: 
+\begin_inset Quotes fld
+\end_inset
+
+the storage system guarantees that if no new updates are made to the object,
+ eventually all accesses will return the last updated value
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EventuallyConsistent"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "par:CAP-validity"
+
+\end_inset
+
+Today validity
+\end_layout
+
+\begin_layout Standard
+Today there are new things to consider like partitioned cluster over WAN,
+ that can cause different issues such as high latency, so CAP theorem is
+ not enough to classify these new situations.
+ New classifications are proposed like 
+\begin_inset Quotes fld
+\end_inset
+
+PACELC
+\begin_inset Quotes frd
+\end_inset
+
+ to solve these issues 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPValidity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The idea beyond 
+\begin_inset Quotes fld
+\end_inset
+
+PACELC
+\begin_inset Quotes frd
+\end_inset
+
+ is that if 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ must be guarantee the latency can increase a lot (time needed to receive
+ all acks from all replica for every action), potentially to infinity.
+ So a system have to choose between latency and 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+But since this classification is not used yet by a lot of commercial and
+ non systems in the next chapters CAP classification will be used, since
+ used 
+\begin_inset Quotes fld
+\end_inset
+
+PACELC
+\begin_inset Quotes frd
+\end_inset
+
+ would cause the classification inconsistent (since some systems are not
+ classified under it).
+ Moreover some commercial systems do not give further details to make this
+ classification by yourself.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Partitioning-and-Distribution"
+
+\end_inset
+
+Partitioning and Distribution
+\end_layout
+
+\begin_layout Standard
+There are some systems that use both ideas.
+ For example HDFS (a distributed file system) replicates the data among
+ nodes and it partitions data among nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HDFS"
+
+\end_inset
+
+.
+ So a chunk of data is replicated some times but it is not present in all
+ nodes.
+ A group of nodes is called 
+\begin_inset Quotes fld
+\end_inset
+
+cluster
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To elaborate data in a distributed environment one simple, powerful and
+ commonly programming model is: MapReduce (shortly explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MapReduce"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The two main patterns to structure an architecture are: 
+\begin_inset Quotes fld
+\end_inset
+
+multi master
+\begin_inset Quotes frd
+\end_inset
+
+ and 
+\begin_inset Quotes fld
+\end_inset
+
+master-salves
+\begin_inset Quotes frd
+\end_inset
+
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Partitioning
+\end_layout
+
+\begin_layout Standard
+Partitioning data among different nodes means to split data into chunks
+ according to some rules defined and to put different chunks into different
+ nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAPNoSQL,NoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Distribution"
+
+\end_inset
+
+Distribution
+\end_layout
+
+\begin_layout Standard
+The distribution is the replication of the infrastructure among different
+ nodes, each node does the same thing.
+ It is not a so easy concept, in fact there is the synchronization problem
+ (formally known as consistency as shown by the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAP"
+
+\end_inset
+
+ for example in the following scenarios:
+\end_layout
+
+\begin_layout Itemize
+Commit data in a distributed database: the problem is to find the correct
+ commits order since there is no common clock
+\end_layout
+
+\begin_layout Itemize
+Publish/Subscribe: in a Publish/Subscribe application distributed among
+ different nodes, how a published data in a node is sent to all the subscribed
+ clients also the ones subscribed on other nodes?
+\end_layout
+
+\begin_layout Standard
+As said previously in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:NoSQL-databases"
+
+\end_inset
+
+ the NoSQL database are distributed.
+ Also the master node can be distributed, so the client can commit on different
+ nodes.
+ This increases the performance, since there are no saturation issues of
+ the server or of the locks needed to write data (commit) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:MapReduce"
+
+\end_inset
+
+MapReduce
+\end_layout
+
+\begin_layout Standard
+MapReduce is a programming model where data are split among different nodes
+ and are elaborated by different nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MapReduce"
+
+\end_inset
+
+.
+ It is composed by three main actions:
+\end_layout
+
+\begin_layout Enumerate
+Map: filtering and sorting data
+\end_layout
+
+\begin_layout Enumerate
+Shuffle: group data by key and send data with the same key to the same reducer
+ node
+\end_layout
+
+\begin_layout Enumerate
+Reduce: summary operations
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+Multi Master & Master-Slaves replication
+\end_layout
+
+\begin_layout Standard
+To have data immediately available (optimistic replication) we have to renounce
+ to strong consistency having eventually consistency.
+ There are different ways to solve conflicts and obtain eventually consistency,
+ one of the simplest ways to solve conflict is 
+\begin_inset Quotes fld
+\end_inset
+
+Last Writes Wins
+\begin_inset Quotes frd
+\end_inset
+
+, in this way the writing with the highest timestamps is used overwriting
+ the concurrent others 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
+
+\end_inset
+
+.
+ 
+\series bold
+TODO INTRODUCE REPLICATION
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Multi-Master"
+
+\end_inset
+
+Multi Master
+\end_layout
+
+\begin_layout Standard
+All data can be written in every node of the cluster that replicates them
+ to other nodes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MultiMasterReplication"
+
+\end_inset
+
+.
+ Of course in this kind of architecture there can be issues due to the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution"
+
+\end_inset
+
+.
+ 
+\series bold
+TODO FIX
+\end_layout
+
+\begin_layout Paragraph
+Master-Slaves
+\end_layout
+
+\begin_layout Standard
+All data are written in one node that replicates them to the other that
+ can be used only in 
+\begin_inset Quotes fld
+\end_inset
+
+read only mode
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MasterSlaveReplication"
+
+\end_inset
+
+.
+ Of course in this kind of architecture there are less issues than all the
+ issues explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution"
+
+\end_inset
+
+.
+ There can be still issues due to 
+\begin_inset Quotes fld
+\end_inset
+
+Availability
+\begin_inset Quotes frd
+\end_inset
+
+ as explained by the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Serverless"
+
+\end_inset
+
+Serverless
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO tlak of clodu computing as main
+\end_layout
+
+\begin_layout Standard
+A serverless is a cloud computing architecture, where the developer has
+ not to think about the infrastructure.
+ It is something at the middle between 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ and 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+, for that reason it is also known as 
+\begin_inset Quotes fld
+\end_inset
+
+Function as a Service
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+The serverless idea is a general idea that can be implemented for different
+ things, a classic implementation is for file systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ServerlessFilesystem"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In serverless architecture the developer has to think only to develop the
+ application without thinking how to scale the infrastructure, how to store
+ data in a secure way and so on.
+ In serveless architecture the developer has not to develop a real server,
+ the server is already set, he has only to configure it and eventually develop
+ some small extensions (in the database case the extension can be simply
+ the triggers).
+\begin_inset Newline newline
+\end_inset
+
+Like 
+\begin_inset Quotes fld
+\end_inset
+
+Function as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ suggests we can have also systems where we have to develop just a piece
+ of code, a function, that is executed in an 
+\begin_inset Quotes fld
+\end_inset
+
+unknown
+\begin_inset Quotes frd
+\end_inset
+
+ infrastructure, where we have not to think about scalability, we pay just
+ for usage.
+ For example we pay the number of execution of that function, this is the
+ way used by 
+\begin_inset Quotes fld
+\end_inset
+
+Amazon AWS
+\begin_inset Quotes frd
+\end_inset
+
+ implementation: 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSLambda,AWSLambdaPricing"
+
+\end_inset
+
+.
+ This is a big advantage for the user, because there is an instant scalability
+ that there is not on 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ as we will see on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Platform-as-a"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As we will see on 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Main-Realtime-Databases"
+
+\end_inset
+
+ this kind of architecture is entirely developed on cloud architecture and
+ partially developed on Open Source architectures, in open source architecture
+ we have the facility to configure and develop the server but we do not
+ have an easy scalability like the cloud systems.
+\end_layout
+
+\begin_layout Standard
+After we will see 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Software-as-a"
+
+\end_inset
+
+ we will know how the difference among these three kinds of architecture
+ is minimal and that often there is overlapping among the architectures.
+\begin_inset Newline newline
+\end_inset
+
+An example of overlapping is 
+\begin_inset Quotes fld
+\end_inset
+
+Salesforce.com
+\begin_inset Quotes frd
+\end_inset
+
+, a CRM (customer relationship management) service born like a 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SAAS"
+
+\end_inset
+
+.
+ But it has become a sort of Serverless architecture to build business applicati
+ons, it has also bought 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ a 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ company.
+ However, even if now it is like a serverless service, the price system
+ has remained the same as that of 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ system, where you do not pay the usage, you pay for accounts and each account
+ has some limits 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SalesforcePricing"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Platform-as-a"
+
+\end_inset
+
+Platform as a Service
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ is a cloud computing architecture where the developer has not to think
+ about infrastructure, he chooses the platform where to develop that is
+ automatically configured and ready to use 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PAAS"
+
+\end_inset
+
+.
+ In this kind of architecture the developer has to choose how to scale (it
+ can be an automatic process) but in an easy way, often he has only to choose
+ the number of nodes.
+\end_layout
+
+\begin_layout Standard
+One of the most known 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ service is 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Heroku"
+
+\end_inset
+
+, comparing the price system of 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "HerokuPricing"
+
+\end_inset
+
+ with the price system of 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSLambdaPricing"
+
+\end_inset
+
+ we can see that in 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ we pay for number of nodes per seconds, while in 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ we pay just for execution time.
+ In 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ we have not to do anything to execute just one 
+\begin_inset Quotes fld
+\end_inset
+
+function
+\begin_inset Quotes frd
+\end_inset
+
+ per second or thousands per second, while on 
+\begin_inset Quotes fld
+\end_inset
+
+Heroku
+\begin_inset Quotes frd
+\end_inset
+
+ we have to set the right number of nodes or set a correct strategy to dynamical
+ly create/remove nodes.
+ So the serverless approach can reach the maximum grade of sharing resources
+ in cloud computing.
+\end_layout
+
+\begin_layout Standard
+For what concerns the concept of platform ready to use to develop the serverless
+ architecture is similar to 
+\begin_inset Quotes fld
+\end_inset
+
+Platform as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ but it is different for other things like scalability as we have seen with
+ 
+\begin_inset Quotes fld
+\end_inset
+
+AWS Lambda
+\begin_inset Quotes frd
+\end_inset
+
+ example.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Software-as-a"
+
+\end_inset
+
+Software as a Service
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes fld
+\end_inset
+
+Software as a service
+\begin_inset Quotes frd
+\end_inset
+
+ is a cloud computing architecture where there is no need or possibility
+ to develop anything 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SAAS"
+
+\end_inset
+
+.
+ One classic example is a webmail service, that can be configured for a
+ private company.
+\end_layout
+
+\begin_layout Standard
+One of the most known 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ service is 
+\begin_inset Quotes fld
+\end_inset
+
+Google apps for work
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoogleWork"
+
+\end_inset
+
+, a service where the employees of a company have access to company mail,
+ company docs, company cloud storage and so on; everything is done only
+ by configuring a system without developing anything.
+ The price system of 
+\begin_inset Quotes fld
+\end_inset
+
+Google apps for work
+\begin_inset Quotes frd
+\end_inset
+
+ is a system where the company has to pay for the number of users not for
+ the usage 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoogleWorkPricing"
+
+\end_inset
+
+, an approach completely different from other cloud systems, but it is a
+ good approach for companies because in that way they are able to predict
+ the cost in a reliable way.
+\end_layout
+
+\begin_layout Standard
+The serverless approach is very similar to 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ since the developer has not to think about the infrastructure or how to
+ build a reliable server, but instead of the 
+\begin_inset Quotes fld
+\end_inset
+
+Software as a Service
+\begin_inset Quotes frd
+\end_inset
+
+ in the serverless architecture the developer can develop something, not
+ only configure.
 \end_layout
 
 \end_body
