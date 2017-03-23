@@ -666,10 +666,25 @@ filename "chapter-2/chapter-2.lyx"
 \end_layout
 
 \begin_layout Chapter
-Technologies
+Some NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:technologies"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Realtime-technologies"
 
 \end_inset
 

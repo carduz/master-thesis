@@ -74,6 +74,76 @@
 \begin_body
 
 \begin_layout Standard
+In this chapter we will analyze some NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases, selecting some of them for further analysis in the next chapters.
+\end_layout
+
+\begin_layout Standard
+In this chapter we will define the characteristics of the NoSQL databases
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Characteristics-to-consider"
+
+\end_inset
+
+ that we want to test in the next chapters.
+\begin_inset Newline newline
+\end_inset
+
+Then 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Characteristics-to-consider"
+
+\end_inset
+
+Characteristics to consider
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:AnalysisNoSQL"
+
+\end_inset
+
+Analysis
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:SummaryNoSQL"
+
+\end_inset
+
+Summary
+\end_layout
+
+\begin_layout Standard
+s
+\end_layout
+
+\begin_layout Standard
+s
+\end_layout
+
+\begin_layout Standard
+s
+\end_layout
+
+\begin_layout Standard
 In this chapter we will analyze the real technologies to build application
  booth realtime (in 
 \begin_inset CommandInset ref
@@ -119,12 +189,6 @@ reference "app:Technologies-configurations-and"
 \end_layout
 
 \begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Realtime-technologies"
-
-\end_inset
-
 Realtime technologies
 \end_layout
 
@@ -1620,9 +1684,9 @@ Comparison
 
 \begin_layout Standard
 As explained in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CAPValidity"
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:CAP-validity"
 
 \end_inset
 
