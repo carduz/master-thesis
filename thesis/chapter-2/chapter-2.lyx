@@ -101,67 +101,36 @@ They were born to increase the performance and to allow to send realtime
 \end_layout
 
 \begin_layout Standard
-We will see two main aspects of them:
-\end_layout
-
-\begin_layout Itemize
-DB: they use an unstructured data model, like a NoSQL database explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:NoSQL-databases"
-
-\end_inset
-
-, with a lot of advantages:
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Application: they create a distributed Publish/Subscribe server, the distributio
-n is not an easy task as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Distribution"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Client: they provide client libraries to use Publish/Subscribe in an efficient
- and transparent way using what is called 
+We will analyze the key aspects of these NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
-local database
+realtime
 \begin_inset Quotes frd
 \end_inset
 
- as explained in 
+ database in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Realtime-databases-stack"
+
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Then we will see best practices from client to receive notification (using
+ publish/subscribe) in a trasparent way for the final user point of view
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Client-best-practices"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Everything can be implemented in a serverless approach as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Serverless"
-
-\end_inset
-
-, an efficient approach that can also give a lot of economic advantages
- in different situations.
+.
 \end_layout
 
 \begin_layout Section
@@ -211,49 +180,75 @@ realtime
 \end_layout
 
 \begin_layout Standard
-These databases are implemented over NoSQL database for two main reasons:
+The advantages of these databases are:
 \end_layout
 
 \begin_layout Itemize
-the database can be easily partitioned and distributed over different nodes,
- an important property as explained in 
+They can be easily partitioned and distributed over different nodes, an
+ important property as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Partitioning-and-Distribution"
+reference "subsec:Distributed-issues"
 
 \end_inset
 
- 
-\series bold
-TODO FIX LINK
+
 \end_layout
 
 \begin_layout Itemize
-the client can 
-\begin_inset Quotes fld
-\end_inset
-
-subscribe
-\begin_inset Quotes frd
-\end_inset
-
- only to a small portion of the data as explained in 
+They allow easily to subscribe to different granularity of data and receive
+ notification of changes using publish/subscribe as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:JSON"
+reference "subsec:Publish/subscribeNOSQL"
 
 \end_inset
 
+.
+ This is done without writing any line of code in the server.
+ They implement also the publish/subscribe broker server.
+\end_layout
+
+\begin_layout Itemize
+They can be easily implemented in a serverless approach as explained in
  
-\series bold
-TODO ALSO IN CLASSIC
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Serverless"
+
+\end_inset
+
+, an efficient approach that can also give a lot of economic advantages
+ in different situations.
+\end_layout
+
+\begin_layout Itemize
+They implement client best practices providing all libraries/framework explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-A NoSQL database is an unstructured database, it can support a subset of
- the SQL instructions (but it is not mandatory).
- They were born to create scalable databases for Big Data applications even
- this means loose query expressivity power, in fact they can have 
+It's easy to see why these databases are implemented over NoSQL databases.
+\end_layout
+
+\begin_layout Standard
+In fact a NoSQL database is an unstructured database, it can support a subset
+ of the SQL instructions (but it is not mandatory).
+\begin_inset Newline newline
+\end_inset
+
+They were born to create scalable databases for Big Data (a set of data
+ that are too large or too complex to be managed/elaborated with a traditional
+ system) applications.
+ Even this means losing query expressivity power, in fact they can have
+ 
 \begin_inset Quotes fld
 \end_inset
 
@@ -291,45 +286,65 @@ reference "fig:-Database-triangle"
  (more details are explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Consistency,-Partition-tolerance"
+reference "subsec:Distributed-issues"
 
 \end_inset
 
- 
-\series bold
-TODOO FIX
-\series default
-), we will see more details on the chapter 
+), we will see more details analyzing real applications in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
 
 \end_inset
 
- 
-\series bold
-TODO FIX
-\series default
 .
 \end_layout
 
 \begin_layout Standard
-Data are stored in JSON format or other unstructured formats, the advantages
- and structure of JSON are explained in 
+Data are stored unstructured formats, as we will analyze in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:JSON"
+reference "subsec:Data-models"
 
 \end_inset
 
- 
-\series bold
-TODO FIX
-\series default
 .
 \begin_inset Newline newline
 \end_inset
 
+Then we will see distributed issues with pro and cons in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distributed-issues"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Finally we will see publish/subscribe implemented in these databases in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/subscribeNOSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Data-models"
+
+\end_inset
+
+Data model
+\end_layout
+
+\begin_layout Standard
 Data are organized in 
 \begin_inset Quotes fld
 \end_inset
@@ -347,36 +362,41 @@ key "CAPNoSQL"
 
 .
  Each document is something that can contain data in JSON format, file or
- other things as we will see on 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Data-models"
-
+ other things.
+\begin_inset Newline newline
 \end_inset
 
-.
+Of course a database can have more than one 
+\begin_inset Quotes fld
+\end_inset
+
+table
+\begin_inset Quotes frd
+\end_inset
+
+, where 
+\begin_inset Quotes fld
+\end_inset
+
+table
+\begin_inset Quotes frd
+\end_inset
+
+ is a collection of documents.
+ Often they are not called 
+\begin_inset Quotes fld
+\end_inset
+
+table
+\begin_inset Quotes frd
+\end_inset
+
+ since they are not a table (they are unstructured data) but it is used
+ since it identify the key concept: collection of documents.
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-TODO BIG DATA definition
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO introduction to chaps
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Data-models"
-
-\end_inset
-
-Data models
+We will see two main types of data models: key-value and JSON.
 \end_layout
 
 \begin_layout Subsubsection
@@ -426,13 +446,9 @@ table-key
 \begin_inset Quotes frd
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO REFER TO PUBSUB topic way, same thing for other things refer to background
+ as channel.
+ So the only level of granularity is the value (low granularity), we do
+ not inspect it.
 \end_layout
 
 \begin_layout Subsubsection
@@ -648,7 +664,7 @@ title
 \end_deeper
 \end_deeper
 \begin_layout Standard
-So in a NoSQL database a 
+So in a NoSQL database that uses JSON a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -694,9 +710,6 @@ key "RESTNOSQL"
 \end_inset
 
 .
- 
-\series bold
-TODO FIX
 \end_layout
 
 \begin_layout Standard
@@ -725,20 +738,42 @@ reference "lis:Simple-JSON-example"
 \end_inset
 
 , we can subscribe to the second element of the main array (an inner array)
- then we receive notification when an object (or other inner elements also
- complex elements) is:
-\end_layout
+ then we receive notification for changes of it (or other inner elements
+ also complex elements).
+ So we can have an high granularity, different systems have different limit
+ on max number of levels allowed.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-added
-\end_layout
+If we want to apply publish/subscribe (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
 
-\begin_layout Itemize
-removed
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-updated
+) we can easily use topic based publish/subscribe using the couple 
+\begin_inset Quotes fld
+\end_inset
+
+table-path
+\begin_inset Quotes frd
+\end_inset
+
+ as channel.
+\begin_inset Newline newline
+\end_inset
+
+We can also see that the expresivity power is the same of 
+\begin_inset Quotes fld
+\end_inset
+
+key-value
+\begin_inset Quotes frd
+\end_inset
+
+ since we can consider path as our key (of course the structure of data
+ stored is different), but it is more readable.
 \end_layout
 
 \begin_layout Standard
@@ -761,14 +796,11 @@ path
  of the JSON structure in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Client-best-practices"
+reference "subsec:Event-driven-approach"
 
 \end_inset
 
 .
- 
-\series bold
-TODO FIX
 \end_layout
 
 \begin_layout Standard
@@ -784,17 +816,51 @@ key-value
  structure.
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-TODO talk about subscriptions 
-\end_layout
-
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Distributed-issues"
+
+\end_inset
+
 Distributed issues
 \end_layout
 
+\begin_layout Standard
+As introduced at the beginning NoSQL databases can be easily distributed
+ and partitioning, we obtain an increase of performance from distribution
+ and partitioning as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution-and-partitioningNOSQL"
+
+\end_inset
+
+ but we have to renounce to 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:CAP-theoremNOSQL"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:CAP-theoremNOSQL"
+
+\end_inset
+
 CAP theorem
 \end_layout
 
@@ -858,10 +924,138 @@ reference "par:Eventual-consistency"
 .
 \end_layout
 
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Distribution-and-partitioningNOSQL"
+
+\end_inset
+
+Distribution and partitioning
+\end_layout
+
 \begin_layout Standard
+As introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Partitioning-and-Distribution"
+
+\end_inset
+
+ distribution and partitioning introduce different issues.
+\begin_inset Newline newline
+\end_inset
+
+But in NoSQL databases also the master node can be distributed, so the client
+ can commit on different nodes.
+ This increases the performance, since there are no saturation issues of
+ the server or of the locks needed to write data (commit) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
 
 \series bold
-TODO pub/sub
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Publish/subscribeNOSQL"
+
+\end_inset
+
+Publish/subscribe
+\end_layout
+
+\begin_layout Standard
+As introduced in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Data-models"
+
+\end_inset
+
+ topic-based subscription is enough (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+The common idea in all of these databases is to subscribe to main events
+ (the same events of database trigger explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database-trigger"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+inserted
+\end_layout
+
+\begin_layout Itemize
+updated
+\end_layout
+
+\begin_layout Itemize
+deleted
+\end_layout
+
+\begin_layout Standard
+We subscribe to these events for different level of granularity, that depends
+ on the data model used and on the database itself.
+ For example there are some databases that, even if they support JSON, they
+ allow to subscribe only to the first level of it (so it is like a key-value).
+\begin_inset Newline newline
+\end_inset
+
+Of course, as introduced at the beginning, the mechanism to subscribe to
+ these data and the 
+\begin_inset Quotes fld
+\end_inset
+
+trigger
+\begin_inset Quotes frd
+\end_inset
+
+ that publishes them are developed inside these databases.
+ So no other development is required, the system is ready to publish changes.
+ The delivery can be implemented using different technologies that we have
+ analyzed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-HTTP-Application"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Of course we still have issues due to the fact that we have to scale also
+ the broker servers and as said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+ it's not an easy task (even if for topic-based is easier than content-based).
+ Fortunately these databases provide an integrated publish/subscribe that
+ scales with the database itself.
 \end_layout
 
 \begin_layout Section
@@ -970,6 +1164,8 @@ reference "subsec:Event-driven-approach"
 
 \series default
 .
+ The client specify which data he needs, so he receives notifications only
+ for them.
 \end_layout
 
 \begin_layout Itemize
@@ -1007,6 +1203,11 @@ reference "subsec:Local-database"
 \end_inset
 
 .This allows to return data immediately when request by the client.
+\end_layout
+
+\begin_layout Standard
+All things allow to use efficiently publish/subscribe to receive data in
+ a transparent way for final user.
 \end_layout
 
 \begin_layout Subsection
@@ -1372,7 +1573,7 @@ Local database
 
 \begin_layout Standard
 The best practice is to create a local database on the client (with only
- the data needed) using optimistic replications 
+ the data needed, what the client want) using optimistic replications 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "OptimisticReplication"

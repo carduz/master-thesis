@@ -688,6 +688,13 @@ filename "chapter-3/chapter-3.lyx"
 
 \begin_layout Chapter
 A traditional approach
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:A-traditional-approach"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -701,17 +708,10 @@ filename "chapter-4/chapter-4.lyx"
 \end_layout
 
 \begin_layout Chapter
-Class of Applications-Performance Evaluation
+Class of Applications
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:class-of-applications"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:Performance-Evaluation"
 
 \end_inset
 
@@ -736,7 +736,14 @@ filename "chapter-5/chapter-5.lyx"
 \end_layout
 
 \begin_layout Chapter
-Cost of Developing
+Performance Evaluation
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Performance-Evaluation"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:sixth-chapter"
@@ -757,7 +764,7 @@ filename "chapter-6/chapter-6.lyx"
 \end_layout
 
 \begin_layout Chapter
-Real Application Issues and Maintainability
+Real Application Issues
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:seventh-chapter"

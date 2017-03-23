@@ -115,7 +115,15 @@ reference "sec:Data-Management"
 \end_inset
 
 We will analyze also the how to send realtime notifications of changes and
- the limits that are the causes of the creation of NoSQL databases.
+ the limits that are the causes of the creation of NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases.
 \end_layout
 
 \begin_layout Standard
@@ -1148,7 +1156,7 @@ table-record_id
 \begin_inset Quotes frd
 \end_inset
 
-.
+ as channel.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1509,7 +1517,8 @@ reference "subsec:MapReduce"
 \end_layout
 
 \begin_layout Standard
-The two main patterns to structure an architecture are: 
+The two main patterns to structure a distributed replicated architecture
+ are: 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1602,28 +1611,6 @@ Publish/Subscribe: in a Publish/Subscribe application distributed among
  clients also the ones subscribed on other nodes?
 \end_layout
 
-\begin_layout Standard
-As said previously in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:NoSQL-databases"
-
-\end_inset
-
- the NoSQL database are distributed.
- Also the master node can be distributed, so the client can commit on different
- nodes.
- This increases the performance, since there are no saturation issues of
- the server or of the locks needed to write data (commit) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "NoSQL"
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Subsubsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1691,9 +1678,6 @@ key "OptimisticReplication"
 \end_inset
 
 .
- 
-\series bold
-TODO INTRODUCE REPLICATION
 \end_layout
 
 \begin_layout Paragraph
@@ -1732,9 +1716,6 @@ reference "subsec:Distribution"
 \end_inset
 
 .
- 
-\series bold
-TODO FIX
 \end_layout
 
 \begin_layout Paragraph
@@ -1802,12 +1783,6 @@ name "sec:Serverless"
 \end_inset
 
 Serverless
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO tlak of clodu computing as main
 \end_layout
 
 \begin_layout Standard
