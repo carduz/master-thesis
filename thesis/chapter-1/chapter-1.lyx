@@ -841,6 +841,11 @@ reference "subsec:JSON"
  retrieve XML.
 \end_layout
 
+\begin_layout Standard
+RESTful cannot be used with websocket, but it can be used for short polling
+ (GET) even if it is not properly a correct appraoch.
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -1719,6 +1724,12 @@ reference "subsec:Distribution"
 \end_layout
 
 \begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Master-Slaves"
+
+\end_inset
+
 Master-Slaves
 \end_layout
 

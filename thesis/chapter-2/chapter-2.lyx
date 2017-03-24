@@ -178,8 +178,8 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- even if they are a not realtime databases, but this name is used for commercial
- purpose since they send 
+ even if they are a not realtime database (a completely different thing),
+ but this name is used for commercial purpose since they send 
 \begin_inset Quotes fld
 \end_inset
 
@@ -188,6 +188,15 @@ realtime
 \end_inset
 
  notifications of changes in data.
+ So in some situations we use 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ improperly.
 \end_layout
 
 \begin_layout Standard
@@ -1162,7 +1171,8 @@ Constraints and permission
 
 \begin_layout Standard
 In different systems more than one users can access to the same JSON object
- (document) so we need fine grained permissions (it is a constraint).
+ (document) so we need fine grained permissions (it can be considered as
+ a constraint).
  Moreover we could want to have some traditional constraints like integrity
  constraint, data type constraint and so on.
  So we seen everything as a constraint.
@@ -1424,8 +1434,15 @@ reference "alg:Event-driven-retrieve"
 
  we show a common and simple realtime retrieve of data in event driven approach.
  The basic idea of event driven approach is to call a callback when an event
- is fired, a known example of event driven programming is programming for
- desktop interfaces where the events are the user inputs.
+ is fired 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EventDrivenSW"
+
+\end_inset
+
+, a known example of event driven programming is programming for desktop
+ interfaces where the events are the user inputs.
 \begin_inset Newline newline
 \end_inset
 
@@ -1766,8 +1783,9 @@ Local database
 \end_layout
 
 \begin_layout Standard
-The best practice is to create a local database on the client (with only
- the data needed, what the client want) using optimistic replications 
+The best practice is to create a local database on the client replicating
+ server data (with only the data needed, what the client want) using optimistic
+ replications 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "OptimisticReplication"
