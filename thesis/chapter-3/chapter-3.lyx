@@ -74,31 +74,35 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will analyze some NoSQL 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- databases, selecting some of them for further analysis in the next chapters.
+In this chapter we will analyze some NoSQL databases, selecting some of
+ them for further analysis in the next chapters.
 \end_layout
 
 \begin_layout Standard
-In this chapter we will define the characteristics of the NoSQL databases
- in 
+We will start analyzing the general characteristics to consider in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Characteristics-to-consider"
 
 \end_inset
 
- that we want to test in the next chapters.
+.
 \begin_inset Newline newline
 \end_inset
 
-Then 
+Then we will see some real NoSQL databases (open source and in cloud) in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:AnalysisNoSQL"
+
+\end_inset
+
+, according to the characteristics analyzed previously.
+\begin_inset Newline newline
+\end_inset
+
+Finally we will do a short summary of databases selected for a further analysis.
 \end_layout
 
 \begin_layout Section
@@ -109,6 +113,104 @@ name "sec:Characteristics-to-consider"
 \end_inset
 
 Characteristics to consider
+\end_layout
+
+\begin_layout Standard
+We consider NoSQL databases that have the following characteristics:
+\end_layout
+
+\begin_layout Itemize
+JSON as data model: to have a flexible standard that is easy to use as seen
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ notifications support with publish subscribe as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/subscribeNOSQL"
+
+\end_inset
+
+.
+ Of course this can be provided by other plugins.
+\end_layout
+
+\begin_layout Standard
+Then we will keep in consideration, to distinguish different systems, the
+ following characteristics:
+\end_layout
+
+\begin_layout Itemize
+Data granularity for subscriptions as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/subscribeNOSQL"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Client libraries and features according to the best practices explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Distribution, partitioning and classification according to CAP theorem as
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distributed-issues"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Protocol used to send notifications and to send data, they are explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-HTTP-Application"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Minor things related to NoSQL databases: query support, constraints on data
+ available (such as integrity constraints) and so on.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+TODO MAPREDUCE support
 \end_layout
 
 \begin_layout Section

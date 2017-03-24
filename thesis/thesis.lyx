@@ -666,15 +666,7 @@ filename "chapter-2/chapter-2.lyx"
 \end_layout
 
 \begin_layout Chapter
-Some NoSQL 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- databases
+Analysis of Some NoSQL Databases
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:technologies"
@@ -702,7 +694,7 @@ filename "chapter-3/chapter-3.lyx"
 \end_layout
 
 \begin_layout Chapter
-A traditional approach
+A Traditional Approach
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:A-traditional-approach"

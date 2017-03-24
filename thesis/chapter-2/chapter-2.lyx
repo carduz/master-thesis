@@ -133,6 +133,17 @@ reference "subsec:Client-best-practices"
 .
 \end_layout
 
+\begin_layout Standard
+Everything seen in this chapter is from theoretical point of view, in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ we will analyze some real databases.
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -210,15 +221,35 @@ reference "subsec:Publish/subscribeNOSQL"
 \end_layout
 
 \begin_layout Itemize
-They can be easily implemented in a serverless approach as explained in
- 
+They can have partially support to constraints, permission and queries support
+ as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Constraints,-permissions-and"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+They can be easily implemented in a serverless approach (it is explained
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Serverless"
 
 \end_inset
 
-, an efficient approach that can also give a lot of economic advantages
+) as we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ with real databases.
+ It is an efficient approach that can also give a lot of economic advantages
  in different situations.
 \end_layout
 
@@ -231,7 +262,7 @@ reference "subsec:Client-best-practices"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -345,58 +376,26 @@ Data model
 \end_layout
 
 \begin_layout Standard
-Data are organized in 
-\begin_inset Quotes fld
-\end_inset
-
-documents
-\begin_inset Quotes frd
-\end_inset
-
- not tables 
+In NoSQL databases data are organized in collections 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL"
 
 \end_inset
 
-.
- Each document is something that can contain data in JSON format, file or
- other things.
-\begin_inset Newline newline
-\end_inset
-
-Of course a database can have more than one 
-\begin_inset Quotes fld
-\end_inset
-
-table
-\begin_inset Quotes frd
-\end_inset
-
-, where 
-\begin_inset Quotes fld
-\end_inset
-
-table
-\begin_inset Quotes frd
-\end_inset
-
- is a collection of documents.
- Often they are not called 
-\begin_inset Quotes fld
-\end_inset
-
-table
-\begin_inset Quotes frd
-\end_inset
-
- since they are not a table (they are unstructured data) but it is used
- since it identify the key concept: collection of documents.
+, they are like the tables of traditional databases.
+ 
 \end_layout
 
 \begin_layout Standard
-We will see two main types of data models: key-value and JSON.
+Each collection can be organized according to different ways, we will see
+ the two most used ways: key-value and document, for document we will see
+ the JSON that is one possible format for document type.
+\begin_inset Newline newline
+\end_inset
+
+Each document is something that can contain data in JSON format or XML format,
+ file and so on.
 \end_layout
 
 \begin_layout Subsubsection
@@ -442,7 +441,7 @@ reference "subsec:Publish/Subscribe"
 \begin_inset Quotes fld
 \end_inset
 
-table-key
+collection-key
 \begin_inset Quotes frd
 \end_inset
 
@@ -478,7 +477,11 @@ key "JSONvsXML"
 \end_inset
 
 .
- On listing 
+ It could be used as model in document NoSQL databases.
+\end_layout
+
+\begin_layout Standard
+On listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Simple-JSON-example"
@@ -664,7 +667,7 @@ title
 \end_deeper
 \end_deeper
 \begin_layout Standard
-So in a NoSQL database that uses JSON a 
+So in a NoSQL database that uses JSON as 
 \begin_inset Quotes fld
 \end_inset
 
@@ -672,7 +675,7 @@ document
 \begin_inset Quotes frd
 \end_inset
 
- is composed by a JSON data like that.
+ is composed by a JSON data like that (a main JSON object).
  This structure is a very powerful structure that allows to store a lot
  of complex structures.
 \end_layout
@@ -729,7 +732,15 @@ path
 \begin_inset Quotes frd
 \end_inset
 
-.
+ (like 
+\begin_inset Quotes fld
+\end_inset
+
+/main_array/0/
+\begin_inset Quotes frd
+\end_inset
+
+).
  For example using a structure like the one used in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -756,7 +767,7 @@ reference "subsec:Publish/Subscribe"
 \begin_inset Quotes fld
 \end_inset
 
-table-path
+collection-path
 \begin_inset Quotes frd
 \end_inset
 
@@ -804,8 +815,8 @@ reference "subsec:Event-driven-approach"
 \end_layout
 
 \begin_layout Standard
-We can see that if we have just one main object the final result is the
- same of a 
+We can see that if we can subscribe only to the first level of the main
+ object, the final result is the same of a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -851,7 +862,25 @@ reference "subsec:CAP-theoremNOSQL"
 
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Standard
+These databases, often, implement MapReduce (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:MapReduce"
+
+\end_inset
+
+) to elaborate distributed data efficiently 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQLQueries"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -949,7 +978,8 @@ reference "subsec:Partitioning-and-Distribution"
 But in NoSQL databases also the master node can be distributed, so the client
  can commit on different nodes.
  This increases the performance, since there are no saturation issues of
- the server or of the locks needed to write data (commit) 
+ the server or of the locks needed to write data (commit), but it could
+ create problems in transaction consistency 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -957,6 +987,7 @@ key "NoSQL"
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1058,6 +1089,141 @@ reference "subsec:Publish/Subscribe"
  scales with the database itself.
 \end_layout
 
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Constraints,-permissions-and"
+
+\end_inset
+
+Constraints, permissions and queries
+\end_layout
+
+\begin_layout Standard
+As we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ with real databases constraints on data, permissions and queries are not
+ a trivial task, especially in NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases.
+ In fact we have to replicate them to the client as we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we will quickly see the constraints and permission in a classic NoSQL
+ database in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Constraints-and-permissionsNoSQL"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Then we will see queries support in a classic NoSQL database in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:QueriesNoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Constraints-and-permissionsNoSQL"
+
+\end_inset
+
+Constraints and permission
+\end_layout
+
+\begin_layout Standard
+In different systems more than one users can access to the same JSON object
+ (document) so we need fine grained permissions (it is a constraint).
+ Moreover we could want to have some traditional constraints like integrity
+ constraint, data type constraint and so on.
+ So we seen everything as a constraint.
+\end_layout
+
+\begin_layout Standard
+Different systems implements different constraints since they can also modify
+ performances of the system 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:QueriesNoSQL"
+
+\end_inset
+
+Queries
+\end_layout
+
+\begin_layout Standard
+There is no a standard for queries in NoSQL databases, since they depends
+ on different things: data model used, database used, MapReduce with query
+ support and so on 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQLQueries"
+
+\end_inset
+
+.
+ Often 
+\begin_inset Quotes fld
+\end_inset
+
+key-value
+\begin_inset Quotes frd
+\end_inset
+
+ database allow to have more powerful queries.
+\end_layout
+
+\begin_layout Standard
+There are some languages (pig and hive) built on top of MapReduce that allows
+ to do queries in standard ways 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQLPigHive"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -1129,6 +1295,34 @@ Simple client architecture
 Of course, since there is no standard, any application implement different
  things and/or implement them in different ways.
  So this is just a summary of the most used best practices.
+\end_layout
+
+\begin_layout Standard
+Note: with 
+\begin_inset Quotes fld
+\end_inset
+
+application server
+\begin_inset Quotes frd
+\end_inset
+
+ (then 
+\begin_inset Quotes fld
+\end_inset
+
+server
+\begin_inset Quotes frd
+\end_inset
+
+) we mean the NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ database with integrated publish subscribe broker server.
 \end_layout
 
 \begin_layout Standard
@@ -1609,16 +1803,40 @@ local database
 
  (and consequentially the user interface) even if there are network delays
  or if the network is down.
+\end_layout
+
+\begin_layout Standard
+So the developer can call all the methods (get data, put data and so on)
+ on the database, seeing the effect, even if there is no connection (often
+ called offline mode).
 \begin_inset Newline newline
 \end_inset
 
-So the developer can call all the methods (get data, put data and so on)
- on the database, seeing the effect, even if there is no connection (often
- called offline mode); of course some server constraints/modifications are
- applied when the network comes back up.
+Of course some server constraints/modifications or also permissions constraints
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Constraints-and-permissionsNoSQL"
+
+\end_inset
+
+) are applied when the network comes back up.
  Some of constraints/modifications applied by the server can be implemented
  in the client such as type constraints, integrity constraints and so on;
  of course the server rechecks everything again.
+\begin_inset Newline newline
+\end_inset
+
+The client could also implement the query logic (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:QueriesNoSQL"
+
+\end_inset
+
+).
+ But for simplicity, often, this kind of systems have simple query support
+ or no query support (neither client nor server).
 \end_layout
 
 \begin_layout Standard
