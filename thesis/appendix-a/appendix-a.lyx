@@ -85,6 +85,22 @@ CouchBase
 Configurations
 \end_layout
 
+\begin_layout Standard
+On listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:SyncGateway-configuration"
+
+\end_inset
+
+ you will find the configuration used for syncGateway, the configuration
+ for couchbase is trivial and depends on the environment that you want (nodes,
+ RAM and so on).
+ 
+\series bold
+TODO
+\end_layout
+
 \begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
