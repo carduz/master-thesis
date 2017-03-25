@@ -91,12 +91,15 @@ reference "chap:Performance-Evaluation"
 \end_inset
 
 .
- Of course, excpet for the database, we try to emulate the approaches of
+\begin_inset Newline newline
+\end_inset
+
+Of course, except for the database, we try to emulate the approaches of
  NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
-realtieme
+realtime
 \begin_inset Quotes frd
 \end_inset
 
@@ -112,6 +115,23 @@ reference "chap:State-of-Art"
 LatexCommand ref
 reference "chap:technologies"
 
+\end_inset
+
+.
+ So we have local database replication (with 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+) but the central database with 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
 \end_inset
 
 .
@@ -141,6 +161,87 @@ name "subsec:PostgreeSQL"
 \end_inset
 
 PostgreeSQL
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO
+\series default
+ The RDBS are 
+\begin_inset Quotes fld
+\end_inset
+
+CA
+\begin_inset Quotes frd
+\end_inset
+
+ according to the 
+\begin_inset Quotes fld
+\end_inset
+
+CAP
+\begin_inset Quotes frd
+\end_inset
+
+ theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Consistency,-Partition-tolerance"
+
+\end_inset
+
+ and shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:-Database-triangle"
+
+\end_inset
+
+, i.e.
+ they don't support a partition of the data in efficient way.
+\end_layout
+
+\begin_layout Standard
+The data can be partitioned
+\series bold
+ TODO SCHOLAR PARTITION.
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+But, at the same time, like some realtime databases systems the structure
+ can be a 
+\begin_inset Quotes fld
+\end_inset
+
+multi master
+\begin_inset Quotes frd
+\end_inset
+
+ or 
+\begin_inset Quotes fld
+\end_inset
+
+master-slaves
+\begin_inset Quotes frd
+\end_inset
+
+, the details of these kind of structure are explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+.
+\series bold
+TODO bib
+\end_layout
+
+\begin_layout Standard
+.......
 \end_layout
 
 \begin_layout Standard
@@ -613,8 +714,15 @@ socket.io
 \begin_inset Quotes frd
 \end_inset
 
- has a lot of integrations and native implementation hat make it the best
- choice for our test.
+ has a lot of integrations and native implementation (since the protocol
+ is open 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOProtocol"
+
+\end_inset
+
+) that make it the best choice for our tests.
  Furthermore it is the best open source websocket server 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -903,7 +1011,8 @@ reference "subsec:PostgreeSQL"
 \end_inset
 
 ).
- So the normal operations are guaranteed by it (it has good libraries).
+ So the normal operations are guaranteed by it (it has good libraries),
+ so the consistency is guaranteed by it.
 \end_layout
 
 \begin_layout Standard
@@ -1093,7 +1202,12 @@ subchannel
 , a client could be subscribed only to one room that contains only events
  related only to some rows.
  This can be very useful to set up permissions at row level.
- Of course to do that a custom logic is needed (explained in 
+ Of course a client can write and read only rooms where he is subscribed
+ and only the server can subscribe it to rooms.
+\begin_inset Newline newline
+\end_inset
+
+So to do that a custom logic is needed (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-Logic-architecture-traditional"
@@ -1197,6 +1311,18 @@ reference "subsec:Custom-Logic-architecture-traditional"
 ).
 \end_layout
 
+\begin_layout Standard
+The important thing of this approach is that the write does not depend by
+ redis (that has persistence problems as shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Redis"
+
+\end_inset
+
+) and the consistency of data is managed by postgreSQL.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1271,7 +1397,124 @@ Client library and local database
 \end_layout
 
 \begin_layout Standard
-aaa
+As said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+ we have to create a local database that is the final interface of our client.
+ So the client contact only it, the local database send data through websocket
+ and receive notifications of changes through websocket as we said previously.
+\end_layout
+
+\begin_layout Standard
+As explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+ one common way to implement 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ is 
+\begin_inset Quotes fld
+\end_inset
+
+last Writer Win
+\begin_inset Quotes frd
+\end_inset
+
+, this approach will be used.
+ So the replication should be 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+So a local database implementation is an object that contains data and provide
+ the read/write methods for user.
+\end_layout
+
+\begin_layout Standard
+We have the following situations
+\end_layout
+
+\begin_layout Itemize
+User calls write/update: local data are updated.
+ At the same time the local database tries to update the remote servers
+ until there are no network errors.
+\end_layout
+
+\begin_layout Itemize
+Data are updated by the server: a callback is called and it updates the
+ local data.
+\end_layout
+
+\begin_layout Standard
+Often the data are modified by server: default values, data updated by triggers,
+ constraints, id auto generated and so on.
+ Since we write data on client database we have to implement all of them
+ in the client, but to do that we have to create a sort of 
+\begin_inset Quotes fld
+\end_inset
+
+SQL interpreter
+\begin_inset Quotes frd
+\end_inset
+
+ on client.
+ Of course if there are no network problems the issue could be solved waiting
+ the answer of the server, but this means make the application not optimistic.
+\end_layout
+
+\begin_layout Standard
+This issue is solved by other systems in the following ways (some of them
+ are already implemented since they are NoSQL) :
+\end_layout
+
+\begin_layout Itemize
+Simplify constraints (the client can replicate them easily)
+\end_layout
+
+\begin_layout Itemize
+Simplify defaults (the client can replicate them easily)
+\end_layout
+
+\begin_layout Itemize
+No triggers
+\end_layout
+
+\begin_layout Itemize
+Unique ID that can be generated by client.
+\end_layout
+
+\begin_layout Standard
+For our application and tests we can skip all things except ID, to solve
+ it we can use an UUID (Universally unique identifier) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "UUID"
+
+\end_inset
+
+ that can be easily generated by the client, socketio server and postgreSQL
+ server.
 \end_layout
 
 \begin_layout Section
@@ -1336,79 +1579,6 @@ name "subsec:Database"
 \end_inset
 
 Database
-\end_layout
-
-\begin_layout Standard
-The RDBS are 
-\begin_inset Quotes fld
-\end_inset
-
-CA
-\begin_inset Quotes frd
-\end_inset
-
- according to the 
-\begin_inset Quotes fld
-\end_inset
-
-CAP
-\begin_inset Quotes frd
-\end_inset
-
- theorem explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Consistency,-Partition-tolerance"
-
-\end_inset
-
- and shown in figure 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:-Database-triangle"
-
-\end_inset
-
-, i.e.
- they don't support a partition of the data in efficient way.
-\end_layout
-
-\begin_layout Standard
-The data can be partitioned
-\series bold
- TODO SCHOLAR PARTITION.
-\begin_inset Newline newline
-\end_inset
-
-
-\series default
-But, at the same time, like some realtime databases systems the structure
- can be a 
-\begin_inset Quotes fld
-\end_inset
-
-multi master
-\begin_inset Quotes frd
-\end_inset
-
- or 
-\begin_inset Quotes fld
-\end_inset
-
-master-slaves
-\begin_inset Quotes frd
-\end_inset
-
-, the details of these kind of structure are explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Multi-Master-&-Master-Slaves"
-
-\end_inset
-
-.
-\series bold
-TODO bib
 \end_layout
 
 \begin_layout Standard
@@ -1616,106 +1786,8 @@ reference "lis:Socket.io-customization"
 Local database
 \end_layout
 
-\begin_layout Standard
-As explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
- one common way to implement 
-\begin_inset Quotes fld
-\end_inset
-
-local database
-\begin_inset Quotes frd
-\end_inset
-
- is 
-\begin_inset Quotes fld
-\end_inset
-
-last Writer Win
-\begin_inset Quotes frd
-\end_inset
-
-, this approach will be used.
- 
-\begin_inset Newline newline
-\end_inset
-
-So a local database implementation is an object that contains data and provide
- the read/write methods for user.
-\end_layout
-
-\begin_layout Standard
-We have the following situations
-\end_layout
-
-\begin_layout Itemize
-User calls write/update: local data are updated.
- At the same time the local database tries to update the remote servers
- until there are no network errors.
-\end_layout
-
-\begin_layout Itemize
-Data are updated by the server: a callback is called and it updates the
- local data.
-\end_layout
-
 \begin_layout Paragraph
 Critical data
-\end_layout
-
-\begin_layout Standard
-Often the data are modified by server: default values, data updated by triggers,
- constraints, id auto generated and so on.
- Since we write data on client database we have to implement all of them
- in the client, but to do that we have to create a sort of 
-\begin_inset Quotes fld
-\end_inset
-
-SQL interpreter
-\begin_inset Quotes frd
-\end_inset
-
- on client.
- Of course if there are no network problems the issue could be solved waiting
- the answer of the server, but this means make the application not optimistic.
-\end_layout
-
-\begin_layout Standard
-This issue is solved by other systems in the following ways (some of them
- are already implemented since they are NoSQL) :
-\end_layout
-
-\begin_layout Itemize
-Simplify constraints (the client can replicate them easily)
-\end_layout
-
-\begin_layout Itemize
-Simplify defaults (the client can replicate them easily)
-\end_layout
-
-\begin_layout Itemize
-No triggers
-\end_layout
-
-\begin_layout Itemize
-Unique ID that can be generated by client.
-\end_layout
-
-\begin_layout Standard
-For our application and tests we can skip all things except ID, to solve
- it we can use an UUID (Universally unique identifier) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "UUID"
-
-\end_inset
-
- that can be easily generated both the client and server.
 \end_layout
 
 \begin_layout Standard
