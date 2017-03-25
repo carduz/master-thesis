@@ -121,9 +121,9 @@ reference "sec:Realtime-databases-stack"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see best practices from client to receive notification (using
- publish/subscribe) in a trasparent way for the final user point of view
- in 
+Then we will see the best practices from the client to receive notifications
+ (using publish/subscribe) in a transparent way for the final user's point
+ of view in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Client-best-practices"
@@ -134,7 +134,8 @@ reference "subsec:Client-best-practices"
 \end_layout
 
 \begin_layout Standard
-Everything seen in this chapter is from theoretical point of view, in 
+Everything seen in this chapter is from a theoretical point of view, in
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
@@ -178,8 +179,8 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- even if they are a not realtime database (a completely different thing),
- but this name is used for commercial purpose since they send 
+ even if they are not realtime databasess (a completely different thing),
+ but this name is used for commercial purposes since they send 
 \begin_inset Quotes fld
 \end_inset
 
@@ -217,7 +218,7 @@ reference "subsec:Distributed-issues"
 
 \begin_layout Itemize
 They allow easily to subscribe to different granularity of data and receive
- notification of changes using publish/subscribe as explained in 
+ notifications of changes using publish/subscribe as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/subscribeNOSQL"
@@ -230,8 +231,8 @@ reference "subsec:Publish/subscribeNOSQL"
 \end_layout
 
 \begin_layout Itemize
-They can have partially support to constraints, permission and queries support
- as explained in 
+They can have partially support to constraints, permissions and queries
+ support as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Constraints,-permissions-and"
@@ -275,7 +276,7 @@ reference "subsec:Client-best-practices"
 \end_layout
 
 \begin_layout Standard
-It's easy to see why these databases are implemented over NoSQL databases.
+It is easy to see why these databases are implemented over NoSQL databases.
 \end_layout
 
 \begin_layout Standard
@@ -341,7 +342,7 @@ reference "chap:technologies"
 \end_layout
 
 \begin_layout Standard
-Data are stored unstructured formats, as we will analyze in 
+Data are stored in unstructured formats, as we will analyze in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Data-models"
@@ -352,7 +353,7 @@ reference "subsec:Data-models"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see distributed issues with pro and cons in 
+Then we will see distributed issues with pros and cons in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Distributed-issues"
@@ -418,8 +419,8 @@ key-value
 \end_layout
 
 \begin_layout Standard
-Key-value is one of the simplest ways to store unstructured data it is also
- known as dictionary or hash
+Key-value is one of the simplest ways to store unstructured data.
+ It is also known as dictionary or hash
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAPNoSQL"
@@ -428,13 +429,13 @@ key "CAPNoSQL"
 
 .
  The basic idea is that we have unique keys and for each of them we have
- a value linked, i.e.
- a document that can be everything: a file, a simple type a complex type
+ a linked value, i.e.
+ a document that can be everything: a file, a simple type, a complex type
  (like JSON) and so on.
 \end_layout
 
 \begin_layout Standard
-The simplicity of this schema is its key of th success, in fact it is used
+The simplicity of this schema is its key of success, in fact it is used
  in a lot of NoSQL systems.
 \end_layout
 
@@ -446,7 +447,7 @@ reference "subsec:Publish/Subscribe"
 
 \end_inset
 
-) we can easily use topic based publish/subscribe using the couple 
+) we can easily use topic-based publish/subscribe using the couple 
 \begin_inset Quotes fld
 \end_inset
 
@@ -758,9 +759,9 @@ reference "lis:Simple-JSON-example"
 \end_inset
 
 , we can subscribe to the second element of the main array (an inner array)
- then we receive notification for changes of it (or other inner elements
+ then we receive notifications for changes of it (or other inner elements
  also complex elements).
- So we can have an high granularity, different systems have different limit
+ So we can have a high granularity, different systems have different limits
  on max number of levels allowed.
 \begin_inset Newline newline
 \end_inset
@@ -772,7 +773,7 @@ reference "subsec:Publish/Subscribe"
 
 \end_inset
 
-) we can easily use topic based publish/subscribe using the couple 
+) we can easily use topic-based publish/subscribe using the couple 
 \begin_inset Quotes fld
 \end_inset
 
@@ -784,7 +785,7 @@ collection-path
 \begin_inset Newline newline
 \end_inset
 
-We can also see that the expresivity power is the same of 
+We can also see that the expressivity power is the same of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -848,7 +849,7 @@ Distributed issues
 
 \begin_layout Standard
 As introduced at the beginning NoSQL databases can be easily distributed
- and partitioning, we obtain an increase of performance from distribution
+ and partitioned, we obtain an increase of performance from distribution
  and partitioning as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -936,7 +937,7 @@ reference "chap:technologies"
 \end_layout
 
 \begin_layout Standard
-Since, often, they don't implement a 
+Since, often, they do not implement a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -952,14 +953,14 @@ eventually consistency
 \begin_inset Quotes frd
 \end_inset
 
- is implemented, explained in 
+ (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "par:Eventual-consistency"
 
 \end_inset
 
-.
+) is implemented.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1030,7 +1031,7 @@ reference "subsec:Publish/Subscribe"
 \end_layout
 
 \begin_layout Standard
-The common idea in all of these databases is to subscribe to main events
+The common idea in all of these databases is to subscribe to the main events
  (the same events of database trigger explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1056,8 +1057,8 @@ deleted
 \begin_layout Standard
 We subscribe to these events for different level of granularity, that depends
  on the data model used and on the database itself.
- For example there are some databases that, even if they support JSON, they
- allow to subscribe only to the first level of it (so it is like a key-value).
+ For example there are some databases that, even if they support JSON, allow
+ to subscribe only to the first level of it (so it is like a key-value).
 \begin_inset Newline newline
 \end_inset
 
@@ -1093,7 +1094,7 @@ reference "subsec:Publish/Subscribe"
 
 \end_inset
 
- it's not an easy task (even if for topic-based is easier than content-based).
+ it is not an easy task (even if for topic-based is easier than content-based).
  Fortunately these databases provide an integrated publish/subscribe that
  scales with the database itself.
 \end_layout
@@ -1137,7 +1138,7 @@ reference "subsec:Local-database"
 \end_layout
 
 \begin_layout Standard
-Now we will quickly see the constraints and permission in a classic NoSQL
+Now we will quickly see the constraints and permissions in a classic NoSQL
  database in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1170,16 +1171,16 @@ Constraints and permission
 \end_layout
 
 \begin_layout Standard
-In different systems more than one users can access to the same JSON object
+In different systems more than one user can access to the same JSON object
  (document) so we need fine grained permissions (it can be considered as
  a constraint).
  Moreover we could want to have some traditional constraints like integrity
  constraint, data type constraint and so on.
- So we seen everything as a constraint.
+ So we see everything as a constraint.
 \end_layout
 
 \begin_layout Standard
-Different systems implements different constraints since they can also modify
+Different systems implement different constraints since they can also modify
  performances of the system 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1201,7 +1202,7 @@ Queries
 \end_layout
 
 \begin_layout Standard
-There is no a standard for queries in NoSQL databases, since they depends
+There are no standards for queries in NoSQL databases, since they depend
  on different things: data model used, database used, MapReduce with query
  support and so on 
 \begin_inset CommandInset citation
@@ -1219,7 +1220,7 @@ key-value
 \begin_inset Quotes frd
 \end_inset
 
- database allow to have more powerful queries.
+ database allows to have more powerful queries.
 \end_layout
 
 \begin_layout Standard
@@ -1245,8 +1246,8 @@ Client best practices
 \end_layout
 
 \begin_layout Standard
-In this sub section we will see the best practices used in these kind of
- applications from the client point of view.
+In this sub section we will see the best practices used in these kinds of
+ applications from the client's point of view.
  Some choices, like data returned in some cases, can be imposed by the server
  technology chosen.
  On figure 
@@ -1302,7 +1303,7 @@ Simple client architecture
 \end_layout
 
 \begin_layout Standard
-Of course, since there is no standard, any application implement different
+Of course, since there is no standard, any application implements different
  things and/or implement them in different ways.
  So this is just a summary of the most used best practices.
 \end_layout
@@ -1332,16 +1333,16 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database with integrated publish subscribe broker server.
+ databases with integrated publish/subscribe broker server.
 \end_layout
 
 \begin_layout Standard
-We can summary them as:
+We can summarize them as:
 \end_layout
 
 \begin_layout Itemize
-The client don't contact directly the application server but send all requests
- to the client framework.
+The client does not contact directly the application server but sends all
+ the requests to the client framework.
  It receives immediately a response with an 
 \begin_inset Quotes fld
 \end_inset
@@ -1350,12 +1351,12 @@ eventually consistency logic
 \begin_inset Quotes frd
 \end_inset
 
- (a read doesn't return a data older than a previous read), but of course
+ (a read does not return a data older than a previous read), but of course
  the data cannot be updated with the latest of the server.
 \end_layout
 
 \begin_layout Itemize
-The servers send asynchronous notification of changes, the client catch
+The server sends asynchronous notifications of changes, the client catches
  them using an event driven approach explained in 
 \series bold
 
@@ -1368,8 +1369,8 @@ reference "subsec:Event-driven-approach"
 
 \series default
 .
- The client specify which data he needs, so he receives notifications only
- for them.
+ The client specifies which data he needs, so he receives notifications
+ only for them.
 \end_layout
 
 \begin_layout Itemize
@@ -1406,12 +1407,12 @@ reference "subsec:Local-database"
 
 \end_inset
 
-.This allows to return data immediately when request by the client.
+.This allows to return data immediately when requested by the client.
 \end_layout
 
 \begin_layout Standard
 All things allow to use efficiently publish/subscribe to receive data in
- a transparent way for final user.
+ a transparent way for the final user.
 \end_layout
 
 \begin_layout Subsection
@@ -1621,7 +1622,7 @@ Client language
 \end_layout
 
 \begin_layout Standard
-One of the language most used in this kind of applications is EcmaScript
+One of the most used language in this kind of applications is EcmaScript
  5.0 (in some cases EcmaScript 6.0), commonly known with its dialect name:
  javascript.
  In fact the most known EcmaScript interpreter: V8 is very efficient for
@@ -1731,8 +1732,8 @@ reference "subsec:RESTful"
 \end_inset
 
 .
- RESTful is useful to post/put/delete data and to retrieve them in an synchronou
-s way, synchronous retrieve can be useful to populate local databases (explained
+ RESTful is useful to post/put/delete data and to retrieve them synchronously,
+ synchronous retrieve can be useful to populate local databases (explained
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1748,9 +1749,9 @@ reference "subsec:Local-database"
 \end_layout
 
 \begin_layout Standard
-So the best practice is to use RESTful for all synchronous operations, let
- the possibility to use RESTful get all data or a portion of them, but give
- also an asynchronous
+So the best practice is to use RESTful for all the synchronous operations,
+ let the possibility to use RESTful get all data or a portion of them, but
+ give also an asynchronous
 \end_layout
 
 \begin_layout Standard
@@ -1839,7 +1840,7 @@ reference "subsec:Constraints-and-permissionsNoSQL"
 \end_inset
 
 ) are applied when the network comes back up.
- Some of constraints/modifications applied by the server can be implemented
+ Some of the constraints/modifications applied by the server can be implemented
  in the client such as type constraints, integrity constraints and so on;
  of course the server rechecks everything again.
 \begin_inset Newline newline
@@ -1870,7 +1871,7 @@ key "OptimisticReplication"
 \begin_inset Newline newline
 \end_inset
 
-One of the simplest ways to solve conflict is 
+One of the simplest way to solve conflicts is 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1880,7 +1881,7 @@ Last Writes Wins
 
 , in this way the writing with the highest timestamps is used overwriting
  the concurrent others.
- This approach is used by different systems in implementation of 
+ This approach is used by different systems in the implementation of 
 \begin_inset Quotes fld
 \end_inset
 
