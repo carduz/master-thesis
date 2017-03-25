@@ -1201,17 +1201,17 @@ A trigger on the server
 \begin_inset Quotes fld
 \end_inset
 
-published
+publishes
 \begin_inset Quotes frd
 \end_inset
 
- data when they are updated.
+ data on a publish/subscribe system when they are updated.
 \end_layout
 
 \begin_layout Itemize
 The communication between the client and the server is over a websocket
- channel, so immediately after data are published the server sends data
- on this channel.
+ channel, so immediately after data are published the publish/subscribe
+ broker server sends data on this channel.
  As said in 
 \begin_inset CommandInset ref
 LatexCommand ref

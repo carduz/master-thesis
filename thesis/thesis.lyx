@@ -697,6 +697,13 @@ filename "chapter-3/chapter-3.lyx"
 A Traditional Approach
 \begin_inset CommandInset label
 LatexCommand label
+name "sec:Traditional-technologies"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
 name "chap:A-traditional-approach"
 
 \end_inset
@@ -743,10 +750,10 @@ filename "chapter-5/chapter-5.lyx"
 \end_layout
 
 \begin_layout Chapter
-Performance Evaluation
+Benchmarks strategy
 \begin_inset CommandInset label
 LatexCommand label
-name "chap:Performance-Evaluation"
+name "chap:Benchmarks-strategy"
 
 \end_inset
 
@@ -771,7 +778,14 @@ filename "chapter-6/chapter-6.lyx"
 \end_layout
 
 \begin_layout Chapter
-Real Application Issues
+Benchmarks
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Performance-Evaluation"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:seventh-chapter"
@@ -894,10 +908,10 @@ options "bibtotoc,plain"
 
 \begin_layout Chapter
 \start_of_appendix
-Technologies configurations and examples
+Snippets
 \begin_inset CommandInset label
 LatexCommand label
-name "app:Technologies-configurations-and"
+name "chap:Snippets"
 
 \end_inset
 
@@ -915,7 +929,14 @@ filename "appendix-a/appendix-a.lyx"
 \end_layout
 
 \begin_layout Chapter
-Second appendix
+Technologies configurations and examples
+\begin_inset CommandInset label
+LatexCommand label
+name "app:Technologies-configurations-and"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "app:second-appendix"
