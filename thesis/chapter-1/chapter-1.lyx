@@ -1445,7 +1445,7 @@ strong consistency
 
  must be guaranteed the latency can increase a lot (time needed to receive
  all the acks from all replica for every action), potentially to infinity.
- So a system has to choose between latency and 
+ So a system has to choose between low latency and 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1605,7 +1605,8 @@ key "CAP"
 
 \begin_layout Itemize
 Commit data in a distributed database: the problem is to find the correct
- commits order since there is no common clock
+ commits order since there is no common clock, we should also provide a
+ distributed lock.
 \end_layout
 
 \begin_layout Itemize
@@ -1662,7 +1663,23 @@ Multi Master & Master-Slaves replication
 
 \begin_layout Standard
 To have data immediately available (optimistic replication) we have to renounce
- to strong consistency having eventually consistency.
+ to 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ having 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+.
  There are different ways to solve conflicts and obtain eventually consistency,
  one of the simplest ways to solve conflict is 
 \begin_inset Quotes fld
@@ -1677,6 +1694,26 @@ Last Writes Wins
 \begin_inset CommandInset citation
 LatexCommand cite
 key "OptimisticReplication"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To keep 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ we need a distributed lock that causes delays, problem shortly explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:CAP-validity"
 
 \end_inset
 
@@ -1779,6 +1816,26 @@ CAP
 LatexCommand ref
 reference "subsec:Consistency,-Partition-tolerance"
 
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+If the replication is 
+\begin_inset Quotes fld
+\end_inset
+
+multi-master
+\begin_inset Quotes frd
+\end_inset
+
+ it can be also 
+\begin_inset Quotes fld
+\end_inset
+
+master-salves
+\begin_inset Quotes frd
 \end_inset
 
 .

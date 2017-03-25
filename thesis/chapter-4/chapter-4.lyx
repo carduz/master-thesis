@@ -135,6 +135,13 @@ strong consistency
 \end_inset
 
 .
+\begin_inset Newline newline
+\end_inset
+
+The architecture proposed could be implemented with any RDBMS that has an
+ advanced trigger support.
+ In fact even if in some cases we use a proprietary solution, an alternative
+ (general) solution is provided.
 \end_layout
 
 \begin_layout Standard
@@ -164,11 +171,7 @@ PostgreeSQL
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-TODO
-\series default
- The RDBS are 
+The RDBS are 
 \begin_inset Quotes fld
 \end_inset
 
@@ -200,19 +203,22 @@ reference "fig:-Database-triangle"
 
 , i.e.
  they don't support a partition of the data in efficient way.
-\end_layout
-
-\begin_layout Standard
-The data can be partitioned
+ But of course they can be partitioned.
 \series bold
- TODO SCHOLAR PARTITION.
+
 \begin_inset Newline newline
 \end_inset
 
 
 \series default
-But, at the same time, like some realtime databases systems the structure
- can be a 
+Moreover they can be replicated according to structures explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+: 
 \begin_inset Quotes fld
 \end_inset
 
@@ -228,20 +234,7 @@ master-slaves
 \begin_inset Quotes frd
 \end_inset
 
-, the details of these kind of structure are explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Multi-Master-&-Master-Slaves"
-
-\end_inset
-
 .
-\series bold
-TODO bib
-\end_layout
-
-\begin_layout Standard
-.......
 \end_layout
 
 \begin_layout Standard
@@ -266,17 +259,42 @@ https://www.postgresql.org/
 \end_inset
 
  is a powerful and used a database (so a lot of libraries are implemented).
- 
-\series bold
-TODO
+ It can be partitioned 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgrePartitioning"
+
+\end_inset
+
+ and replicated in a 
+\begin_inset Quotes fld
+\end_inset
+
+multi-master
+\begin_inset Quotes frd
+\end_inset
+
+ architecture (and so also 
+\begin_inset Quotes fld
+\end_inset
+
+master-slaves
+\begin_inset Quotes frd
+\end_inset
+
+) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreReplication"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Moreover it has interesting characteristics that we will use in 
-\series bold
-TODO
-\series default
-:
+Moreover it has interesting characteristics that we will use in the next
+ sections:
 \end_layout
 
 \begin_layout Itemize
@@ -383,7 +401,7 @@ key "RedisCache"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -394,7 +412,7 @@ key "RedisPUBSUB"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -405,7 +423,18 @@ key "RedisQueue,RedisDataTypes"
 
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Itemize
+Distributed lock system that can be used by external systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisLock"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -443,14 +472,17 @@ key "RedisDataTypes"
 \end_layout
 
 \begin_layout Itemize
+\begin_inset Quotes fld
+\end_inset
 
-\series bold
-TOODO CAP and multi master 
-\series default
+master-slaves
+\begin_inset Quotes frd
+\end_inset
 
+ replication support 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "RedisReplication,RedisLock"
+key "RedisReplication"
 
 \end_inset
 
@@ -460,23 +492,26 @@ key "RedisReplication,RedisLock"
 \begin_layout Itemize
 
 \series bold
-//TODO using to and join we can also subscribe to different level of data
+TOODO CAP
 \end_layout
 
-\begin_layout Itemize
-TODO PERsistance
+\begin_layout Standard
+Unfortunately to keep high performance data are not stored immediately in
+ the disk, but they are written every one second (default configuration)
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisPersistance"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 
 \series bold
 DISTRIBUTION, CAP
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-ADVANTAGES for us
 \end_layout
 
 \begin_layout Standard
@@ -494,70 +529,7 @@ TODO authentication
 \begin_layout Standard
 
 \series bold
-Expressjs?
-\end_layout
-
-\begin_layout Standard
-
-\series bold
 data retrieve via lib, replication, id subscribe
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-put data socket or rest? rest but not implemented
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-scoekt io emitter??
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-reference for pub/sub is not correct, they are namspace not pub/sub
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-with namespaces and rooms it is a complex key value (with limited levels
- but cusotomizable)
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-rooms
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-room is efficient http://socket.io/docs/rooms-and-namespaces/#default-room
- a lot of rooms, find other things But this link is sueful to explain rooms
- and how they are used here
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-security: i cannot read other rooms, i cannot write other rooms
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-explain different socket io libraries
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-https://github.com/socketio/socket.io-protocol
 \end_layout
 
 \begin_layout Standard
@@ -578,14 +550,6 @@ distributed, there is no a global vision of the network, like a p2p I don't
 
 \series bold
 rooms equivalent in realtime tested, or analogous way to obtain security
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-talk about rooms as feature then talk about it as an instrument to obtain
- security maybne this should be inserted in custom logic or dedicated section
- (security middleware)
 \end_layout
 
 \begin_layout Standard
@@ -872,8 +836,8 @@ reference "sec:Technologies-traditional"
 
 \end_inset
 
- both postgreSQL and redis can be partitioned, but we do not do it for simplicit
-y.
+ both postgreSQL and redis can be partitioned and/or replicated, but we
+ do not do it for simplicity.
  In fact as we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1031,7 +995,7 @@ reference "sec:PostgreSQL-realtime-retrieve"
 \end_inset
 
 .
- But the call to an external program is not so efficient.
+ But the call to an external program is not so efficient (startup time).
 \end_layout
 
 \begin_layout Standard
@@ -1375,15 +1339,17 @@ auth
 \begin_inset Quotes frd
 \end_inset
 
- where we subscribe that client only to some rows based on the auth result.
- For example we can subscribe the client only to rows that he owns (i.e.
+ where we subscribe that client only to some rows based on the authentication
+ result.
+ For example we can subscribe (join to a room) the client only to rows that
+ he owns (i.e.
  owner_id field matching).
 \end_layout
 
 \begin_layout Itemize
 Send data to database.
- We can define different events for different db operations and for each
- of them map he event with the database library method.
+ We can define different events for different database operations and for
+ each of them map he event with the database library method.
 \end_layout
 
 \begin_layout Subsection
@@ -1780,20 +1746,6 @@ reference "lis:Socket.io-customization"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Subsubsection
-Local database
-\end_layout
-
-\begin_layout Paragraph
-Critical data
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO IMPROVE according to real code
 \end_layout
 
 \end_body
