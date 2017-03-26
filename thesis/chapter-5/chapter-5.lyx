@@ -86,6 +86,8 @@ pub sub is event based
 \end_layout
 
 \begin_layout Itemize
+
+\series bold
 promises
 \end_layout
 
@@ -291,10 +293,6 @@ cite firenbase external itnegrations
 
 \begin_layout Itemize
 ...
-\end_layout
-
-\begin_layout Itemize
-partitioning redis
 \end_layout
 
 \begin_layout Itemize

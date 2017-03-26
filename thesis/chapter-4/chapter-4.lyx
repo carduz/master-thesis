@@ -144,6 +144,12 @@ The architecture proposed could be implemented with any RDBMS that has an
  (general) solution is provided.
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -483,12 +489,6 @@ key "RedisReplication"
 
 \end_layout
 
-\begin_layout Itemize
-
-\series bold
-TOODO CAP
-\end_layout
-
 \begin_layout Standard
 Unfortunately to keep high performance data are not stored immediately in
  the disk, but they are written every one second (default configuration)
@@ -502,13 +502,6 @@ key "RedisPersistance"
 .
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-https://github.com/socketio/socket.io-p2p can be useful considering the realtime
- cited before
-\end_layout
-
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -517,12 +510,6 @@ name "subsec:Socket.io-architecture"
 \end_inset
 
 Socket.io
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO FIX
 \end_layout
 
 \begin_layout Standard
@@ -577,16 +564,8 @@ https://github.com/socketio/engine.io
 
  that is like the transportation level in the ISO/OSI stack, it is very
  efficient but it is only websocket implementation.
- As we will see 
-\begin_inset Quotes fld
-\end_inset
-
-socket.io
-\begin_inset Quotes frd
-\end_inset
-
- has a lot of integrations and native implementation (since the protocol
- is open 
+ As we will see socket.io has a lot of integrations and native implementation
+ (since the protocol is open 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOProtocol"
@@ -605,15 +584,7 @@ key "WebsocketServersComparison"
 \end_layout
 
 \begin_layout Standard
-We will use 
-\begin_inset Quotes fld
-\end_inset
-
-socket.io
-\begin_inset Quotes frd
-\end_inset
-
- for the following features:
+We will use socket.io for the following features:
 \end_layout
 
 \begin_layout Itemize
@@ -695,43 +666,34 @@ eventually consistency
  as we will see in the next sections.
 \end_layout
 
-\begin_layout Standard
-So we can a have a distributed publish/subscribe with user/session support.
-\end_layout
+\begin_layout Itemize
+P2P support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOP2P"
 
-\begin_layout Standard
+\end_inset
 
-\series bold
-TODO FIX under
-\end_layout
-
-\begin_layout Standard
-Of course to simply the architecture we will use the websocket server for
- 
+, it could be useful to implement a system like 
 \begin_inset Quotes fld
 \end_inset
 
-synchronous requests
+gun.js
 \begin_inset Quotes frd
 \end_inset
 
- explained in 
+ (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:RESTful-Approach"
+reference "subsec:Gun.js"
 
 \end_inset
 
-, instead of implement a RESTful server this because only 
-\begin_inset Quotes fld
-\end_inset
+).
+\end_layout
 
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- retrieve is the object of our study.
- Of course to handle these request we have to write custom logic.
+\begin_layout Standard
+So we can a have a distributed publish/subscribe with user/session support.
 \end_layout
 
 \begin_layout Section
@@ -1213,7 +1175,15 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- events.
+ events (they are 
+\begin_inset Quotes fld
+\end_inset
+
+synchronous requests
+\begin_inset Quotes frd
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -1239,8 +1209,8 @@ reference "chap:Benchmarks-strategy"
 \begin_inset Newline newline
 \end_inset
 
-So for every socketio event the server call actions on postgreSQL server,
- we will insert this logic in custom logic (that we will see in 
+So for every socket.io event the server call actions on postgreSQL server,
+ we will insert this logic into custom logic (that we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-Logic-architecture-traditional"
@@ -1522,6 +1492,19 @@ On github
 TODO
 \series default
  there are both code, configurations and vagrant installer scripts.
+ The install instructions can be found in the readme.
+\begin_inset Newline newline
+\end_inset
+
+We used also 
+\begin_inset Quotes fld
+\end_inset
+
+promise
+\begin_inset Quotes frd
+\end_inset
+
+ pattern to make callbacks more reliable.
 \end_layout
 
 \end_body

@@ -963,6 +963,12 @@ key "MongoDB"
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Gun.js"
+
+\end_inset
+
 Gun.js
 \end_layout
 
