@@ -243,6 +243,12 @@ https://www.pubnub.com/solutions/
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Realtime-Chat-class"
+
+\end_inset
+
 Realtime Chat
 \end_layout
 
@@ -506,6 +512,12 @@ reference "lis:Chat-data-structure"
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Collaborative-Software-class"
+
+\end_inset
+
 Collaborative Software
 \end_layout
 
@@ -823,6 +835,12 @@ We only add data that we know to be unique, NoSQL database should be better
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Social-class"
+
+\end_inset
+
 Social
 \end_layout
 
@@ -1262,8 +1280,15 @@ For simplicity permission and related things are skipped.
 \end_layout
 
 \begin_layout Standard
-Like the previous use case, even if we have more than one subscription we
- can manage them easily (with different tables).
+Like the previous use case (shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Collaborative-Software-class"
+
+\end_inset
+
+), even if we have more than one subscription we can manage them easily
+ (with different tables).
  We will have: users, likes (with reference to user and to post), comments
  (with reference to user and to post), post (with reference to user).
 \end_layout
@@ -1289,8 +1314,15 @@ We expect #reads >> #writes, it is common have a lot of followers (so for
 
 \begin_layout Standard
 It seems that everything can be managed efficiently with a traditional approach
- so, like first use case, we expect minor improvements due to efficient
- architecture and delivery optimized.
+ so, like first use case (shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Realtime-Chat-class"
+
+\end_inset
+
+), we expect minor improvements due to efficient architecture and delivery
+ optimized.
 \end_layout
 
 \begin_layout Section
@@ -1301,6 +1333,120 @@ name "sec:Study-Cases-class"
 \end_inset
 
 Study Cases
+\end_layout
+
+\begin_layout Standard
+In this section we will analyze quickly some real stories of application
+ of NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases.
+\end_layout
+
+\begin_layout Standard
+For each case we will see the problem solution and link with the use cases
+ shown previously.
+\end_layout
+
+\begin_layout Subsection
+Adobe DPS
+\end_layout
+
+\begin_layout Standard
+Adobe DPS (Digital Publishing Solution), is a software a collaborative software
+ to publish mobile app experiences.
+ It is developed over 
+\begin_inset Quotes fld
+\end_inset
+
+pubnub
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AdobeDPS"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Problem
+\end_layout
+
+\begin_layout Standard
+Since it is a fully-collaborative software, there should be the possibility
+ to work on the same project together (different persons) from different
+ devices, from different locations.
+ Like google docs 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoogleDocs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Solution
+\end_layout
+
+\begin_layout Standard
+After having analyzed developing costs of custom solution built over classical
+ systems.
+ A commercial NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ database solution was chosen, it sends notifications about changes of the
+ projects to all devices connected.
+ It also allows, in the future, to introduce new features like server-server
+ notifications.
+ The system chosen offers also global redundancy.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Link with use cases
+\end_layout
+
+\begin_layout Standard
+We can easily see that this is the use case shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Collaborative-software-structure"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Of course the structure of data change, but not the idea of save changes.
+ The flexibility of JSON gives us the possibility to use the same previous
+ model in things complexer than a simple text document (we only need to
+ change the content of 
+\begin_inset Quotes fld
+\end_inset
+
+change
+\begin_inset Quotes frd
+\end_inset
+
+ field as explained previously).
 \end_layout
 
 \end_body
