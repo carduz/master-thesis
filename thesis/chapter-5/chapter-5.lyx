@@ -73,8 +73,688 @@
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Standard
+In this chapter we will see some suggested use case according to some NoSQL
+ 
+\begin_inset Quotes fld
+\end_inset
 
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases vendors in 
+\series bold
+TODO
+\series default
+.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Then we will see some real applications (case study) according to some NoSQL
+ 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases vendors in 
+\series bold
+TODO
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+Of courser we will test in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+ only use cases, but study cases are important to understated real applications
+ of use cases.
+\end_layout
+
+\begin_layout Standard
+As vendors we will use 
+\begin_inset Quotes fld
+\end_inset
+
+firebase
+\begin_inset Quotes frd
+\end_inset
+
+ (google) and 
+\begin_inset Quotes fld
+\end_inset
+
+pubnub
+\begin_inset Quotes frd
+\end_inset
+
+, both explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:SaaS-realtime"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Use-Cases-class"
+
+\end_inset
+
+Use Cases
+\end_layout
+
+\begin_layout Standard
+The main elements to be considered are:
+\end_layout
+
+\begin_layout Itemize
+Number of reads, if #reads>>#writes
+\end_layout
+
+\begin_layout Itemize
+Structure of data, if JSON could increase performance/readability.
+\end_layout
+
+\begin_layout Itemize
+Constraints, modification, permissions needed by the server.
+\end_layout
+
+\begin_layout Itemize
+Subscriptions granularity.
+\end_layout
+
+\begin_layout Itemize
+Notifications structure.
+\end_layout
+
+\begin_layout Standard
+Now we will analyze some use cases.
+ The things explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:A-traditional-approach"
+
+\end_inset
+
+ are considered implicit.
+\end_layout
+
+\begin_layout Subsection
+Realtime Chat
+\end_layout
+
+\begin_layout Standard
+It is a classical use case, shown as examples by different vendors
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubNubChat,FireChat"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The chat considered is room based chat, i.e.
+ there are some rooms where there are a lot of users subscribed that see
+ all messages of that room.
+ So we expect #reads>>#writes.
+\end_layout
+
+\begin_layout Standard
+However we need to do a lot of checks in the server, such as permissions
+ to post in that room, identity check (name shown) and so on.
+\end_layout
+
+\begin_layout Standard
+Looking store structure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FireChatStructure"
+
+\end_inset
+
+, in particular messages of rooms store (sample shown on listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Chat-data-structure"
+
+\end_inset
+
+), JSON structure seems very useful.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Chat-data-structure"
+
+\end_inset
+
+Chat data structure
+\end_layout
+
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"rooms":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"room1":[
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"test": "message 1",
+\end_layout
+
+\begin_layout Plain Layout
+
+				"user": "user1"
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"test": "message 2",
+\end_layout
+
+\begin_layout Plain Layout
+
+				"user": "user2"
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		],
+\end_layout
+
+\begin_layout Plain Layout
+
+		"room2":[]
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"users":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user1":{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"roomsAllowed": ["room1", "room2"]
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user2":{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"roomsAllowed": ["room1"]
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that we need to link every message to a room and to an user.
+ Of course with JSON we can link directly (child of) with only one element,
+ so room is chosen since the users subscribe to it and want to receive notificat
+ions based on it (they want messages of a room not messages of an user).
+ The user is linked using ID reference.
+\end_layout
+
+\begin_layout Standard
+Of course using a traditional approach we link both things (room and user)
+ using ID reference.
+ We use room ID as socket.io room, so we manage permission and we automatically
+ send notifications of rooms changes (so it is the same approach of NoSQL
+ 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ solution).
+\begin_inset Newline newline
+\end_inset
+
+So we have three tables: messages, rooms, users; for every row of messages
+ we have a reference to user and room.
+ If we want to link users to rooms (permission) we need a pivot table to
+ link users and rooms.
+ The JSON version seems to be more readable.
+\end_layout
+
+\begin_layout Standard
+So permission and notifications are managed in analogous way with a traditional
+ approach, we expect small improvements given only by the fact that architecture
+ and delivery are optimized to have #reads>>#writes.
+\begin_inset Newline newline
+\end_inset
+
+Moreover we only add data that we know to be unique, NoSQL database should
+ be better with this kind of things.
+ But since we have #reads>>#writes we should not see effects of it.
+\end_layout
+
+\begin_layout Subsection
+Collaborative Software
+\end_layout
+
+\begin_layout Standard
+A collaborative software is a software that allow to more than one people
+ to work together in the same document, one of the most famous collaborative
+ software is 
+\begin_inset Quotes fld
+\end_inset
+
+google docs
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GoogleDocs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A simple collaborative software is provided as example by firebase 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FirePad"
+
+\end_inset
+
+.
+ Since the data structure is not simple we will keep in consideration a
+ simplified version (we do not considered a lot of things such as multiple
+ documents or permission) in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Collaborative-software-structure"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Collaborative-software-structure"
+
+\end_inset
+
+Collaborative software structure
+\end_layout
+
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"history":[
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"timestampt":1490506829,
+\end_layout
+
+\begin_layout Plain Layout
+
+			"changeObject": {
+\end_layout
+
+\begin_layout Plain Layout
+
+				"start": 20,
+\end_layout
+
+\begin_layout Plain Layout
+
+				"change": "abcd"
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+			"user":"user1"
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"timestampt":1490506830,
+\end_layout
+
+\begin_layout Plain Layout
+
+			"changeObject": {
+\end_layout
+
+\begin_layout Plain Layout
+
+				"start": 22,
+\end_layout
+
+\begin_layout Plain Layout
+
+				"change": "Impact",
+\end_layout
+
+\begin_layout Plain Layout
+
+				"end": 24
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+			"user":"user2"
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"timestampt":1490506835,
+\end_layout
+
+\begin_layout Plain Layout
+
+			"changeObject": {
+\end_layout
+
+\begin_layout Plain Layout
+
+				"start": 22,
+\end_layout
+
+\begin_layout Plain Layout
+
+				"change": -2
+\end_layout
+
+\begin_layout Plain Layout
+
+			},
+\end_layout
+
+\begin_layout Plain Layout
+
+			"user":"user2"
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+	],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"users": {
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user1":{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"position": 10
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user2":{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"position": 15,
+\end_layout
+
+\begin_layout Plain Layout
+
+			"positionEnd": 20
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We work using history of changes, in fact since there is no lock we cannot
+ change the same element by more clients.
+\end_layout
+
+\begin_layout Standard
+The structure of history is simple: we can add text (first change), we can
+ add a font to portion of text (second change), we can remove some chars
+ (third change).
+ Moreover we can see that we can subscribe to users to their cursor position.
+\end_layout
+
+\begin_layout Standard
+It is easy to see how the JSON structure is perfect for this kind of application
+, it is easy to think to extend this application adding childes detailed
+ fields in 
+\begin_inset Quotes fld
+\end_inset
+
+change
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We have also two subscriptions (users and history) that are easy to manage
+ and easy to read with JSON structure.
+\begin_inset Newline newline
+\end_inset
+
+But of course we can manage them with traditional approach, in fact they
+ became two different table.
+ We will have: history table with timestamp, user reference, changeObject
+ (that could be the JSON as string) fields; users with position and positionEnd
+ fields.
+\end_layout
+
+\begin_layout Standard
+We only add data that we know to be unique, NoSQL database should be better
+ with this kind of things.
+ Since we have #reads 
+\begin_inset Formula $\simeq$
+\end_inset
+
+#writes we should see differences due to the add efficiency.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Study-Cases-class"
+
+\end_inset
+
+Study Cases
 \end_layout
 
 \end_body

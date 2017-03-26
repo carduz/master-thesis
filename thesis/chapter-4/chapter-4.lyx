@@ -377,7 +377,18 @@ key "PostgreListen"
 \end_inset
 
  commands are used.
- NOTIFY is really called only after the transaction is commited.
+ NOTIFY is really called only after the transaction is committed.
+\end_layout
+
+\begin_layout Standard
+Moreover PostgreSQL has JSON as data type
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PostgreJSON"
+
+\end_inset
+
+, it could be useful but we do not use it to keep the approach standard.
 \end_layout
 
 \begin_layout Subsection
