@@ -1779,6 +1779,7 @@ insert
 
  event created by the database listener after have done a read all for that
  room.
+ Of course the number of rows can be limited.
 \end_layout
 
 \begin_layout Itemize

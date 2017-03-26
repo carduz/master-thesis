@@ -84,9 +84,12 @@ realtime
 \end_inset
 
  databases vendors in 
-\series bold
-TODO
-\series default
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Use-Cases-class"
+
+\end_inset
+
 .
 \series bold
 
@@ -105,9 +108,12 @@ realtime
 \end_inset
 
  databases vendors in 
-\series bold
-TODO
-\series default
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Study-Cases-class"
+
+\end_inset
+
 .
 \end_layout
 
@@ -185,7 +191,8 @@ Notifications structure.
 \end_layout
 
 \begin_layout Standard
-Now we will analyze some use cases.
+Now we will analyze some use cases, they are the most commons according
+ to vendors.
  The things explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -201,6 +208,38 @@ reference "chap:A-traditional-approach"
 \end_inset
 
  are considered implicit.
+\begin_inset Newline newline
+\end_inset
+
+More use cases could be found on 
+\begin_inset Quotes fld
+\end_inset
+
+pubnub solutions site
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.pubnub.com/solutions/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ .
 \end_layout
 
 \begin_layout Subsection
@@ -495,7 +534,7 @@ name "lis:Collaborative-software-structure"
 
 \end_inset
 
-Collaborative software structure
+Collaborative software data structure
 \end_layout
 
 \end_inset
@@ -745,6 +784,21 @@ We only add data that we know to be unique, NoSQL database should be better
 \end_inset
 
 #writes we should see differences due to the add efficiency.
+\end_layout
+
+\begin_layout Subsection
+Social
+\end_layout
+
+\begin_layout Standard
+aaaa
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubNubBlogging,FriendlyPix"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
