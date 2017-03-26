@@ -314,7 +314,7 @@ Chat data structure
 
 \begin_layout Plain Layout
 
-	"rooms":{
+	"messages":{
 \end_layout
 
 \begin_layout Plain Layout
@@ -370,6 +370,26 @@ Chat data structure
 \begin_layout Plain Layout
 
 		"room2":[]
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"room-users":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"room1":["user1", "user2"],
+\end_layout
+
+\begin_layout Plain Layout
+
+		"room2":["user1"],
 \end_layout
 
 \begin_layout Plain Layout
@@ -469,6 +489,20 @@ So permission and notifications are managed in analogous way with a traditional
 Moreover we only add data that we know to be unique, NoSQL database should
  be better with this kind of things.
  But since we have #reads>>#writes we should not see effects of it.
+\end_layout
+
+\begin_layout Standard
+We can see that if we want to retrieve efficiently the users of room we
+ can do it easily with a traditional approach (it is a query on users table),
+ but to do it with NoSQL (since we do not have queries) we have replicate
+ the data (room-users) as shown in listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Chat-data-structure"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -761,6 +795,8 @@ change
 \end_inset
 
 .
+ of course in traditional application we can do the same thing serialize
+ something (also JSON) to a string.
 \end_layout
 
 \begin_layout Standard
@@ -791,14 +827,470 @@ Social
 \end_layout
 
 \begin_layout Standard
-aaaa
+A social application is a classical use case, shown as examples by different
+ vendors
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PubNubBlogging,FriendlyPix"
 
 \end_inset
 
+.
+\end_layout
 
+\begin_layout Standard
+It is done by classical elements:
+\end_layout
+
+\begin_layout Itemize
+Users
+\end_layout
+
+\begin_layout Itemize
+Relationships (followers)
+\end_layout
+
+\begin_layout Itemize
+Posts
+\end_layout
+
+\begin_layout Itemize
+Comments
+\end_layout
+
+\begin_layout Itemize
+Likes
+\end_layout
+
+\begin_layout Standard
+A data structure that uses the powerful of JSON could be the one shown in
+ the listing 
+\series bold
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Social-inner-JSON"
+
+\end_inset
+
+
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+But the structure used 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FriendlyPixStructure"
+
+\end_inset
+
+ is different as shown in the listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Social-structure"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Social-inner-JSON"
+
+\end_inset
+
+Possible social structure
+\end_layout
+
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"users":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user1":{},
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user2":{},
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user3":{},
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"relationships":[
+\end_layout
+
+\begin_layout Plain Layout
+
+		["user1", "user2"],
+\end_layout
+
+\begin_layout Plain Layout
+
+		["user2", "user3"],
+\end_layout
+
+\begin_layout Plain Layout
+
+	],
+\end_layout
+
+\begin_layout Plain Layout
+
+	"posts":[
+\end_layout
+
+\begin_layout Plain Layout
+
+		{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"user": "user1"
+\end_layout
+
+\begin_layout Plain Layout
+
+			"content":"aaa",
+\end_layout
+
+\begin_layout Plain Layout
+
+			"likes":[
+\end_layout
+
+\begin_layout Plain Layout
+
+				"user1",
+\end_layout
+
+\begin_layout Plain Layout
+
+				"user2",
+\end_layout
+
+\begin_layout Plain Layout
+
+			],
+\end_layout
+
+\begin_layout Plain Layout
+
+			"comments":[
+\end_layout
+
+\begin_layout Plain Layout
+
+				{
+\end_layout
+
+\begin_layout Plain Layout
+
+					"timestamp": 1490506829,
+\end_layout
+
+\begin_layout Plain Layout
+
+					"user": "user2",
+\end_layout
+
+\begin_layout Plain Layout
+
+					"conent": "bbbb"
+\end_layout
+
+\begin_layout Plain Layout
+
+				}
+\end_layout
+
+\begin_layout Plain Layout
+
+			]
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	]
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Social-structure"
+
+\end_inset
+
+Social structure
+\end_layout
+
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"users":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user1":{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"posts": ["post1"]
+\end_layout
+
+\begin_layout Plain Layout
+
+		},
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user2":{"posts":[]},
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user3":{"posts":[]},
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"followers":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user1":["user2"],
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user2":["user1", "user3"],
+\end_layout
+
+\begin_layout Plain Layout
+
+		"user3":["user2"]
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"likes":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"post1":["users1", "user2"]
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"comments":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"post1":[
+\end_layout
+
+\begin_layout Plain Layout
+
+			{
+\end_layout
+
+\begin_layout Plain Layout
+
+				"timestamp": 1490506829,
+\end_layout
+
+\begin_layout Plain Layout
+
+				"user": "user2",
+\end_layout
+
+\begin_layout Plain Layout
+
+				"conent": "bbbb"
+\end_layout
+
+\begin_layout Plain Layout
+
+			}
+\end_layout
+
+\begin_layout Plain Layout
+
+		]
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"posts":{
+\end_layout
+
+\begin_layout Plain Layout
+
+		"post1":{
+\end_layout
+
+\begin_layout Plain Layout
+
+			"user": "user1"
+\end_layout
+
+\begin_layout Plain Layout
+
+			"content":"aaa"
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Even the first data structure seems better, the second is better.
+ In fact we subscribe only one time to main object, while in the first structure
+ we have to subscribe for every new post.
+ A lot of subscription could be a problem.
+\begin_inset Newline newline
+\end_inset
+
+Moreover it is more easy bring the second approach on traditional technologies.
+\end_layout
+
+\begin_layout Standard
+For simplicity permission and related things are skipped.
+\end_layout
+
+\begin_layout Standard
+Like the previous use case, even if we have more than one subscription we
+ can manage them easily (with different tables).
+ We will have: users, likes (with reference to user and to post), comments
+ (with reference to user and to post), post (with reference to user).
+\end_layout
+
+\begin_layout Standard
+We can see that if we want to retrieve efficiently the posts of each users
+ we can do it easily with a traditional approach (it is a query on users
+ table), but to do it with NoSQL (since we do not have queries) we have
+ replicate the data (posts under users) as shown in listing 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Social-structure"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We expect #reads >> #writes, it is common have a lot of followers (so for
+ every write we have to replicate it to a lot of followers).
+\end_layout
+
+\begin_layout Standard
+It seems that everything can be managed efficiently with a traditional approach
+ so, like first use case, we expect minor improvements due to efficient
+ architecture and delivery optimized.
 \end_layout
 
 \begin_layout Section
