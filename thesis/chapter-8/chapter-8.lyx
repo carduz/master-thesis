@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -31,15 +33,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry false
-\use_amsmath 2
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -62,8 +73,283 @@
 
 \begin_body
 
+\begin_layout Section
+Ideas:
+\end_layout
+
+\begin_layout Itemize
+versioning of config issue,
+\end_layout
+
+\begin_layout Itemize
+pub sub is event based
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+promises
+\end_layout
+
+\begin_layout Itemize
+event dispacher in pubsub
+\end_layout
+
+\begin_layout Itemize
+explain ACID better, https://www.npmjs.com/package/level-hyper, websocket
+ cluster is needed also when #read >> #writes, test wit #read >> # write
+ and with #write >> read
+\end_layout
+
+\begin_layout Itemize
+pub/sub: content or sub? hierarchy or distributed? search scholar and motivate
+\end_layout
+
+\begin_layout Itemize
+secuirty problems that can be soolved using a VPN
+\end_layout
+
+\begin_layout Itemize
+this is not the only cofngiruation posisible, but it is the most singiificative
+ for our topic in fact we tried also to use the same languages
+\end_layout
+
+\begin_layout Itemize
+redis as queue
+\end_layout
+
+\begin_layout Itemize
+script to install the entire env with vagrant (explain it)
+\end_layout
+
+\begin_layout Itemize
+trigger async
+\end_layout
+
+\begin_layout Itemize
+type of consistency with queue -> casual consistency (describe it in the
+ state of art)
+\end_layout
+
+\begin_layout Itemize
+dependencies for all configurations (also nosql)
+\end_layout
+
+\begin_layout Itemize
+msgpack schoolar
+\end_layout
+
+\begin_layout Itemize
+persistance: if the server die, problem for both types of approaches
+\end_layout
+
+\begin_layout Itemize
+for the next chapter: I can use this in app lication like chat where reads
+ = writes (for private chats) or in case where reads >> writes.
+ Prove that for writes >> reads this is not a good idea.
+\end_layout
+
+\begin_layout Itemize
+app example https://docs.feathersjs.com/getting-started/readme.html
+\end_layout
+
+\begin_layout Itemize
+in the next chapter introduce the limitations (authentication and subscribe
+ level) and avantages (for example queries) of the different realtime databases
+\end_layout
+
+\begin_layout Itemize
+in the next chapter the exmapls should be ideal, as they are designed for
+ firebase
+\end_layout
+
+\begin_layout Itemize
+vagrant also for realtime
+\end_layout
+
+\begin_layout Itemize
+In all pub/sub describe the type
+\end_layout
+
+\begin_layout Itemize
+flexibility and customization of both
+\end_layout
+
+\begin_layout Itemize
+frameworks in other languages compatibility, active records -> big applications
+ structures: how to build and structure reliable big applications
+\end_layout
+
+\begin_layout Itemize
+a server for each service? what kind of architecture is? microservice? search
+ schoolar
+\end_layout
+
+\begin_layout Itemize
+list of listings?
+\end_layout
+
+\begin_layout Itemize
+explain overlap between A.2.1 and A2.2
+\end_layout
+
+\begin_layout Itemize
+in appendix say where substitute addresses
+\end_layout
+
+\begin_layout Itemize
+fix indentation of sql trigger
+\end_layout
+
+\begin_layout Itemize
+data nons tructured -> use of map, reduce, fitler and so on.
+ Explain this framework in the chapter of dev, this change the minds
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+postgre JSON support, maybe it has queries....
+ IMPORTANT
+\end_layout
+
+\begin_layout Itemize
+produce/consumer
+\end_layout
+
+\begin_layout Itemize
+respect of sql standard ref
+\end_layout
+
+\begin_layout Itemize
+embedded realtime example in class of applications, IoT.
+ But describe class of appplication in a formal way
+\end_layout
+
+\begin_layout Itemize
+https://firebase.google.com/customers/
+\end_layout
+
+\begin_layout Itemize
+https://www.pubnub.com/solutions/Secure Data Streams for Financial DataPublish
+ information by the millisecond to thousands of devices simultaneously.
+\end_layout
+
+\begin_layout Itemize
+Pub/nub schoolar
+\end_layout
+
+\begin_layout Itemize
+in table posibility to define rules
+\end_layout
+
+\begin_layout Itemize
+async at js level and async at data transfer level
+\end_layout
+
+\begin_layout Itemize
+case study
+\end_layout
+
+\begin_layout Itemize
+security int erms of ssl, encryption and so on
+\end_layout
+
+\begin_layout Itemize
+http://digitalcommons.calpoly.edu/cscsp/81/
+\end_layout
+
 \begin_layout Standard
 
+\series bold
+scalability and easy to configure,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+, use cases from sites: https://www.pubnub.com/solutions/ (also for real example
+ https://www.pubnub.com/solutions/realtime-auction-and-price-updates/)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+, cloud advantages,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+data classes http://developer.couchbase.com/documentation/mobile/1.3/develop/guides
+/modeling/basics/index.html,
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+cite firenbase external itnegrations
+\end_layout
+
+\begin_layout Itemize
+...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+TODO auth based on owner not id (insert problem)
+\end_layout
+
+\begin_layout Itemize
+Install smae version of libraries
+\end_layout
+
+\begin_layout Itemize
+clients with different data in tests, netwrok down
+\end_layout
+
+\begin_layout Standard
+https://github.com/sysunite/gun-server 
+\series bold
+IMP
+\end_layout
+
+\begin_layout Standard
+PSQL.
+ 
+\series bold
+TODO listing highligthed
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO notify parameters, pass entire new?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO improove -> stament update
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO test if it is casual consistency, what happens if I send two update
+ in the meantime.
+ Is there a lock evne in the trigger?
+\end_layout
+
+\begin_layout Standard
+https://blog.heroku.com/javascript_in_your_postgres
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+improve appendix config, make it uniform and fix address, explaining them
 \end_layout
 
 \end_body

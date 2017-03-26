@@ -929,14 +929,7 @@ filename "appendix-a/appendix-a.lyx"
 \end_layout
 
 \begin_layout Chapter
-Technologies configurations and examples
-\begin_inset CommandInset label
-LatexCommand label
-name "app:Technologies-configurations-and"
-
-\end_inset
-
-
+Second appendix
 \begin_inset CommandInset label
 LatexCommand label
 name "app:second-appendix"
