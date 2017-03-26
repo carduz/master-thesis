@@ -317,5 +317,36 @@ https://github.com/sysunite/gun-server
 IMP
 \end_layout
 
+\begin_layout Standard
+PSQL.
+ 
+\series bold
+TODO listing highligthed
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO notify parameters, pass entire new?
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO improove -> stament update
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO test if it is casual consistency, what happens if I send two update
+ in the meantime.
+ Is there a lock evne in the trigger?
+\end_layout
+
+\begin_layout Standard
+https://blog.heroku.com/javascript_in_your_postgres
+\end_layout
+
 \end_body
 \end_document

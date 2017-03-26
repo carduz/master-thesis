@@ -726,6 +726,25 @@ Also the client can send events that, generally, are caught only by the
  server.
  Of course, since it is publish/subscribe, there is no notification of successfu
 lly delivery to the server (ack).
+\begin_inset Newline newline
+\end_inset
+
+So the approach to use to work with it is the 
+\begin_inset Quotes fld
+\end_inset
+
+event driven aproach
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -826,6 +845,12 @@ Architecture proposed
 
 \begin_layout Standard
 ....
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO load balanace, theory in chap 1
 \end_layout
 
 \begin_layout Standard
@@ -963,6 +988,13 @@ name "subsec:Database-architecture-traditional"
 
 \end_inset
 
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Database"
+
+\end_inset
+
 Database
 \end_layout
 
@@ -1053,6 +1085,13 @@ key "PostgreNotifyListenExample"
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Publish/Subscribe-architecture-traditional"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:traditional-Publish/Subscribe"
 
 \end_inset
 
@@ -1185,6 +1224,13 @@ reference "subsec:Custom-Logic-architecture-traditional"
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Websocket-server-architecture-traditional"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Websocket-Server"
 
 \end_inset
 
@@ -1352,6 +1398,41 @@ Send data to database.
  each of them map he event with the database library method.
 \end_layout
 
+\begin_layout Standard
+The only problem with this solution is that there is no persistence of data
+ associated to a client.
+ If the socket.io server dies, if the client changes the server (if we have
+ load balance organization) or if the connection is interrupted (and then
+ reestablished) the data associated to a client are looses.
+\begin_inset Newline newline
+\end_inset
+
+The only critical thing in our approach is the authentication, in fact if
+ we are able to identify the client we can store other things (like rooms
+ joined) in other places.
+ A simple and standard approach, that is not centralized (so it does not
+ need persistence), to authenticate clients is JWT (Json Web Token) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JWT"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Of course for the topic of the thesis it is not needed to develop this,
+ in fact we need just to test performance as shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Benchmarks-strategy"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1487,265 +1568,8 @@ key "UUID"
 Implementation
 \end_layout
 
-\begin_layout Section
-Traditional technologies
-\end_layout
-
 \begin_layout Standard
-Since the traditional technologies are not the topic of the thesis but are
- need only to compare the performance of realtime databases, we will shortly
- describe just one solution.
- One of the best solution, it is chosen using knowledges from the literature
- using opensource and widespread technologies.
-\end_layout
-
-\begin_layout Standard
-While the realtime database offers on full stack solution (or you have just
- to do minor things) here we have to join different solutions that can have
- possible overlapping, the main module to cover are the following (for each
- of them a sub chapter is dedicated):
-\end_layout
-
-\begin_layout Itemize
-aaaa
-\end_layout
-
-\begin_layout Standard
-On appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Configurations"
-
-\end_inset
-
- the configurations, custom code (e.g.
- triggers) and basic examples of the technologies used are shown; the entire
- section makes a full example.
- In fact, while the realtime database implements the full stack in an easy
- way, here we have to use different technologies and configure them to communica
-te each other in efficient way.
-\begin_inset Newline newline
-\end_inset
-
-While on appendix 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Installers"
-
-\end_inset
-
- the scripts to install the environments on different servers are shown.
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Database"
-
-\end_inset
-
-Database
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-postgresql cluster
-\end_layout
-
-\begin_layout Standard
-PSQL.
- 
-\series bold
-TODO listing highligthed
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO notify parameters, pass entire new?
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO improove -> stament update
-\end_layout
-
-\begin_layout Standard
-AAAAA.
- Of course they are not SQL standard but we will use them to increase the
- performances.
-\begin_inset Newline newline
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO test if it is casual consistency, what happens if I send two update
- in the meantime.
- Is there a lock evne in the trigger?
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:traditional-Publish/Subscribe"
-
-\end_inset
-
-Publish/Subscribe
-\end_layout
-
-\begin_layout Standard
-As we will see on the proper section (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Websocket-Server"
-
-\end_inset
-
-) the websocket server implements publish/subscribe, so a publish/subscribe
- system is not required for this purpose.
- However 
-\begin_inset Quotes fld
-\end_inset
-
-redis
-\begin_inset Quotes frd
-\end_inset
-
-, that is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Redis"
-
-\end_inset
-
-, can be used as publish/subscribe.
-\end_layout
-
-\begin_layout Standard
-Redis 
-\end_layout
-
-\begin_layout Standard
-https://blog.heroku.com/javascript_in_your_postgres
-\end_layout
-
-\begin_layout Standard
-aaa 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CAPNoSQL"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Websocket-Server"
-
-\end_inset
-
-Websocket Server
-\end_layout
-
-\begin_layout Subsubsection
-Redis
-\end_layout
-
-\begin_layout Subsection
-Custom Logic
-\end_layout
-
-\begin_layout Standard
-Since the websocket server is written in javascript it is easy to customize
- it.
- This can be very useful if we want, for example, customize the user management
- using an api key system.
- The customization is very easy since everything is done via callbacks,
- on listing 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lis:Socket.io-customization"
-
-\end_inset
-
- a simple customization for a channel is shown: when a message on the channel
- 
-\begin_inset Quotes fld
-\end_inset
-
-chat message
-\begin_inset Quotes frd
-\end_inset
-
- is received the message reversed is retransmitted in the same channel.
-\end_layout
-
-\begin_layout Subsection
-Client framework
-\end_layout
-
-\begin_layout Standard
-\begin_inset Quotes fld
-\end_inset
-
-socket.io
-\begin_inset Quotes frd
-\end_inset
-
- has implemented a simple client framework, with the channel support, it
- is a event driven implementation explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
-
-\end_inset
-
-.
- Of course we have to define 
-\begin_inset Quotes fld
-\end_inset
-
-REST actions
-\begin_inset Quotes frd
-\end_inset
-
- and libraries to do them in a custom way (the approach is explained in
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful-Approach"
-
-\end_inset
-
-), we have also to create a local databases (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-The Client framework is like the server one shown in listing 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lis:Socket.io-customization"
-
-\end_inset
-
-.
+aaa
 \end_layout
 
 \end_body
