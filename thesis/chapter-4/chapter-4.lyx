@@ -898,7 +898,9 @@ reference "sec:PostgreSQL-realtime-retrieve"
 \end_inset
 
 .
- But the call to an external program is not so efficient (startup time).
+ But the call to an external program is not so efficient (startup time),
+ moreover we should find a way to call the external program only after the
+ commit.
 \end_layout
 
 \begin_layout Standard
@@ -1722,7 +1724,7 @@ join
 \end_inset
 
 When a client join to a room all rows of that room are sent to the client
- (emulating the 
+ (initial retrieve): emulating the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1730,10 +1732,8 @@ insert
 \begin_inset Quotes frd
 \end_inset
 
- event created by the database listener).
- 
-\series bold
-TODO critical point
+ event created by the database listener after have done a read all for that
+ room.
 \end_layout
 
 \begin_layout Itemize
@@ -1754,9 +1754,9 @@ If there is an error (such as no permission) we discard the command and
 Using this approach, as said previously, the consistency of data modification
  is managed by postgreSQL and it is like any normal modern HTTP application,
  in fact the data do not pass through redis in this phase.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 The normal read is managed automatically and it is 
 \begin_inset Quotes fld
 \end_inset
@@ -1770,7 +1770,101 @@ eventually consistency
 \end_layout
 
 \begin_layout Standard
-There is a critical point: what if there is an update 
+There is only one critical point: what if there is a change during the initial
+ retrieve? considering that the client is not able to distinguish data (initial
+ retrieve or other events)
+\end_layout
+
+\begin_layout Standard
+We could have the following situations:
+\end_layout
+
+\begin_layout Itemize
+A notify event is called before the initial retrieve is executed.
+ Updates and deletes are discarded since there is no data, inserts are added
+ to local database but they cannot be newer than the data sent from initial
+ retrieve (for the same reason of the next point).
+ Of course update/deleted for rows added are considered.
+ So it remains 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+A notify event is called (and so the websocket event) before the operations
+ is committed and so visible to the select done meantime (this will cause
+ select data older than notify event sent previously).
+ This is impossible since the notify is really called only after commit.
+\end_layout
+
+\begin_layout Itemize
+A notify event is called during sending of initial data to the client.
+ Since socket.io is executed in the same thread and delivery is FIFO, the
+ sending of initial data is done before the new ones.
+\end_layout
+
+\begin_layout Itemize
+A notify change arrives before the answer of the the select (but the select
+ command was already sent).
+ In this case we lose the change, but it is still 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Of course improvements such as queue of events locked (until initial retrieve
+ is finished) are good, but are not implemented to keep the simplicity of
+ the code.
+\end_layout
+
+\begin_layout Standard
+Recap (< means 
+\begin_inset Quotes fld
+\end_inset
+
+called before
+\begin_inset Quotes frd
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+events < initial retrieve: they are not a problem since they are discarded
+ or cause 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+events > initial retrieve: they are sent after initial retrieve
+\end_layout
+
+\begin_layout Itemize
+events during initial retrieve: we can lose something but we keep 
+\begin_inset Quotes fld
+\end_inset
+
+casually consistency
+\begin_inset Quotes frd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1781,6 +1875,10 @@ name "subsec:Client-traditional"
 \end_inset
 
 Client
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
