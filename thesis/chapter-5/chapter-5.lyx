@@ -74,7 +74,7 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will see some suggested use case according to some NoSQL
+In this chapter we will see some suggested use cases according to some NoSQL
  
 \begin_inset Quotes fld
 \end_inset
@@ -98,8 +98,8 @@ reference "sec:Use-Cases-class"
 
 
 \series default
-Then we will see some real applications (case study) according to some NoSQL
- 
+Then we will see some real applications (case studies) according to some
+ NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
@@ -118,15 +118,15 @@ reference "sec:Study-Cases-class"
 \end_layout
 
 \begin_layout Standard
-Of courser we will test in 
+Of course we will test in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Performance-Evaluation"
 
 \end_inset
 
- only use cases, but study cases are important to understated real applications
- of use cases.
+ only use cases, but study cases are important to understate the real applicatio
+ns of the use cases.
 \end_layout
 
 \begin_layout Standard
@@ -171,7 +171,7 @@ The main elements to be considered are:
 \end_layout
 
 \begin_layout Itemize
-Number of reads, if #reads>>#writes
+Number of reads, if #reads>>#writes.
 \end_layout
 
 \begin_layout Itemize
@@ -179,7 +179,7 @@ Structure of data, if JSON could increase performance/readability.
 \end_layout
 
 \begin_layout Itemize
-Constraints, modification, permissions needed by the server.
+Constraints, modifications, permissions needed by the server.
 \end_layout
 
 \begin_layout Itemize
@@ -191,8 +191,8 @@ Notifications structure.
 \end_layout
 
 \begin_layout Standard
-Now we will analyze some use cases, they are the most commons according
- to vendors.
+Now we will analyze some use cases, they are the most common according to
+ vendors.
  The things explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -243,8 +243,8 @@ https://www.pubnub.com/solutions/
 \end_layout
 
 \begin_layout Standard
-We will see that traditional approach can be adapted to an solution, but
- this adaption requires time.
+We will see that the traditional approach can be adapted to a solution,
+ but this adaption requires time.
  In fact the NoSQL 
 \begin_inset Quotes fld
 \end_inset
@@ -253,14 +253,14 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database adapt itself automatically, we will see in 
+ database adapts itself automatically, we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Study-Cases-class"
 
 \end_inset
 
- that this is one key of it success.
+ that this is one key of its success.
 \end_layout
 
 \begin_layout Subsection
@@ -293,18 +293,18 @@ The chat considered is room based chat, i.e.
 
 \begin_layout Standard
 However we need to do a lot of checks in the server, such as permissions
- to post in that room, identity check (name shown) and so on.
+ to be posted in that room, identity check (name shown) and so on.
 \end_layout
 
 \begin_layout Standard
-Looking store structure 
+Looking at the store structure 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "FireChatStructure"
 
 \end_inset
 
-, in particular messages of rooms store (sample shown on listing 
+, in particular at messages of rooms store (sample shown on listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Chat-data-structure"
@@ -475,17 +475,17 @@ Chat data structure
 \end_layout
 
 \begin_layout Standard
-We can see that we need to link every message to a room and to an user.
+We can see that we need to link every message to a room and to a user.
  Of course with JSON we can link directly (child of) with only one element,
  so room is chosen since the users subscribe to it and want to receive notificat
-ions based on it (they want messages of a room not messages of an user).
+ions based on it (they want messages of a room not messages of a user).
  The user is linked using ID reference.
 \end_layout
 
 \begin_layout Standard
 Of course using a traditional approach we link both things (room and user)
  using ID reference.
- We use room ID as socket.io room, so we manage permission and we automatically
+ We use room ID as socket.io room, so we manage permissions and we automatically
  send notifications of rooms changes (so it is the same approach of NoSQL
  
 \begin_inset Quotes fld
@@ -501,13 +501,13 @@ realtime
 
 So we have three tables: messages, rooms, users; for every row of messages
  we have a reference to user and room.
- If we want to link users to rooms (permission) we need a pivot table to
- link users and rooms.
+ If we want to link users to rooms (permission) we need a pivot table that
+ links users and rooms.
  The JSON version seems to be more readable.
 \end_layout
 
 \begin_layout Standard
-So permission and notifications are managed in analogous way with a traditional
+So permissions and notifications are managed analogously with a traditional
  approach, we expect small improvements given only by the fact that architecture
  and delivery are optimized to have #reads>>#writes.
 \begin_inset Newline newline
@@ -521,8 +521,8 @@ Moreover we only add data that we know to be unique, NoSQL database should
 \begin_layout Standard
 We can see that if we want to retrieve efficiently the users of room we
  can do it easily with a traditional approach (it is a query on users table),
- but to do it with NoSQL (since we do not have queries) we have replicate
- the data (room-users) as shown in listing 
+ but to do it with NoSQL (since we do not have queries) we have to replicate
+ data (room-users) as shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Chat-data-structure"
@@ -543,13 +543,13 @@ Collaborative Software
 \end_layout
 
 \begin_layout Standard
-A collaborative software is a software that allow to more than one people
+A collaborative software is a software that allows to more than one person
  to work together in the same document, one of the most famous collaborative
  software is 
 \begin_inset Quotes fld
 \end_inset
 
-google docs
+Google Docs
 \begin_inset Quotes frd
 \end_inset
 
@@ -573,8 +573,8 @@ key "FirePad"
 
 .
  Since the data structure is not simple we will keep in consideration a
- simplified version (we do not considered a lot of things such as multiple
- documents or permission) in 
+ simplified version (we do not consider a lot of things such as multiple
+ documents or permissions) in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Collaborative-software-structure"
@@ -805,13 +805,13 @@ Collaborative software data structure
 \end_layout
 
 \begin_layout Standard
-We work using history of changes, in fact since there is no lock we cannot
- change the same element by more clients.
+We work using history of changes, in fact since there is no lock users cannot
+ change the same element meantime.
 \end_layout
 
 \begin_layout Standard
 The structure of history is simple: we can add text (first change), we can
- add a font to portion of text (second change), we can remove some chars
+ add a font to a portion of text (second change), we can remove some chars
  (third change).
  Moreover we can see that we can subscribe to users to their cursor position.
 \end_layout
@@ -828,7 +828,7 @@ change
 \end_inset
 
 .
- of course in traditional application we can do the same thing serialize
+ Of course in the traditional application we can do the same thing serializing
  something (also JSON) to a string.
 \end_layout
 
@@ -838,8 +838,8 @@ We have also two subscriptions (users and history) that are easy to manage
 \begin_inset Newline newline
 \end_inset
 
-But of course we can manage them with traditional approach, in fact they
- became two different table.
+But of course we can manage them with a traditional approach, in fact they
+ become two different tables.
  We will have: history table with timestamp, user reference, changeObject
  (that could be the JSON as string) fields; users with position and positionEnd
  fields.
@@ -902,8 +902,8 @@ Likes
 \end_layout
 
 \begin_layout Standard
-A data structure that uses the powerful of JSON could be the one shown in
- the listing 
+A data structure that uses the power of JSON could be the one shown in the
+ listing 
 \series bold
 
 \begin_inset CommandInset ref
@@ -1286,14 +1286,14 @@ Social structure
 \end_layout
 
 \begin_layout Standard
-Even the first data structure seems better, the second is better.
- In fact we subscribe only one time to main object, while in the first structure
- we have to subscribe for every new post.
- A lot of subscription could be a problem.
+Even if the first data structure seems good, the second is better.
+ In fact we subscribe only one time to the main object, while in the first
+ structure we have to subscribe for every new post.
+ Lots of subscriptions could be a problem.
 \begin_inset Newline newline
 \end_inset
 
-Moreover it is more easy bring the second approach on traditional technologies.
+Moreover it is easier to bring the second approach on traditional technologies.
 \end_layout
 
 \begin_layout Standard
@@ -1315,10 +1315,10 @@ reference "subsec:Collaborative-Software-class"
 \end_layout
 
 \begin_layout Standard
-We can see that if we want to retrieve efficiently the posts of each users
- we can do it easily with a traditional approach (it is a query on users
- table), but to do it with NoSQL (since we do not have queries) we have
- replicate the data (posts under users) as shown in listing 
+We can see that if we want to retrieve efficiently each users posts we can
+ do it easily with a traditional approach (it is a query on users table),
+ but to do it with NoSQL (since we do not have queries) we have to replicate
+ data (posts under users) as shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Social-structure"
@@ -1329,13 +1329,13 @@ reference "lis:Social-structure"
 \end_layout
 
 \begin_layout Standard
-We expect #reads >> #writes, it is common have a lot of followers (so for
- every write we have to replicate it to a lot of followers).
+We expect #reads >> #writes, it is common to have a lot of followers (so
+ for every writing we have to replicate it to a lot of followers).
 \end_layout
 
 \begin_layout Standard
 It seems that everything can be managed efficiently with a traditional approach
- so, like first use case (shown in 
+ so, like the first use case (shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Realtime-Chat-class"
@@ -1379,8 +1379,8 @@ Adobe DPS
 \end_layout
 
 \begin_layout Standard
-Adobe DPS (Digital Publishing Solution), is a software a collaborative software
- to publish mobile app experiences.
+Adobe DPS (Digital Publishing Solution) is a collaborative software to publish
+ mobile app experiences.
  It is developed over 
 \begin_inset Quotes fld
 \end_inset
@@ -1407,7 +1407,7 @@ Problem
 Since it is a fully-collaborative software, there should be the possibility
  to work on the same project together (different persons) from different
  devices, from different locations.
- Like google docs 
+ Like Google Docs 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GoogleDocs"
@@ -1422,9 +1422,8 @@ Solution
 \end_layout
 
 \begin_layout Standard
-After having analyzed developing costs of custom solution built over classical
- systems.
- A commercial NoSQL 
+After having analyzed the developing costs of custom solution built over
+ classical systems a commercial NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1432,8 +1431,9 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database solution was chosen, it sends notifications about changes of the
- projects to all devices connected.
+ database solution was chosen.
+ It sends notifications about changes of the projects to all the connected
+ devices.
  It also allows, in the future, to introduce new features like server-server
  notifications.
  The system chosen offers also global redundancy.
@@ -1456,10 +1456,10 @@ reference "subsec:Collaborative-Software-class"
 \end_layout
 
 \begin_layout Standard
-Of course the structure of data change, but not the idea of save changes.
+Of course the structure of data changes, but not the idea of save changes.
  The flexibility of JSON gives us the possibility to use the same previous
- model in things complexer than a simple text document (we only need to
- change the content of 
+ model in things more complex than a simple text document (we only need
+ to change the content of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1475,8 +1475,8 @@ Logitech Harmony Ultimate Home
 \end_layout
 
 \begin_layout Standard
-Logitech harmony ultimate home, is an home automation hub that allows to
- control home from app and form other means.
+Logitech harmony ultimate home, is a home automation hub that allows to
+ control home from the app and by other means.
  It is developed over 
 \begin_inset Quotes fld
 \end_inset
@@ -1518,14 +1518,14 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database solution was chooses.
- It is used to send realtime data from app to the hub, when the user is
- outside.
+ database solution was chosen.
+ It is used to send realtime data from the app to the hub, when the user
+ is outside.
 \begin_inset Newline newline
 \end_inset
 
-Moreover the hub send a stream of realtime data from different devices (lights,
- temperatures ex.) to mobile app.
+Moreover the hub sends a stream of realtime data from different devices
+ (lights, temperatures ex.) to mobile app.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1534,7 +1534,7 @@ Use case
 
 \begin_layout Standard
 We have not studied this use case previously but it is marked as one of
- common use cases by 
+ the common use cases by 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1557,7 +1557,7 @@ CornerJob
 \end_layout
 
 \begin_layout Standard
-CornerJob, is location based job recruitment app.
+CornerJob is location based job recruitment app.
  It is developed over 
 \begin_inset Quotes fld
 \end_inset
@@ -1577,8 +1577,8 @@ key "CornerJob"
 \end_layout
 
 \begin_layout Standard
-The main feature of it is the chat: when a job seeker apply for a job a
- new chat is created.
+The main feature of it is the chat: when a job seeker applies for a job
+ a new chat is created.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1588,7 +1588,7 @@ Problem
 \begin_layout Standard
 Since the chat is the most important part of the application, the company
  wanted a standard chat on a reliable technology that has a low developing
- and maintenance cost
+ and maintenance cost.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1597,8 +1597,7 @@ Solution
 
 \begin_layout Standard
 After having analyzed developing costs of custom solution built over classical
- systems and after tried free plans.
- A commercial NoSQL 
+ systems and after having tried free plans, a commercial NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1607,11 +1606,12 @@ realtime
 \end_inset
 
  database solution was chosen.
+ Because it allowed to build a chat system in few time and in a reliable
+ way.
 \begin_inset Newline newline
 \end_inset
 
-Because it allowed to build a chat system in a few time and reliable way.
- In fact the NoSQL 
+In fact the NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1619,14 +1619,14 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database is a full stack system that takes care o every step needed, there
- is no need to think about scalability and communications among internal
+ database is a full stack system that takes care of every step needed, so
+ there is no need to think about scalability and communications among internal
  components.
 \end_layout
 
 \begin_layout Standard
-Moreover, since it was used a commercial system in cloud, the company do
- not have to think about to maintain the infrastructure.
+Moreover, since a commercial system in cloud was used, the company does
+ not have to think about the maintenance of the infrastructure.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1646,7 +1646,7 @@ reference "subsec:Realtime-Chat-class"
 
 \begin_layout Standard
 Of course it is a little different, since we do not have chat rooms, but
- we have only privates messages between two users.
+ we have only private messages between two users.
  So some things change: it is not true that #reads >> #writes, the version
  for traditional approach is not still valid (minor changes are needed)
  and so on.
