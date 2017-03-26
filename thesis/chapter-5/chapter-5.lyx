@@ -348,5 +348,11 @@ TODO test if it is casual consistency, what happens if I send two update
 https://blog.heroku.com/javascript_in_your_postgres
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+improve appendix config, make it uniform and fix address, explaining them
+\end_layout
+
 \end_body
 \end_document

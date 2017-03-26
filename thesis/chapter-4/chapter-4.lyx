@@ -144,12 +144,6 @@ The architecture proposed could be implemented with any RDBMS that has an
  (general) solution is provided.
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-TODO it is like a kew value
-\end_layout
-
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -511,87 +505,8 @@ key "RedisPersistance"
 \begin_layout Standard
 
 \series bold
-DISTRIBUTION, CAP
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO reference to redis here and above
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO authentication
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-data retrieve via lib, replication, id subscribe
-\end_layout
-
-\begin_layout Standard
-
-\series bold
 https://github.com/socketio/socket.io-p2p can be useful considering the realtime
  cited before
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-distributed, there is no a global vision of the network, like a p2p I don't
- know all clients connected
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-rooms equivalent in realtime tested, or analogous way to obtain security
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-say that this is very cusotmizable stack
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-postgree trigger on specific column as data level
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-data granularity
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-explain napsace and rooms used
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-If the websocket dies Do I lose the joins?
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-improve appendix config, make it uniform and fix address, explaining them
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-channels and other things as websocket advantages that engine haven't
 \end_layout
 
 \begin_layout Subsection
@@ -611,15 +526,7 @@ TODO FIX
 \end_layout
 
 \begin_layout Standard
-One of the most famous websocket server, written in javascript, is 
-\begin_inset Quotes fld
-\end_inset
-
-socket.io
-\begin_inset Quotes frd
-\end_inset
-
- 
+Socket.io 
 \begin_inset Foot
 status collapsed
 
@@ -639,7 +546,7 @@ http://socket.io/
 
 \end_inset
 
-.
+ is one of the most famous websocket server, written in javascript.
  It is built on top of 
 \begin_inset Quotes fld
 \end_inset
@@ -755,11 +662,7 @@ key "SocketIORedis"
 
 \end_inset
 
-
-\series bold
- 
-\series default
-, it is explained in 
+, redis is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Redis"
@@ -767,8 +670,6 @@ reference "subsec:Redis"
 \end_inset
 
 .
-\series bold
-TODO check if ti is needed
 \end_layout
 
 \begin_layout Itemize
@@ -913,18 +814,22 @@ realtime
 \begin_layout Itemize
 RDBMS database: that must be scalable among nodes and trigger support to
  notify changes.
- It is providded byt...
- 
-\series bold
-TODO
+ It is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database-architecture-traditional"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
-Publish/Subscribe system: to publish notification of changes as explained
- in 
+Publish/Subscribe system: to publish notification of changes as explained.
+ It is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Publish/Subscribe"
+reference "subsec:Publish/Subscribe-architecture-traditional"
 
 \end_inset
 
@@ -932,10 +837,11 @@ reference "subsec:Publish/Subscribe"
 \end_layout
 
 \begin_layout Itemize
-Websocket server: for the reason explained in 
+Websocket server: for the reason explained.
+ It is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:WebSocket"
+reference "subsec:Websocket-server-architecture-traditional"
 
 \end_inset
 
@@ -944,41 +850,43 @@ reference "subsec:WebSocket"
 
 \begin_layout Itemize
 Input server: where receive data to sent to database.
-\end_layout
-
-\begin_layout Itemize
-Custom logic level: An eventual level where introduce custom logic.
-\end_layout
-
-\begin_layout Itemize
-Client framework/libraries: to communicate to the server (cluster).
-\end_layout
-
-\begin_layout Standard
-We tried to use Ecmascript where it is possible for the same reasons explained
- in 
+ It is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "subsec:Client-language"
-
-\end_inset
-
-, using event driven approach explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
+reference "subsec:Input-Server-architecture-traditional"
 
 \end_inset
 
 .
 \end_layout
 
+\begin_layout Itemize
+Custom logic level: An eventual level where introduce custom logic.
+ It is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Custom-Logic-architecture-traditional"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Client framework/libraries: to communicate to the server (cluster).
+ It is explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-library-and-architecture-traditional"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-On github 
-\series bold
-TODO
-\series default
- there are both code, configurations and vagrant installer scripts.
+In this solution we have a data granularity at row level, since detailed
+ granularity is not required by the further study that we will do.
 \end_layout
 
 \begin_layout Subsection
@@ -1081,6 +989,25 @@ key "PostgreNotifyListenExample"
  was modified and used in our final configuration published on github.
 \end_layout
 
+\begin_layout Standard
+We can see that this approach is like a 
+\begin_inset Quotes fld
+\end_inset
+
+key-value
+\begin_inset Quotes frd
+\end_inset
+
+ approach studied in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
@@ -1141,6 +1068,8 @@ reference "subsec:Socket.io-architecture"
 \begin_layout Standard
 It implements a distributed (via redis) publish/subscribe, i.e.
  different Publish/Subscribe broker servers communicate through redis.
+ But in this way we do not know the status of the entire network, we do
+ not know which brokers are connected.
 \end_layout
 
 \begin_layout Standard
@@ -1569,7 +1498,30 @@ Implementation
 \end_layout
 
 \begin_layout Standard
-aaa
+We tried to use Ecmascript where it is possible for the same reasons explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-language"
+
+\end_inset
+
+, using event driven approach explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On github 
+\series bold
+TODO
+\series default
+ there are both code, configurations and vagrant installer scripts.
 \end_layout
 
 \end_body
