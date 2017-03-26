@@ -145,9 +145,37 @@ The architecture proposed could be implemented with any RDBMS that has an
 \end_layout
 
 \begin_layout Standard
+We will give the needed technology background in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Technologies-traditional"
 
-\series bold
-TODO
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Then we will explain from a theoretical point of view the architecture proposed
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Architecture-traditional"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Then we will explain the implementation done in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Implementation"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -157,7 +185,7 @@ name "sec:Technologies-traditional"
 
 \end_inset
 
-Technologies
+Technologies Background
 \end_layout
 
 \begin_layout Subsection
@@ -1477,6 +1505,12 @@ key "UUID"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Implementation"
+
+\end_inset
+
 Implementation
 \end_layout
 
