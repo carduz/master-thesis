@@ -1878,7 +1878,47 @@ Client
 \end_layout
 
 \begin_layout Standard
+We have two main classes:
+\end_layout
 
+\begin_layout Itemize
+General Local database:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Keep a local copy of data
+\end_layout
+
+\begin_layout Itemize
+When a change is requested, it updates local data then send update to the
+ server (retrying to send it if there are network delays).
+\end_layout
+
+\begin_layout Itemize
+When a notification of change is received it updates local data and call
+ a callback that says that data were updated.
+\end_layout
+
+\begin_layout Itemize
+As explained previously it adds an UUID to each row created.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Socket.io client: this class simply map functions and callbacks that 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+ wants to socket.io commands
+\end_layout
+
+\begin_layout Standard
+Of course the final client interact only with local database.
 \end_layout
 
 \end_body
