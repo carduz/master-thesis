@@ -349,6 +349,7 @@ key "PostgreListen"
 \end_inset
 
  commands are used.
+ NOTIFY is really called only after the transaction is commited.
 \end_layout
 
 \begin_layout Subsection
@@ -1318,6 +1319,16 @@ key "JWT"
 \end_inset
 
 .
+ Eventually a resynchronization of data is needed (for messages lost during
+ the down) but even if we do not implement it the solution remains 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+ 
 \begin_inset Newline newline
 \end_inset
 
@@ -1504,7 +1515,272 @@ promise
 \begin_inset Quotes frd
 \end_inset
 
- pattern to make callbacks more reliable.
+ pattern 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PromiseJS"
+
+\end_inset
+
+ to make callbacks more reliable.
+\end_layout
+
+\begin_layout Standard
+Now we analyze quickly the structure of the code, of course everything is
+ commented so we explain only critical points.
+\begin_inset Newline newline
+\end_inset
+
+We have the following main object:
+\end_layout
+
+\begin_layout Itemize
+Database, sample table, trigger with related functions, these are very simple
+ and follow the structure explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database-architecture-traditional"
+
+\end_inset
+
+.
+ As we said previously the database is not distributed nor partitioned.
+\end_layout
+
+\begin_layout Itemize
+Database listener, this is very simple and follow the structure explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Database-architecture-traditional"
+
+\end_inset
+
+.
+ We inserted it in a separated section because (as we have done in the vagrant
+ installer scripts) it can be deployed on another machine (only one it can
+ not be distributed), of course it can be deployed int he same machine of
+ the database.
+\begin_inset Newline newline
+\end_inset
+
+This listener send an event to clients of a specif room (we will see logic
+ of rooms in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Server-traditional"
+
+\end_inset
+
+) for every actions done in the table (
+\begin_inset Quotes fld
+\end_inset
+
+insert
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+update
+\begin_inset Quotes frd
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+delete
+\begin_inset Quotes frd
+\end_inset
+
+) as socket.io event (the event name is the SQL action).
+ As we said previously the table is specified as namespace.
+\end_layout
+
+\begin_layout Itemize
+Redis server, this does not require additional code, so only vagrant installer
+ script is provided.
+\end_layout
+
+\begin_layout Itemize
+Websocket server, this will be explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Server-traditional"
+
+\end_inset
+
+ since it is very complex.
+ This can be distributed using a load balance as we said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Architecture-traditional"
+
+\end_inset
+
+, but only the installer script of a single machine is provided (no load
+ balancer script) since we do not want to test load balancer (that means
+ another level to test) as we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Benchmarks-strategy"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Client, this will be explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-traditional"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+All things explained previously (in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Technologies-traditional"
+
+\end_inset
+
+ and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Architecture-traditional"
+
+\end_inset
+
+) are implicit and are not linked in the next sections.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Server-traditional"
+
+\end_inset
+
+Websocket Server
+\end_layout
+
+\begin_layout Standard
+The behavior is trivial, since a lot of work is done automatically as we
+ said previously.
+\end_layout
+
+\begin_layout Standard
+We do a short recap of what we have done:
+\end_layout
+
+\begin_layout Itemize
+We define the same actions for all tables (specified in namespace via 
+\begin_inset Quotes fld
+\end_inset
+
+of
+\begin_inset Quotes frd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+We define 
+\begin_inset Quotes fld
+\end_inset
+
+auth
+\begin_inset Quotes frd
+\end_inset
+
+ event callback that identify the client
+\end_layout
+
+\begin_layout Itemize
+We define 
+\begin_inset Quotes fld
+\end_inset
+
+join
+\begin_inset Quotes frd
+\end_inset
+
+ event callback that allows to a client to subscribe to rooms enabled for
+ him.
+ In this case we have provided a simple permission system where the room
+ number is the owner_id of the row.
+\begin_inset Newline newline
+\end_inset
+
+When a client join to a room all rows of that room are sent to the client
+ (emulating the 
+\begin_inset Quotes fld
+\end_inset
+
+insert
+\begin_inset Quotes frd
+\end_inset
+
+ event created by the database listener).
+ 
+\series bold
+TODO critical point
+\end_layout
+
+\begin_layout Itemize
+We map client data events (add, put, delete) to sql functions (insert, update,
+ delete) making some checks.
+\begin_inset Newline newline
+\end_inset
+
+If there is an error (such as no permission) we discard the command and
+ send the right command only to the client that have sent the request to
+ update local database of the client.
+ For example if a client tries to add a row using an owner_id that is not
+ enabled for him the server discard the add and send a delete event to that
+ client.
+\end_layout
+
+\begin_layout Standard
+Using this approach, as said previously, the consistency of data modification
+ is managed by postgreSQL and it is like any normal modern HTTP application,
+ in fact the data do not pass through redis in this phase.
+\end_layout
+
+\begin_layout Standard
+The normal read is managed automatically and it is 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+ since the replication to local database is not synchronized but socket.io
+ guarantee FIFO delivery.
+\end_layout
+
+\begin_layout Standard
+There is a critical point: what if there is an update 
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Client-traditional"
+
+\end_inset
+
+Client
 \end_layout
 
 \end_body
