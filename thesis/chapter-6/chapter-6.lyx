@@ -977,7 +977,8 @@ Test Framework
 \begin_layout Standard
 Since the systems used are custom or are new there are no stable frameworks
  to test the performance of them.
- So we started taking the approach, from one used framework called 
+ So we started taking the approach, from one used and customizable framework
+ called 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1014,7 +1015,18 @@ Jepsen framework
 We execute jepsen framework to test a postgreSQL server in a virtual machine
  with 4 GB RAM and 1 CPU (of course on the same physical machine of the
  other tests).
- The results obtained are shown as charts in figures 
+ The test used was the standard Jepsen postgreSQL test 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JepsenPostgreTool"
+
+\end_inset
+
+, it emulates simultaneous bank transfers.
+\begin_inset Newline newline
+\end_inset
+
+The results obtained are shown as charts in figures 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Jepsen-latency-raw"
@@ -1163,6 +1175,10 @@ Jepsen rate
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+So 
 \end_layout
 
 \begin_layout Section
