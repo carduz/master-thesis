@@ -1401,7 +1401,7 @@ Clients
 \end_layout
 
 \begin_layout Standard
-As we said previously, since it has a room based chat, we expect a #reads
+As we said previously, since it has a room based chat, we expect #reads
  >> #writes.
  So a reasonable number of clients could be the one shown in 
 \begin_inset CommandInset ref
@@ -1418,7 +1418,7 @@ reference "tab:Realtime-chat-clients"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1593,7 +1593,8 @@ Data generation
 \begin_layout Standard
 After a trial data initialization (e.g.
  users creation), to do tests we have just to create messages.
- So our generator is simply a faker text generator.
+ So our generator is simply a faker text generator, other things like user
+ can be static.
 \end_layout
 
 \begin_layout Subsection
@@ -1604,8 +1605,270 @@ Collaborative Software
 Clients
 \end_layout
 
+\begin_layout Standard
+As we said previously, we expect #reads 
+\begin_inset Formula $\simeq$
+\end_inset
+
+#writes.
+ So a reasonable number of clients could be the one shown in .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Collaborative-software-clients"
+
+\end_inset
+
+Collaborative software clients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N°
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Writer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Reader
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Data generation
+\end_layout
+
+\begin_layout Standard
+After a trial data initialization (e.g.
+ users creation), to do tests we have just to create changes.
+ A change is a JSON object of the structure shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lis:Collaborative-software-change-test"
+
+\end_inset
+
+.
+ We can consider everything static except start and change that should be
+ respectively faker number and text.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\small\ttfamily},breaklines=true,commentstyle={\color{purple!60!black}},extendedchars=true,identifierstyle={\color{blue!50!black}},keywordstyle={\bfseries\color{green!50!black}},language=JavaScript,numbers=left,numberstyle={\footnotesize},showstringspaces=false,stringstyle={\color{orange!40!black}},tabsize=4,xleftmargin=2em"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "lis:Collaborative-software-change-test"
+
+\end_inset
+
+Collaborative software change structure
+\end_layout
+
+\end_inset
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+	"timestampt":1490506829,
+\end_layout
+
+\begin_layout Plain Layout
+
+	"changeObject": {
+\end_layout
+
+\begin_layout Plain Layout
+
+		"start": 20,
+\end_layout
+
+\begin_layout Plain Layout
+
+		"change": "abcd"
+\end_layout
+
+\begin_layout Plain Layout
+
+	},
+\end_layout
+
+\begin_layout Plain Layout
+
+	"user":"user1"
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
