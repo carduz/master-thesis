@@ -263,6 +263,21 @@ reference "sec:Study-Cases-class"
  that this is one key of its success.
 \end_layout
 
+\begin_layout Standard
+We will see that we use ID references, of course in NoSQL database we do
+ not have referential integrity checks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RefIntegrity"
+
+\end_inset
+
+ (some database tries to implement it with some explicit checks but it is
+ not standard).
+ So also in traditional approach we do not use the referential integrity
+ check (it will slow down the application).
+\end_layout
+
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label

@@ -934,7 +934,9 @@ N° CPU
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+
+\series bold
+2
 \end_layout
 
 \end_inset
@@ -1611,7 +1613,14 @@ As we said previously, we expect #reads
 \end_inset
 
 #writes.
- So a reasonable number of clients could be the one shown in .
+ So a reasonable number of clients could be the one shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Collaborative-software-clients"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1879,8 +1888,219 @@ Social
 Clients
 \end_layout
 
+\begin_layout Standard
+As we said previously we expect #reads >> #writes.
+ So a reasonable number of clients could be the one shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Social-clients"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+I a social for each person there are a lot of users that see the write:
+ followers and sometime also followers of his directly followers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Social-clients"
+
+\end_inset
+
+Social clients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N°
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Writer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Reader
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Data generation
+\end_layout
+
+\begin_layout Standard
+After a trial data initialization (e.g.
+ users creation), we have different things to send:
+\end_layout
+
+\begin_layout Itemize
+Posts: we should to generate fake text (content)
+\end_layout
+
+\begin_layout Itemize
+Likes: we should to link users to 
+\end_layout
+
+\begin_layout Itemize
+Comments
+\end_layout
+
+\begin_layout Standard
+They are simple model
 \end_layout
 
 \begin_layout Section
