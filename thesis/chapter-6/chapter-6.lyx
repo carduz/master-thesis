@@ -73,12 +73,515 @@
 
 \begin_body
 
+\begin_layout Standard
+All things explained in the previous chapters are considered implicit.
+\end_layout
+
+\begin_layout Standard
+6.1 which tests done
+\end_layout
+
+\begin_layout Standard
+6.2 how to do them
+\end_layout
+
+\begin_layout Standard
+6.3 on whcih data
+\end_layout
+
 \begin_layout Section
 Test Strategy
 \end_layout
 
 \begin_layout Standard
-..
+We will analyze the scaling that we will do and reasons of that choices
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Scaling-tests"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Then we will see different tests environments based on previous choices
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Environments-test"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Scaling-tests"
+
+\end_inset
+
+Scaling
+\end_layout
+
+\begin_layout Standard
+We know that NoSQL databases implements partitioning very efficiently 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
+ So we expect that with a lot of data that requires partitioning the performance
+ of NoSQL solutions would be a lot better than traditional approach.
+\begin_inset Newline newline
+\end_inset
+
+Moreover since, often, strong consistency constraints are relaxed, also
+ the replication is more efficiently.
+\begin_inset Newline newline
+\end_inset
+
+Booth things bring to have horizontal scalability (also called out/in) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Scaling"
+
+\end_inset
+
+, since we increase the number of servers (not things like the power of
+ them).
+\begin_inset Newline newline
+\end_inset
+
+Furthermore, since NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ database are a full stack solution, also the internal realtime delivery
+ server is scaled horizontally (it is scaled with the database).
+\end_layout
+
+\begin_layout Standard
+So to keep a simplicity, make standard things (partition is implemented
+ in different ways based on the data model) and to avoid to add an additional
+ level to test, we decided to skip this part.
+ So we test without horizontal scaling.
+\begin_inset Newline newline
+\end_inset
+
+Moreover, since our topic is compare these kind of applications with a standard
+ approach, if we test also the horizontal scaling we add another variable
+ factor that can change our results.
+\begin_inset Newline newline
+\end_inset
+
+For the same reason we do not scale horizontally the traditional approach
+ that we proposed.
+ Here the scaling means: partitioning and replication of postgreSQL server
+ and replication of socket.io machines, redis is not a bottleneck so it does
+ not need scaling.
+\end_layout
+
+\begin_layout Standard
+But we will do a vertically scaling (also called up/down) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Scaling"
+
+\end_inset
+
+ that we will explain in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Environments-test"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Environments-test"
+
+\end_inset
+
+Environments
+\end_layout
+
+\begin_layout Standard
+As we said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Scaling-tests"
+
+\end_inset
+
+, we do only vertical scaling.
+ So in this section we shows that different configurations that we want
+ to test.
+\end_layout
+
+\begin_layout Standard
+As said previously the NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ database are a full stack solution implement in just one server.
+ So we can create a common environment for them, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:NoSQL-realtime-databases-test"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+While on traditional approach proposed we have different servers.
+ So they need an advanced discussion, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Traditional-approach-test"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To keep things more generally all tests are done using virtual machines
+ (using virtualbox 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.virtualbox.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Virtualization"
+
+\end_inset
+
+ on the same physical computer.
+ So all components and technical characteristics are the same (such as RAM
+ speed).
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Note
+\series default
+: with CPU we means a standard modern CPU (i7 generation), of course for
+ all servers the same CPU was used.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:NoSQL-realtime-databases-test"
+
+\end_inset
+
+NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases
+\end_layout
+
+\begin_layout Standard
+We can simply follow the table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:NoSQL-realtime-database-envs"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:NoSQL-realtime-database-envs"
+
+\end_inset
+
+NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ database test environments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+resizebox{
+\backslash
+linewidth}{!}{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N°
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RAM [GB]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° CPU
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Traditional-approach-test"
+
+\end_inset
+
+Traditional approach
 \end_layout
 
 \begin_layout Section
@@ -88,8 +591,20 @@ Test Framework
 \begin_layout Standard
 Since the systems used are custom or are new there are no stable frameworks
  to test the performance of them.
- So we started, taking the approach, from one framework used and we realized
- our framework, that tests only what we need.
+ So we started taking the approach, from one used framework 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JepsenTool"
+
+\end_inset
+
+, we realized our framework, that tests only what we need.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO GITHUB LINKS
 \end_layout
 
 \begin_layout Section
