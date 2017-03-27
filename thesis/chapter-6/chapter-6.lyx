@@ -1003,18 +1003,45 @@ TODO
 \end_layout
 
 \begin_layout Standard
-We will quickly analyze the jepsenframework 
+We will quickly analyze the jepsen framework
 \series bold
-IN TODO
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Jepsen-framework"
+
+\end_inset
+
+
+\series default
+.
+ Even if the example shown is not comparable with the class of application
+ that we have to test, the idea behind tests is valid.
+\begin_inset Newline newline
+\end_inset
+
+Then we will quickly see our custom framework in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Custom-framework"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-TODO transfer example not useful for us btu the idea is useful
+Of course the test framework is executed on another virtual machine (with
+ high resources) or in the host machine.
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Jepsen-framework"
+
+\end_inset
+
 Jepsen framework
 \end_layout
 
@@ -1257,6 +1284,12 @@ reference "fig:Jepsen-rate"
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Custom-framework"
+
+\end_inset
+
 Custom framework
 \end_layout
 
@@ -1305,15 +1338,7 @@ jepsen
 \begin_inset Quotes frd
 \end_inset
 
-, is a good model, in fact we will use the same charts used by 
-\begin_inset Quotes fld
-\end_inset
-
-jepsen
-\begin_inset Quotes frd
-\end_inset
-
-.
+, is a good model, in fact we will use the same charts used by jepsen.
  The framework, since it is not a general framework, do not generate charts,
  it only generate raw data, charts can be generate using external and powerful
  instruments like sheet software.
@@ -1359,11 +1384,24 @@ Tests to do
 \end_layout
 
 \begin_layout Standard
-SPECIF CLIENTS (write and read)
+In this section we will see what every class of the class of applications
+ (analyzed previously) needs.
+ We will also define for each of them the number of clients to be used for
+ tests, for some of them we can define more versions (e.g.
+ test with 1 client then test 10 clients) to test scalability and adaptability
+ of replication and concurrent writing.
 \end_layout
 
-\begin_layout Standard
-More thane one number of client
+\begin_layout Subsection
+Realtime Chat
+\end_layout
+
+\begin_layout Subsection
+Collaborative Software
+\end_layout
+
+\begin_layout Subsection
+Social
 \end_layout
 
 \begin_layout Section
