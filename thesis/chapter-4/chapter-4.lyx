@@ -749,13 +749,91 @@ Architecture proposed
 \end_layout
 
 \begin_layout Standard
-....
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/traditional_architecture.png
+	width 70col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Traditional-Architecture-propose"
+
+\end_inset
+
+Traditional Architecture proposed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-
+In image 
 \series bold
-TODO load balanace, theory in chap 1
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Traditional-Architecture-propose"
+
+\end_inset
+
+
+\series default
+ we can see the architecture proposed, every part will be explained in the
+ following sections.
+\end_layout
+
+\begin_layout Standard
+We have also added an additional level: load balancer/CDN (content delivery
+ network) or other analogous things.
+ It can be used to scale 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RFCCN,CDNBook"
+
+\end_inset
+
+, to route users to different socket.io servers.
+ 
+\begin_inset Newline newline
+\end_inset
+
+In fact as we will see in the architecture that we propose we can have more
+ than one socket.io server, but there is no system to route users.
+\begin_inset Newline newline
+\end_inset
+
+Since we do not need it in the tests phase (as we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Benchmarks-strategy"
+
+\end_inset
+
+), we skip this level to avoid to insert other levels to test.
 \end_layout
 
 \begin_layout Standard
