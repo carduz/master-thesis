@@ -74,18 +74,26 @@
 \begin_body
 
 \begin_layout Standard
+
+\series bold
 All things explained in the previous chapters are considered implicit.
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 6.1 which tests done
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 6.2 how to do them
 \end_layout
 
 \begin_layout Standard
+
+\series bold
 6.3 on whcih data
 \end_layout
 
@@ -1747,7 +1755,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-100
+10
 \end_layout
 
 \end_inset
@@ -2106,7 +2114,7 @@ Comments: we should to link users to posts.
 \begin_layout Standard
 We can say that there are more comments ad likes than posts, for simplicity
  we can say that the number of comments and likes is the same.
- So to emulate everything we can have the following publish frequencies:
+ So to emulate everything we can have the following write frequencies:
 \end_layout
 
 \begin_layout Itemize
