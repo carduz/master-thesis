@@ -1007,22 +1007,42 @@ We will quickly analyze the jepsenframework
 IN TODO
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+TODO transfer example not useful for us btu the idea is useful
+\end_layout
+
 \begin_layout Subsection
 Jepsen framework
 \end_layout
 
 \begin_layout Standard
-We execute jepsen framework to test a postgreSQL server in a virtual machine
- with 4 GB RAM and 1 CPU (of course on the same physical machine of the
- other tests).
- The test used was the standard Jepsen postgreSQL test 
+We execute jepsen framework to test a postgreSQL server deployed in a virtual
+ machine with 4 GB RAM and 1 CPU (of course on the same physical machine
+ of the other tests).
+\begin_inset Newline newline
+\end_inset
+
+The test used was the standard Jepsen postgreSQL test 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "JepsenPostgreTool"
+key "JepsenPostgreTool,JepsenPostgreExplanation"
 
 \end_inset
 
-, it emulates simultaneous bank transfers.
+, it emulates simultaneous bank transfers and 
+\begin_inset Quotes fld
+\end_inset
+
+raw read
+\begin_inset Quotes frd
+\end_inset
+
+ of accounts.
+ It considers a fail when it is not possible executes a transfer, since
+ there is a negative amount (i.e.
+ other transfers in the meanwhile)
 \begin_inset Newline newline
 \end_inset
 
@@ -1036,7 +1056,7 @@ reference "fig:Jepsen-latency-raw"
 ,
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Jepsen-latency-quantilies"
+reference "fig:Jepsen-latency-quantiles"
 
 \end_inset
 
@@ -1048,7 +1068,15 @@ reference "fig:Jepsen-rate"
 \end_inset
 
 .
- 
+ In the charts also the fails of reads are shown, even if they are 0, 
+\begin_inset Quotes fld
+\end_inset
+
+transfer info
+\begin_inset Quotes frd
+\end_inset
+
+ is the time required to check amount before do the transfer.
 \end_layout
 
 \begin_layout Standard
@@ -1118,11 +1146,11 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Jepsen-latency-quantilies"
+name "fig:Jepsen-latency-quantiles"
 
 \end_inset
 
-Jepsen latency quantilies
+Jepsen latency quantiles
 \end_layout
 
 \end_inset
@@ -1178,7 +1206,53 @@ Jepsen rate
 \end_layout
 
 \begin_layout Standard
-So 
+We can see that tests do a lot of transfers and reads for some seconds.
+\end_layout
+
+\begin_layout Standard
+In charts we have the measures for every operation (or some of them) for
+ every second of the test (or 
+\begin_inset Quotes fld
+\end_inset
+
+chunks
+\begin_inset Quotes frd
+\end_inset
+
+ of seconds), the measures that we have are:
+\end_layout
+
+\begin_layout Itemize
+Time (latency) needed to do operation, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-latency-raw"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Time (latency) needed to do operation with quantiles, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-latency-quantiles"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Throughput of every operation, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-rate"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
