@@ -2092,15 +2092,33 @@ Posts: we should to generate fake text (content)
 \end_layout
 
 \begin_layout Itemize
-Likes: we should to link users to 
+Likes: we should to link users to posts.
+ Of course since there are no checks we can generate random ids (also non
+ exiting).
 \end_layout
 
 \begin_layout Itemize
-Comments
+Comments: we should to link users to posts.
+ Of course since there are no checks we can generate random ids (also non
+ exiting).
 \end_layout
 
 \begin_layout Standard
-They are simple model
+We can say that there are more comments ad likes than posts, for simplicity
+ we can say that the number of comments and likes is the same.
+ So to emulate everything we can have the following publish frequencies:
+\end_layout
+
+\begin_layout Itemize
+Post: 10%
+\end_layout
+
+\begin_layout Itemize
+Like: 45%
+\end_layout
+
+\begin_layout Itemize
+Comment: 45%
 \end_layout
 
 \begin_layout Section
