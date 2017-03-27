@@ -1383,6 +1383,25 @@ reference "sec:Tests-to-do-test"
 .
 \end_layout
 
+\begin_layout Standard
+We have a test manager that checks everything and communicate with clients,
+ in fact every client is implemented as another process.
+\begin_inset Newline newline
+\end_inset
+
+The creation of a process and communication is managed by the framework
+ in a transparent way.
+ As we will see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Adapters-for-systems-test"
+
+\end_inset
+
+, we need only to map client functions with the the general client (it is
+ done by the adapter).
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -1400,6 +1419,16 @@ In this section we will see what every class of the class of applications
  tests, for some of them we can define more versions (e.g.
  test with 1 reader client then test 10 reader clients) to test scalability
  and adaptability of replication and concurrent writing.
+\end_layout
+
+\begin_layout Standard
+Of course this is a a simplified simulation of the behavior in these classes
+ of application.
+\end_layout
+
+\begin_layout Standard
+All data shown (like the number of clients) are found after some minor empirical
+ tests.
 \end_layout
 
 \begin_layout Subsection
@@ -1421,6 +1450,7 @@ reference "tab:Realtime-chat-clients"
 \end_inset
 
 .
+ In that table is shown also the number of rooms.
 \end_layout
 
 \begin_layout Standard
@@ -1428,7 +1458,7 @@ reference "tab:Realtime-chat-clients"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1451,9 +1481,10 @@ Realtime chat clients
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="4" columns="3">
+<lyxtabular version="3" rows="4" columns="4">
 <features booktabs="true" tabularvalignment="middle">
 <column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -1490,6 +1521,17 @@ N° Reader
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Room
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" usebox="none">
@@ -1516,7 +1558,16 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-100
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
 \end_layout
 
 \end_inset
@@ -1538,7 +1589,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-10
+1
 \end_layout
 
 \end_inset
@@ -1547,7 +1598,16 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-1000
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
 \end_layout
 
 \end_inset
@@ -1569,7 +1629,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-100
+10
 \end_layout
 
 \end_inset
@@ -1578,7 +1638,16 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-10000
+1000
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
 \end_layout
 
 \end_inset
@@ -1602,9 +1671,32 @@ Data generation
 
 \begin_layout Standard
 After a trial data initialization (e.g.
- users creation), to do tests we have just to create messages.
+ users creation or room creation), to do tests we have just to create messages.
  So our generator is simply a faker text generator, other things like user
  can be static.
+ As we will seen in the next section, we have to manage the room where to
+ write.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Writing
+\end_layout
+
+\begin_layout Standard
+We have (if possible) that each room has 2 writer, this is possible only
+ for case 3.
+ Of course a writer is subscribed only to one room.
+\end_layout
+
+\begin_layout Subsubsection
+Reading
+\end_layout
+
+\begin_layout Standard
+We have (if possible) that each room has 400 reader, this is possible only
+ for case 3.
+ Of course a reader is subscribed to two rooms.
 \end_layout
 
 \begin_layout Subsection
@@ -1888,6 +1980,22 @@ Collaborative software change structure
 
 \end_layout
 
+\begin_layout Subsubsection
+Writing
+\end_layout
+
+\begin_layout Standard
+Here the writing is trivial, all clients write to history (list of changes).
+\end_layout
+
+\begin_layout Subsubsection
+Reading
+\end_layout
+
+\begin_layout Standard
+Here the reading is trivial, all clients subscribe to history (list of changes).
+\end_layout
+
 \begin_layout Subsection
 Social
 \end_layout
@@ -1918,7 +2026,7 @@ I a social for each person there are a lot of users that see the write:
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2006,7 +2114,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-1000
+100
 \end_layout
 
 \end_inset
@@ -2028,7 +2136,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-10
+1
 \end_layout
 
 \end_inset
@@ -2037,7 +2145,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-10000
+1000
 \end_layout
 
 \end_inset
@@ -2059,7 +2167,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-100
+10
 \end_layout
 
 \end_inset
@@ -2068,7 +2176,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-100000
+1000
 \end_layout
 
 \end_inset
@@ -2129,6 +2237,44 @@ Like: 45%
 Comment: 45%
 \end_layout
 
+\begin_layout Standard
+As we will see in the next section we have also to create posts in likes
+ and comments.
+ To distinguish them from other things we will call a post of like post-like
+ and a post of comment post-comments.
+\end_layout
+
+\begin_layout Subsubsection
+Writing
+\end_layout
+
+\begin_layout Standard
+As said previously the creation of a post is done every 9 other creations,
+ it is done by all writers.
+\end_layout
+
+\begin_layout Standard
+The creation of comments and likes increase with time, we want that each
+ post-likes and each post-comments has 2 writers (if possible).
+ Of course the fact that likes increases in this way is not realistic but
+ it is not a problem (we want to test performance so this bring the system
+ to be more robust).
+\end_layout
+
+\begin_layout Subsubsection
+Reading
+\end_layout
+
+\begin_layout Standard
+All client subscribe to posts, they read all new posts.
+\end_layout
+
+\begin_layout Standard
+We want that each post-likes and each post-comments have 50 readers.
+ Even if new posts are created the old subscriptions are not deleted.
+ So the more time passes, the more subscriptions are created.
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -2139,12 +2285,97 @@ name "sec:Adapters-for-systems-test"
 Adapters for systems
 \end_layout
 
+\begin_layout Standard
+The general client needs:
+\end_layout
+
+\begin_layout Itemize
+Login method
+\end_layout
+
+\begin_layout Itemize
+Join method to subscribe to channel
+\end_layout
+
+\begin_layout Itemize
+Write command
+\end_layout
+
+\begin_layout Itemize
+Data callback, that is called when there are new data (the argument can
+ be the entire updated local database or only new data).
+\end_layout
+
+\begin_layout Standard
+We have already proved that systems can provide authentication.
+ But since it is implemented in different ways it could add another variable
+ factor to consider that can change final results, so skip it since it is
+ not our main target to test.
+\end_layout
+
+\begin_layout Standard
+Now we will analyze quickly how to implement these for all platforms.
+\end_layout
+
+\begin_layout Subsection
+NoSQL 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ databases
+\end_layout
+
+\begin_layout Subsubsection
+CouchBase
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO
+\end_layout
+
+\begin_layout Subsubsection
+PouchDB
+\end_layout
+
+\begin_layout Itemize
+Subscription: we cannot manage channels, we can choose only to which document
+ we subscribe.
+ So we receive notifications for every change.
+ 
+\series bold
+TODO
+\end_layout
+
+\begin_layout Subsubsection
+Gun.js
+\end_layout
+
+\begin_layout Standard
+aaa
+\end_layout
+
+\begin_layout Subsection
+Traditional approach
+\end_layout
+
 \begin_layout Section
 Recap
 \end_layout
 
 \begin_layout Section
 Analysis of the results
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO CLIENT in other process?
 \end_layout
 
 \end_body

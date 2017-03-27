@@ -272,10 +272,10 @@ key "RefIntegrity"
 
 \end_inset
 
- (some database tries to implement it with some explicit checks but it is
+ (some databases try to implement it with some explicit checks but it is
  not standard).
- So also in traditional approach we do not use the referential integrity
- check (it will slow down the application).
+ So also in the traditional approach we do not use the referential integrity
+ check (it will slow the application down).
 \end_layout
 
 \begin_layout Subsection
@@ -1297,8 +1297,8 @@ Social structure
 
 \begin_layout Standard
 Even if the first data structure seems good, the second is better.
- In fact we subscribe only one time to the main object, while in the first
- structure we have to subscribe for every new post.
+ In fact we can subscribe only one time to the main object, while in the
+ first structure we have to subscribe for every new post.
  Lots of subscriptions could be a problem.
 \begin_inset Newline newline
 \end_inset
