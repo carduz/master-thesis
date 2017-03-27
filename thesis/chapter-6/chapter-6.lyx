@@ -994,7 +994,8 @@ key "JepsenTool"
 \end_inset
 
 , we realized our framework, that tests only what we need.
- The framework with tests prepared could be found on github 
+ The framework with tests prepared (and related things like SQL tables)
+ could be found on github 
 \series bold
 TODO
 \series default
@@ -1255,11 +1256,90 @@ reference "fig:Jepsen-rate"
 .
 \end_layout
 
+\begin_layout Subsection
+Custom framework
+\end_layout
+
+\begin_layout Standard
+The framework realized by us is done in javascript, so it is easy to integrate
+ it with other platform.
+ Since we know which are the measures that we need, we have just to implement
+ in a general way:
+\end_layout
+
+\begin_layout Itemize
+Generator of data, according to the data structure.
+ It is shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Tests-to-do-test"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Client, general client that allow to send data and to read local database
+ (or receive data).
+ It is shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Adapters-for-systems-test"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+What we need to tests are write and read performance.
+\begin_inset Newline newline
+\end_inset
+
+So test throughput and latency, as done by 
+\begin_inset Quotes fld
+\end_inset
+
+jepsen
+\begin_inset Quotes frd
+\end_inset
+
+, is a good model, in fact we will use the same charts used by 
+\begin_inset Quotes fld
+\end_inset
+
+jepsen
+\begin_inset Quotes frd
+\end_inset
+
+.
+ The framework, sinec it is not a general framework, do not generate charts,
+ it only generate raw data, charts can be generate using external and powerful
+ instruments like sheet software.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Tests-to-do-test"
+
+\end_inset
+
 Tests to do
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Adapters-for-systems-test"
+
+\end_inset
+
 Adapters for systems
 \end_layout
 
