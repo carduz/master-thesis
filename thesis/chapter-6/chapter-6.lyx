@@ -2301,7 +2301,7 @@ Login method
 \end_layout
 
 \begin_layout Itemize
-Join method to subscribe to channel
+Join method to subscribe to channel and to a table/document
 \end_layout
 
 \begin_layout Itemize
@@ -2409,6 +2409,18 @@ TODO all tryes to do
 
 \begin_layout Section
 Analysis of the results
+\end_layout
+
+\begin_layout Standard
+TODO:
+\end_layout
+
+\begin_layout Standard
+callback return always new data
+\end_layout
+
+\begin_layout Standard
+static init skipped
 \end_layout
 
 \end_body
