@@ -90,7 +90,12 @@ All things explained in the previous chapters are considered implicit.
 \end_layout
 
 \begin_layout Section
-Test Strategy
+Scaling test
+\end_layout
+
+\begin_layout Standard
+In this section we will see what we have to do to tests scaling of different
+ solutions.
 \end_layout
 
 \begin_layout Standard
@@ -230,6 +235,12 @@ reference "subsec:Scaling-tests"
 , we do only vertical scaling.
  So in this section we shows that different configurations that we want
  to test.
+\begin_inset Newline newline
+\end_inset
+
+These configurations were found after some minor empirical tests.
+ We have also set them to have the same maximum and minimum sum of resources
+ used (counting not static servers).
 \end_layout
 
 \begin_layout Standard
@@ -326,7 +337,7 @@ realtime
 \end_layout
 
 \begin_layout Standard
-We can simply follow the table 
+Since we have only on server we can simply follow the table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:NoSQL-realtime-database-envs"
@@ -371,21 +382,6 @@ realtime
 
 \begin_layout Plain Layout
 \align center
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-resizebox{
-\backslash
-linewidth}{!}{
-\end_layout
-
-\end_inset
-
-
 \begin_inset Tabular
 <lyxtabular version="3" rows="5" columns="3">
 <features booktabs="true" tabularvalignment="middle">
@@ -452,7 +448,7 @@ N° CPU
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+2
 \end_layout
 
 \end_inset
@@ -483,7 +479,7 @@ N° CPU
 \begin_inset Text
 
 \begin_layout Plain Layout
-2
+3
 \end_layout
 
 \end_inset
@@ -514,7 +510,7 @@ N° CPU
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+2
 \end_layout
 
 \end_inset
@@ -545,24 +541,13 @@ N° CPU
 \begin_inset Text
 
 \begin_layout Plain Layout
-2
+3
 \end_layout
 
 \end_inset
 </cell>
 </row>
 </lyxtabular>
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-}
-\end_layout
 
 \end_inset
 
@@ -582,6 +567,407 @@ name "subsec:Traditional-approach-test"
 \end_inset
 
 Traditional approach
+\end_layout
+
+\begin_layout Standard
+Here we have 4 servers, for each of them we use a virtual machine:
+\end_layout
+
+\begin_layout Itemize
+PostgreSQL: this is a critical point and we will follow table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:postgresql-test"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Redis: this is not a critical point, it is not also a thing to test.
+ So we can consider it static, we use always a machine with 1CPU and 4GB
+ RAM.
+\end_layout
+
+\begin_layout Itemize
+Listener: this is not a critical point, it is not also a thing to test.
+ So we can consider it static, we use always a machine with 1CPU and 2GB
+ RAM.
+\end_layout
+
+\begin_layout Itemize
+socket.io: this is a critical point and we will follow table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:socketio-test"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Socket.io could be considered monothread so we do not scale the CPU.
+ In fact we have a main thread where execute callbacks and other operations,
+ furthermore background operations (executed in other threads) in case of
+ network delivery (background operations used by socket.io) are not CPU intensive
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NodeEventDriven"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Of course we have to test all combinations: so we have 8 tests to do.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:postgresql-test"
+
+\end_inset
+
+postgreSQL (traditional approach) test environments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N°
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RAM [GB]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° CPU
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:socketio-test"
+
+\end_inset
+
+socket.io (traditional approach) test environments
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N°
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+RAM [GB]
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° CPU
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -613,6 +999,10 @@ Tests to do
 
 \begin_layout Section
 Adapters for systems
+\end_layout
+
+\begin_layout Section
+Analysis of the results
 \end_layout
 
 \end_body
