@@ -1361,9 +1361,9 @@ Since our critical point is replication, we have to test with more than
 \end_inset
 
 So we need at least one client to make writes and at least one to check
- replication.
- The number of clients depends on the type of application, that we will
- see in 
+ replication (called read) .
+ The number of clients (writer and reader) depends on the type of application,
+ that we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1388,20 +1388,236 @@ In this section we will see what every class of the class of applications
  (analyzed previously) needs.
  We will also define for each of them the number of clients to be used for
  tests, for some of them we can define more versions (e.g.
- test with 1 client then test 10 clients) to test scalability and adaptability
- of replication and concurrent writing.
+ test with 1 reader client then test 10 reader clients) to test scalability
+ and adaptability of replication and concurrent writing.
 \end_layout
 
 \begin_layout Subsection
 Realtime Chat
 \end_layout
 
+\begin_layout Subsubsection
+Clients
+\end_layout
+
+\begin_layout Standard
+As we said previously, since it has a room based chat, we expect a #reads
+ >> #writes.
+ So a reasonable number of clients could be the one shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Realtime-chat-clients"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Realtime-chat-clients"
+
+\end_inset
+
+Realtime chat clients
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N°
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Writer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+N° Reader
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+100
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Data generation
+\end_layout
+
+\begin_layout Standard
+After a trial data initialization (e.g.
+ users creation), to do tests we have just to create messages.
+ So our generator is simply a faker text generator.
+\end_layout
+
 \begin_layout Subsection
 Collaborative Software
 \end_layout
 
+\begin_layout Subsubsection
+Clients
+\end_layout
+
+\begin_layout Subsubsection
+Data generation
+\end_layout
+
 \begin_layout Subsection
 Social
+\end_layout
+
+\begin_layout Subsubsection
+Clients
+\end_layout
+
+\begin_layout Subsubsection
+Data generation
 \end_layout
 
 \begin_layout Section
