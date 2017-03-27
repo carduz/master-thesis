@@ -1314,13 +1314,38 @@ jepsen
 \end_inset
 
 .
- The framework, sinec it is not a general framework, do not generate charts,
+ The framework, since it is not a general framework, do not generate charts,
  it only generate raw data, charts can be generate using external and powerful
  instruments like sheet software.
+\begin_inset Newline newline
+\end_inset
+
+As we said we have different models of data, but we do not have complex
+ operations (like transfer constraints) so we have only basic writes and
+ replication of data written.
 \end_layout
 
 \begin_layout Standard
+Since our critical point is replication, we have to test with more than
+ one client.
+ We can considered a write completed when it is replicated in all clients.
+ We could also do advanced consideration (like consider only replication
+ of 95% or in the graph consider also quantiles of replications), but they
+ would make the analysis complexer adding a small adjunctive value.
+\begin_inset Newline newline
+\end_inset
 
+So we need at least one client to make writes and at least one to check
+ replication.
+ The number of clients depends on the type of application, that we will
+ see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Tests-to-do-test"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -1333,6 +1358,14 @@ name "sec:Tests-to-do-test"
 Tests to do
 \end_layout
 
+\begin_layout Standard
+SPECIF CLIENTS (write and read)
+\end_layout
+
+\begin_layout Standard
+More thane one number of client
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -1341,6 +1374,10 @@ name "sec:Adapters-for-systems-test"
 \end_inset
 
 Adapters for systems
+\end_layout
+
+\begin_layout Section
+Recap
 \end_layout
 
 \begin_layout Section
