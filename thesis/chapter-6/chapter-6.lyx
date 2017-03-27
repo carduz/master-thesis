@@ -1431,6 +1431,13 @@ All data shown (like the number of clients) are found after some minor empirical
  tests.
 \end_layout
 
+\begin_layout Standard
+In some case the data structure needs some changes to be adapted to model
+ of the database used.
+ They are minor changes that are not showed here, of course the code on
+ github contains everything.
+\end_layout
+
 \begin_layout Subsection
 Realtime Chat
 \end_layout
@@ -2346,36 +2353,62 @@ PouchDB
 \begin_layout Itemize
 Subscription: we cannot manage channels, we can choose only to which document
  we subscribe.
- So we receive notifications for every change.
- 
-\series bold
-TODO
+ So we receive notifications for every change in documents where we are
+ subscribed.
+\end_layout
+
+\begin_layout Itemize
+Write command: it is a normal asynchronous call.
+\end_layout
+
+\begin_layout Itemize
+Data callback: we return all data from local database.
 \end_layout
 
 \begin_layout Subsubsection
 Gun.js
 \end_layout
 
-\begin_layout Standard
-aaa
+\begin_layout Itemize
+Subscription: we can subscribe to any level of the JSON structure, so we
+ do not have problems (only messages that we need are delivered).
+\end_layout
+
+\begin_layout Itemize
+Write command: it is a normal asynchronous call.
+\end_layout
+
+\begin_layout Itemize
+Data callback: we return all data from local database.
 \end_layout
 
 \begin_layout Subsection
 Traditional approach
 \end_layout
 
+\begin_layout Itemize
+Subscription: we can create custom channel and join to them using join,
+ so only messages that we need are delivered.
+\end_layout
+
+\begin_layout Itemize
+Write command: it is a normal asynchronous call.
+\end_layout
+
+\begin_layout Itemize
+Data callback: we return all data from local database.
+\end_layout
+
 \begin_layout Section
 Recap
 \end_layout
 
-\begin_layout Section
-Analysis of the results
+\begin_layout Standard
+TODO all tryes to do
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-TODO CLIENT in other process?
+\begin_layout Section
+Analysis of the results
 \end_layout
 
 \end_body
