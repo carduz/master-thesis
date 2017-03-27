@@ -985,12 +985,15 @@ key "JepsenTool"
 \end_inset
 
 , we realized our framework, that tests only what we need.
+ The framework with tests prepared could be found on github 
+\series bold
+TODO
+\series default
+ with instructions on the readme.
 \end_layout
 
 \begin_layout Standard
 
-\series bold
-TODO GITHUB LINKS
 \end_layout
 
 \begin_layout Section
