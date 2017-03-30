@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -31,15 +33,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry false
-\use_amsmath 2
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -81,6 +92,40 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+My heartfelt thanks to Professor Raffaela Mirandola who supported me in
+ the elaboration of this master thesis with her precious guidance, advice
+ and suggestions.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Thanks to the co-advisor Marco Scavuzzo for his pacience and professionality,
+ for having helped me to orient myself on this broad and not very standardized
+ topic and for his prompt and efficient replies to my emails of request
+ for help.
+ 
+\end_layout
+
+\begin_layout Standard
+Many many thanks to my friends and fellow students for their support, the
+ carefreeness I could experience in these 5 wonderful years and their friendship
+ that has been very precious to me.
+\end_layout
+
+\begin_layout Standard
+My deepest gratitude to my family for getting me to where I am today, for
+ the trust placed in me and the constant encouragement.
+\begin_inset Newline newline
+\end_inset
+
+Last but not least, a special thanks goes to Noemi that in difficult times
+ has always found the right words to motivate me, for having always believed
+ in me, for her patience and constant support during the course of my studies
+ and in particular during this last period and for having shared with me
+ this significant experience.
 \end_layout
 
 \end_body

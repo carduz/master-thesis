@@ -87,6 +87,11 @@ TODO FIX CONSISTENCY IN CHAP 4
 TODO eng of appendixes
 \end_layout
 
+\begin_layout Standard
+fortunatelly the environment was stable and we do not needed to execute
+ the same test mroe than one time (to take an average value)
+\end_layout
+
 \begin_layout Section
 Tests
 \end_layout

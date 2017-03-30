@@ -1322,6 +1322,11 @@ reference "subsec:Collaborative-Software-class"
  (with different tables).
  We will have: users, likes (with reference to user and to post), comments
  (with reference to user and to post), post (with reference to user).
+\begin_inset Newline newline
+\end_inset
+
+But we could have some problems due to the absence of the integrity constraints
+ (for example for likes).
 \end_layout
 
 \begin_layout Standard

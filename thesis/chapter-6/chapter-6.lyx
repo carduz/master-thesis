@@ -109,7 +109,7 @@ reference "subsec:Custom-framework"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see how to tests the class of applications seen 
+Then we will see how to test the class of applications seen 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:class-of-applications"
@@ -120,7 +120,7 @@ reference "chap:class-of-applications"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see how to adpat different systems, that we analyzed in 
+Then we will see how to adapt different systems, that we analyzed in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Realtime-technologies"
@@ -134,7 +134,7 @@ reference "chap:A-traditional-approach"
 
 \end_inset
 
-, and what do consider.
+, and what to consider.
 \begin_inset Newline newline
 \end_inset
 
@@ -150,7 +150,7 @@ reference "sec:Analysis-of-the-test-stratgey"
 \end_layout
 
 \begin_layout Standard
-All things explained in the previous chapters are considered implicit.
+All the things explained in the previous chapters are considered implicit.
 \end_layout
 
 \begin_layout Section
@@ -164,12 +164,12 @@ Scaling test
 \end_layout
 
 \begin_layout Standard
-In this section we will see what we have to do to tests scaling of different
+In this section we will see what we have to do to test scaling of different
  solutions.
 \end_layout
 
 \begin_layout Standard
-We will analyze the scaling that we will do and reasons of that choices
+We will analyze the scaling that we will do and reasons of those choices
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -181,7 +181,7 @@ reference "subsec:Scaling-tests"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see different tests environments based on previous choices
+Then we will see different test environments based on the previous choices
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -203,7 +203,7 @@ Scaling
 \end_layout
 
 \begin_layout Standard
-We know that NoSQL databases implements partitioning very efficiently 
+We know that NoSQL databases implement partitioning very efficiently 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -211,8 +211,8 @@ key "NoSQL"
 \end_inset
 
 .
- So we expect that with a lot of data that requires partitioning the performance
- of NoSQL solutions would be a lot better than traditional approach.
+ So we expect that with a lot of data that require partitioning the performance
+ of NoSQL solutions would be much better than the traditional approach.
 \begin_inset Newline newline
 \end_inset
 
@@ -221,7 +221,7 @@ Moreover since, often, strong consistency constraints are relaxed, also
 \begin_inset Newline newline
 \end_inset
 
-Booth things bring to have horizontal scalability (also called out/in) 
+Both things bring to have horizontal scalability (also called out/in) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scaling"
@@ -241,27 +241,27 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database are a full stack solution, also the internal realtime delivery
+ databases are a full stack solution, also the internal realtime delivery
  server is scaled horizontally (it is scaled with the database).
 \end_layout
 
 \begin_layout Standard
-So to keep a simplicity, make standard things (partition is implemented
- in different ways based on the data model) and to avoid to add an additional
+So in order to keep simplicity, to make standard things (partition is implemente
+d in different ways based on the data model) and to avoid to add an additional
  level to test, we decided to skip this part.
  So we test without horizontal scaling.
 \begin_inset Newline newline
 \end_inset
 
-Moreover, since our topic is compare these kind of applications with a standard
- approach, if we test also the horizontal scaling we add another variable
- factor that can change our results.
+Moreover, since our topic is compared to these kinds of applications with
+ a standard approach, if we test also the horizontal scaling we add another
+ variable factor that can change our results.
 \begin_inset Newline newline
 \end_inset
 
 For the same reason we do not scale horizontally the traditional approach
  that we proposed.
- Here the scaling means: partitioning and replication of postgreSQL server
+ Here the scaling we mean: partitioning and replication of postgreSQL server
  and replication of socket.io machines, redis is not a bottleneck so it does
  not need scaling.
 \end_layout
@@ -303,8 +303,7 @@ reference "subsec:Scaling-tests"
 \end_inset
 
 , we do only vertical scaling.
- So in this section we shows that different configurations that we want
- to test.
+ So in this section we show different configurations that we want to test.
 \begin_inset Newline newline
 \end_inset
 
@@ -314,7 +313,7 @@ These configurations were found after some minor empirical tests.
 \end_layout
 
 \begin_layout Standard
-As said previously the NoSQL 
+As said previously NoSQL 
 \begin_inset Quotes fld
 \end_inset
 
@@ -322,7 +321,7 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- database are a full stack solution implement in just one server.
+ databases are a full stack solution implemented in just one server.
  So we can create a common environment for them, shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -334,7 +333,7 @@ reference "subsec:NoSQL-realtime-databases-test"
 \begin_inset Newline newline
 \end_inset
 
-While on traditional approach proposed we have different servers.
+While on the traditional approach proposed we have different servers.
  So they need an advanced discussion, shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -346,7 +345,7 @@ reference "subsec:Traditional-approach-test"
 \end_layout
 
 \begin_layout Standard
-To keep things more generally all tests are done using virtual machines
+To keep things more generally all the tests are done using virtual machines
  (using virtualbox 
 \begin_inset Foot
 status open
@@ -375,8 +374,8 @@ key "Virtualization"
 \end_inset
 
  on the same physical machine.
- So all components and technical characteristics are the same (such as RAM
- speed).
+ So all the components and technical characteristics are the same (such
+ as RAM speed).
 \series bold
 
 \begin_inset Newline newline
@@ -384,7 +383,7 @@ key "Virtualization"
 
 Note
 \series default
-: with CPU we means a standard modern CPU (i7 generation), of course for
+: with CPU we mean a standard modern CPU (i7 generation), of course for
  all servers the same CPU was used.
 \end_layout
 
@@ -407,7 +406,7 @@ realtime
 \end_layout
 
 \begin_layout Standard
-Since we have only on server we can simply follow the table 
+Since we have only one server we can simply follow the table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:NoSQL-realtime-database-envs"
@@ -667,7 +666,7 @@ Listener: this is not a critical point, it is not also a thing to test.
 \end_layout
 
 \begin_layout Itemize
-socket.io: this is a critical point and we will follow table 
+Socket.io: this is a critical point and we will follow table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:socketio-test"
@@ -678,8 +677,8 @@ reference "tab:socketio-test"
 \begin_inset Newline newline
 \end_inset
 
-Socket.io could be considered monothread so we do not scale the CPU.
- In fact we have a main thread where execute callbacks and other operations,
+Socket.io could be considered mono-thread so we do not scale the CPU.
+ In fact we have a main thread where to execute callbacks and other operations,
  furthermore background operations (executed in other threads) in case of
  network delivery (background operations used by socket.io) are not CPU intensive
  
@@ -693,7 +692,7 @@ key "NodeEventDriven"
 \end_layout
 
 \begin_layout Standard
-Of course we have to test all combinations: so we have 8 tests to do.
+Of course we have to test all the combinations: so we have 8 tests to do.
 \end_layout
 
 \begin_layout Standard
@@ -1071,8 +1070,8 @@ key "YCSB"
 
 \end_inset
 
-, we realized our framework, that tests only what we need in the way we
- want.
+, we realized our framework that tests only what we need and in the way
+ we want.
  The framework with tests prepared (and related things like SQL tables)
  could be found on github 
 \begin_inset Foot
@@ -1130,8 +1129,8 @@ reference "subsec:Jepsen-framework"
 \end_layout
 
 \begin_layout Standard
-The framework realized by us is done in javascript, so it is easy to integrate
- it with other platform.
+The framework we realized is done in javascript, so it is easy to integrate
+ it with other platforms.
  Since we know which are the measures that we need, we have just to implement
  in a general way:
 \end_layout
@@ -1149,7 +1148,7 @@ reference "sec:Tests-to-do-test"
 \end_layout
 
 \begin_layout Itemize
-Client, general client that allow to send data and to read local database
+Client, general client that allows to send data and to read local databases
  (or receive data).
  It is shown in 
 \begin_inset CommandInset ref
@@ -1162,26 +1161,26 @@ reference "sec:Adapters-for-systems-test"
 \end_layout
 
 \begin_layout Standard
-What we need to tests are write and read performances.
+What we need to test are write and read performances.
  In fact, as we said, we have different models of data, but we do not have
- complex operations so we have only basic writes and replication of data
- written.
+ complex operations so we have only basic writes and written replication
+ of data.
 \begin_inset Newline newline
 \end_inset
 
 Since our critical point is replication, we have to test with more than
  one client.
- We can considered a write completed when it is replicated in all clients.
- We could also do advanced consideration (like consider only replication
+ We can consider a write completed when it is replicated in all clients.
+ We could also do advanced considerations (like considering only replication
  of 95% or in the graph consider also quantiles of replications), but they
- would make the analysis complexer adding a small adjunctive value.
+ would make the analysis more complex adding a small adjunctive value.
 \series bold
 TODO CHECKME
 \end_layout
 
 \begin_layout Standard
 So we need at least one client to make writes and at least one to check
- replication (called read) .
+ replications (called read)s.
  The number of clients (writer and reader) depends on the type of application,
  that we will see in 
 \begin_inset CommandInset ref
@@ -1235,7 +1234,7 @@ reference "sec:Tests-to-do-test"
 \end_layout
 
 \begin_layout Standard
-To do that we have a test manager that checks everything and communicate
+To do that we have a test manager that checks everything and communicates
  with clients, in fact every client is implemented as another process.
 \begin_inset Newline newline
 \end_inset
@@ -1249,13 +1248,13 @@ reference "sec:Adapters-for-systems-test"
 
 \end_inset
 
-, we need only to map client functions with the the general client (it is
- done by the adapter).
+, in order to map we need only client functions with the general client
+ (it is done by the adapter).
 \end_layout
 
 \begin_layout Standard
 The framework, since it is not a general framework, do not generate charts,
- it only generate raw data, charts can be generate using external and powerful
+ it only generate raw data, charts can be generated using external and powerful
  instruments like sheet software.
 \begin_inset Newline newline
 \end_inset
@@ -1294,9 +1293,9 @@ All data shown (like the number of clients) are found after some minor empirical
 \end_layout
 
 \begin_layout Standard
-In some case the data structure needs some changes to be adapted to model
+In some cases data structure needs some changes to be adapted to the model
  of the database used.
- They are minor changes that are not showed here, of course the code on
+ There are minor changes that are not shown here, of course the code on
  github contains everything.
 \end_layout
 
@@ -1547,8 +1546,8 @@ Data generation
 \begin_layout Standard
 After a trial data initialization (e.g.
  users creation or room creation), to do tests we have just to create messages.
- So our generator is simply a faker text generator, other things like user
- can be static.
+ So our generator is simply a faker text generator, other things like the
+ user can be static.
  As we will seen in the next section, we have to manage the room where to
  write.
  
@@ -1559,7 +1558,7 @@ Writing
 \end_layout
 
 \begin_layout Standard
-We have (if possible) that each room has 2 writer, this is possible only
+We have (if possible) that each room has 2 writers, this is possible only
  for case 3.
  Of course a writer is subscribed only to one room.
 \end_layout
@@ -1569,7 +1568,7 @@ Reading
 \end_layout
 
 \begin_layout Standard
-We have (if possible) that each room has 400 reader, this is possible only
+We have (if possible) that each room has 400 readers, this is possible only
  for case 3.
  Of course a reader is subscribed to two rooms.
 \end_layout
@@ -1892,8 +1891,8 @@ reference "tab:Social-clients"
 \begin_inset Newline newline
 \end_inset
 
-I a social for each person there are a lot of users that see the write:
- followers and sometime also followers of his directly followers.
+In a social for each person there are a lot of users that see the write:
+ followers and sometimes also followers of his directly followers.
 \end_layout
 
 \begin_layout Standard
@@ -2079,23 +2078,23 @@ After a trial data initialization (e.g.
 \end_layout
 
 \begin_layout Itemize
-Posts: we should to generate fake text (content)
+Posts: we should generate fake texts (contents)
 \end_layout
 
 \begin_layout Itemize
-Likes: we should to link users to posts.
+Likes: we should link users to posts.
  Of course since there are no checks we can generate random ids (also non
- exiting).
+ exiting ones).
 \end_layout
 
 \begin_layout Itemize
-Comments: we should to link users to posts.
+Comments: we should link users to posts.
  Of course since there are no checks we can generate random ids (also non
- exiting).
+ exiting ones).
 \end_layout
 
 \begin_layout Standard
-We can say that there are more comments ad likes than posts, for simplicity
+We can say that there are more comments and likes than posts, for simplicity
  we can say that the number of comments and likes is the same.
  So to emulate everything we can have the following write frequencies:
 \end_layout
@@ -2129,11 +2128,11 @@ As said previously the creation of a post is done every 9 other creations,
 \end_layout
 
 \begin_layout Standard
-The creation of comments and likes increase with time, we want that each
+The creation of comments and likes increases with time, we want that each
  post-likes and each post-comments has 2 writers (if possible).
- Of course the fact that likes increases in this way is not realistic but
- it is not a problem (we want to test performance so this bring the system
- to be more robust).
+ Of course the fact that likes increase in this way is not realistic but
+ it is not a problem (we want to test the performance so this makes the
+ system more robust).
 \end_layout
 
 \begin_layout Subsubsection
@@ -2141,13 +2140,20 @@ Reading
 \end_layout
 
 \begin_layout Standard
-All client subscribe to posts, they read all new posts.
+All clients subscribe to posts, they read all the new posts.
 \end_layout
 
 \begin_layout Standard
-We want that each post-likes and each post-comments have 50 readers.
+We want that each post-likes and each post-comments has 50 readers.
  Even if new posts are created the old subscriptions are not deleted.
  So the more time passes, the more subscriptions are created.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO FIx names fo pivot tables, each writer is an user that writes post,
+ a clients subscribe to one post every two.
 \end_layout
 
 \begin_layout Section
@@ -2189,7 +2195,7 @@ We have already proved that systems can provide authentication.
 \end_layout
 
 \begin_layout Standard
-Now we will analyze quickly how to implement these for all platforms.
+Now we will analyze quickly how to implement these for all the platforms.
 \end_layout
 
 \begin_layout Subsection
@@ -2242,8 +2248,8 @@ key "PouchDBFilter"
 \end_inset
 
  as workaround to this problem, but they are not so efficient and they are
- not so easy to use in a real environment (due to permissions needed t create
- filter).
+ not so easy to use in a real environment (due to permissions needed to
+ create filters).
 \end_layout
 
 \begin_layout Itemize
@@ -2276,8 +2282,8 @@ Traditional approach
 \end_layout
 
 \begin_layout Itemize
-Subscription: we can create custom channel and join to them using join,
- so only messages that we need are delivered.
+Subscription: we can create custom channels and join them using join, so
+ only messages that we need are delivered.
 \end_layout
 
 \begin_layout Itemize
