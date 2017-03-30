@@ -753,7 +753,7 @@ Architecture proposed
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1627,9 +1627,25 @@ reference "subsec:Event-driven-approach"
 
 \begin_layout Standard
 On github 
-\series bold
-TODO
-\series default
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/carduz/master-thesis-source/tree/master/proposed_solution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
  there are both code, configurations and vagrant installer scripts.
  The installation instructions can be found in the readme.
 \begin_inset Newline newline

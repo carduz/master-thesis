@@ -73,8 +73,242 @@
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Standard
+We executed jepsen framework to test a postgreSQL server deployed in a virtual
+ machine with 4 GB RAM and 1 CPU (of course on the same physical machine
+ of the other tests).
+\begin_inset Newline newline
+\end_inset
 
+The test used was the standard Jepsen postgreSQL test 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "JepsenPostgreTool,JepsenPostgreExplanation"
+
+\end_inset
+
+, it emulates simultaneous bank transfers and 
+\begin_inset Quotes fld
+\end_inset
+
+raw read
+\begin_inset Quotes frd
+\end_inset
+
+ of accounts.
+ It considers a fail when it is not possible executes a transfer, since
+ there is a negative amount (i.e.
+ other transfers in the meanwhile)
+\begin_inset Newline newline
+\end_inset
+
+The results obtained are shown as charts in figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-latency-raw"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-latency-quantiles"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-rate"
+
+\end_inset
+
+.
+ In the charts also the fails of reads are shown, even if they are 0, 
+\begin_inset Quotes fld
+\end_inset
+
+transfer info
+\begin_inset Quotes frd
+\end_inset
+
+ is the time required to check amount before do the transfer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../chapter-6/images/jepsen/latency-raw.png
+	width 70col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Jepsen-latency-raw"
+
+\end_inset
+
+Jepsen latency raw
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../chapter-6/images/jepsen/latency-quantiles.png
+	width 70col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Jepsen-latency-quantiles"
+
+\end_inset
+
+Jepsen latency quantiles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../chapter-6/images/jepsen/rate.png
+	width 70col%
+	clip
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Jepsen-rate"
+
+\end_inset
+
+Jepsen rate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that tests do a lot of transfers and reads for some seconds.
+\end_layout
+
+\begin_layout Standard
+In charts we have the measures for every operation (or some of them) for
+ every second of the test (or 
+\begin_inset Quotes fld
+\end_inset
+
+chunks
+\begin_inset Quotes frd
+\end_inset
+
+ of seconds), the measures that we have are:
+\end_layout
+
+\begin_layout Itemize
+Time (latency) needed to do operation, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-latency-raw"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Time (latency) needed to do operation with quantiles, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-latency-quantiles"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Throughput of every operation, shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Jepsen-rate"
+
+\end_inset
+
+.
 \end_layout
 
 \end_body

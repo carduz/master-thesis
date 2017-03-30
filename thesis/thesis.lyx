@@ -936,7 +936,14 @@ filename "appendix-a/appendix-a.lyx"
 \end_layout
 
 \begin_layout Chapter
-Second appendix
+Jepsen
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Jepsen-framework"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "app:second-appendix"
