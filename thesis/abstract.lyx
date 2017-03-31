@@ -147,6 +147,12 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+TODO REDUCE
+\end_layout
+
+\begin_layout Standard
 In today applications the data are increasing exponentially, data need also
  to be replicated to different devices in 
 \begin_inset Quotes fld

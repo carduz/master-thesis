@@ -858,16 +858,16 @@ reference "chap:Benchmarks-strategy"
 \end_layout
 
 \begin_layout Standard
-While a NoSQL 
+While a 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database offers a full stack solution (often with client local database
- support) here we have to define every aspect of the stack.
+ offers a full stack solution (often with client local database support)
+ here we have to define every aspect of the stack.
  So we implement what we have defined in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -882,15 +882,15 @@ reference "subsec:Client-best-practices"
 
 \end_inset
 
-, related needed things and what can be useful to emulate NoSQL 
+, related needed things and what can be useful to emulate 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases approach:
+ approach:
 \end_layout
 
 \begin_layout Itemize
@@ -1110,15 +1110,15 @@ Publish/Subscribe
 \end_layout
 
 \begin_layout Standard
-We try to emulate the approach used in NoSQL 
+We try to emulate the approach used in 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases explained in 
+ explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/subscribeNOSQL"

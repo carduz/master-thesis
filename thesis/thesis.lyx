@@ -694,7 +694,7 @@ filename "chapter-3/chapter-3.lyx"
 \end_layout
 
 \begin_layout Chapter
-A Traditional Approach
+A Proposed Comparing Traditional Approach
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Traditional-technologies"

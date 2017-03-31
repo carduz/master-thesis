@@ -997,7 +997,7 @@ http://gun.js.org
 \begin_inset Quotes fld
 \end_inset
 
-realtime database
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
@@ -1251,7 +1251,7 @@ http://www.memsql.com/product/
 
 \end_inset
 
- is scalable and realtime in memory SQL database (it is like traditional
+ is scalable and replicated in memory SQL database (it is like traditional
  databases).
  It is very interesting but, since it is an hybrid system that does not
  use the potentiality of NoSQL, it is not analyzed in this thesis.
@@ -1289,7 +1289,15 @@ key "MongoDB"
 
 \end_inset
 
- to create a realtime application.
+ to create a 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ application.
 \begin_inset Newline newline
 \end_inset
 
@@ -1394,11 +1402,11 @@ https://firebase.google.com/
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database, it is owned by Google.
+, it is owned by Google.
  It gives just a JSON document where you can subscribe to any level.
 \end_layout
 
@@ -1511,11 +1519,11 @@ reference "subsec:Publish/Subscribe"
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database servers since the 
+ servers since the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1666,15 +1674,15 @@ name "tab:Realtime-Databases-comparison"
 
 \end_inset
 
-NoSQL 
+
 \begin_inset Quotes fld
 \end_inset
 
-Realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- Databases comparison
+ comparison
 \end_layout
 
 \end_inset

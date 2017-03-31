@@ -1293,15 +1293,15 @@ server
 \begin_inset Quotes frd
 \end_inset
 
-) we mean the NoSQL 
+) we mean the 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases with integrated publish/subscribe broker server.
+ with integrated publish/subscribe broker server.
 \end_layout
 
 \begin_layout Standard
@@ -1420,7 +1420,7 @@ Of course this is not the only approach available but it is easy to understand
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 

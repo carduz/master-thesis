@@ -233,16 +233,16 @@ key "Scaling"
 \begin_inset Newline newline
 \end_inset
 
-Furthermore, since NoSQL 
+Furthermore, since 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases are a full stack solution, also the internal realtime delivery
- server is scaled horizontally (it is scaled with the database).
+ are a full stack solution, also the internal realtime delivery server is
+ scaled horizontally (it is scaled with the database).
 \end_layout
 
 \begin_layout Standard
@@ -313,15 +313,15 @@ These configurations were found after some minor empirical tests.
 \end_layout
 
 \begin_layout Standard
-As said previously NoSQL 
+As said previously 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases are a full stack solution implemented in just one server.
+ are a full stack solution implemented in just one server.
  So we can create a common environment for them, shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -410,15 +410,7 @@ name "subsec:NoSQL-realtime-databases-test"
 
 \end_inset
 
-NoSQL 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- databases
+CS-NoSQL
 \end_layout
 
 \begin_layout Standard
@@ -451,15 +443,15 @@ name "tab:NoSQL-realtime-database-envs"
 
 \end_inset
 
-NoSQL 
+
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database test environments
+ test environments
 \end_layout
 
 \end_inset
@@ -2209,15 +2201,7 @@ Now we will analyze quickly how to implement these for all the platforms.
 \end_layout
 
 \begin_layout Subsection
-NoSQL 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- databases
+CS-NoSQL
 \end_layout
 
 \begin_layout Subsubsection

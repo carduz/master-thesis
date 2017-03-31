@@ -74,16 +74,15 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will see some suggested use cases according to some NoSQL
- 
+In this chapter we will see some suggested use cases according to some 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases vendors in 
+vendors in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Use-Cases-class"
@@ -99,15 +98,15 @@ reference "sec:Use-Cases-class"
 
 \series default
 Then we will see some real applications (case studies) according to some
- NoSQL 
+ 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases vendors in 
+ vendors in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Study-Cases-class"
@@ -245,15 +244,15 @@ https://www.pubnub.com/solutions/
 \begin_layout Standard
 We will see that the traditional approach can be adapted to a solution,
  but this adaption requires time.
- In fact the NoSQL 
+ In fact the 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database adapts itself automatically, we will see in 
+ adapts itself automatically, we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Study-Cases-class"
@@ -501,12 +500,11 @@ ions based on it (they want messages of a room not messages of a user).
 Of course using a traditional approach we link both things (room and user)
  using ID reference.
  We use room ID as socket.io room, so we manage permissions and we automatically
- send notifications of rooms changes (so it is the same approach of NoSQL
- 
+ send notifications of rooms changes (so it is the same approach of 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
@@ -1373,15 +1371,15 @@ Study Cases
 
 \begin_layout Standard
 In this section we will analyze quickly some real stories of application
- of NoSQL 
+ of 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases.
+.
 \end_layout
 
 \begin_layout Standard
@@ -1438,15 +1436,15 @@ Solution
 
 \begin_layout Standard
 After having analyzed the developing costs of custom solution built over
- classical systems a commercial NoSQL 
+ classical systems a commercial 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database solution was chosen.
+ solution was chosen.
  It sends notifications about changes of the projects to all the connected
  devices.
  It also allows, in the future, to introduce new features like server-server
@@ -1525,15 +1523,15 @@ Solution
 \end_layout
 
 \begin_layout Standard
-A commercial NoSQL 
+A commercial 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database solution was chosen.
+ solution was chosen.
  It is used to send realtime data from the app to the hub, when the user
  is outside.
 \begin_inset Newline newline
@@ -1612,31 +1610,30 @@ Solution
 
 \begin_layout Standard
 After having analyzed developing costs of custom solution built over classical
- systems and after having tried free plans, a commercial NoSQL 
+ systems and after having tried free plans, a commercial 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database solution was chosen.
+ solution was chosen.
  Because it allowed to build a chat system in few time and in a reliable
  way.
 \begin_inset Newline newline
 \end_inset
 
-In fact the NoSQL 
+In fact the 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database is a full stack system that takes care of every step needed, so
- there is no need to think about scalability and communications among internal
- components.
+ is a full stack system that takes care of every step needed, so there is
+ no need to think about scalability and communications among internal components.
 \end_layout
 
 \begin_layout Standard
