@@ -147,156 +147,66 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-TODO REDUCE
-\end_layout
-
-\begin_layout Standard
-In today applications the data are increasing exponentially, data need also
- to be replicated to different devices in 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- and the different devices should be able to use them even if they are offline.
- So the devices need a local copy of the database available also offline,
- it is called 
-\begin_inset Quotes fld
-\end_inset
-
-local database
-\begin_inset Quotes frd
-\end_inset
-
-.
+In today's applications, data are increasing exponentially and also need
+ to be replicated to different devices in «realtime»; these different devices
+ should be able to use them even if they are offline.
+ So the devices need a local copy of the database available also offline
+ called «local database».
 \begin_inset Newline newline
 \end_inset
 
-The typical device that use this kind of application is a smartphone.
- But not only, there are a lot of web applications that use them such as
- collaborative softwares (like google docs).
+The typical device that uses this kind of application is a smartphone.
+ But not only, also other web applications use them, such as collaborative
+ softwares (like Google Docs).
 \end_layout
 
 \begin_layout Standard
 Different solutions based on NoSQL databases were proposed, but of course
  custom solutions based on RDBMS are feasible.
- These solutions (NoSQL based) are not standardized, so there is also no
- name for them so we will call them 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- (client side NoSQL).
- NoSQL was chosen since the data are unstructured and they amount of them
- could be enormous.
+ These solutions (NoSQL based) are not standardized, so there is no name
+ even for them so we will call them «CS-NoSQL» (client side NoSQL).
+ NoSQL was chosen since data are unstructured and their amount could be
+ enormous.
 \begin_inset Newline newline
 \end_inset
 
-Moreover, sometimes, the 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
- is not needed but an 
-\begin_inset Quotes fld
-\end_inset
-
-eventually consistency
-\begin_inset Quotes frd
-\end_inset
-
- is enough so a 
-\begin_inset Quotes fld
-\end_inset
-
-partition tolerance
-\begin_inset Quotes frd
-\end_inset
-
- is chosen according to the CAP theorem.
- Partition tolerance is chosen always, even if the 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
- is chosen, in that case the 
-\begin_inset Quotes fld
-\end_inset
-
-availability
-\begin_inset Quotes frd
-\end_inset
-
- is drop.
+Moreover, sometimes, the «strong consistency» is not needed but an «eventually
+ consistency» is enough so a «partition tolerance» is chosen according to
+ the CAP theorem.
+ Partition tolerance is always chosen, even if the «strong consistency»
+ is chosen; in that case, the «availability» is dropped.
 \begin_inset Newline newline
 \end_inset
 
-One of the main advantages of 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- is that they are fully integrated, they are a full stack environment, while
- if we want to use a solution based on RDBMS we need to develop an entire
- infrastructure.
+One of the main advantages of «CS-NoSQL» is their full integration, they
+ are a full stack environment, while if we want a solution based on RDBMS
+ we need to develop an entire infrastructure.
 \end_layout
 
 \begin_layout Standard
-In this thesis we will analyze some 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- that implement the replication to the clients.
+In this thesis, we will analyze some «CS-NoSQL» that implement the replication
+ to the clients.
  We want to verify their performance and stability for the calls of application
- for which they are designed, comparing them with a solution based on a
- RDBMS.
+ they are designed for, comparing them with a solution based on an RDBMS.
 \end_layout
 
 \begin_layout Standard
-To do that we implemented a comparing solution based on postgreSQL (a RDBMS
- server) that replicates data to clients using websocket, we have also implement
-ed a simple local database for it.
+To do that we implemented a comparing solution based on postgreSQL (an RDBMS
+ server) that replicates data to clients using websocket, we also implemented
+ a simple local database for it.
 \begin_inset Newline newline
 \end_inset
 
-We have created a custom framework to test this kind of systems and we have
- done some tests benchmarks emulating the different class of applications
- for which 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- are designed.
+We created a custom framework to test this kind of systems and we did some
+ tests benchmarks emulating the different classes of applications for which
+ «CS-NoSQL» are designed.
 \begin_inset Newline newline
 \end_inset
 
-We discovered that they are very instable with a reasonable amount of data
- and that our proposed solution based on postgreSQL is quicker (also 10x).
- Hoverer we expect an improvement (in terms of performance and stability)
- in the next years, when probably more native solutions will be developed.
+We discovered that they are very unstable with a reasonable amount of data
+ and that our proposed solution based on postgreSQL is quicker (up to 10x).
+ However we expect an improvement (in performance and stability) in the
+ next years when probably more native solutions will be developed.
 \end_layout
 
 \end_body
