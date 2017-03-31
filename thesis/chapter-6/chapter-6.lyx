@@ -655,13 +655,13 @@ reference "tab:postgresql-test"
 
 \begin_layout Itemize
 Redis: this is not a critical point, it is not also a thing to test.
- So we can consider it static, we use always a machine with 1CPU and 4GB
+ So we can consider it static, we use always a machine with 1CPU and 512MB
  RAM.
 \end_layout
 
 \begin_layout Itemize
 Listener: this is not a critical point, it is not also a thing to test.
- So we can consider it static, we use always a machine with 1CPU and 2GB
+ So we can consider it static, we use always a machine with 1CPU and 512MB
  RAM.
 \end_layout
 
@@ -1332,7 +1332,7 @@ reference "tab:Realtime-chat-clients"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1512,7 +1512,7 @@ N° Room
 \begin_inset Text
 
 \begin_layout Plain Layout
-1000
+100
 \end_layout
 
 \end_inset
@@ -1558,9 +1558,7 @@ Writing
 \end_layout
 
 \begin_layout Standard
-We have (if possible) that each room has 2 writers, this is possible only
- for case 3.
- Of course a writer is subscribed only to one room.
+We want that a writer is subscribed only to one room.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1568,9 +1566,7 @@ Reading
 \end_layout
 
 \begin_layout Standard
-We have (if possible) that each room has 400 readers, this is possible only
- for case 3.
- Of course a reader is subscribed to two rooms.
+We want that each read is subscribed to 2 rooms (if possible)
 \end_layout
 
 \begin_layout Subsection
@@ -1602,7 +1598,7 @@ reference "tab:Collaborative-software-clients"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1988,7 +1984,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-100
+10
 \end_layout
 
 \end_inset
@@ -2019,7 +2015,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-1000
+100
 \end_layout
 
 \end_inset
@@ -2050,7 +2046,7 @@ N° Reader
 \begin_inset Text
 
 \begin_layout Plain Layout
-1000
+100
 \end_layout
 
 \end_inset
@@ -2154,6 +2150,20 @@ We want that each post-likes and each post-comments has 50 readers.
 \series bold
 TODO FIx names fo pivot tables, each writer is an user that writes post,
  a clients subscribe to one post every two.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+no likes tested, CONCURRENCY(how t set?), stability of systems to a big
+ amount of data, bad documentation.
+ they can die if a lot of memory is required
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+define throughput (which requests
 \end_layout
 
 \begin_layout Section

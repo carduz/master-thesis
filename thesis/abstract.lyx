@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -114,7 +116,7 @@ La seconda frase dovrebbe iniziare con le parole
 \begin_inset Quotes fld
 \end_inset
 
-Lo scopo della tesi è \SpecialChar \ldots{}
+Lo scopo della tesi è \SpecialChar ldots
 
 \begin_inset Quotes frd
 \end_inset
@@ -145,8 +147,8 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 \end_layout
 
 \begin_layout Standard
-In today applications the data are increasing exponentially, data need to
- be 
+In today applications the data are increasing exponentially, data need also
+ to be replicated to different devices in 
 \begin_inset Quotes fld
 \end_inset
 
@@ -154,33 +156,119 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
+ and the different devices should be able to use them even if they are offline.
+ So the device need a local copy of the database available also offline,
+ it is called 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
 .
- Both issues can be solved by traditional approaches, but in the last years
- new approaches were born.
-\end_layout
-
-\begin_layout Standard
-A traditional approach consist of a relational database with a server for
- API; while a realtime approach consist of a realtime database without a
- dedicated server for API, the database itself is the API server.
-\end_layout
-
-\begin_layout Standard
-We will analyze both approaches in software engineering view; i.e.
- we will not analyze the implementation detail of each technology, but we
- will see each technology as a module of the application, we will see how
- to integrate them.
 \begin_inset Newline newline
 \end_inset
 
-Using the same view, we will demonstrate for which classes of application
- this approach has a less cost in terms of maintainability and developing,
- finding the break even point.
+The typical device that use this kind of application is a smartphone.
+ But not only, there are a lot of web applications that use them such as
+ collaborative software (like google docs).
 \end_layout
 
 \begin_layout Standard
-Finally we will proof the economic advantage in a real financial trading
- application.
+Different solutions based on NoSQL databases were proposed, but of course
+ custom solutions based on RDBMS are feasible.
+ These solutions (NoSQL based) are not standardized, so there is also no
+ name for them so we will call them 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ (client side NoSQL).
+ NoSQL was chosen since the data are unstructured and they amount of them
+ could be enormous.
+\begin_inset Newline newline
+\end_inset
+
+Moreover, sometimes, the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is not needed but an 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is enough so a 
+\begin_inset Quotes fld
+\end_inset
+
+partition tolerance
+\begin_inset Quotes frd
+\end_inset
+
+ is chosen according to the CAP theorem.
+ Partition tolerance is chosen always, even if the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is chosen, in that case the 
+\begin_inset Quotes fld
+\end_inset
+
+availability
+\begin_inset Quotes frd
+\end_inset
+
+ is drop.
+\begin_inset Newline newline
+\end_inset
+
+One of the main advantages of these solutions based on NoSQL databases is
+ that they are fully integrated, they are a full stack enviroment, while
+ if we want to use a solution based on RDBMS we need to develop an entire
+ infrastructure.
+\end_layout
+
+\begin_layout Standard
+In this thesis we will analyze some NoSQL solutions that implement the replicati
+on to the clients.
+ We want to verify their performance and stability for the calls of application
+ for which they are designed, comparing them with a solution based on a
+ RDBMS.
+\end_layout
+
+\begin_layout Standard
+To do that we implemented a comparing solution based on postgreSQL (a RDBMS
+ server) that replicates data to clients using websocket, we have also implement
+ed a simple local database for it.
+\begin_inset Newline newline
+\end_inset
+
+We have created a custom framework to test this kind of systems and we have
+ done some tests benchmarks emulating the different class of applications
+ for which these systems (replicated systems based on NoSQL) are designed.
+\begin_inset Newline newline
+\end_inset
+
+We discovered that they are very instable with a reasonable amount of data
+ and that our proposed solution based on postgreSQL is quicker (10x).
+ Hoverer we expect an improvement (in terms of performance and stability)
+ in the next years, when probably more native solutions will be developed.
 \end_layout
 
 \end_body
