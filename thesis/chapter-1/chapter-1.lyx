@@ -115,15 +115,15 @@ reference "sec:Data-Management"
 \end_inset
 
 We will also analyze how to send realtime notifications of changes and the
- limits that are the causes of the creation of NoSQL 
+ limits that are the causes of the creation of 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases.
+.
 \end_layout
 
 \begin_layout Standard

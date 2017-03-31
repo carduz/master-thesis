@@ -833,27 +833,6 @@ filename "chapter-8/chapter-8.lyx"
 
 \end_layout
 
-\begin_layout Chapter
-Chapter 9
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:ninth-chapter"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "chapter-9/chapter-9.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter*
 Conclusions
 \begin_inset CommandInset label
@@ -963,25 +942,7 @@ filename "appendix-b/appendix-b.lyx"
 
 \end_layout
 
-\begin_layout Chapter
-Third appendix
-\begin_inset CommandInset label
-LatexCommand label
-name "app:third-appendix"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "appendix-c/appendix-c.lyx"
-
-\end_inset
-
-
 \begin_inset Newpage cleardoublepage
 \end_inset
 

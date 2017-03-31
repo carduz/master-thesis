@@ -157,7 +157,7 @@ realtime
 \end_inset
 
  and the different devices should be able to use them even if they are offline.
- So the device need a local copy of the database available also offline,
+ So the devices need a local copy of the database available also offline,
  it is called 
 \begin_inset Quotes fld
 \end_inset
@@ -172,7 +172,7 @@ local database
 
 The typical device that use this kind of application is a smartphone.
  But not only, there are a lot of web applications that use them such as
- collaborative software (like google docs).
+ collaborative softwares (like google docs).
 \end_layout
 
 \begin_layout Standard
@@ -238,15 +238,29 @@ availability
 \begin_inset Newline newline
 \end_inset
 
-One of the main advantages of these solutions based on NoSQL databases is
- that they are fully integrated, they are a full stack enviroment, while
+One of the main advantages of 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ is that they are fully integrated, they are a full stack environment, while
  if we want to use a solution based on RDBMS we need to develop an entire
  infrastructure.
 \end_layout
 
 \begin_layout Standard
-In this thesis we will analyze some NoSQL solutions that implement the replicati
-on to the clients.
+In this thesis we will analyze some 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ that implement the replication to the clients.
  We want to verify their performance and stability for the calls of application
  for which they are designed, comparing them with a solution based on a
  RDBMS.
@@ -261,7 +275,15 @@ ed a simple local database for it.
 
 We have created a custom framework to test this kind of systems and we have
  done some tests benchmarks emulating the different class of applications
- for which these systems (replicated systems based on NoSQL) are designed.
+ for which 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ are designed.
 \begin_inset Newline newline
 \end_inset
 

@@ -75,23 +75,8 @@
 
 \begin_layout Standard
 As we have seen in the previous section with a standard HTTP application
- stack we can create a 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- application, so why were these NoSQL 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- databases born?
+ stack we can create an application with client replication, so why were
+ CS-NoSQL born?
 \begin_inset Newline newline
 \end_inset
 
@@ -101,15 +86,15 @@ They were born to increase the performance and to allow to send realtime
 \end_layout
 
 \begin_layout Standard
-We will analyze the key aspects of these NoSQL 
+We will analyze the key aspects of 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- database in 
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Realtime-databases-stack"
@@ -159,15 +144,7 @@ name "subsec:NoSQL-databases"
 
 \end_inset
 
-NoSQL 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- databases
+CS-NoSQL
 \end_layout
 
 \begin_layout Standard
@@ -175,7 +152,7 @@ They are improperly called
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+realtime databases
 \begin_inset Quotes frd
 \end_inset
 
@@ -189,15 +166,6 @@ realtime
 \end_inset
 
  notifications of changes in data.
- So in some situations we use 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- improperly.
 \end_layout
 
 \begin_layout Standard
@@ -1118,15 +1086,15 @@ reference "chap:technologies"
 \end_inset
 
  with real databases constraints on data, permissions and queries are not
- a trivial task, especially in NoSQL 
+ a trivial task, especially in 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases.
+.
  In fact we have to replicate them to the client as we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref

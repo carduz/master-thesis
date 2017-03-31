@@ -345,6 +345,22 @@ reference "subsec:Traditional-approach-test"
 \end_layout
 
 \begin_layout Standard
+Socket.io and gun.js could be considered mono-thread so we do not scale the
+ CPU.
+ In fact we have a main thread where to execute callbacks and other operations,
+ furthermore background operations (executed in other threads) in case of
+ network delivery (background operations used by socket.io) are not CPU intensive
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NodeEventDriven"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 To keep things more generally all the tests are done using virtual machines
  (using virtualbox 
 \begin_inset Foot
@@ -414,6 +430,8 @@ reference "tab:NoSQL-realtime-database-envs"
 \end_inset
 
 .
+ As we said previously gun.js can be considered mono thread, so we can test
+ it with just one CPU (so we will have only two cases based on the RAM).
 \end_layout
 
 \begin_layout Standard
@@ -674,21 +692,8 @@ reference "tab:socketio-test"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-Socket.io could be considered mono-thread so we do not scale the CPU.
- In fact we have a main thread where to execute callbacks and other operations,
- furthermore background operations (executed in other threads) in case of
- network delivery (background operations used by socket.io) are not CPU intensive
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "NodeEventDriven"
-
-\end_inset
-
-.
+ As we said previously gun.js can be considered mono thread, so we can test
+ it with just one CPU.
 \end_layout
 
 \begin_layout Standard
@@ -1171,11 +1176,6 @@ What we need to test are write and read performances.
 Since our critical point is replication, we have to test with more than
  one client.
  We can consider a write completed when it is replicated in all clients.
- We could also do advanced considerations (like considering only replication
- of 95% or in the graph consider also quantiles of replications), but they
- would make the analysis more complex adding a small adjunctive value.
-\series bold
-TODO CHECKME
 \end_layout
 
 \begin_layout Standard

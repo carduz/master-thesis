@@ -1,7 +1,9 @@
-#LyX 2.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 474
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
-\font_math auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -106,7 +108,7 @@ La prima parte contiene una frase che spiega l’area generale dove si svolge
 \begin_inset Quotes fld
 \end_inset
 
-lo scopo della tesi è \SpecialChar \ldots{}
+lo scopo della tesi è \SpecialChar ldots
 
 \begin_inset Quotes frd
 \end_inset
@@ -169,8 +171,8 @@ La tesi è strutturata nel modo seguente
 \end_inset
 
 .
- Nella sezione due si mostra\SpecialChar \ldots{}
-, nella sezione tre si illustra\SpecialChar \ldots{}
+ Nella sezione due si mostra\SpecialChar ldots
+, nella sezione tre si illustra\SpecialChar ldots
  .
 \end_layout
 
@@ -180,6 +182,14 @@ La tesi è strutturata nel modo seguente
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+TOODO HTTP BASED
+\series default
+ 
+\series bold
+applications, so improtant for realtime retrieve 
+\series default
 Today there are a lot of
 \begin_inset Quotes fld
 \end_inset
