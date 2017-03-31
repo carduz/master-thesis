@@ -2158,6 +2158,12 @@ no likes tested, CONCURRENCY(how t set?), stability of systems to a big
 define throughput (which requests
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+what is a request, they ar enot comprable
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
