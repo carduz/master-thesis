@@ -148,7 +148,7 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 
 \begin_layout Standard
 In today's applications, data are increasing exponentially and also need
- to be replicated to different devices in «realtime»; these different devices
+ to be replicated on different devices in «realtime»; these different devices
  should be able to use them even if they are offline.
  So the devices need a local copy of the database available also offline
  called «local database».
@@ -192,7 +192,7 @@ In this thesis, we will analyze some «CS-NoSQL» that implement the replication
 
 \begin_layout Standard
 To do that we implemented a comparing solution based on postgreSQL (an RDBMS
- server) that replicates data to clients using websocket, we also implemented
+ server) that replicates data on clients using websocket, we also implemented
  a simple local database for it.
 \begin_inset Newline newline
 \end_inset

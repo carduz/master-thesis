@@ -1,7 +1,9 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
+\save_transient_properties true
+\origin unavailable
 \textclass book
 \options openright
 \use_default_options false
@@ -11,16 +13,16 @@
 \language_package default
 \inputencoding auto
 \fontencoding T1
-\font_roman default
-\font_sans default
-\font_typewriter default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
-\font_sf_scale 100
-\font_tt_scale 100
-
+\font_sf_scale 100 100
+\font_tt_scale 100 100
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -31,15 +33,24 @@
 \use_hyperref false
 \papersize a4paper
 \use_geometry false
-\use_amsmath 2
-\use_esint 1
-\use_mhchem 0
-\use_mathdots 0
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
 \cite_engine basic
+\cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
 \suppress_date false
+\justification true
 \use_refstyle 0
 \index Indice
 \shortcut idx
@@ -81,6 +92,153 @@ Il testo delle tesi redatte in lingua straniera dovrà essere introdotto
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Nelle applicazioni di oggi, i dati crescono esponenzialmente e necessitano
+ di essere replicati su diversi device in 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+; questi device dovrebbero essere in grado di utilizzarli anche se sono
+ offline.
+ Quindi i device necessitano di una copia locale del database disponibile
+ anche offline chiamato 
+\begin_inset Quotes fld
+\end_inset
+
+database locale
+\begin_inset Quotes frd
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Il device tipico che usa questo tipo di applicazione è lo smartphone, ma
+ non solo, anche altre applicazioni web le usano, come ad esempio i software
+ collaborativi (come Google Docs).
+\end_layout
+
+\begin_layout Standard
+Sono state proposte diverse soluzioni basate sui database NoSQL, ma di certo
+ le soluzioni su misura basate su RDBMS sono fattibili.
+ Queste soluzioni (basate su NoSQL) non sono standardizzate, non si ha nemmeno
+ un nome per definirle quindi le chiameremo 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ (NoSQL lato client).
+ È stato scelto NoSQL perché i dati non sono strutturati e la loro quantità
+ potrebbe essere enorme.
+\begin_inset Newline newline
+\end_inset
+
+Inoltre, spesso, la 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ non è necessaria ma una 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+ è sufficiente, quindi viene scelta una 
+\begin_inset Quotes fld
+\end_inset
+
+partition tolerance
+\begin_inset Quotes frd
+\end_inset
+
+ secondo la teoria CAP.
+ La partition tolerance è sempre scelta, anche se viene scelta pure la 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+; in quel caso, la 
+\begin_inset Quotes fld
+\end_inset
+
+disponibilità
+\begin_inset Quotes frd
+\end_inset
+
+ decade.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Uno dei principali vantaggi è la loro completa integrazione, sono un ambiente
+ completo, mentre se vogliamo una soluzione basata su RDBMS abbiamo bisogno
+ di sviluppare un'intera infrastruttura.
+ 
+\end_layout
+
+\begin_layout Standard
+In questa tesi analizzeremo alcuni 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ che implementano la replicazione sui client.
+ Vogliamo verificare la loro performance e stabilità per le chiamate dell'applic
+azione per cui sono progettati, comparandoli con una soluzione basata su
+ un RDBMS.
+\end_layout
+
+\begin_layout Standard
+Per fare ciò, abbiamo implementato una soluzione comparata basata su postgreSQL
+ (un server RDBMS) che replica i dati sui client usando websocket, abbiamo
+ anche implementato un semplice database locale per esso.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Abbiamo creato un framework su misura per testare questo tipo di sistemi
+ e abbiamo effettuato dei test di riferimento emulando le differenti classi
+ di applicazioni per cui 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ sono stati progettati.
+ 
+\begin_inset Newline newline
+\end_inset
+
+Abbiamo scoperto che sono molto instabili e hanno una quantità di dati significa
+tiva e che la soluzione basata su postgreSQL che abbiamo proposto è più
+ veloce (fino a 10 volte di più).
+ Tuttavia, ci aspettiamo un miglioramento (per quanto riguarda performance
+ e stabilità) nei prossimi anni quando probabilmente saranno sviluppate
+ delle soluzioni più native.
 \end_layout
 
 \end_body
