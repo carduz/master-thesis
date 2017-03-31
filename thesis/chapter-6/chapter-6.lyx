@@ -2170,6 +2170,12 @@ what is a request, they ar enot comprable
 No postgre scalabilty
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+more process in socket.io
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
