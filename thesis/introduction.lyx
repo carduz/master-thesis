@@ -188,7 +188,9 @@ TOODO HTTP BASED
 \series default
  
 \series bold
-applications, so improtant for realtime retrieve 
+applications, so improtant for realtime retrieve, some aspects are seen
+ only from teoritical point of view (no seprimental) like partitioning or
+ cap 
 \series default
 Today there are a lot of
 \begin_inset Quotes fld

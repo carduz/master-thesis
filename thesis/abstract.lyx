@@ -294,7 +294,7 @@ CS-NoSQL
 \end_inset
 
 We discovered that they are very instable with a reasonable amount of data
- and that our proposed solution based on postgreSQL is quicker (10x).
+ and that our proposed solution based on postgreSQL is quicker (also 10x).
  Hoverer we expect an improvement (in terms of performance and stability)
  in the next years, when probably more native solutions will be developed.
 \end_layout

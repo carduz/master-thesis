@@ -697,7 +697,7 @@ Of course we have to test all the combinations: so we have 8 tests to do.
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -901,7 +901,7 @@ N° CPU
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2162,6 +2162,12 @@ define throughput (which requests
 
 \series bold
 what is a request, they ar enot comprable
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+No postgre scalabilty
 \end_layout
 
 \begin_layout Section
