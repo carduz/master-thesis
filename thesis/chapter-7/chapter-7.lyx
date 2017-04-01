@@ -175,6 +175,10 @@ latency in second
 \end_layout
 
 \begin_layout Standard
+N° of chcunks is a little concurrency
+\end_layout
+
+\begin_layout Standard
 explain difference betwen concurrency and writer number
 \end_layout
 
@@ -260,6 +264,12 @@ data manage, volum and other thing in the previous chap
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+we talk of writes but we measure latency of reads
+\end_layout
+
+\begin_layout Standard
 tests are reproducible
 \end_layout
 
@@ -329,8 +339,8 @@ Latency stability: the latency is stable in the time
 \begin_layout Itemize
 Write performance: if we have a big amount of writes (not necessarily concurrent
 ) they are very slow, increasing the latency.
- A the same time it seems that the concurrent writes are not critical (they
- do not influence the result respect a normal write).
+ A the same time it seems that the concurrent writes are not so critical
+ (they do not influence the result so much respect a normal write).
 \end_layout
 
 \begin_layout Standard
@@ -338,16 +348,17 @@ for each test we have:
 \end_layout
 
 \begin_layout Itemize
-Chat: latency is very high when we have more writers, but a big amount of
- readers are managed well.
+Chat: latency is very high when we have more writes (configuration 1 for
+ high number of chunks and case 3), but a big amount of readers are managed
+ well.
 \end_layout
 
 \begin_layout Itemize
 Collaborative: since we have more total writes the latency is higher in
  the first configuration, but it seems that concurrent writes are managed
- well.
- So we can suppose that the problem is due to the number of total writes,
- not to concurrent writes.
+ well if we they are few.
+ If we have a lot of concurrent writes like in the third configuration we
+ have very bad performances.
 \end_layout
 
 \begin_layout Itemize
@@ -6385,13 +6396,13 @@ Data volume: it seems that it depends, strongly, from the volume of the
 
 \begin_layout Itemize
 Latency stability: the latency is stable in the time, it is influenced by
- data volume (but in a regular way)
+ data volume (but in a regular way).
 \end_layout
 
 \begin_layout Itemize
 Write performance: they are very slow, increasing the latency.
  It seems also that concurrency writes are a problem (we had to skip some
- tests)
+ tests).
 \end_layout
 
 \begin_layout Standard
@@ -8008,15 +8019,12 @@ Data volume: it seems that it does not depend of the volume of the data,
 \end_layout
 
 \begin_layout Itemize
-Latency stability: the latency is stable in the time, in some tests is not
- so regular because the number of chunks was very high.
+Latency stability: the latency is not so stable.
 \end_layout
 
 \begin_layout Itemize
 Write performance: they are very quick.
- It seems, also, that concurrency writes are not a problem.
- it seems that the latency of the single write is a little slower (than
- other solutions), but of course more specific tests should be done.
+ It seems also that concurrency writes are not a problem.
 \end_layout
 
 \begin_layout Standard
@@ -8030,7 +8038,7 @@ Chat: a big amount of readers are managed well (latency is not influenced).
 
 \begin_layout Itemize
 Collaborative: it seems that concurrent writes are managed not so bad.
- Increase of the latency is not big (respect to other systems) and decrease
+ Increase of the latency is not so big (respect to other systems) and decrease
  of the throughput is not so big.
 \end_layout
 
@@ -9600,25 +9608,7 @@ Social (traditional) benchmarks
 \end_layout
 
 \begin_layout Section
-Conclusions
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Recap features for each system? whcich system amanhes well that feature
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Change title
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-measure absolute values of throughput and altency
+Analysis of the Results
 \end_layout
 
 \begin_layout Standard
@@ -9635,16 +9625,175 @@ CS-NoSQL
 \end_layout
 
 \begin_layout Itemize
-Higher thourghput
+Highest throughput: except for first two configurations of 
+\begin_inset Quotes fld
+\end_inset
+
+collaborative
+\begin_inset Quotes frd
+\end_inset
+
+ tests.
+\end_layout
+
+\begin_layout Itemize
+Low latency: except for 
+\begin_inset Quotes fld
+\end_inset
+
+collaborative
+\begin_inset Quotes frd
+\end_inset
+
+ tests.
+\end_layout
+
+\begin_layout Itemize
+Efficient subscriptions delivery: latency does not increase when the number
+ of subscriptions are created.
+ As shown in 
+\begin_inset Quotes fld
+\end_inset
+
+chat
+\begin_inset Quotes frd
+\end_inset
+
+ test.
+\end_layout
+
+\begin_layout Itemize
+Efficient multiple subscriptions delivery: even if the number of subscriptions
+ increase in the time during the test, the latency remains the same.
+ As shown in 
+\begin_inset Quotes fld
+\end_inset
+
+social
+\begin_inset Quotes frd
+\end_inset
+
+ test.
+\end_layout
+
+\begin_layout Itemize
+Better performances when there are a lot of concurrent writes: as shown
+ in 
+\begin_inset Quotes fld
+\end_inset
+
+collaborative
+\begin_inset Quotes frd
+\end_inset
+
+ tests.
+\end_layout
+
+\begin_layout Itemize
+It does not depend from data volume.
 \end_layout
 
 \begin_layout Standard
-Collaborative is better in couchbase for low volumes, pouchdb 8excpet for
- a lot of subscriptions)
+Of course, there are some points where it is not so good like 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Latency stability
+\end_layout
+
+\begin_layout Itemize
+Concurrent writes for few data: in the first configurations of 
+\begin_inset Quotes fld
+\end_inset
+
+collaborative
+\begin_inset Quotes frd
+\end_inset
+
+ tests, latency and throughput are not so good.
+ But if we increase the data we obtain better results than other systems.
+\end_layout
+
+\begin_layout Itemize
+Scalability.
+ As we have seen it depends from processor.
+ But as we have seen in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Architecture-traditional"
+
+\end_inset
+
+ we can use a load balancer; moreover, since we used standard technologies,
+ we can use standard technologies 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PM2"
+
+\end_inset
+
+ to implement 
+\begin_inset Quotes fld
+\end_inset
+
+load balance
+\begin_inset Quotes frd
+\end_inset
+
+ between local cores.
 \end_layout
 
 \begin_layout Standard
-traditional : it is easy to distribute
+There is no 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ with a number of advantages like tradition solution proposed.
+\begin_inset Newline newline
+\end_inset
+
+The only advantage, except the easy of configure since they are a full stack
+ environment, seems to be the performance when we have a few number of concurren
+t writes, so when we have #reads 
+\begin_inset Formula $\simeq$
+\end_inset
+
+#writes.
+ It is the main expectation that we had, analyzing classes of applications
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:class-of-applications"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+So we proved that, except for 
+\begin_inset Quotes fld
+\end_inset
+
+collaborative
+\begin_inset Quotes frd
+\end_inset
+
+ tests, we have better results with a traditional approach.
+ Of course NoSQL are designed to partition them self better, but this is
+ useless if the basic performances are not so good.
 \end_layout
 
 \end_body

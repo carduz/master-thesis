@@ -590,7 +590,7 @@ key "FirePad"
  documents or permissions) in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lis:Collaborative-software-structure"
+reference "lis:Collaborative-sw-struc"
 
 \end_inset
 
@@ -610,7 +610,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "lis:Collaborative-software-structure"
+name "lis:Collaborative-sw-struc"
 
 \end_inset
 
