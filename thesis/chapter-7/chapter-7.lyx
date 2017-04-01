@@ -74,7 +74,40 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will show the results of tests in 
+In this chapter we see the benchmarks tests that we have done according
+ to what we have seen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Benchmarks-strategy"
+
+\end_inset
+
+, for the classes of applications we analyzed in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:class-of-applications"
+
+\end_inset
+
+ and for systems we have seen in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:technologies"
+
+\end_inset
+
+ and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:A-traditional-approach"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We will show the results of tests in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-bench"
