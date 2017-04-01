@@ -196,7 +196,7 @@ name "subsec:PostgreeSQL"
 
 \end_inset
 
-PostgreeSQL
+PostgreSQL
 \end_layout
 
 \begin_layout Standard
@@ -268,7 +268,7 @@ master-slaves
 \end_layout
 
 \begin_layout Standard
-PostgreeSQL 
+PostgreSQL 
 \begin_inset Foot
 status open
 
