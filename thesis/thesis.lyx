@@ -68,6 +68,10 @@
 \paperfontsize 11
 \spacing onehalf
 \use_hyperref true
+\pdf_title "Evaluating Client-Side Replicated NoSQL Databases Approaches"
+\pdf_author "Claudio Cardinale"
+\pdf_subject "Master Thesis"
+\pdf_keywords "NoSQL; replicated; realtime; CS-NoSQL; client-side"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
@@ -666,7 +670,7 @@ filename "chapter-2/chapter-2.lyx"
 \end_layout
 
 \begin_layout Chapter
-Analysis of Some NoSQL Databases
+Analysis of Some CS-NoSQL 
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:technologies"
@@ -722,7 +726,7 @@ filename "chapter-4/chapter-4.lyx"
 \end_layout
 
 \begin_layout Chapter
-Class of Applications
+Classes of Applications
 \begin_inset CommandInset label
 LatexCommand label
 name "chap:class-of-applications"

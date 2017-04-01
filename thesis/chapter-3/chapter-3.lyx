@@ -74,8 +74,15 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will analyze some NoSQL databases, selecting some of
- them for further analysis in the next chapters.
+In this chapter we will analyze some 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+, selecting some of them for further analysis in the next chapters.
  We will explain which are the classes of applications where these systems
  should be better than a traditional approach in 
 \begin_inset CommandInset ref
@@ -107,8 +114,15 @@ reference "sec:Characteristics-to-consider"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see some real NoSQL databases (open source and in cloud) in
- 
+Then we will see some real 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ (open source and in cloud) in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:AnalysisNoSQL"

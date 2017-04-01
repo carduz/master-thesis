@@ -109,7 +109,7 @@ reference "subsec:Custom-framework"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see how to test the class of applications seen 
+Then we will see how to test the classes of applications seen 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:class-of-applications"
@@ -1266,7 +1266,7 @@ Tests to do
 \end_layout
 
 \begin_layout Standard
-In this section we will see what every class of the class of applications
+In this section we will see what every class of the classes of applications
  (analyzed previously) needs.
  We will also define for each of them the number of clients to be used for
  tests, for some of them we can define more versions (e.g.
@@ -2173,7 +2173,19 @@ No postgre scalabilty
 \begin_layout Standard
 
 \series bold
+How react when data size increase
+\end_layout
+
+\begin_layout Standard
+
+\series bold
 more process in socket.io
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+number of subscription increases during the time.
 \end_layout
 
 \begin_layout Section

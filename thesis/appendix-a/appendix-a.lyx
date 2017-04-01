@@ -74,10 +74,6 @@
 \begin_body
 
 \begin_layout Section
-A traditional approach
-\end_layout
-
-\begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:PostgreSQL-realtime-retrieve"
@@ -336,14 +332,14 @@ CREATE TRIGGER notify_trigger
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Custom-logic-appendix"
 
 \end_inset
 
-Custom logic
+Socket.io custom logic
 \end_layout
 
 \begin_layout Standard

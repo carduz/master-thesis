@@ -186,8 +186,8 @@ One of the main advantages of «CS-NoSQL» is their full integration, they
 \begin_layout Standard
 In this thesis, we will analyze some «CS-NoSQL» that implement the replication
  to the clients.
- We want to verify their performance and stability for the calls of application
- they are designed for, comparing them with a solution based on an RDBMS.
+ We want to verify their performance and stability for the classes of applicatio
+ns they are designed for, comparing them with a solution based on an RDBMS.
 \end_layout
 
 \begin_layout Standard
@@ -198,7 +198,7 @@ To do that we implemented a comparing solution based on postgreSQL (an RDBMS
 \end_inset
 
 We created a custom framework to test this kind of systems and we did some
- benchmark tests  emulating the different classes of applications for which
+ benchmark tests emulating the different classes of applications for which
  «CS-NoSQL» are designed.
 \begin_inset Newline newline
 \end_inset
