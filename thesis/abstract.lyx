@@ -209,7 +209,7 @@ eventually consistency
 \begin_inset Quotes frd
 \end_inset
 
- is enough so a 
+ is enough so the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -218,7 +218,15 @@ partition tolerance
 \end_inset
 
  is chosen according to the CAP theorem.
- Partition tolerance is always chosen, even if the 
+ 
+\begin_inset Quotes fld
+\end_inset
+
+Partition tolerance
+\begin_inset Quotes frd
+\end_inset
+
+ is always chosen, even if the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -226,7 +234,7 @@ strong consistency
 \begin_inset Quotes frd
 \end_inset
 
- is chosen; in that case, the 
+ is too; in that case, the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -251,7 +259,7 @@ CS-NoSQL
 \end_layout
 
 \begin_layout Standard
-In this thesis, we will analyze some 
+In this thesis, we analyzed some 
 \begin_inset Quotes fld
 \end_inset
 
