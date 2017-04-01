@@ -135,18 +135,6 @@ reference "chap:A-traditional-approach"
 \end_inset
 
 , and what to consider.
-\begin_inset Newline newline
-\end_inset
-
-Finally we will see what we have to consider for our analysis of the results
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Analysis-of-the-test-stratgey"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
@@ -1196,6 +1184,15 @@ reference "sec:Tests-to-do-test"
  and 100 reader clients.
  So an important information is the latency of the synchronization to all
  these clients.
+ We call execution the write/read data according to number of writer/readers
+ specified in the model in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Tests-to-do-test"
+
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -1203,17 +1200,16 @@ So we measure the following things:
 \end_layout
 
 \begin_layout Itemize
-Latency to synchronize all clients
+For every execution: latency to synchronize all clients and throughput (request/
+latency to synchronize all).
 \end_layout
 
 \begin_layout Itemize
-Mean (with variance) latency of each client to get data
+Mean (with variance) latency to get data by each client.
 \end_layout
 
 \begin_layout Itemize
-Throughput
-\series bold
-TODO DEFINE
+Throughput: number of requests (read/writes) per second.
 \end_layout
 
 \begin_layout Standard
@@ -1289,14 +1285,17 @@ All data shown (like the number of clients) are found after some minor empirical
 \begin_layout Standard
 In some cases data structure needs some changes to be adapted to the model
  of the database used.
- There are minor changes that are not shown here, of course the code on
- github contains everything.
+ There are minor changes (simplifications) that are not shown here, of course
+ the code on github contains everything.
 \end_layout
 
 \begin_layout Standard
 We should consider also the size of data, but after some experiments, we
  have seen that some systems do not support a big amount of data.
  So the test would be inconsistent.
+ Of course we analyze the data volume adaptability, with data volume we
+ means the volume of the data in the database (not the size of the single
+ field).
 \end_layout
 
 \begin_layout Subsection
@@ -2127,63 +2126,6 @@ A client is subscribed to half of posts.
  So the more time passes, the more subscriptions are created.
 \end_layout
 
-\begin_layout Standard
-
-\series bold
-TODO FIx names fo pivot tables, each writer is an user that writes post,
- a clients subscribe to one post every two.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-no likes tested, CONCURRENCY(how t set?), stability of systems to a big
- amount of data, bad documentation.
- they can die if a lot of memory is required
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-define throughput (which requests
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-what is a request, they ar enot comprable
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-How react when data size increase
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO SIMPLification in tests
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-chunks
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-instant thorughput
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-data manage, volum and other thing in the previous chap
-\end_layout
-
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -2324,32 +2266,6 @@ Write command: it is a normal asynchronous call.
 
 \begin_layout Itemize
 Data callback: it returns new data from the local database.
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Analysis-of-the-test-stratgey"
-
-\end_inset
-
-Analysis of the results
-\end_layout
-
-\begin_layout Standard
-TODO all tryes to do
-\end_layout
-
-\begin_layout Standard
-TODO:
-\end_layout
-
-\begin_layout Standard
-callback return always new data
-\end_layout
-
-\begin_layout Standard
-static init skipped
 \end_layout
 
 \end_body

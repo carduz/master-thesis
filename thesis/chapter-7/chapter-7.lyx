@@ -170,9 +170,9 @@ In the table we reported results for different number of clients and for
 \end_layout
 
 \begin_layout Standard
-For each system we do some comments for: scalability, data volume, latency
- stability and write performances (what is possible deduct from indirect
- measurements that do).
+For each system we do some comments for: scalability, data volume adaptability,
+ latency stability and write performances (what is possible to deduct from
+ indirect measurements that do).
 \begin_inset Newline newline
 \end_inset
 
@@ -288,7 +288,7 @@ Scalability: it depends, strongly, from the CPU, but it has a low scalability.
 \end_layout
 
 \begin_layout Itemize
-Data volume: it depends from the total volume of data.
+Data volume adaptability: it depends from the total volume of data.
  Gradually the data increase the latency increases, in fact (during pre
  tests, the development phase) we needed to clear database to have a reasonable
  speed (thing not needed with other systems).
@@ -3300,8 +3300,8 @@ Scalability: it depends from the CPU and RAM.
 \end_layout
 
 \begin_layout Itemize
-Data volume: it seems that it does not depend of the volume of the data,
- of course more specific tests should be done.
+Data volume adaptability: it seems that it does not depend of the volume
+ of the data, of course more specific tests should be done.
 \end_layout
 
 \begin_layout Itemize
@@ -6320,8 +6320,8 @@ out of memory
 \end_layout
 
 \begin_layout Itemize
-Data volume: it seems that it depends, strongly, from the volume of the
- data.
+Data volume adaptability: it seems that it depends, strongly, from the volume
+ of the data.
 \end_layout
 
 \begin_layout Itemize
@@ -7933,8 +7933,8 @@ Scalability: it does not depends from the RAM.
 \end_layout
 
 \begin_layout Itemize
-Data volume: it seems that it does not depend of the volume of the data,
- of course more specific tests should be done.
+Data volume adaptability: it seems that it does not depend of the volume
+ of the data, of course more specific tests should be done.
 \end_layout
 
 \begin_layout Itemize
