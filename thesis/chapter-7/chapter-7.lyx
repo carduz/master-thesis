@@ -311,7 +311,15 @@ Tests
 \end_layout
 
 \begin_layout Standard
-Some tests were not executed, since they have not be setuped in a reasonable
+..
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Note
+\series default
+: Some tests were not executed, since they have not be setuped in a reasonable
  time (>60seconds) or the server dies.
 \end_layout
 
@@ -6341,44 +6349,12 @@ Gun.js
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-FIXI we need just tos cale RAM
-\end_layout
-
-\begin_layout Standard
-it must be restarted to clean it after a big usage
-\end_layout
-
-\begin_layout Standard
-the performances reduce during the time
-\end_layout
-
-\begin_layout Standard
-out of memory
-\end_layout
-
-\begin_layout Standard
-with few ram it is killed
-\end_layout
-
-\begin_layout Standard
-it ddies fi we execute somethign for 30 second, but not if we execute it
- for only 5 seconds
-\end_layout
-
-\begin_layout Standard
-CPU saturates
-\end_layout
-
-\begin_layout Standard
-We remember we have 1 cpu for gun.js 
-\series bold
-TODO
+We recall that we use only 1CPU for socket.io server.
 \end_layout
 
 \begin_layout Itemize
-Scalability: it depends, strongly, from the RAM: Often it died for 
+Scalability: it depends, strongly, from the RAM.
+ Often it died for 
 \begin_inset Quotes fld
 \end_inset
 
@@ -6386,7 +6362,8 @@ out of memory
 \begin_inset Quotes frd
 \end_inset
 
-, but at the same time have seen that it saturated the only core used.
+ (after some seconds of tests, so it does not die for few seconds tests),
+ but at the same time have seen that it saturated the only core used.
 \end_layout
 
 \begin_layout Itemize
@@ -7989,23 +7966,12 @@ Traditional
 \end_layout
 
 \begin_layout Standard
-Latency bad in the first due to concurrent???
+We recall that we use only 1CPU for socket.io server.
 \end_layout
 
 \begin_layout Standard
-TIME in collaborative
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-TODO no postgreSQL
-\end_layout
-
-\begin_layout Standard
-We remember we have 1CPU for socket.io 
-\series bold
-TODO
+Moreover, after some tests, we have seen that postgreSQL is not the bottleneck,
+ so can avoid to test different environments for it.
 \end_layout
 
 \begin_layout Itemize
