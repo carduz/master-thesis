@@ -816,27 +816,6 @@ filename "chapter-7/chapter-7.lyx"
 
 \end_layout
 
-\begin_layout Chapter
-Chapter 8
-\begin_inset CommandInset label
-LatexCommand label
-name "chap:eighth-chapter"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "chapter-8/chapter-8.lyx"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter*
 Conclusions
 \begin_inset CommandInset label

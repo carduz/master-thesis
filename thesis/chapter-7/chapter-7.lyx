@@ -74,12 +74,6 @@
 \begin_body
 
 \begin_layout Standard
-
-\series bold
-TODO GITHUB LINKS IN CHAP 4
-\end_layout
-
-\begin_layout Standard
 TODO FIX CONSISTENCY IN CHAP 4
 \end_layout
 
@@ -132,14 +126,6 @@ anlyzi stability of latency in the time
 
 \begin_layout Standard
 concurrency find on bet conditions to find out the max throughput
-\end_layout
-
-\begin_layout Standard
-30 seocnds test (about)
-\end_layout
-
-\begin_layout Standard
-if js not scale is the CPU
 \end_layout
 
 \begin_layout Standard
@@ -244,22 +230,6 @@ instant rhgouput and other things
 \end_layout
 
 \begin_layout Standard
-carateristics of each test
-\end_layout
-
-\begin_layout Standard
-latency measured in seconds
-\end_layout
-
-\begin_layout Standard
-say all things we have calcualted
-\end_layout
-
-\begin_layout Standard
-check where concurrency was used
-\end_layout
-
-\begin_layout Standard
 data manage, volum and other thing in the previous chap
 \end_layout
 
@@ -269,17 +239,9 @@ data manage, volum and other thing in the previous chap
 we talk of writes but we measure latency of reads
 \end_layout
 
-\begin_layout Standard
-tests are reproducible
-\end_layout
-
 \begin_layout Itemize
 This because the each reader is subscribed to more things, moreover the
  number of subscription increases during the time.
-\end_layout
-
-\begin_layout Standard
-todo chap8
 \end_layout
 
 \begin_layout Standard
@@ -288,8 +250,75 @@ todo chap8
 EXPLAINE FOLLWOING ACCORDING TO DATA CHOOSEN FOR TESTS
 \end_layout
 
+\begin_layout Standard
+In this chapter we will show the results of tests in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Tests-bench"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Then we will analyze them in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Analysis-bench"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Tests-bench"
+
+\end_inset
+
+Tests
+\end_layout
+
+\begin_layout Standard
+Here we show data of the execution of the tests.
+ We tried, when possible, to simplify them to avoid to do some tests.
+\begin_inset Newline newline
+\end_inset
+
+Moreover even if we generate measure different data (such as instant throughput
+ or variance of latency), since they would make the comparison confusing,
+ we show only complete throughput (in the table) and latency in seconds
+ mean (in charts) .
+ Of course the tool developed generate the other data and tests can be easily
+ reproduced.
+\end_layout
+
+\begin_layout Standard
+For each system we have executed the test for every class of application.
+ For each of them we have a table (with executions) and a chart.
+\begin_inset Newline newline
+\end_inset
+
+In the table we reported results for different number of clients and for
+ different environments, but in the charts we reported only results for
+ different clients using the best environment.
+\end_layout
+
+\begin_layout Standard
+For each system we do some comments for: scalability, data volume, latency
+ stability and write performances.
+\begin_inset Newline newline
+\end_inset
+
+Then we do observations for each class of applications, remember that the
+ main thing to test for each of them is:
+\end_layout
+
 \begin_layout Itemize
-Chat: we test subscription delivery effiiciency
+Chat: we test subscription delivery efficiency
 \end_layout
 
 \begin_layout Itemize
@@ -301,17 +330,48 @@ Social: we test multiple subscription efficiency
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-WHY only one image?
-\end_layout
-
-\begin_layout Section
-Tests
+The tests are executed for 30 seconds, more to finish all executions.
 \end_layout
 
 \begin_layout Standard
-..
+For each configuration of number of clients, for each class of application
+ and for system we had to find the right value of 
+\begin_inset Quotes fld
+\end_inset
+
+concurrency
+\begin_inset Quotes frd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+It is the number of concurrent executions, an execution is the write/read
+ data from the writer/reads specified by the model.
+ When an execution is finished another is started (to keep the same consistency
+ value).
+\begin_inset Newline newline
+\end_inset
+
+So the total number of writes/reads started together is equal to #writes/reads
+ in the model 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ concurrency.
+\begin_inset Newline newline
+\end_inset
+
+Concurrency influences the number of task sent to the same writer, but often
+ a writer (depends on the implementation of the client of the server) sends
+ data in a sequential way.
+ So to send data in a concurrent way we have to emulate more writers.
+\begin_inset Newline newline
+\end_inset
+
+This value is found in an empirical way: the value chosen is the first value
+ (starting from lower) that guarantees the max throughput.
 \end_layout
 
 \begin_layout Standard
@@ -345,8 +405,8 @@ Latency stability: the latency is stable in the time
 \end_layout
 
 \begin_layout Itemize
-Write performance: if we have a big amount of writes (not necessarily concurrent
-) they are very slow, increasing the latency.
+Write performances: if we have a big amount of writes (not necessarily concurren
+t) they are very slow, increasing the latency.
  A the same time it seems that the concurrent writes are not so critical
  (they do not influence the result so much respect a normal write).
 \end_layout
@@ -357,8 +417,7 @@ for each test we have:
 
 \begin_layout Itemize
 Chat: latency is very high when we have more writes (configuration 1 for
- high number of chunks and case 3), but a big amount of readers are managed
- well.
+ high concurrency and case 3), but a big amount of readers are managed well.
 \end_layout
 
 \begin_layout Itemize
@@ -3356,7 +3415,7 @@ Latency stability: the latency is not stable in the time
 \end_layout
 
 \begin_layout Itemize
-Write performance: they are very slow, increasing the latency.
+Write performances: they are very slow, increasing the latency.
  It seems also that concurrent writes are a problem (we had to skip some
  tests).
 \end_layout
@@ -6349,7 +6408,7 @@ Gun.js
 \end_layout
 
 \begin_layout Standard
-We recall that we use only 1CPU for socket.io server.
+We recall that we use only 1 CPU for socket.io server.
 \end_layout
 
 \begin_layout Itemize
@@ -6377,7 +6436,7 @@ Latency stability: the latency is stable in the time, it is influenced by
 \end_layout
 
 \begin_layout Itemize
-Write performance: they are very slow, increasing the latency.
+Write performances: they are very slow, increasing the latency.
  It seems also that concurrency writes are a problem (we had to skip some
  tests).
 \end_layout
@@ -7989,7 +8048,7 @@ Latency stability: the latency is not so stable.
 \end_layout
 
 \begin_layout Itemize
-Write performance: they are very quick.
+Write performances: they are very quick.
  It seems also that concurrency writes are not a problem.
 \end_layout
 
@@ -9574,6 +9633,12 @@ Social (traditional) benchmarks
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Analysis-bench"
+
+\end_inset
+
 Analysis of the Results
 \end_layout
 

@@ -697,7 +697,7 @@ Of course we have to test all the combinations: so we have 8 tests to do.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -901,7 +901,7 @@ N° CPU
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1301,13 +1301,15 @@ We should consider also the size of data, but after some experiments, we
 Realtime Chat
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Clients
 \end_layout
 
 \begin_layout Standard
 As we said previously, since it has a room based chat, we expect #reads
  >> #writes.
+ This example is useful to test the performances of a lot of clients subscribed
+ to a subscription.
  So a reasonable number of clients could be the one shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1531,7 +1533,7 @@ N° Room
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Data generation
 \end_layout
 
@@ -1545,7 +1547,7 @@ After a trial data initialization (e.g.
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Writing
 \end_layout
 
@@ -1553,7 +1555,7 @@ Writing
 We want that a writer is subscribed only to one room.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Reading
 \end_layout
 
@@ -1565,7 +1567,7 @@ We want that each read is subscribed to 2 rooms (if possible)
 Collaborative Software
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Clients
 \end_layout
 
@@ -1575,6 +1577,7 @@ As we said previously, we expect #reads
 \end_inset
 
 #writes.
+ This example is useful to test the performances of concurrent writes.
  So a reasonable number of clients could be the one shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1758,7 +1761,7 @@ N° Reader
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Data generation
 \end_layout
 
@@ -1842,7 +1845,7 @@ Collaborative software change structure
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Writing
 \end_layout
 
@@ -1850,7 +1853,7 @@ Writing
 Here the writing is trivial, all clients write to history (list of changes).
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Reading
 \end_layout
 
@@ -1862,12 +1865,14 @@ Here the reading is trivial, all clients subscribe to history (list of changes).
 Social
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Clients
 \end_layout
 
 \begin_layout Standard
 As we said previously we expect #reads >> #writes.
+ This example is useful to test the performances of a lot of clients subscribed
+ to multiple subscriptions.
  So a reasonable number of clients could be the one shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2056,74 +2061,57 @@ N° Reader
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Data generation
 \end_layout
 
 \begin_layout Standard
 After a trial data initialization (e.g.
- users creation), we have different things to send:
+ users creation), we have different things:
 \end_layout
 
 \begin_layout Itemize
-Posts: we should generate fake texts (contents)
-\end_layout
-
-\begin_layout Itemize
-Likes: we should link users to posts.
- Of course since there are no checks we can generate random ids (also non
- exiting ones).
+Posts: we should generate fake texts (contents).
 \end_layout
 
 \begin_layout Itemize
 Comments: we should link users to posts.
  Of course since there are no checks we can generate random ids (also non
- exiting ones).
+ exiting ones) for references.
+\end_layout
+
+\begin_layout Itemize
+Likes: we can see that they are like comments.
+ So, to simplify, we can skip them.
 \end_layout
 
 \begin_layout Standard
-We can say that there are more comments and likes than posts, for simplicity
- we can say that the number of comments and likes is the same.
- So to emulate everything we can have the following write frequencies:
-\end_layout
-
-\begin_layout Itemize
-Post: 10%
-\end_layout
-
-\begin_layout Itemize
-Like: 45%
-\end_layout
-
-\begin_layout Itemize
-Comment: 45%
+We can say that there are more comments than posts, for simplicity we can
+ send a post every 9 comments.
 \end_layout
 
 \begin_layout Standard
-As we will see in the next section we have also to create posts in likes
- and comments.
- To distinguish them from other things we will call a post of like post-like
- and a post of comment post-comments.
+When we generate a post we have a new post that can have comments, and where
+ users can subscribe.
+ So we have a subscription to new posts and multiple subscriptions for comments,
+ each for every post.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Writing
 \end_layout
 
 \begin_layout Standard
-As said previously the creation of a post is done every 9 other creations,
- it is done by all writers.
+As said previously the creation of a post is done every 9 comments, it is
+ done by all writers.
 \end_layout
 
 \begin_layout Standard
-The creation of comments and likes increases with time, we want that each
- post-likes and each post-comments has 2 writers (if possible).
- Of course the fact that likes increase in this way is not realistic but
- it is not a problem (we want to test the performance so this makes the
- system more robust).
+We want that for each post we have two writers that write comments (if possible).
+ The writers can comment to all posts, also older posts.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Reading
 \end_layout
 
@@ -2132,7 +2120,7 @@ All clients subscribe to posts, they read all the new posts.
 \end_layout
 
 \begin_layout Standard
-We want that each post-likes and each post-comments has 50 readers.
+A client is subscribed to half of posts.
  Even if new posts are created the old subscriptions are not deleted.
  So the more time passes, the more subscriptions are created.
 \end_layout
@@ -2167,25 +2155,19 @@ what is a request, they ar enot comprable
 \begin_layout Standard
 
 \series bold
-No postgre scalabilty
-\end_layout
-
-\begin_layout Standard
-
-\series bold
 How react when data size increase
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-more process in socket.io
+TODO SIMPLification in tests
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
 \series bold
-number of subscription increases during the time.
+chunks
 \end_layout
 
 \begin_layout Section
@@ -2234,7 +2216,7 @@ Now we will analyze quickly how to implement these for all the platforms.
 CS-NoSQL
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 CouchBase
 \end_layout
 
@@ -2243,8 +2225,20 @@ Subscription: we cannot manage channels, we can choose only to which document
  we subscribe.
  So we receive notifications for every change in documents where we are
  subscribed.
+
 \series bold
-TODO filter
+ 
+\series default
+We could use filters 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseFilters"
+
+\end_inset
+
+ as workaround to this problem, but they are not so efficient and they are
+ not so easy to use in a real environment (due to permissions needed to
+ create filters).
 \end_layout
 
 \begin_layout Itemize
@@ -2252,10 +2246,10 @@ Write command: it is a normal asynchronous call.
 \end_layout
 
 \begin_layout Itemize
-Data callback: we return new data from local database.
+Data callback: it returns new data from the local database.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 PouchDB
 \end_layout
 
@@ -2281,10 +2275,10 @@ Write command: it is a normal asynchronous call.
 \end_layout
 
 \begin_layout Itemize
-Data callback: we return new data from local database.
+Data callback: it returns new data from the local database.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Gun.js
 \end_layout
 
@@ -2298,10 +2292,10 @@ Write command: it is a normal asynchronous call.
 \end_layout
 
 \begin_layout Itemize
-Data callback: we return new data from local database.
+Data callback: it returns new data from the local database.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Traditional approach
 \end_layout
 
@@ -2315,7 +2309,7 @@ Write command: it is a normal asynchronous call.
 \end_layout
 
 \begin_layout Itemize
-Data callback: we return new data from local database.
+Data callback: it returns new data from the local database.
 \end_layout
 
 \begin_layout Section
