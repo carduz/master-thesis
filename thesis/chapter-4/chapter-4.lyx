@@ -1007,9 +1007,9 @@ So the only thing we have to solve is the notifications of changes to an
 \begin_inset Newline newline
 \end_inset
 
-The trivial solution (and general) is a trigger that callss an external
- program (that publishes data on publish/subscribe system), this can be
- done easily using Pl/sh as shown in appendix 
+The trivial solution (and general) is a trigger that calls an external program
+ (that publishes data on publish/subscribe system), this can be done easily
+ using PL/sh as shown in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:PostgreSQL-realtime-retrieve"
@@ -1157,7 +1157,7 @@ It implements a distributed (via redis) publish/subscribe, i.e.
 \end_layout
 
 \begin_layout Standard
-When a message is published on a broker server this replicate it on redis,
+When a message is published on a broker server this replicates it on redis,
  then other broker servers read it and send it to the subscribed clients.
  So the listener script described in 
 \begin_inset CommandInset ref

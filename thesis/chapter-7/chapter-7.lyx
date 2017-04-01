@@ -74,8 +74,8 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we see the benchmarks tests that we have done according
- to what we have seen 
+In this chapter we see the benchmark tests that we have done according to
+ what we have seen 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks-strategy"
@@ -89,7 +89,7 @@ reference "chap:class-of-applications"
 
 \end_inset
 
- and for systems we have seen in 
+ and for the systems we have seen in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
@@ -107,7 +107,7 @@ reference "chap:A-traditional-approach"
 \end_layout
 
 \begin_layout Standard
-We will show the results of tests in 
+We will show the test results in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-bench"
@@ -144,27 +144,27 @@ Here we show data of the execution of the tests.
 \begin_inset Newline newline
 \end_inset
 
-Moreover even if we generate measure different data (such as instant throughput
- or variance of latency) explained in 
+Moreover even if we measure different data (such as request throughput or
+ variance of latency) explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-framework"
 
 \end_inset
 
-, since they would make the comparison confusing, we show only complete
- throughput (in the table) and latency in seconds mean (in charts) .
- Of course the tool developed generate the other data and tests can be easily
- reproduced.
+, since they would make the comparison confusing, we show only final throughput
+ (in tables) and average latency in seconds (in charts).
+ Of course the tool developed generates the other data and tests can be
+ easily reproduced.
 \end_layout
 
 \begin_layout Standard
-For each system we have executed the test for every class of application.
+For each system we have executed the test for every class of applications.
  For each of them we have a table (with executions) and a chart.
 \begin_inset Newline newline
 \end_inset
 
-In the table we reported results for different number of clients and for
+In the table we reported results for different numbers of clients and for
  different environments, but in the charts we reported only results for
  different clients using the best environment.
 \end_layout
@@ -189,7 +189,7 @@ Collaborative: we test the concurrent writes efficiency.
 \end_layout
 
 \begin_layout Itemize
-Social: we test multiple subscription efficiency, we recall also that the
+Social: we test multiple subscription efficiency, we also remind that the
  number of subscriptions increases during the time.
 \end_layout
 
@@ -200,8 +200,8 @@ The tests were executed for 30 seconds, more to finish all executions.
 \end_layout
 
 \begin_layout Standard
-For each configuration of number of clients, for each class of application
- and for system we had to find the right value of 
+For each configuration of number of clients, for each class of applications
+ and for systems we had to find the right value of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -214,7 +214,7 @@ concurrency
 \end_inset
 
 It is the number of concurrent executions, an execution is the write/read
- data according to number of writer/readers specified by the model.
+ data according to the number of writers/readers specified by the model.
  When an execution is finished another is started (to keep the same consistency
  value).
 \begin_inset Newline newline
@@ -289,42 +289,42 @@ Scalability: it depends, strongly, from the CPU, but it has a low scalability.
 
 \begin_layout Itemize
 Data volume adaptability: it depends from the total volume of data.
- Gradually the data increase the latency increases, in fact (during pre
- tests, the development phase) we needed to clear database to have a reasonable
+ Gradually data increase the latency increases, in fact (during pre-tests,
+ the development phase) we needed to clear the database to have a reasonable
  speed (thing not needed with other systems).
 \end_layout
 
 \begin_layout Itemize
-Latency stability: the latency is stable in the time
+Latency stability: the latency is stable in time.
 \end_layout
 
 \begin_layout Itemize
 Write performances: if we have a big amount of writes (not necessarily concurren
 t) they are very slow, increasing the latency.
- A the same time it seems that the concurrent writes are not so critical
- (they do not influence the result so much respect a normal write).
+ At the same time it seems that the concurrent writes are not so critical
+ (they do not influence the result so much compared with a normal write).
 \end_layout
 
 \begin_layout Standard
-for each test we have:
+For each test we have:
 \end_layout
 
 \begin_layout Itemize
 Chat: latency is very high when we have more writes (configuration 1 for
- high concurrency and case 3), but a big amount of readers are managed well.
+ high concurrency and case 3), but a big amount of readers are well managed.
 \end_layout
 
 \begin_layout Itemize
 Collaborative: since we have more total writes the latency is higher in
- the first configuration, but it seems that concurrent writes are managed
- well if we they are few.
+ the first configuration, but it seems that concurrent writes are well managed
+ if we they are few.
  If we have a lot of concurrent writes like in the third configuration we
  have very bad performances.
 \end_layout
 
 \begin_layout Itemize
-Social: when we have more readers and so a lot of subscriptions the things
- go bad.
+Social: when we have more readers and so a lot of subscriptions things go
+ bad.
 \end_layout
 
 \begin_layout Standard
@@ -3300,12 +3300,12 @@ Scalability: it depends from the CPU and RAM.
 \end_layout
 
 \begin_layout Itemize
-Data volume adaptability: it seems that it does not depend of the volume
- of the data, of course more specific tests should be done.
+Data volume adaptability: it seems that it does not depend on the volume
+ of data, of course more specific tests should be done.
 \end_layout
 
 \begin_layout Itemize
-Latency stability: the latency is not stable in the time
+Latency stability: the latency is not stable in time.
 \end_layout
 
 \begin_layout Itemize
@@ -3315,22 +3315,22 @@ Write performances: they are very slow, increasing the latency.
 \end_layout
 
 \begin_layout Standard
-for each test we have:
+For each test we have:
 \end_layout
 
 \begin_layout Itemize
 Chat: latency is high when we have more writers, but a big amount of readers
- are managed well (latency is not influenced).
+ are well managed (latency is not influenced).
 \end_layout
 
 \begin_layout Itemize
-Collaborative: concurrent writes are not managed well, the latency increases
+Collaborative: concurrent writes are not well managed, the latency increases
  and throughput decreases.
 \end_layout
 
 \begin_layout Itemize
-Social: when we have have more readers and so a lot of subscriptions the
- things go bad.
+Social: when we have more readers and so a lot of subscriptions things go
+ bad.
 \end_layout
 
 \begin_layout Standard
@@ -6302,7 +6302,7 @@ Gun.js
 \end_layout
 
 \begin_layout Standard
-We recall that we use only 1 CPU for socket.io server.
+We remind that we use only 1CPU for gun.js server.
 \end_layout
 
 \begin_layout Itemize
@@ -6316,7 +6316,7 @@ out of memory
 \end_inset
 
  (after some seconds of tests, so it does not die for few seconds tests),
- but at the same time have seen that it saturated the only core used.
+ but at the same time we have seen that it saturated the only core used.
 \end_layout
 
 \begin_layout Itemize
@@ -6325,32 +6325,32 @@ Data volume adaptability: it seems that it depends, strongly, from the volume
 \end_layout
 
 \begin_layout Itemize
-Latency stability: the latency is stable in the time, it is influenced by
- data volume (but in a regular way).
+Latency stability: the latency is stable in time, it is influenced by data
+ volume (but regularly).
 \end_layout
 
 \begin_layout Itemize
 Write performances: they are very slow, increasing the latency.
- It seems also that concurrency writes are a problem (we had to skip some
+ It seems also that concurrent writes are a problem (we had to skip some
  tests).
 \end_layout
 
 \begin_layout Standard
-for each test we have:
+For each test we have:
 \end_layout
 
 \begin_layout Itemize
-Chat: a big amount of readers are managed well (latency is not influenced).
+Chat: a big amount of readers are well managed (latency is not influenced).
 \end_layout
 
 \begin_layout Itemize
-Collaborative: concurrent writes are not managed well, the latency increases
+Collaborative: concurrent writes are not well managed, the latency increases
  and throughput decreases.
 \end_layout
 
 \begin_layout Itemize
-Social: when we have have more readers and so a lot of subscriptions the
- things go not so bad, so multiple subscriptions are well managed (not perfect
+Social: when we have more readers and so a lot of subscriptions things do
+ not go so bad, so multiple subscriptions are well managed (not perfectly
  but better than other systems).
 \end_layout
 
@@ -7919,7 +7919,7 @@ Traditional
 \end_layout
 
 \begin_layout Standard
-We recall that we use only 1CPU for socket.io server.
+We remind that we use only 1CPU for socket.io server.
 \end_layout
 
 \begin_layout Standard
@@ -7928,13 +7928,13 @@ Moreover, after some tests, we have seen that postgreSQL is not the bottleneck,
 \end_layout
 
 \begin_layout Itemize
-Scalability: it does not depends from the RAM.
- Analyzing machine we have seen that it saturated the only core used.
+Scalability: it does not depend on the RAM.
+ Analyzing the machine we have seen that it saturated the only core used.
 \end_layout
 
 \begin_layout Itemize
-Data volume adaptability: it seems that it does not depend of the volume
- of the data, of course more specific tests should be done.
+Data volume adaptability: it seems that it does not depend on the volume
+ of data, of course more specific tests should be done.
 \end_layout
 
 \begin_layout Itemize
@@ -7943,27 +7943,27 @@ Latency stability: the latency is not so stable.
 
 \begin_layout Itemize
 Write performances: they are very quick.
- It seems also that concurrency writes are not a problem.
+ It seems also that concurrent writes are not a problem.
 \end_layout
 
 \begin_layout Standard
-for each test we have:
+For each test we have:
 \end_layout
 
 \begin_layout Itemize
-Chat: a big amount of readers are managed well (latency is not influenced).
+Chat: a big amount of readers are well managed (latency is not influenced).
  At the same time the latency is not influenced by the number of writers.
 \end_layout
 
 \begin_layout Itemize
 Collaborative: it seems that concurrent writes are managed not so bad.
- Increase of the latency is not so big (respect to other systems) and decrease
- of the throughput is not so big.
+ The increase of the latency is not so big (compared with other systems)
+ and the decrease of the throughput is not so big.
 \end_layout
 
 \begin_layout Itemize
-Social: when we have have more readers and so a lot of subscriptions the
- things go well, so multiple subscriptions are well managed.
+Social: when we have more readers and so a lot of subscriptions things go
+ well, so multiple subscriptions are well managed.
 \end_layout
 
 \begin_layout Standard
@@ -9546,11 +9546,11 @@ CS-NoSQL
 \end_inset
 
 .
- Traditional solution proposed is, often, better, it has:
+ The traditional solution proposed is, often, better, it has:
 \end_layout
 
 \begin_layout Itemize
-Highest throughput: except for first two configurations of 
+The highest throughput: except for the first two configurations of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -9589,7 +9589,7 @@ chat
 
 \begin_layout Itemize
 Efficient multiple subscriptions delivery: even if the number of subscriptions
- increase in the time during the test, the latency remains the same.
+ increases in time during the test, the latency remains the same.
  As shown in 
 \begin_inset Quotes fld
 \end_inset
@@ -9615,7 +9615,7 @@ collaborative
 \end_layout
 
 \begin_layout Itemize
-It does not depend from data volume.
+It does not depend on data volume.
 \end_layout
 
 \begin_layout Standard
@@ -9631,7 +9631,7 @@ CS-NoSQL
 \end_layout
 
 \begin_layout Itemize
-Latency stability
+Latency stability.
 \end_layout
 
 \begin_layout Itemize
@@ -9644,12 +9644,12 @@ collaborative
 \end_inset
 
  tests, latency and throughput are not so good.
- But if we increase the data we obtain better results than other systems.
+ But if we increase data we obtain better results than other systems.
 \end_layout
 
 \begin_layout Itemize
 Scalability.
- As we have seen it depends from processor.
+ As we have seen it depends on the processor.
  But as we have seen in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9685,13 +9685,13 @@ CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- with a number of advantages like tradition solution proposed.
+ with a number of advantages like the tradition solution proposed.
 \begin_inset Newline newline
 \end_inset
 
-The only advantage, except the easy of configure since they are a full stack
- environment, seems to be the performance when we have a few number of concurren
-t writes, so when we have #reads 
+The only advantage, except for the easy configuration since they are a full
+ stack environment, seems to be the performance when we have the few numbers
+ of concurrent writes, so when we have #reads 
 \begin_inset Formula $\simeq$
 \end_inset
 
@@ -9717,11 +9717,11 @@ collaborative
 \end_inset
 
  tests, we have better results with a traditional approach.
- Moreover traditional approach proposed seems more stable.
+ Moreover the traditional approach proposed seems more stable.
 \begin_inset Newline newline
 \end_inset
 
-Of course NoSQL are designed to partition them self better, but this is
+Of course NoSQL are designed to partition themselves better, but this is
  useless if the basic performances are not so good.
 \end_layout
 

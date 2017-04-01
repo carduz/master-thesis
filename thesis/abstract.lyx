@@ -148,10 +148,25 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 
 \begin_layout Standard
 In today's applications, data are increasing exponentially and also need
- to be replicated on different devices in «realtime»; these different devices
- should be able to use them even if they are offline.
+ to be replicated on different devices in 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+; these different devices should be able to use them even if they are offline.
  So the devices need a local copy of the database available also offline
- called «local database».
+ called 
+\begin_inset Quotes fld
+\end_inset
+
+local database
+\begin_inset Quotes frd
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -164,28 +179,87 @@ The typical device that uses this kind of application is a smartphone.
 Different solutions based on NoSQL databases were proposed, but of course
  custom solutions based on RDBMS are feasible.
  These solutions (NoSQL based) are not standardized, so there is no name
- even for them so we will call them «CS-NoSQL» (client side NoSQL).
+ even for them so we will call them 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ (client side NoSQL).
  NoSQL was chosen since data are unstructured and their amount could be
  enormous.
 \begin_inset Newline newline
 \end_inset
 
-Moreover, sometimes, the «strong consistency» is not needed but an «eventually
- consistency» is enough so a «partition tolerance» is chosen according to
- the CAP theorem.
- Partition tolerance is always chosen, even if the «strong consistency»
- is chosen; in that case, the «availability» is dropped.
+Moreover, sometimes, the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is not needed but an 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is enough so a 
+\begin_inset Quotes fld
+\end_inset
+
+partition tolerance
+\begin_inset Quotes frd
+\end_inset
+
+ is chosen according to the CAP theorem.
+ Partition tolerance is always chosen, even if the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is chosen; in that case, the 
+\begin_inset Quotes fld
+\end_inset
+
+availability
+\begin_inset Quotes frd
+\end_inset
+
+ is dropped.
 \begin_inset Newline newline
 \end_inset
 
-One of the main advantages of «CS-NoSQL» is their full integration, they
- are a full stack environment, while if we want a solution based on RDBMS
- we need to develop an entire infrastructure.
+One of the main advantages of 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ is their full integration, they are a full stack environment, while if
+ we want a solution based on RDBMS we need to develop an entire infrastructure.
 \end_layout
 
 \begin_layout Standard
-In this thesis, we will analyze some «CS-NoSQL» that implement the replication
- to the clients.
+In this thesis, we will analyze some 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ that implement the replication to the clients.
  We want to verify their performance and stability for the classes of applicatio
 ns they are designed for, comparing them with a solution based on an RDBMS.
 \end_layout
@@ -199,7 +273,15 @@ To do that we implemented a comparing solution based on postgreSQL (an RDBMS
 
 We created a custom framework to test this kind of systems and we did some
  benchmark tests emulating the different classes of applications for which
- «CS-NoSQL» are designed.
+ 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ are designed.
 \begin_inset Newline newline
 \end_inset
 

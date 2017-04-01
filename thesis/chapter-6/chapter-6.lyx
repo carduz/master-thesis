@@ -152,12 +152,12 @@ Scaling test
 \end_layout
 
 \begin_layout Standard
-In this section we will see what we have to do to test scaling of different
+In this section we will see what we have to do to test the scaling of different
  solutions.
 \end_layout
 
 \begin_layout Standard
-We will analyze the scaling that we will do and reasons of those choices
+We will analyze the scaling that we will do and the reasons of those choices
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -247,8 +247,8 @@ Moreover, since our topic is compared to these kinds of applications with
 \begin_inset Newline newline
 \end_inset
 
-For the same reason we do not scale horizontally the traditional approach
- that we proposed.
+For the same reason we do not scale the traditional approach that we proposed
+ horizontally.
  Here the scaling we mean: partitioning and replication of postgreSQL server
  and replication of socket.io machines, redis is not a bottleneck so it does
  not need scaling.
@@ -301,7 +301,7 @@ These configurations were found after some minor empirical tests.
 \end_layout
 
 \begin_layout Standard
-As said previously 
+As said previously, 
 \begin_inset Quotes fld
 \end_inset
 
@@ -410,7 +410,7 @@ reference "tab:NoSQL-realtime-database-envs"
 \end_inset
 
 .
- As we said previously gun.js can be considered mono thread, so we can test
+ As we said previously gun.js can be considered mono-thread, so we can test
  it with just one CPU (so we will have only two cases based on the RAM).
 \end_layout
 
@@ -672,7 +672,7 @@ reference "tab:socketio-test"
 \end_inset
 
 .
- As we said previously gun.js can be considered mono thread, so we can test
+ As we said previously gun.js can be considered mono-thread, so we can test
  it with just one CPU.
 \end_layout
 
@@ -1038,7 +1038,7 @@ Test Framework
 
 \begin_layout Standard
 Since the systems used are custom or are new there are no stable frameworks
- to test the performance of them.
+ to test their performance.
  So we started taking the approach, from one used and customizable framework
  called 
 \begin_inset Quotes fld
@@ -1117,7 +1117,7 @@ reference "subsec:Jepsen-framework"
 The framework we realized is done in javascript, so it is easy to integrate
  it with other platforms.
  Since we know which are the measures that we need, we have just to implement
- in a general way:
+ generally:
 \end_layout
 
 \begin_layout Itemize
@@ -1148,19 +1148,19 @@ reference "sec:Adapters-for-systems-test"
 \begin_layout Standard
 What we need to test are write and read performances.
  In fact, as we said, we have different models of data, but we do not have
- complex operations so we have only basic writes and written replication
+ complex operations so we have only basic writes and written replications
  of data.
 \begin_inset Newline newline
 \end_inset
 
-Since our critical point is replication, we have to test with more than
+Since our critical point is the replication, we have to test with more than
  one client.
  We can consider a write completed when it is replicated in all clients.
 \end_layout
 
 \begin_layout Standard
 So we need at least one client to make writes and at least one to check
- replications (called read)s.
+ replications (called reads).
  The number of clients (writer and reader) depends on the type of application,
  that we will see in 
 \begin_inset CommandInset ref
@@ -1184,8 +1184,8 @@ reference "sec:Tests-to-do-test"
  and 100 reader clients.
  So an important information is the latency of the synchronization to all
  these clients.
- We call execution the write/read data according to number of writer/readers
- specified in the model in 
+ We call execution the write/read data according to the number of writers/reader
+s specified in the model in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1201,7 +1201,7 @@ So we measure the following things:
 
 \begin_layout Itemize
 For every execution: latency to synchronize all clients and throughput (request/
-latency to synchronize all).
+latency to synchronize everything).
 \end_layout
 
 \begin_layout Itemize
@@ -1209,7 +1209,7 @@ Mean (with variance) latency to get data by each client.
 \end_layout
 
 \begin_layout Itemize
-Throughput: number of requests (read/writes) per second.
+Final throughput: total number of requests (reads and writes) per second.
 \end_layout
 
 \begin_layout Standard
@@ -1273,8 +1273,8 @@ In this section we will see what every class of the classes of applications
 \end_layout
 
 \begin_layout Standard
-Of course this is a a simplified simulation of the behavior in these classes
- of application.
+Of course this is a simplified simulation of the behavior in these classes
+ of applications.
 \end_layout
 
 \begin_layout Standard
@@ -1294,7 +1294,7 @@ We should consider also the size of data, but after some experiments, we
  have seen that some systems do not support a big amount of data.
  So the test would be inconsistent.
  Of course we analyze the data volume adaptability, with data volume we
- means the volume of the data in the database (not the size of the single
+ mean the volume of the data in the database (not the size of the single
  field).
 \end_layout
 
@@ -1543,7 +1543,7 @@ After a trial data initialization (e.g.
  users creation or room creation), to do tests we have just to create messages.
  So our generator is simply a faker text generator, other things like the
  user can be static.
- As we will seen in the next section, we have to manage the room where to
+ As we will see in the next section, we have to manage the room where to
  write.
  
 \end_layout
@@ -1561,7 +1561,7 @@ Reading
 \end_layout
 
 \begin_layout Standard
-We want that each read is subscribed to 2 rooms (if possible)
+We want that each read is subscribed to 2 rooms (if possible).
 \end_layout
 
 \begin_layout Subsection
@@ -1886,7 +1886,7 @@ reference "tab:Social-clients"
 \end_inset
 
 In a social for each person there are a lot of users that see the write:
- followers and sometimes also followers of his directly followers.
+ followers and sometimes also followers of their directly followers.
 \end_layout
 
 \begin_layout Standard
@@ -2109,7 +2109,7 @@ As said previously the creation of a post is done every 9 comments, it is
 
 \begin_layout Standard
 We want that for each post we have two writers that write comments (if possible).
- The writers can comment to all posts, also older posts.
+ The writers can comment to all posts, also older ones.
 \end_layout
 
 \begin_layout Paragraph
@@ -2121,7 +2121,7 @@ All clients subscribe to posts, they read all the new posts.
 \end_layout
 
 \begin_layout Standard
-A client is subscribed to half of posts.
+A client is subscribed to half of the posts.
  Even if new posts are created the old subscriptions are not deleted.
  So the more time passes, the more subscriptions are created.
 \end_layout
@@ -2141,15 +2141,15 @@ The general client needs:
 \end_layout
 
 \begin_layout Itemize
-Login method
+Login method.
 \end_layout
 
 \begin_layout Itemize
-Join method to subscribe to channel and to a table/document
+Join method to subscribe to channel and to a table/document.
 \end_layout
 
 \begin_layout Itemize
-Write command
+Write command.
 \end_layout
 
 \begin_layout Itemize
@@ -2160,8 +2160,8 @@ Data callback, that is called when there are new data (of course new data
 \begin_layout Standard
 We have already proved that systems can provide authentication.
  But since it is implemented in different ways it could add another variable
- factor to consider that can change final results, so skip it since it is
- not our main target to test.
+ factor to consider that can change the final results, so we will skip it
+ since it is not our main target to test.
 \end_layout
 
 \begin_layout Standard

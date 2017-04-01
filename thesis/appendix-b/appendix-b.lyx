@@ -75,8 +75,8 @@
 
 \begin_layout Standard
 We executed jepsen framework to test a postgreSQL server deployed in a virtual
- machine with 4GB RAM and 1 CPU (of course on the same physical machine
- of the other tests).
+ machine with 4GB RAM and 1CPU (of course on the same physical machine of
+ the other tests).
 \begin_inset Newline newline
 \end_inset
 

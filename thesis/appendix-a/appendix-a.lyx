@@ -127,8 +127,10 @@ reference "lis:Notify-trigger"
 \end_layout
 
 \begin_layout Standard
-This way is a standard SQL with triggers, of course the languages change
- between the database systems and the needs, but the idea is still valid.
+This way is a standard SQL with triggers, some specific postgreSQL functions
+ were used, of course the languages change between database systems and
+ needs.
+ But the idea is still valid.
 \end_layout
 
 \begin_layout Standard
@@ -225,7 +227,7 @@ DECLARE
 
 \begin_layout Plain Layout
 
-new_v TEXT;
+ new_v TEXT;
 \end_layout
 
 \begin_layout Plain Layout
@@ -290,7 +292,7 @@ BEGIN
 
 \begin_layout Plain Layout
 
-   RETURN NEW;
+ RETURN NEW;
 \end_layout
 
 \begin_layout Plain Layout

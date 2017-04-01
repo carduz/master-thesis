@@ -95,28 +95,11 @@ Il testo delle tesi redatte in lingua straniera dovrà essere introdotto
 \end_layout
 
 \begin_layout Standard
-Nelle applicazioni di oggi, i dati crescono esponenzialmente e necessitano
- di essere replicati su diversi device in 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
-; questi device dovrebbero essere in grado di utilizzarli anche se sono
- offline.
- Quindi i device necessitano di una copia locale del database disponibile
- anche offline chiamato 
-\begin_inset Quotes fld
-\end_inset
-
-database locale
-\begin_inset Quotes frd
-\end_inset
-
-.
- 
+Oggi, nelle applicazioni i dati crescono esponenzialmente e vanno replicati
+ su diversi device in «realtime», device che dovrebbero poterli utilizzare
+ anche se sono offline.
+ Tali device necessitano di una copia locale del database disponibile anche
+ offline chiamato «database locale».
 \begin_inset Newline newline
 \end_inset
 
