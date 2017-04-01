@@ -198,7 +198,7 @@ To do that we implemented a comparing solution based on postgreSQL (an RDBMS
 \end_inset
 
 We created a custom framework to test this kind of systems and we did some
- tests benchmarks emulating the different classes of applications for which
+ benchmark tests  emulating the different classes of applications for which
  «CS-NoSQL» are designed.
 \begin_inset Newline newline
 \end_inset

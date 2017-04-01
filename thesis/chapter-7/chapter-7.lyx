@@ -198,13 +198,13 @@ Chat
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (couchbase) benchmarks
 \end_layout
 
 \end_inset
@@ -1150,7 +1150,7 @@ status open
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1168,7 +1168,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (couchbase) benchmarks
 \end_layout
 
 \end_inset
@@ -1190,13 +1190,13 @@ Collaborative
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (couchbase) benchmarks
 \end_layout
 
 \end_inset
@@ -2142,7 +2142,7 @@ status open
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -2160,7 +2160,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (couchbase) benchmarks
 \end_layout
 
 \end_inset
@@ -2182,13 +2182,13 @@ Social
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (couchbase) benchmarks
 \end_layout
 
 \end_inset
@@ -3134,7 +3134,7 @@ status open
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3152,7 +3152,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (couchbase) benchmarks
 \end_layout
 
 \end_inset
@@ -3184,13 +3184,13 @@ Chat
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (pouchdb) benchmarks
 \end_layout
 
 \end_inset
@@ -4154,7 +4154,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (pouchdb) benchmarks
 \end_layout
 
 \end_inset
@@ -4176,13 +4176,13 @@ Collaborative
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (pouchdb) benchmarks
 \end_layout
 
 \end_inset
@@ -5146,7 +5146,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (pouchdb) benchmarks
 \end_layout
 
 \end_inset
@@ -5168,13 +5168,13 @@ Social
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (pouchdb) benchmarks
 \end_layout
 
 \end_inset
@@ -6138,7 +6138,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (pouchdb) benchmarks
 \end_layout
 
 \end_inset
@@ -6201,13 +6201,13 @@ Chat
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (gun.js) benchmarks
 \end_layout
 
 \end_inset
@@ -6703,7 +6703,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (gun.js) benchmarks
 \end_layout
 
 \end_inset
@@ -6725,13 +6725,13 @@ Collaborative
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (gun.js) benchmarks
 \end_layout
 
 \end_inset
@@ -7227,7 +7227,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (gun.js) benchmarks
 \end_layout
 
 \end_inset
@@ -7249,13 +7249,13 @@ Social
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (gun.js) benchmarks
 \end_layout
 
 \end_inset
@@ -7751,7 +7751,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (gun.js) benchmarks
 \end_layout
 
 \end_inset
@@ -7783,13 +7783,13 @@ Chat
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (traditional) benchmarks
 \end_layout
 
 \end_inset
@@ -8285,7 +8285,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Chat (traditional) benchmarks
 \end_layout
 
 \end_inset
@@ -8307,13 +8307,13 @@ Collaborative
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (traditional) benchmarks
 \end_layout
 
 \end_inset
@@ -8809,7 +8809,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Collaborative (traditional) benchmarks
 \end_layout
 
 \end_inset
@@ -8831,13 +8831,13 @@ Social
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (traditional) benchmarks
 \end_layout
 
 \end_inset
@@ -9333,7 +9333,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-TODO
+Social (traditional) benchmarks
 \end_layout
 
 \end_inset

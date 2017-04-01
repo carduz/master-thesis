@@ -219,7 +219,7 @@ Per fare ciò, abbiamo implementato una soluzione comparata basata su postgreSQL
 \end_inset
 
 Abbiamo creato un framework su misura per testare questo tipo di sistemi
- e abbiamo effettuato dei test di riferimento emulando le differenti classi
+ e abbiamo effettuato dei test di benchmark emulando le differenti classi
  di applicazioni per cui 
 \begin_inset Quotes fld
 \end_inset
