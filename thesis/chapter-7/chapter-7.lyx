@@ -163,6 +163,10 @@ instant thorughput
 \end_layout
 
 \begin_layout Standard
+explain latancy stability in the tiem for that configuration
+\end_layout
+
+\begin_layout Standard
 in social we habve mroe contetnt when the posts increase
 \end_layout
 
@@ -221,6 +225,21 @@ Recall configurations
 \end_layout
 
 \begin_layout Standard
+explain num of chuncks for reads (it means that we have to excpect mror
+ reads from the same reader.
+ theoritically we should consider different number of rewla requests for
+ throughput
+\end_layout
+
+\begin_layout Standard
+why only so few data even if we measured more things?
+\end_layout
+
+\begin_layout Standard
+instant rhgouput and other things
+\end_layout
+
+\begin_layout Standard
 carateristics of each test
 \end_layout
 
@@ -229,7 +248,15 @@ latency measured in seconds
 \end_layout
 
 \begin_layout Standard
+say all things we have calcualted
+\end_layout
+
+\begin_layout Standard
 check where concurrency was used
+\end_layout
+
+\begin_layout Standard
+data manage, volum and other thing in the previous chap
 \end_layout
 
 \begin_layout Standard
@@ -283,7 +310,7 @@ Couchbase
 \end_layout
 
 \begin_layout Itemize
-Scalability: it depends, strongly, from the CPU.
+Scalability: it depends, strongly, from the CPU, but it has a low scalability.
  We have seen this also analyzing the machine during the tests.
  
 \end_layout
@@ -300,8 +327,10 @@ Latency stability: the latency is stable in the time
 \end_layout
 
 \begin_layout Itemize
-Write performance: they are very slow, increasing the latency.
- A the same time it seems that the concurrency writes are not critical.
+Write performance: if we have a big amount of writes (not necessarily concurrent
+) they are very slow, increasing the latency.
+ A the same time it seems that the concurrent writes are not critical (they
+ do not influence the result respect a normal write).
 \end_layout
 
 \begin_layout Standard
@@ -315,12 +344,15 @@ Chat: latency is very high when we have more writers, but a big amount of
 
 \begin_layout Itemize
 Collaborative: since we have more total writes the latency is higher in
- the first configuration, but concurrent writes are managed well.
+ the first configuration, but it seems that concurrent writes are managed
+ well.
+ So we can suppose that the problem is due to the number of total writes,
+ not to concurrent writes.
 \end_layout
 
 \begin_layout Itemize
-Social: when we have have more readers and so a lot of subscriptions the
- things go bad.
+Social: when we have more readers and so a lot of subscriptions the things
+ go bad.
 \end_layout
 
 \begin_layout Standard
@@ -3292,7 +3324,7 @@ Pouchdb
 \end_layout
 
 \begin_layout Itemize
-Scalability: it depends, strongly, from the CPU.
+Scalability: it depends from the CPU and RAM.
 \end_layout
 
 \begin_layout Itemize
@@ -3306,7 +3338,8 @@ Latency stability: the latency is not stable in the time
 
 \begin_layout Itemize
 Write performance: they are very slow, increasing the latency.
- It seems that concurrency writes are a problem (we had to skip some tests)
+ It seems also that concurrent writes are a problem (we had to skip some
+ tests).
 \end_layout
 
 \begin_layout Standard
@@ -3319,7 +3352,8 @@ Chat: latency is high when we have more writers, but a big amount of readers
 \end_layout
 
 \begin_layout Itemize
-Collaborative: concurrent writes are not managed well, the latency increases.
+Collaborative: concurrent writes are not managed well, the latency increases
+ and throughput decreases.
 \end_layout
 
 \begin_layout Itemize
@@ -4742,7 +4776,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+10
 \end_layout
 
 \end_inset
@@ -4769,7 +4803,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-12
+63
 \end_layout
 
 \end_inset
@@ -4809,7 +4843,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+10
 \end_layout
 
 \end_inset
@@ -4836,7 +4870,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-16
+70
 \end_layout
 
 \end_inset
@@ -4876,7 +4910,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+10
 \end_layout
 
 \end_inset
@@ -4903,7 +4937,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-13
+65
 \end_layout
 
 \end_inset
@@ -4943,7 +4977,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+10
 \end_layout
 
 \end_inset
@@ -4970,7 +5004,7 @@ throughput [req/s]
 \begin_inset Text
 
 \begin_layout Plain Layout
-16
+74
 \end_layout
 
 \end_inset
@@ -6356,7 +6390,8 @@ Latency stability: the latency is stable in the time, it is influenced by
 
 \begin_layout Itemize
 Write performance: they are very slow, increasing the latency.
- It seems that concurrency writes are a problem (we had to skip some tests)
+ It seems also that concurrency writes are a problem (we had to skip some
+ tests)
 \end_layout
 
 \begin_layout Standard
@@ -6368,12 +6403,14 @@ Chat: a big amount of readers are managed well (latency is not influenced).
 \end_layout
 
 \begin_layout Itemize
-Collaborative: concurrent writes are not managed well, the latency increases.
+Collaborative: concurrent writes are not managed well, the latency increases
+ and throughput decreases.
 \end_layout
 
 \begin_layout Itemize
 Social: when we have have more readers and so a lot of subscriptions the
- things go well, so multiple subscriptions are well managed.
+ things go not so bad, so multiple subscriptions are well managed (not perfect
+ but better than other systems).
 \end_layout
 
 \begin_layout Standard
@@ -7945,6 +7982,16 @@ Latency bad in the first due to concurrent???
 \end_layout
 
 \begin_layout Standard
+TIME in collaborative
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO no postgreSQL
+\end_layout
+
+\begin_layout Standard
 We remember we have 1CPU for socket.io 
 \series bold
 TODO
@@ -7968,8 +8015,8 @@ Latency stability: the latency is stable in the time, in some tests is not
 \begin_layout Itemize
 Write performance: they are very quick.
  It seems, also, that concurrency writes are not a problem.
- it seems that the latency of the single write is a little slower, but of
- course more specific tests should be done.
+ it seems that the latency of the single write is a little slower (than
+ other solutions), but of course more specific tests should be done.
 \end_layout
 
 \begin_layout Standard
@@ -7978,13 +8025,13 @@ for each test we have:
 
 \begin_layout Itemize
 Chat: a big amount of readers are managed well (latency is not influenced).
+ At the same time the latency is not influenced by the number of writers.
 \end_layout
 
 \begin_layout Itemize
-Collaborative: concurrent writes are not managed well, the latency increases.
- It seems that if we have more total writes (but not concurrent) are managed
- not so good like other systems, so it seems that the latency of a single
- write is a little slower.
+Collaborative: it seems that concurrent writes are managed not so bad.
+ Increase of the latency is not big (respect to other systems) and decrease
+ of the throughput is not so big.
 \end_layout
 
 \begin_layout Itemize
@@ -9557,7 +9604,47 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-.....
+
+\series bold
+Recap features for each system? whcich system amanhes well that feature
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Change title
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+measure absolute values of throughput and altency
+\end_layout
+
+\begin_layout Standard
+We can see that there is not a real advantage in using 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Traditional solution proposed is, often, better, it has:
+\end_layout
+
+\begin_layout Itemize
+Higher thourghput
+\end_layout
+
+\begin_layout Standard
+Collaborative is better in couchbase for low volumes, pouchdb 8excpet for
+ a lot of subscriptions)
+\end_layout
+
+\begin_layout Standard
+traditional : it is easy to distribute
 \end_layout
 
 \end_body
