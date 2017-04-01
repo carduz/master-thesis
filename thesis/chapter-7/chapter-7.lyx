@@ -74,180 +74,7 @@
 \begin_body
 
 \begin_layout Standard
-TODO FIX CONSISTENCY IN CHAP 4
-\end_layout
 
-\begin_layout Standard
-TODO eng of appendixes
-\end_layout
-
-\begin_layout Standard
-fortunatelly the environment was stable and we do not needed to execute
- the same test mroe than one time (to take an average value)
-\end_layout
-
-\begin_layout Standard
-stability of systems in the conclusion
-\end_layout
-
-\begin_layout Standard
-concurrency was set in the best environment
-\end_layout
-
-\begin_layout Standard
-total latency = latebcy of the chunk, so throughput of the chunk is meaningless
-\end_layout
-
-\begin_layout Standard
-we needed to do 
-\begin_inset Quotes fld
-\end_inset
-
-low
-\begin_inset Quotes frd
-\end_inset
-
- tests since some clients die
-\end_layout
-
-\begin_layout Standard
-instables in temrs of crash
-\end_layout
-
-\begin_layout Standard
-in the charts we show only the max performance, in fact the lowers were
- done just to shwo the scale ability, for space reason and sice others are
- nnot meanigful
-\end_layout
-
-\begin_layout Standard
-anlyzi stability of latency in the time
-\end_layout
-
-\begin_layout Standard
-concurrency find on bet conditions to find out the max throughput
-\end_layout
-
-\begin_layout Standard
-replicate only delivery system, not the entire db (more complex)
-\end_layout
-
-\begin_layout Standard
-check small paragraphs
-\end_layout
-
-\begin_layout Standard
-subscriptiosn rpoblems in collaboration
-\end_layout
-
-\begin_layout Standard
-length of graph that depends on
-\end_layout
-
-\begin_layout Standard
-instant thorughput
-\end_layout
-
-\begin_layout Standard
-explain latancy stability in the tiem for that configuration
-\end_layout
-
-\begin_layout Standard
-in social we habve mroe contetnt when the posts increase
-\end_layout
-
-\begin_layout Standard
-latency in second
-\end_layout
-
-\begin_layout Standard
-N° of chcunks is a little concurrency
-\end_layout
-
-\begin_layout Standard
-explain difference betwen concurrency and writer number
-\end_layout
-
-\begin_layout Standard
-concurrency * writer = writes wtih concurrency they are 
-\begin_inset Quotes fld
-\end_inset
-
-sequentilly
-\begin_inset Quotes frd
-\end_inset
-
- one writer send concurrent sequential data.
- concurrency is not right.
- it shoudl be 
-\begin_inset Quotes fld
-\end_inset
-
-N° of chunks
-\begin_inset Quotes frd
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-N° of writer is the real concurrency
-\end_layout
-
-\begin_layout Standard
-wehrn real concurrency is not a problem the cause is that the db is mor
- eefficient than the 
-\begin_inset Quotes fld
-\end_inset
-
-realtiem
-\begin_inset Quotes frd
-\end_inset
-
- itnerface.
- 
-\series bold
-we analyze them as black box.
-\end_layout
-
-\begin_layout Standard
-Recall configurations
-\end_layout
-
-\begin_layout Standard
-explain num of chuncks for reads (it means that we have to excpect mror
- reads from the same reader.
- theoritically we should consider different number of rewla requests for
- throughput
-\end_layout
-
-\begin_layout Standard
-why only so few data even if we measured more things?
-\end_layout
-
-\begin_layout Standard
-instant rhgouput and other things
-\end_layout
-
-\begin_layout Standard
-data manage, volum and other thing in the previous chap
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-we talk of writes but we measure latency of reads
-\end_layout
-
-\begin_layout Itemize
-This because the each reader is subscribed to more things, moreover the
- number of subscription increases during the time.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-EXPLAINE FOLLWOING ACCORDING TO DATA CHOOSEN FOR TESTS
 \end_layout
 
 \begin_layout Standard
@@ -289,9 +116,15 @@ Here we show data of the execution of the tests.
 \end_inset
 
 Moreover even if we generate measure different data (such as instant throughput
- or variance of latency), since they would make the comparison confusing,
- we show only complete throughput (in the table) and latency in seconds
- mean (in charts) .
+ or variance of latency) explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Custom-framework"
+
+\end_inset
+
+, since they would make the comparison confusing, we show only complete
+ throughput (in the table) and latency in seconds mean (in charts) .
  Of course the tool developed generate the other data and tests can be easily
  reproduced.
 \end_layout
@@ -309,7 +142,8 @@ In the table we reported results for different number of clients and for
 
 \begin_layout Standard
 For each system we do some comments for: scalability, data volume, latency
- stability and write performances.
+ stability and write performances (what is possible deduct from indirect
+ measurements that do).
 \begin_inset Newline newline
 \end_inset
 
@@ -318,19 +152,22 @@ Then we do observations for each class of applications, remember that the
 \end_layout
 
 \begin_layout Itemize
-Chat: we test subscription delivery efficiency
+Chat: we test subscription delivery efficiency.
 \end_layout
 
 \begin_layout Itemize
-Collaborative: we test the concurrent writes efficiency
+Collaborative: we test the concurrent writes efficiency.
 \end_layout
 
 \begin_layout Itemize
-Social: we test multiple subscription efficiency
+Social: we test multiple subscription efficiency, we recall also that the
+ number of subscriptions increases during the time.
 \end_layout
 
 \begin_layout Standard
-The tests are executed for 30 seconds, more to finish all executions.
+The tests were executed for 30 seconds, more to finish all executions.
+ The environment was stable and we do not needed to execute the same test
+ more than one time (to take an average value).
 \end_layout
 
 \begin_layout Standard
@@ -348,7 +185,7 @@ concurrency
 \end_inset
 
 It is the number of concurrent executions, an execution is the write/read
- data from the writer/reads specified by the model.
+ data according to number of writer/readers specified by the model.
  When an execution is finished another is started (to keep the same consistency
  value).
 \begin_inset Newline newline
@@ -371,7 +208,35 @@ Concurrency influences the number of task sent to the same writer, but often
 \end_inset
 
 This value is found in an empirical way: the value chosen is the first value
- (starting from lower) that guarantees the max throughput.
+ (starting from lower) that guarantees the max throughput in the best environmen
+t.
+\end_layout
+
+\begin_layout Standard
+We do test as a black box, we do not know details of the systems.
+\begin_inset Newline newline
+\end_inset
+
+So, for example, if writers are slow we do not know if the problem is the
+ database itself or the 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ delivery level.
+ But if we see that concurrent writes have the same time of non concurrent
+ writes we can expect that the bottleneck is the 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ delivery level.
 \end_layout
 
 \begin_layout Standard
@@ -9823,7 +9688,11 @@ collaborative
 \end_inset
 
  tests, we have better results with a traditional approach.
- Of course NoSQL are designed to partition them self better, but this is
+ Moreover traditional approach proposed seems more stable.
+\begin_inset Newline newline
+\end_inset
+
+Of course NoSQL are designed to partition them self better, but this is
  useless if the basic performances are not so good.
 \end_layout
 

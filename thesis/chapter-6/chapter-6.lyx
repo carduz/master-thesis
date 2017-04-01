@@ -1212,6 +1212,8 @@ Mean (with variance) latency of each client to get data
 
 \begin_layout Itemize
 Throughput
+\series bold
+TODO DEFINE
 \end_layout
 
 \begin_layout Standard
@@ -2168,6 +2170,18 @@ TODO SIMPLification in tests
 
 \series bold
 chunks
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+instant thorughput
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+data manage, volum and other thing in the previous chap
 \end_layout
 
 \begin_layout Section
