@@ -323,13 +323,9 @@ Social: when we have have more readers and so a lot of subscriptions the
  things go bad.
 \end_layout
 
-\begin_layout Subsubsection
-Chat
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -1281,7 +1277,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -1315,13 +1311,9 @@ Chat (couchbase) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Collaborative
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -2273,7 +2265,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -2307,13 +2299,9 @@ Collaborative (couchbase) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Social
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -3265,7 +3253,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -3339,13 +3327,9 @@ Social: when we have have more readers and so a lot of subscriptions the
  things go bad.
 \end_layout
 
-\begin_layout Subsubsection
-Chat
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -4297,7 +4281,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -4331,13 +4315,9 @@ Chat (pouchdb) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Collaborative
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -5289,7 +5269,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -5323,13 +5303,9 @@ Collaborative (pouchdb) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Social
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -6281,7 +6257,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -6400,13 +6376,9 @@ Social: when we have have more readers and so a lot of subscriptions the
  things go well, so multiple subscriptions are well managed.
 \end_layout
 
-\begin_layout Subsubsection
-Chat
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -6890,7 +6862,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -6924,13 +6896,9 @@ Chat (gun.js) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Collaborative
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -7414,7 +7382,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -7448,13 +7416,9 @@ Collaborative (gun.js) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Social
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -7938,7 +7902,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -8028,13 +7992,9 @@ Social: when we have have more readers and so a lot of subscriptions the
  things go well, so multiple subscriptions are well managed.
 \end_layout
 
-\begin_layout Subsubsection
-Chat
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -8518,7 +8478,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -8552,13 +8512,9 @@ Chat (traditional) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Collaborative
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -9042,7 +8998,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -9076,13 +9032,9 @@ Collaborative (traditional) benchmarks
 
 \end_layout
 
-\begin_layout Subsubsection
-Social
-\end_layout
-
 \begin_layout Standard
 \begin_inset Float table
-placement h
+placement p
 wide false
 sideways false
 status collapsed
@@ -9566,7 +9518,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement h
+placement p
 wide false
 sideways false
 status collapsed
