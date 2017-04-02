@@ -182,17 +182,8 @@ La tesi è strutturata nel modo seguente
 \end_layout
 
 \begin_layout Standard
-
-\series bold
-TOODO HTTP BASED
-\series default
- 
-\series bold
-applications, so improtant for realtime retrieve, some aspects are seen
- only from teoritical point of view (no seprimental) like partitioning or
- cap 
-\series default
-Today there are a lot of
+In today's applications, data are increasing exponentially and also need
+ to be replicated on different devices in 
 \begin_inset Quotes fld
 \end_inset
 
@@ -200,49 +191,265 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- applications of different types: from the simple web chat to the realtime
- embedded applications.
-\end_layout
+; these different devices should be able to use them even if they are offline.
+ So the devices need a local copy of the database available also offline
+ called 
+\begin_inset Quotes fld
+\end_inset
 
-\begin_layout Standard
-At the same time most applications are built over HTTP protocol, this is
- caused by a lot things: easy to develop an application over HTTP (also
- a secure application based on SSL), high tested protocol and so on.
+local database
+\begin_inset Quotes frd
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
-So we need to build an application stack built over HTTP protocol, in booth
- cases: traditional an realtime databases approach.
+The typical device that uses this kind of application is a smartphone.
+ But not only, also other web applications use them, such as collaborative
+ softwares (like Google Docs).
+\end_layout
+
+\begin_layout Standard
+Different solutions based on NoSQL databases were proposed, but of course
+ custom solutions based on RDBMS are feasible.
+ These solutions (NoSQL based) are not standardized, so there is no name
+ even for them so we will call them 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ (client side NoSQL).
+ NoSQL was chosen since data are unstructured and their amount could be
+ enormous.
 \begin_inset Newline newline
 \end_inset
 
-We will see the HTTP based applications, that are the most common class
- of applications.
- So we will not see topics such as realtime embedded applications, since
- they are a very specif field that requires an independent study.
+Moreover, sometimes, the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is not needed but an 
+\begin_inset Quotes fld
+\end_inset
+
+eventually consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is enough so the 
+\begin_inset Quotes fld
+\end_inset
+
+partition tolerance
+\begin_inset Quotes frd
+\end_inset
+
+ is chosen according to the CAP theorem.
+ 
+\begin_inset Quotes fld
+\end_inset
+
+Partition tolerance
+\begin_inset Quotes frd
+\end_inset
+
+ is always chosen, even if the 
+\begin_inset Quotes fld
+\end_inset
+
+strong consistency
+\begin_inset Quotes frd
+\end_inset
+
+ is too; in that case, the 
+\begin_inset Quotes fld
+\end_inset
+
+availability
+\begin_inset Quotes frd
+\end_inset
+
+ is dropped.
+\begin_inset Newline newline
+\end_inset
+
+One of the main advantages of 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ is their full integration, they are a full stack environment, while if
+ we want a solution based on RDBMS we need to develop an entire infrastructure.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
+This kind of applications are developed to be used in every kind of device,
+ also desktops.
+ So the best solution is to make them 
+\begin_inset Quotes fld
+\end_inset
 
-\begin_layout Plain Layout
+realtime
+\begin_inset Quotes frd
+\end_inset
 
+, allowing a web application to receive notifications.
+ So one of the main aspects is the technology chosen to do that, how to
+ do it with HTTP.
+\begin_inset Newline newline
+\end_inset
 
-\backslash
-subparagraph*{}
+For that reasons in that thesis we cover only HTTP based applications.
 \end_layout
+
+\begin_layout Standard
+There are different commercial solutions based on NoSQL databases, but there
+ are few academic references to them.
+ This because they are a composition of technologies already studied.
+\begin_inset Newline newline
+\end_inset
+
+In fact, they are composed by NoSQL databases 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
 
 \end_inset
 
+ (often a normal database), optimistic replication techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
 
+\end_inset
+
+, realtime delivery of messages over HTTP (websocket) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebSocket"
+
+\end_inset
+
+, publish/subscribe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubSub"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+So to study them we needed to study the technologies beyond them, then to
+ study some commercial systems.
 \end_layout
 
 \begin_layout Standard
-As we will see in the first chapter, in the traditional approach we have
- two main ways to do that: polling or implement a Publish/Subscribe protocol
- over HTTP; while using a realtime database everything is already implemented
- in efficient way.
+In this thesis, we analyzed some 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ that implement the replication to the clients.
+ We want to verify their performance and stability for the classes of applicatio
+ns they are designed for, comparing them with a solution based on an RDBMS.
+ We saw a lot aspects only from a theoretical point of view: such as partitionin
+g and CAP theorem, what we have done experimentally is to test raw performances
+ for read and writes for classes of applications for which these databases
+ are designed.
+\end_layout
+
+\begin_layout Standard
+To do that we implemented a comparing solution based on postgreSQL (an RDBMS
+ server) that replicates data on clients using websocket, we also implemented
+ a simple local database for it.
+\begin_inset Newline newline
+\end_inset
+
+We created a custom framework to test this kind of systems and we did some
+ benchmark tests emulating the different classes of applications for which
+ 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ are designed.
+\begin_inset Newline newline
+\end_inset
+
+We discovered that they are very unstable with a reasonable amount of data
+ and that our proposed solution based on postgreSQL is quicker (up to 10x).
+ However we expect an improvement (in performance and stability) in the
+ next years when probably more native solutions will be developed.
+\end_layout
+
+\begin_layout Standard
+In Chapter 1, we will see the background, all the knowledges that we need
+ in order to understand the next topics.
+ The main topics that we will see are HTTP (since we analyze only HTTP based
+ applications), basic concepts and issues of data in a distributed system
+ and finally the concepts beyond cloud computing from the user's point of
+ view.
+\end_layout
+
+\begin_layout Standard
+In Chapter 2, we will see the state of art of CS-NoSQL.
+ Of course, as we said previously, there are no academic references to them,
+ but references to technologies use, so we will see NoSQL databases from
+ a theoretical point of view with all the related things that we need (such
+ as distribution).
+ Then we will see the best practices to implement the local database on
+ the client side.
+ 
+\end_layout
+
+\begin_layout Standard
+In Chapter 3, we will analyze some real CS-NoSQL, both opensource and in
+ cloud ones.
+ We will classify them in a common way.
+ Some of them we will be used in the performances tests.
+\end_layout
+
+\begin_layout Standard
+In Chapter 4, we will see our proposed solution based on postgreSQL.
+ We will analyze all the things to build it such as the system to deliver
+ realtime messages and so on.
+ This is the technology used as comparing system in the performances tests.
+\end_layout
+
+\begin_layout Standard
+In Chapter 5, we will analyze the classes of applications for which CS-NoSQL
+ are designed according to vendors.
+ We will see use cases, and for each of them we will see a real case study.
+\end_layout
+
+\begin_layout Standard
+In Chapter 6, we will define our strategy to do benchmark tests.
+ We will see what we need to do, what we need to measure, which tests we
+ need to do and we will also shortly explain the framework we have implemented.
+\end_layout
+
+\begin_layout Standard
+In Chapter 7, we will see the results of benchmark tests and we will comment
+ them.
 \end_layout
 
 \end_body
