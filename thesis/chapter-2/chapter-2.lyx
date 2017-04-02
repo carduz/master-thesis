@@ -383,7 +383,7 @@ name "subsec:key-value"
 
 \end_inset
 
-key-value
+Key-value
 \end_layout
 
 \begin_layout Standard
@@ -1135,7 +1135,7 @@ name "subsec:Constraints-and-permissionsNoSQL"
 
 \end_inset
 
-Constraints and permission
+Constraints and permissions
 \end_layout
 
 \begin_layout Standard
@@ -1210,7 +1210,7 @@ name "subsec:Client-best-practices"
 
 \end_inset
 
-Client best practices
+Client Best Practices
 \end_layout
 
 \begin_layout Standard
@@ -1681,7 +1681,7 @@ name "subsec:RESTful-Approach"
 
 \end_inset
 
-RESTful Approach
+RESTful approach
 \end_layout
 
 \begin_layout Standard

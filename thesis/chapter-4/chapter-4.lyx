@@ -745,7 +745,7 @@ name "sec:Architecture-traditional"
 
 \end_inset
 
-Architecture proposed
+Architecture Proposed
 \end_layout
 
 \begin_layout Standard
@@ -1277,7 +1277,7 @@ name "subsec:Input-Server-architecture-traditional"
 
 \end_inset
 
-Input Server
+Input server
 \end_layout
 
 \begin_layout Standard
@@ -1361,7 +1361,7 @@ name "subsec:Custom-Logic-architecture-traditional"
 
 \end_inset
 
-Custom Logic
+Custom logic
 \end_layout
 
 \begin_layout Standard
@@ -1813,7 +1813,7 @@ name "subsec:Server-traditional"
 
 \end_inset
 
-Websocket Server
+Websocket server
 \end_layout
 
 \begin_layout Standard

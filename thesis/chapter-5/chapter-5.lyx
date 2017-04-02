@@ -284,7 +284,7 @@ name "subsec:Realtime-Chat-class"
 
 \end_inset
 
-Realtime Chat
+Realtime chat
 \end_layout
 
 \begin_layout Standard
@@ -552,7 +552,7 @@ name "subsec:Collaborative-Software-class"
 
 \end_inset
 
-Collaborative Software
+Collaborative software
 \end_layout
 
 \begin_layout Standard
@@ -1412,7 +1412,7 @@ key "AdobeDPS"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Problem
 \end_layout
 
@@ -1430,7 +1430,7 @@ key "GoogleDocs"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Solution
 \end_layout
 
@@ -1453,7 +1453,7 @@ CS-NoSQL
  
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Use case
 \end_layout
 
@@ -1508,7 +1508,7 @@ key "LogitechPower"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Problem
 \end_layout
 
@@ -1518,7 +1518,7 @@ With the app the user can control the hub from every location, the data
  So a securely and reliable solution to send a stream of data is needed.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Solution
 \end_layout
 
@@ -1541,7 +1541,7 @@ Moreover the hub sends a stream of realtime data from different devices
  (lights, temperatures ex.) to mobile app.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Use case
 \end_layout
 
@@ -1594,7 +1594,7 @@ The main feature of it is the chat: when a job seeker applies for a job
  a new chat is created.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Problem
 \end_layout
 
@@ -1604,7 +1604,7 @@ Since the chat is the most important part of the application, the company
  and maintenance cost.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Solution
 \end_layout
 
@@ -1641,7 +1641,7 @@ Moreover, since a commercial system in cloud was used, the company does
  not have to think about the maintenance of the infrastructure.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 Use case
 \end_layout
 

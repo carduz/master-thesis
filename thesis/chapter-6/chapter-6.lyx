@@ -148,7 +148,7 @@ name "sec:Scaling-test"
 
 \end_inset
 
-Scaling test
+Scaling Test
 \end_layout
 
 \begin_layout Standard
@@ -1299,7 +1299,7 @@ We should consider also the size of data, but after some experiments, we
 \end_layout
 
 \begin_layout Subsection
-Realtime Chat
+Realtime chat
 \end_layout
 
 \begin_layout Paragraph
@@ -1565,7 +1565,7 @@ We want that each read is subscribed to 2 rooms (if possible).
 \end_layout
 
 \begin_layout Subsection
-Collaborative Software
+Collaborative software
 \end_layout
 
 \begin_layout Paragraph
@@ -1772,7 +1772,7 @@ After a trial data initialization (e.g.
  A change is a JSON object of the structure shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lis:Collaborative-software-change-test"
+reference "lis:Collaborative-sw-te"
 
 \end_inset
 
@@ -1794,7 +1794,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "lis:Collaborative-software-change-test"
+name "lis:Collaborative-sw-te"
 
 \end_inset
 
@@ -2166,10 +2166,6 @@ We have already proved that systems can provide authentication.
 
 \begin_layout Standard
 Now we will analyze quickly how to implement these for all the platforms.
-\end_layout
-
-\begin_layout Subsection
-CS-NoSQL
 \end_layout
 
 \begin_layout Paragraph

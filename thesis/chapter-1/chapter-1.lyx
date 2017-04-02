@@ -1509,7 +1509,7 @@ cluster
 
 \begin_layout Standard
 To elaborate data in a distributed environment one simple, powerful and
- commonly programming model is: MapReduce (shortly explained in 
+ common programming model is: MapReduce (shortly explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:MapReduce"
@@ -1548,6 +1548,16 @@ reference "subsec:Multi-Master-&-Master-Slaves"
 \end_layout
 
 \begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Distribution"
+
+\end_inset
+
+Partitioning & Distribution
+\end_layout
+
+\begin_layout Paragraph
 Partitioning
 \end_layout
 
@@ -1564,13 +1574,7 @@ key "CAPNoSQL,NoSQL"
 .
 \end_layout
 
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Distribution"
-
-\end_inset
-
+\begin_layout Paragraph
 Distribution
 \end_layout
 
