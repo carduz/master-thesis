@@ -91,27 +91,104 @@ Si mostrano le prospettive future di ricerca nell’area dove si è svolto
 \end_layout
 
 \begin_layout Standard
-AAAA
+Analyzing tests of performances we discovered important results.
+ CS-NoSQL are not so efficient as we can think since they are a dedicated
+ system based on NoSQL databases that as we know for a lot of situations
+ are very efficient 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "NoSQL"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Often, the traditional approach we proposed is more efficient.
+ 
 \end_layout
 
 \begin_layout Standard
-future development (jepsen)
+Moreover, this kind of systems resulted to be not so stable from benchmark
+ tests.
+\begin_inset Newline newline
+\end_inset
+
+Often they are wrong documented, sometimes, we had some problems to find
+ out the theoretical information (such as information about the CAP theorem)
+ and we had some problems to use some not so common features.
+ This is because these systems are not so used.
 \end_layout
 
 \begin_layout Standard
-TODO FIX CONSISTENCY IN CHAP 4
+They do not have a standard, this means that there are lots of problems
+ if we want to use them commercially.
+\begin_inset Newline newline
+\end_inset
+
+There are no standard ways for tests, additional development skills should
+ be required and the support to this system could be dropped anytime.
+ So, if we consider these things (that are a cost) and the not so impressive
+ performances, it seems that this kind of systems are only a higher cost
+ for companies, of course more dedicated studies should be done.
+\begin_inset Newline newline
+\end_inset
+
+We should consider also other costs like infrastructures cost.
+ But we should analyze also the cost of a cloud solution.
 \end_layout
 
 \begin_layout Standard
-check small paragraphs
+In fact, cloud solutions could be very good also for the cost model.
+ Especially if other solutions are also based on cloud.
+\begin_inset Newline newline
+\end_inset
+
+As we said, cloud solutions have a lot of advantages like an easy configuration,
+ full stack environment, 0 code required.
+ But since they are not opened and they are not based on standard technologies
+ (like other cloud solutions), if the support to them is dropped the entire
+ application is lost.
+\begin_inset Newline newline
+\end_inset
+
+Of course, a study to this should be done, but is not so easy since as said
+ previously we can manage only few things.
 \end_layout
 
 \begin_layout Standard
-bad documentation
+From a technical point of view, there are other tests that should be done.
+ For example we should test consistency (way explained in appendix 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Jepsen-framework"
+
+\end_inset
+
+) and partitioning.
+ 
+\begin_inset Newline newline
+\end_inset
+
+We should also do better tests that go inside the infrastructure of CS-NoSQL
+ so we are able to measure the single time of every action: time required
+ to update the local database, to deliver 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ notifications, time to do a write, time to publish new data and so on.
 \end_layout
 
 \begin_layout Standard
-TODO eng of appendixes
+But since NoSQL is an important topic in recent years, since the application
+ target of these systems is something that is increasing in recent years
+ and since big companies (like Google) are investing on it, we expect an
+ improvement in the future.
 \end_layout
 
 \end_body
