@@ -176,8 +176,9 @@ Il device tipico che usa questo tipo di applicazione è lo smartphone, ma
 \end_layout
 
 \begin_layout Standard
-Sono state proposte diverse soluzioni basate sui database NoSQL, ma anche
- soluzioni personalizzate basate su RDBMS sono fattibili.
+Sono state proposte diverse soluzioni basate sui database NoSQL (sia in
+ cloud che opensource), ma anche soluzioni personalizzate basate su RDBMS
+ sono fattibili.
  Le soluzioni basate sui NoSQL non sono standardizzate e non hanno un nome
  definito quindi le chiameremo 
 \begin_inset Quotes fld
@@ -188,11 +189,11 @@ CS-NoSQL
 \end_inset
 
  (NoSQL lato client).
- Sono stati scelti i NoSQL per i dati non strutturati e per la loro dimensione.
 \begin_inset Newline newline
 \end_inset
 
-Inoltre, spesso, la 
+Sono stati scelti i NoSQL per i dati non strutturati e per la loro dimensione.
+ Inoltre, spesso, la 
 \begin_inset Quotes fld
 \end_inset
 
@@ -208,7 +209,7 @@ eventually consistency
 \begin_inset Quotes frd
 \end_inset
 
-, quindi viene scelta la 
+, quindi vengono scelte la 
 \begin_inset Quotes fld
 \end_inset
 
@@ -216,24 +217,7 @@ partition tolerance
 \begin_inset Quotes frd
 \end_inset
 
- secondo il teorema CAP.
- La 
-\begin_inset Quotes fld
-\end_inset
-
-partition tolerance
-\begin_inset Quotes frd
-\end_inset
-
- è sempre scelta, anche se viene scelta la 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
-; in quel caso, la 
+ e la 
 \begin_inset Quotes fld
 \end_inset
 
@@ -241,7 +225,7 @@ availability
 \begin_inset Quotes frd
 \end_inset
 
- non è considerata.
+ secondo il teorema CAP.
 \begin_inset Newline newline
 \end_inset
 

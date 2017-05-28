@@ -176,8 +176,8 @@ The typical device that uses this kind of application is a smartphone.
 \end_layout
 
 \begin_layout Standard
-Different solutions based on NoSQL databases were proposed, but of course
- custom solutions based on RDBMS are feasible.
+Different solutions based on NoSQL databases were proposed (both in cloud
+ and opensource), but of course custom solutions based on RDBMS are feasible.
  These solutions (NoSQL based) are not standardized, so there is no name
  even for them so we will call them 
 \begin_inset Quotes fld
@@ -188,12 +188,11 @@ CS-NoSQL
 \end_inset
 
  (client side NoSQL).
- NoSQL was chosen since data are unstructured and their amount could be
- enormous.
 \begin_inset Newline newline
 \end_inset
 
-Moreover, sometimes, the 
+NoSQL was chosen since data are unstructured and their amount could be enormous.
+ Moreover, sometimes, the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -217,24 +216,7 @@ partition tolerance
 \begin_inset Quotes frd
 \end_inset
 
- is chosen according to the CAP theorem.
- 
-\begin_inset Quotes fld
-\end_inset
-
-Partition tolerance
-\begin_inset Quotes frd
-\end_inset
-
- is always chosen, even if the 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
- is too; in that case, the 
+ and 
 \begin_inset Quotes fld
 \end_inset
 
@@ -242,7 +224,7 @@ availability
 \begin_inset Quotes frd
 \end_inset
 
- is dropped.
+ are chosen according to the CAP theorem.
 \begin_inset Newline newline
 \end_inset
 
@@ -267,7 +249,7 @@ CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- that implement the replication to the clients.
+ that implement the replication on the clients.
  We want to verify their performance and stability for the classes of applicatio
 ns they are designed for, comparing them with a solution based on an RDBMS.
 \end_layout

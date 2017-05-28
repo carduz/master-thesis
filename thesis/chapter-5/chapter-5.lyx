@@ -244,7 +244,7 @@ https://www.pubnub.com/solutions/
 \begin_layout Standard
 We will see that the traditional approach can be adapted to a solution,
  but this adaption requires time.
- In fact the 
+ In fact 
 \begin_inset Quotes fld
 \end_inset
 
@@ -252,18 +252,18 @@ CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- adapts itself automatically, we will see in 
+ adapt themselves automatically, we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Study-Cases-class"
 
 \end_inset
 
- that this is one key of its success.
+ that this is a key of its success.
 \end_layout
 
 \begin_layout Standard
-We will see that we use ID references, of course in NoSQL database we do
+We will see that we use ID references, of course in NoSQL databases we do
  not have referential integrity checks 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -301,7 +301,7 @@ key "PubNubChat,FireChat"
 \begin_layout Standard
 The chat considered is room based chat, i.e.
  there are some rooms where there are a lot of users subscribed that see
- all messages of that room.
+ all the messages of that room.
  So we expect #reads>>#writes.
 \end_layout
 
@@ -325,7 +325,7 @@ reference "lis:Chat-data-structure"
 
 \end_inset
 
-), JSON structure seems very useful.
+), the usage of JSON structure seems very useful.
 \end_layout
 
 \begin_layout Standard
@@ -526,13 +526,13 @@ So permissions and notifications are managed analogously with a traditional
 \begin_inset Newline newline
 \end_inset
 
-Moreover we only add data that we know to be unique, NoSQL database should
+Moreover we only add data that we know to be unique, NoSQL databases should
  be better with this kind of things.
  But since we have #reads>>#writes we should not see effects of it.
 \end_layout
 
 \begin_layout Standard
-We can see that if we want to retrieve efficiently the users of room we
+We can see that if we want to retrieve efficiently the users of a room we
  can do it easily with a traditional approach (it is a query on users table),
  but to do it with NoSQL (since we do not have queries) we have to replicate
  data (room-users) as shown in listing 
@@ -558,7 +558,7 @@ Collaborative software
 \begin_layout Standard
 A collaborative software is a software that allows to more than one person
  to work together in the same document, one of the most famous collaborative
- software is 
+ softwares is 
 \begin_inset Quotes fld
 \end_inset
 
@@ -818,15 +818,15 @@ We work using history of changes, in fact since there is no lock users cannot
 \end_layout
 
 \begin_layout Standard
-The structure of history is simple: we can add text (first change), we can
- add a font to a portion of text (second change), we can remove some chars
- (third change).
+The structure of history is simple: we can add a text (first change), we
+ can add a font to a portion of text (second change), we can remove some
+ chars (third change).
  Moreover we can see that we can subscribe to users to their cursor position.
 \end_layout
 
 \begin_layout Standard
 It is easy to see how the JSON structure is perfect for this kind of application
-, it is easy to think to extend this application adding childes detailed
+s, it is easy to think to extend this application adding childes detailed
  fields in 
 \begin_inset Quotes fld
 \end_inset
@@ -854,13 +854,13 @@ But of course we can manage them with a traditional approach, in fact they
 \end_layout
 
 \begin_layout Standard
-We only add data that we know to be unique, NoSQL database should be better
+We only add data that we know to be unique, NoSQL databases should be better
  with this kind of things.
  Since we have #reads 
 \begin_inset Formula $\simeq$
 \end_inset
 
-#writes we should see differences due to the add efficiency.
+ #writes we should see differences due to the add efficiency.
 \end_layout
 
 \begin_layout Subsection
@@ -1305,7 +1305,7 @@ Moreover it is easier to bring the second approach on traditional technologies.
 \end_layout
 
 \begin_layout Standard
-For simplicity permission and related things are skipped.
+For simplicity permissions and related things are skipped.
 \end_layout
 
 \begin_layout Standard
@@ -1343,7 +1343,7 @@ reference "lis:Social-structure"
 
 \begin_layout Standard
 We expect #reads >> #writes, it is common to have a lot of followers (so
- for every writing we have to replicate it to a lot of followers).
+ for every write we have to replicate it to a lot of followers).
 \end_layout
 
 \begin_layout Standard
@@ -1488,8 +1488,8 @@ Logitech Harmony Ultimate Home
 \end_layout
 
 \begin_layout Standard
-Logitech harmony ultimate home, is a home automation hub that allows to
- control home from the app and by other means.
+Logitech harmony ultimate home is a home automation hub that allows to control
+ home from the app and by other means.
  It is developed over 
 \begin_inset Quotes fld
 \end_inset
@@ -1513,8 +1513,8 @@ Problem
 \end_layout
 
 \begin_layout Standard
-With the app the user can control the hub from every location, the data
- changed with the hub are a stream of data.
+With the app the user can control the hub from every location, data changed
+ with the hub are a stream of data.
  So a securely and reliable solution to send a stream of data is needed.
 \end_layout
 
@@ -1538,7 +1538,7 @@ CS-NoSQL
 \end_inset
 
 Moreover the hub sends a stream of realtime data from different devices
- (lights, temperatures ex.) to mobile app.
+ (lights, temperatures ex.) to the mobile app.
 \end_layout
 
 \begin_layout Paragraph
@@ -1570,7 +1570,7 @@ CornerJob
 \end_layout
 
 \begin_layout Standard
-CornerJob is location based job recruitment app.
+CornerJob is a location based job recruitment app.
  It is developed over 
 \begin_inset Quotes fld
 \end_inset

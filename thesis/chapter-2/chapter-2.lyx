@@ -156,7 +156,7 @@ realtime databases
 \begin_inset Quotes frd
 \end_inset
 
- even if they are not realtime databasess (a completely different thing),
+ even if they are not realtime databases (a completely different thing),
  but this name is used for commercial purposes since they send 
 \begin_inset Quotes fld
 \end_inset
@@ -181,12 +181,13 @@ reference "subsec:Distributed-issues"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
-They allow easily to subscribe to different granularity of data and receive
- notifications of changes using publish/subscribe as explained in 
+They allow easily to subscribe to different granularities of data and to
+ receive notifications of changes using publish/subscribe as explained in
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/subscribeNOSQL"
@@ -256,7 +257,7 @@ In fact a NoSQL database is an unstructured database, it can support a subset
 They were born to create scalable databases for Big Data (a set of data
  that are too large or too complex to be managed/elaborated with a traditional
  system) applications.
- Even this means losing query expressivity power, in fact they can have
+ Even this means losing query expressiveness power, in fact they can have
  
 \begin_inset Quotes fld
 \end_inset
@@ -284,7 +285,7 @@ key "NoSQL"
 
 \begin_layout Standard
 They can be easily partitioned but in order to ensure this efficiently they
- have to renounce to the Consistency or to the Availability as shown in
+ have to renounce to the consistency or to the availability as shown in
  the figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -455,7 +456,7 @@ key "JSONvsXML"
 \end_inset
 
 .
- It could be used as model in document NoSQL databases.
+ It could be used as model in NoSQL databases document.
 \end_layout
 
 \begin_layout Standard
@@ -645,7 +646,7 @@ title
 \end_deeper
 \end_deeper
 \begin_layout Standard
-So in a NoSQL database that uses JSON as 
+So a NoSQL database that uses JSON as 
 \begin_inset Quotes fld
 \end_inset
 
@@ -664,7 +665,7 @@ A simple example can be a system where we have some users, each of them
 \begin_inset Newline newline
 \end_inset
 
-We will see this case and others on the chapter 
+We will see this case and others in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:class-of-applications"
@@ -682,7 +683,7 @@ reference "subsec:RESTful"
 
 \end_inset
 
- the RESTful is a good protocol for JSON and, in general, NoSQL databases
+ the RESTful is a good protocol for JSON and, in general, for NoSQL databases
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -753,7 +754,7 @@ collection-path
 \begin_inset Newline newline
 \end_inset
 
-We can also see that the expressivity power is the same of 
+We can also see that the expressiveness power is the same of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -817,15 +818,16 @@ Distributed issues
 
 \begin_layout Standard
 As introduced at the beginning NoSQL databases can be easily distributed
- and partitioned, we obtain an increase of performance from distribution
- and partitioning as explained in 
+ and partitioned.
+ We obtain an increase of performance from distribution and partitioning
+ as explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Distribution-and-partitioningNOSQL"
 
 \end_inset
 
- but we have to renounce to 
+ but, often, we have to renounce to 
 \begin_inset Quotes fld
 \end_inset
 
@@ -879,22 +881,22 @@ reference "subsec:Consistency,-Partition-tolerance"
 
 \end_inset
 
- the cap theorem is one of the fundamental theorem for distributed databases.
+ the CAP theorem is one of the fundamental theorems for distributed databases.
 \end_layout
 
 \begin_layout Standard
-Since the main characteristic of them is the scalability they need partition
- tolerance.
- In fact NoSQL, often, chooses Availability and Partition tolerance or Consisten
-cy and Partition tolerance 
+Since the main characteristic of NoSQL databases is the scalability they
+ need partition tolerance.
+ In fact NoSQL, often, choose availability and partition tolerance or consistenc
+y and partition tolerance 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "CAPNoSQL"
+key "CAPNoSQL2,CAPNoSQL"
 
 \end_inset
 
 .
- In the chapter 
+ In 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
@@ -1000,7 +1002,7 @@ reference "subsec:Publish/Subscribe"
 
 \begin_layout Standard
 The common idea in all of these databases is to subscribe to the main events
- (the same events of database trigger explained in 
+ (the same events of a database trigger explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Database-trigger"
@@ -1023,8 +1025,8 @@ deleted
 \end_layout
 
 \begin_layout Standard
-We subscribe to these events for different level of granularity, that depends
- on the data model used and on the database itself.
+We subscribe to these events for different levels of granularity, that depends
+ on data model used and on the database itself.
  For example there are some databases that, even if they support JSON, allow
  to subscribe only to the first level of it (so it is like a key-value).
 \begin_inset Newline newline
@@ -1062,7 +1064,8 @@ reference "subsec:Publish/Subscribe"
 
 \end_inset
 
- it is not an easy task (even if for topic-based is easier than content-based).
+ it is not an easy task (even if for topic-based is easier than for content-base
+d).
  Fortunately these databases provide an integrated publish/subscribe that
  scales with the database itself.
 \end_layout
@@ -1095,7 +1098,7 @@ CS-NoSQL
 \end_inset
 
 .
- In fact we have to replicate them to the client as we will see in 
+ In fact we have to replicate them on the client as we will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Local-database"
@@ -1106,7 +1109,7 @@ reference "subsec:Local-database"
 \end_layout
 
 \begin_layout Standard
-Now we will quickly see the constraints and permissions in a classic NoSQL
+Now we will quickly see the constraints and permissions in a classical NoSQL
  database in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1118,7 +1121,7 @@ reference "subsec:Constraints-and-permissionsNoSQL"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see queries support in a classic NoSQL database in 
+Then we will see queries support in a classical NoSQL database in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:QueriesNoSQL"
@@ -1192,7 +1195,7 @@ key-value
 \end_layout
 
 \begin_layout Standard
-There are some languages (pig and hive) built on top of MapReduce that allows
+There are some languages (pig and hive) built on top of MapReduce that allow
  to do queries in standard ways 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1218,7 +1221,7 @@ In this sub section we will see the best practices used in these kinds of
  applications from the client's point of view.
  Some choices, like data returned in some cases, can be imposed by the server
  technology chosen.
- On figure 
+ In figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:client-architecture"
@@ -1272,7 +1275,7 @@ Simple client architecture
 
 \begin_layout Standard
 Of course, since there is no standard, any application implements different
- things and/or implement them in different ways.
+ things and/or implements them in different ways.
  So this is just a summary of the most used best practices.
 \end_layout
 
@@ -1320,7 +1323,7 @@ eventually consistency logic
 \end_inset
 
  (a read does not return a data older than a previous read), but of course
- the data cannot be updated with the latest of the server.
+ data cannot be updated with the latest of the server.
 \end_layout
 
 \begin_layout Itemize
@@ -1375,7 +1378,8 @@ reference "subsec:Local-database"
 
 \end_inset
 
-.This allows to return data immediately when requested by the client.
+.
+ This allows to return data immediately when requested by the client.
 \end_layout
 
 \begin_layout Standard
@@ -1401,7 +1405,8 @@ reference "alg:Event-driven-retrieve"
 
 \end_inset
 
- we show a common and simple realtime retrieve of data in event driven approach.
+ we show a common and simple realtime retrieve of data in the event driven
+ approach.
  The basic idea of event driven approach is to call a callback when an event
  is fired 
 \begin_inset CommandInset citation
@@ -1555,7 +1560,7 @@ end{algorithmic}
 \begin_layout Standard
 The basic idea is to subscribe a callback to change events of a specif path
  of a document, thinking of JSON documents the path is a reference to a
- specif level of the JSON document.
+ specific level of the JSON document.
  For example a path for the JSON listing 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1571,7 +1576,7 @@ reference "lis:Simple-JSON-example"
 \begin_inset Quotes frd
 \end_inset
 
- to subscribe to change events of the first array inside main array.
+ to subscribe to change events of the first array inside the main array.
 \begin_inset Newline newline
 \end_inset
 
@@ -1590,7 +1595,7 @@ Client language
 \end_layout
 
 \begin_layout Standard
-One of the most used language in this kind of applications is EcmaScript
+One of the most used languages in this kind of applications is EcmaScript
  5.0 (in some cases EcmaScript 6.0), commonly known with its dialect name:
  javascript.
  In fact the most known EcmaScript interpreter: V8 is very efficient for
@@ -1719,11 +1724,8 @@ reference "subsec:Local-database"
 \begin_layout Standard
 So the best practice is to use RESTful for all the synchronous operations,
  let the possibility to use RESTful get all data or a portion of them, but
- give also an asynchronous
-\end_layout
-
-\begin_layout Standard
-interface integrated with the event driven approach like websocket.
+ give also an asynchronous interface integrated with the event driven approach
+ like websocket.
 \end_layout
 
 \begin_layout Standard
@@ -1839,7 +1841,7 @@ key "OptimisticReplication"
 \begin_inset Newline newline
 \end_inset
 
-One of the simplest way to solve conflicts is 
+One of the simplest ways to solve conflicts is 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1847,7 +1849,7 @@ Last Writes Wins
 \begin_inset Quotes frd
 \end_inset
 
-, in this way the writing with the highest timestamps is used overwriting
+, in this way the writing with the highest timestamp is used overwriting
  the concurrent others.
  This approach is used by different systems in the implementation of 
 \begin_inset Quotes fld

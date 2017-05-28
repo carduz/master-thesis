@@ -182,8 +182,14 @@ La tesi è strutturata nel modo seguente
 \end_layout
 
 \begin_layout Standard
-In today's applications, data are increasing exponentially and also need
- to be replicated on different devices in 
+In today's applications, data are increasing exponentially 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bigData"
+
+\end_inset
+
+ and also need to be replicated on different devices in 
 \begin_inset Quotes fld
 \end_inset
 
@@ -207,14 +213,68 @@ local database
 
 The typical device that uses this kind of application is a smartphone.
  But not only, also other web applications use them, such as collaborative
- softwares (like Google Docs).
+ softwares (like Google Docs) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "realtimeGroupware"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+So what we need is a database which allows to process big data and replicate
+ itself among devices in 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Different solutions based on NoSQL databases were proposed, but of course
- custom solutions based on RDBMS are feasible.
- These solutions (NoSQL based) are not standardized, so there is no name
- even for them so we will call them 
+NoSQL databases were born to process big data efficiently 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bigData2,CAPNoSQL"
+
+\end_inset
+
+.
+ So solutions to replicate the databases in 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ are based on them, they can be in cloud or opensource, one of the most
+ famous cloud solution is 
+\begin_inset Quotes fld
+\end_inset
+
+firebase
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "firebaseArticle"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+These solutions are not standardized, so there is no name even for them
+ so we will call them 
 \begin_inset Quotes fld
 \end_inset
 
@@ -223,128 +283,102 @@ CS-NoSQL
 \end_inset
 
  (client side NoSQL).
- NoSQL was chosen since data are unstructured and their amount could be
- enormous.
+\end_layout
+
+\begin_layout Standard
+In this master thesis we want to verify the performances of CS-NoSQL for
+ the class of applications they are designed for.
+ We also want to analyze issues related to the development process, scalability
+ and other related issues.
 \begin_inset Newline newline
 \end_inset
 
-Moreover, sometimes, the 
-\begin_inset Quotes fld
+In order to do that, we analyze the theory behind them and we classify some
+ of them, then we select a set of them which have significant characteristics.
+ We choose opensource systems since we can verify the characteristics declared
+ by vendors, we can take more grained measurements of their performances
+ (also low level data) and the technology behind them is more standard than
+ the technology by cloud systems.
+\begin_inset Newline newline
 \end_inset
 
-strong consistency
-\begin_inset Quotes frd
+Moreover, we develop an alternative system based on a traditional database
+ that allows to do the same things of native CS-NoSQL databases and we use
+ it as comparative system.
+\begin_inset Newline newline
 \end_inset
 
- is not needed but an 
-\begin_inset Quotes fld
-\end_inset
-
-eventually consistency
-\begin_inset Quotes frd
-\end_inset
-
- is enough so the 
-\begin_inset Quotes fld
-\end_inset
-
-partition tolerance
-\begin_inset Quotes frd
-\end_inset
-
- is chosen according to the CAP theorem.
+In order to test them we identify some significant classes of applications
+ where they should perform efficiently, the classes of applications differ
+ for elements that are typical of this kind of applications such as the
+ number of clients subscribed, data structure and so on.
+ Then we design a test framework, since there is no test framework to test
+ this kind of applications which considers issues related to them such as
+ the number of clients subscribed.
  
-\begin_inset Quotes fld
-\end_inset
-
-Partition tolerance
-\begin_inset Quotes frd
-\end_inset
-
- is always chosen, even if the 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
- is too; in that case, the 
-\begin_inset Quotes fld
-\end_inset
-
-availability
-\begin_inset Quotes frd
-\end_inset
-
- is dropped.
 \begin_inset Newline newline
 \end_inset
 
-One of the main advantages of 
-\begin_inset Quotes fld
+We will prove that our comparative system is more efficient in terms of
+ performance, but also in terms of scalability and stability (CS-NoSQL are
+ very unstable with a reasonable amount of data).
+ In some cases, it is also 10x faster.
+ On the other hand CS-NoSQL are very efficient, in some cases, for development
+ processes, in fact since they were born only for this purpose they are
+ a full-stack environment (with other solutions we need to create the entire
+ infrastructure) and this allows to create a simpler application with zero
+ code.
+ This is very common in cloud systems but there is the disadvantage that
+ it is a proprietary solution and if the system goes down or the cloud company
+ fails all data are lost and there is no way to replicate the system in
+ another server so a new development is needed.
+\begin_inset Newline newline
 \end_inset
 
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- is their full integration, they are a full stack environment, while if
- we want a solution based on RDBMS we need to develop an entire infrastructure.
+So lots of issues are related to the fact that solutions are proprietary,
+ we have issues like non standard way to do tests, non standard development
+ processes and so on.
+ This is a big cost for companies that want to use this kind of systems
+ since they need a different training for each system used.
+ Moreover, as we said previously, they have not so impressive performances.
+ At the moment, only few companies use them but we expect big improvements
+ on both main issues (performances and development process issues) in the
+ next years when, probably, more native solutions will be implemented because
+ the applications that need systems like that are increasing.
 \end_layout
 
 \begin_layout Standard
-This kind of applications are developed to be used in every kind of device,
- also desktops.
- So the best solution is to make them 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
-, allowing a web application to receive notifications.
- So one of the main aspects is the technology chosen to do that, how to
- do it with HTTP.
+Since CS-NoSQL are not standardized and are new, their literature is poor
+ but they are just a combination of technologies already well-studied.
 \begin_inset Newline newline
 \end_inset
 
-For that reasons in that thesis we cover only HTTP based applications.
-\end_layout
-
-\begin_layout Standard
-There are different commercial solutions based on NoSQL databases, but there
- are few academic references to them.
- This because they are a composition of technologies already studied.
-\begin_inset Newline newline
-\end_inset
-
-In fact, they are composed by NoSQL databases 
+NoSQL databases 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
 
 \end_inset
 
- (often a normal database), optimistic replication techniques 
+ are the core of the system since they are the storage.
+ They allow to store an enormous amount of unstructured data such as JSON
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "OptimisticReplication"
+key "JSON"
 
 \end_inset
 
-, realtime delivery of messages over HTTP (websocket) 
+ that are very useful for big data, as we will see, JSON is very useful
+ for CS-NoSQL since we can have a different granularity in data and subscription
+ that depends on the class of applications.
+ Moreover, they can be distributed and partitioned, this is very important
+ for big data but in some cases we could renounce to strong consistency
+ in favor of eventually consistency according to the CAP theorem to keep
+ good performances 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "WebSocket"
-
-\end_inset
-
-, publish/subscribe 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PubSub"
+key "CAP,CAPNoSQL2,CAPNoSQL"
 
 \end_inset
 
@@ -352,102 +386,143 @@ key "PubSub"
 \begin_inset Newline newline
 \end_inset
 
-So to study them we needed to study the technologies beyond them, then to
- study some commercial systems.
-\end_layout
+The publish/subscribe protocol 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PubSub"
 
-\begin_layout Standard
-In this thesis, we analyzed some 
-\begin_inset Quotes fld
 \end_inset
 
-CS-NoSQL
-\begin_inset Quotes frd
+ is a protocol that allows to subscribe to some data and receive notifications
+ about them.
+ Optimistic replication techniques 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "OptimisticReplication"
+
 \end_inset
 
- that implement the replication to the clients.
- We want to verify their performance and stability for the classes of applicatio
-ns they are designed for, comparing them with a solution based on an RDBMS.
- We saw a lot aspects only from a theoretical point of view: such as partitionin
-g and CAP theorem, what we have done experimentally is to test raw performances
- for read and writes for classes of applications for which these databases
- are designed.
-\end_layout
-
-\begin_layout Standard
-To do that we implemented a comparing solution based on postgreSQL (an RDBMS
- server) that replicates data on clients using websocket, we also implemented
- a simple local database for it.
-\begin_inset Newline newline
-\end_inset
-
-We created a custom framework to test this kind of systems and we did some
- benchmark tests emulating the different classes of applications for which
+ allow to replicate databases or other data efficiently, the performances
+ are not affected by the number of replica, of course the strong consistency
+ is lost in favor of eventually consistency according to the CAP theorem
  
-\begin_inset Quotes fld
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CAP,OptimisticReplication"
+
 \end_inset
 
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- are designed.
+.
+ Both systems, together, allow to distribute the NoSQL databases efficiently
+ among the clients.
 \begin_inset Newline newline
 \end_inset
 
-We discovered that they are very unstable with a reasonable amount of data
- and that our proposed solution based on postgreSQL is quicker (up to 10x).
- However we expect an improvement (in performance and stability) in the
- next years when probably more native solutions will be developed.
+Websocket protocol 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "WebSocket"
+
+\end_inset
+
+ (a protocol based on HTTP) allows to send messages in realtime to clients
+ using HTTP.
+ It is very important since, as said, this kind of applications are used
+ in web applications.
+ In fact all the systems that we see are HTTP based.
 \end_layout
 
 \begin_layout Standard
-In Chapter 1, we will see the background, all the knowledges that we need
+In order to study these systems we only have information from vendors.
+ So we choose some theoretical information that are relevant and take these
+ information from vendors (or if they are not available we try to deduct
+ them from other sources such as the source code) for each CS-NoSQL that
+ are relevant, both cloud and opensource.
+ These information include: CAP, data granularity, distribution and partitioning
+, security issues and so on.
+\begin_inset Newline newline
+\end_inset
+
+As said previously, we develop a comparing system that is based on a traditional
+ database.
+ It is composed by a postgreSQL database that sends notifications for each
+ change in a distributed cluster of websocket servers, through redis server.
+ Finally websocket servers send notifications to the clients, the clients
+ implement a local database that uses these notifications to make replica
+ in an eventually consistency way.
+\end_layout
+
+\begin_layout Standard
+We identify some interesting classes of applications that differ for relevant
+ characteristics that are typical of this kind of applications.
+ Even here, in order to do that we use the information provided by the vendors.
+\begin_inset Newline newline
+\end_inset
+
+We project a test strategy and develop a test framework since there are
+ no test frameworks for this kind of systems.
+ This test framework allows to test the scalability and performances emulating
+ the classes of applications analyzed before and take measurements of performanc
+es that are very relevant for this kind of applications such as time needed
+ to replicate a new information to all the clients.
+ Of course we measure also classical measurements such as raw read/write
+ speed.
+\end_layout
+
+\begin_layout Standard
+Finally, we make some benchmarks that are executed on identical virtual
+ machines (distributed with the source code of the test framework) to make
+ tests replicable and make them in a standard way.
+ We execute tests on different combinations of machine characteristics to
+ see scalability and bottlenecks of the systems to be tested.
+ 
+\end_layout
+
+\begin_layout Standard
+In Chapter 1, we will see the background, all the knowledge that we need
  in order to understand the next topics.
- The main topics that we will see are HTTP (since we analyze only HTTP based
- applications), basic concepts and issues of data in a distributed system
- and finally the concepts beyond cloud computing from the user's point of
- view.
-\end_layout
+ The main topics that we will see are HTTP and websocket protocol, basic
+ concepts and issues of data in a distributed system (talking also about
+ publish/subscribe and optimistic replication) and finally the concepts
+ behind cloud computing from the user's point of view.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 In Chapter 2, we will see the state of art of CS-NoSQL.
  Of course, as we said previously, there are no academic references to them,
- but references to technologies use, so we will see NoSQL databases from
+ but references to technologies used, so we will see NoSQL databases from
  a theoretical point of view with all the related things that we need (such
  as distribution).
  Then we will see the best practices to implement the local database on
  the client side.
- 
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 In Chapter 3, we will analyze some real CS-NoSQL, both opensource and in
  cloud ones.
- We will classify them in a common way.
- Some of them we will be used in the performances tests.
-\end_layout
+ We will classify them in a common way, as said previously, to compare them.
+ Then we select a set of them to be used in the benchmark tests.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-In Chapter 4, we will see our proposed solution based on postgreSQL.
- We will analyze all the things to build it such as the system to deliver
- realtime messages and so on.
- This is the technology used as comparing system in the performances tests.
-\end_layout
+In Chapter 4, we will see our proposed comparing solution.
+ We will analyze all the things to build it from the database to the client
+ such as the system to deliver realtime messages and so on.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 In Chapter 5, we will analyze the classes of applications for which CS-NoSQL
  are designed according to vendors.
  We will see use cases, and for each of them we will see a real case study.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 In Chapter 6, we will define our strategy to do benchmark tests.
  We will see what we need to do, what we need to measure, which tests we
  need to do and we will also shortly explain the framework we have implemented.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 In Chapter 7, we will see the results of benchmark tests and we will comment
  them.
 \end_layout

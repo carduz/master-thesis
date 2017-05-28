@@ -91,7 +91,7 @@ reference "chap:class-of-applications"
 
 \end_inset
 
- then we will prove that they work better in 
+ then we will prove or that they work better or not in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Performance-Evaluation"
@@ -166,7 +166,7 @@ reference "subsec:JSON"
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+Realtime
 \begin_inset Quotes frd
 \end_inset
 
@@ -231,7 +231,7 @@ reference "subsec:Local-database"
 \end_layout
 
 \begin_layout Itemize
-Classification according to CAP theorem explained in 
+Classification according to the CAP theorem explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:CAP-theoremNOSQL"
@@ -292,7 +292,7 @@ multi-master
 \begin_inset Quotes fld
 \end_inset
 
-master-slave
+master-slaves
 \begin_inset Quotes frd
 \end_inset
 
@@ -369,7 +369,7 @@ Analysis
 
 \begin_layout Standard
 Even if this kind of systems are young a lot of systems have already been
- created, there are both OpenSource and SaaS (explained in 
+ created, there are both opensource and SaaS (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Software-as-a"
@@ -382,9 +382,9 @@ reference "subsec:Software-as-a"
 
 Some SaaS systems are very famous and used but they do not allow to do all
  tests and performance measurements needed for our study, since we do not
- know the internal structure and replication, so we will analyze only OpenSource
+ know the internal structure and replication, so we will analyze only opensource
  systems.
- Of course we will see quickly the characteristics of main SaaS systems
+ Of course we will see quickly the characteristics of the main SaaS systems
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -396,7 +396,7 @@ reference "subsec:SaaS-realtime"
 \end_layout
 
 \begin_layout Standard
-We will analyze some OpenSource systems in 
+We will analyze some opensource systems in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:OpenSourceNoSQL"
@@ -420,9 +420,9 @@ reference "subsec:SaaS-realtime"
 \series bold
 Note:
 \series default
- The information is retrieved from the data shown on official sites of the
- products, but, in most of the cases, they are not verified empirically.
- Moreover word 
+ The information is retrieved from data shown on the official sites of the
+ products, but, in most cases, they are not verified empirically.
+ Moreover the term 
 \begin_inset Quotes fld
 \end_inset
 
@@ -513,7 +513,7 @@ verview/index.html
 \end_inset
 
  (every action must be done passing through this gateway).
- It is one of the most famous open source system, for that reason we tested
+ It is one of the most famous open source systems, for that reason we test
  it in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -597,7 +597,7 @@ Replication model:
 \begin_inset Quotes fld
 \end_inset
 
-master-slave
+master-slaves
 \begin_inset Quotes frd
 \end_inset
 
@@ -612,7 +612,8 @@ key "CouchBaseReplication"
 \end_layout
 
 \begin_layout Itemize
-Protocol used for notification: Websocket and all the ways explained in
+Protocol used for notifications: websocket and all the ways explained in
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Traditional-HTTP-Application"
@@ -634,7 +635,7 @@ Protocol used to send data: proprietary.
 \end_layout
 
 \begin_layout Itemize
-Constraint and permission support: User management 
+Constraints and permissions support: user management 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CouchbaseUsers"
@@ -698,7 +699,7 @@ key "CouchbaseFullText"
 \begin_inset Quotes fld
 \end_inset
 
-Fulltext allows you to search and find what you are looking for even without
+full text allows you to search and find what you are looking for even without
  exact matches.
  Just like the LIKE keyword in SQL? Not really.
  It is something else.
@@ -716,7 +717,7 @@ PouchDB
 \end_layout
 
 \begin_layout Standard
-PuchDB 
+PouchDB 
 \begin_inset Foot
 status open
 
@@ -788,7 +789,7 @@ https://couchdb.apache.org
 
 \end_inset
 
- is one of the most famous NoSQL database and it is very simple.
+ is one of the most famous NoSQL databases and it is very simple.
 \end_layout
 
 \begin_layout Standard
@@ -803,7 +804,7 @@ reference "sec:Characteristics-to-consider"
 \end_layout
 
 \begin_layout Itemize
-Data granularity for subscription: 
+Data granularity for subscriptions: 
 \begin_inset Quotes fld
 \end_inset
 
@@ -919,7 +920,7 @@ key "CouchDBREST"
 \end_layout
 
 \begin_layout Itemize
-Constraint and permission support: simple user management 
+Constraints and permissions support: simple user management 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CouchdbSecurity"
@@ -1007,7 +1008,7 @@ http://gun.js.org
 
 \end_inset
 
- is full stack 
+ is a full stack 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1157,8 +1158,8 @@ key "GunjsRealtime"
 \end_layout
 
 \begin_layout Itemize
-Constraints and permission support: authentication support in a P2P environment,
- using asymmetric cryptography 
+Constraints and permissions support: authentication support in a P2P environment
+, using asymmetric cryptography 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GunjsSecurity"
@@ -1184,7 +1185,7 @@ key "GunjsGraphs"
 
 \end_inset
 
-, the ability to explicitly link document together.
+, the ability to explicitly link documents together.
  Of course in any NoSQL database a link can be done manually using a sort
  of 
 \begin_inset Quotes fld
@@ -1296,7 +1297,7 @@ https://www.meteor.com/
 
 \end_inset
 
- is Javascript Client and Server Framework that uses MongDB
+ is a Javascript Client and Server Framework that uses MongDB
 \begin_inset CommandInset citation
 LatexCommand cite
 key "MongoDB"
@@ -1326,7 +1327,7 @@ serverless
 \begin_inset Quotes frd
 \end_inset
 
- but instead like a classic application, like classic approach explained
+ but instead like a classical application, like classical approach explained
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1352,7 +1353,7 @@ SaaS
 \end_layout
 
 \begin_layout Standard
-These kindss of system can be easily adapted to a SaaS service, since they
+These kinds of systems can be easily adapted to a SaaS service, since they
  can have no code on the backend, even if a more correct classification
  should be 
 \begin_inset Quotes fld
@@ -1374,7 +1375,7 @@ reference "sec:Serverless"
 \begin_inset Quotes fld
 \end_inset
 
-build the application without thinking the structure
+build the application without thinking to the structure
 \begin_inset Quotes frd
 \end_inset
 
@@ -1440,7 +1441,7 @@ triggers
 \begin_inset Newline newline
 \end_inset
 
-Of course it provides libraries and protocol to access it efficiently and
+Of course it provides libraries and protocols to access it efficiently and
  in a realtime way such as: RESTful interface (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1448,7 +1449,7 @@ reference "subsec:RESTful"
 
 \end_inset
 
-), Websocket (explained in 
+), websocket (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:WebSocket"
@@ -1466,7 +1467,7 @@ reference "subsec:HTTP-1.0"
 \end_layout
 
 \begin_layout Standard
-Furthermore the cost system can be easily adapted to the data used; in fact,
+Furthermore the cost system can be easily adapted to data used; in fact,
  since the infrastructure is closed it can be very efficient and the 
 \begin_inset Quotes fld
 \end_inset
@@ -1486,7 +1487,7 @@ key "FirebasePricing"
 \end_layout
 
 \begin_layout Standard
-Moreover, since it is one of the most used database of this type, it can
+Moreover, since it is one of the most used databases of this type, it can
  be easily integrated with other external systems.
 \end_layout
 
@@ -1521,7 +1522,7 @@ https://www.pubnub.com/
 
 \end_inset
 
- is a cloud Publish/Subscribe topic-based system (explained in 
+ is a cloud publish/subscribe topic-based system (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/Subscribe"
@@ -1529,7 +1530,7 @@ reference "subsec:Publish/Subscribe"
 \end_inset
 
 ) with storage support.
- So it has not the power of 
+ So it does not have the power of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1545,11 +1546,11 @@ channels
 \begin_inset Quotes frd
 \end_inset
 
- are not related to the data.
+ are not related to data.
 \end_layout
 
 \begin_layout Standard
-Of course there are opensource Pub/Sub implementations like 
+Of course there are opensource publish/subscribe implementations like 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1565,8 +1566,8 @@ key "Socketio"
 \end_inset
 
 .
- Pubnub has the advantage to be in the cloud, so it resolves also the scalabilit
-y issues.
+ Pubnub has the advantage to be in cloud, so it resolves also scalability
+ issues.
  
 \end_layout
 
@@ -1596,7 +1597,7 @@ https://www.backand.com/
 \end_inset
 
  is a proprietary serverless architecture for web applications, it is a
- Publish/Subscribe service like 
+ publish/subscribe service like 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1655,7 +1656,7 @@ reference "par:CAP-validity"
 
 \end_inset
 
- CAP theorem is not enough for a lot of things but, as explained, today
+ the CAP theorem is not enough for a lot of things but, as explained, today
  is not possible to make a classification under other systems for a lot
  of systems.
 \end_layout
@@ -1668,7 +1669,8 @@ reference "tab:Realtime-Databases-comparison"
 
 \end_inset
 
- we see the main characteristics of databases selected for a further analysis.
+ we see the main characteristics of the databases selected for a further
+ analysis.
 \end_layout
 
 \begin_layout Standard

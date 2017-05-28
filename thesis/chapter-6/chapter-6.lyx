@@ -1243,9 +1243,9 @@ reference "sec:Adapters-for-systems-test"
 \end_layout
 
 \begin_layout Standard
-The framework, since it is not a general framework, do not generate charts,
- it only generate raw data, charts can be generated using external and powerful
- instruments like sheet software.
+The framework, since it is not a general framework, does not generate charts,
+ it only generates raw data, charts can be generated using external and
+ powerful instruments like sheet softwares.
 \begin_inset Newline newline
 \end_inset
 
@@ -1283,7 +1283,7 @@ All data shown (like the number of clients) are found after some minor empirical
 \end_layout
 
 \begin_layout Standard
-In some cases data structure needs some changes to be adapted to the model
+In some cases data structures need some changes to be adapted to the model
  of the database used.
  There are minor changes (simplifications) that are not shown here, of course
  the code on github contains everything.
@@ -1294,8 +1294,7 @@ We should consider also the size of data, but after some experiments, we
  have seen that some systems do not support a big amount of data.
  So the test would be inconsistent.
  Of course we analyze the data volume adaptability, with data volume we
- mean the volume of the data in the database (not the size of the single
- field).
+ mean the volume of data in the database (not the size of the single field).
 \end_layout
 
 \begin_layout Subsection

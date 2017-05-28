@@ -75,16 +75,15 @@
 
 \begin_layout Standard
 In this chapter we propose an approach based on a traditional database (RDBMS
- database), we will use this approach to compare the performance of NoSQL
- 
+ database), we will use this approach to compare the performance of 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases in 
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Performance-Evaluation"
@@ -96,15 +95,15 @@ reference "chap:Performance-Evaluation"
 \end_inset
 
 Of course, except for the database, we try to emulate the approaches of
- NoSQL 
+ 
 \begin_inset Quotes fld
 \end_inset
 
-realtime
+CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- databases explained in 
+ explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:State-of-Art"
@@ -231,7 +230,7 @@ reference "fig:-Database-triangle"
 \end_inset
 
 , i.e.
- they do not support a partition of the data in an efficient way.
+ they do not support a partition of data in an efficient way.
  But of course they can be partitioned.
 \series bold
 
@@ -491,7 +490,7 @@ key "RedisPartitioning"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -503,7 +502,8 @@ value
 \begin_inset Quotes frd
 \end_inset
 
- (key-value storage), with high storage limit (512 megabyte per value) 
+ (key-value storage), with a high storage limit (512 megabyte per value)
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisDataTypes"
@@ -517,7 +517,7 @@ key "RedisDataTypes"
 \begin_inset Quotes fld
 \end_inset
 
-master-slaves
+Master-slaves
 \begin_inset Quotes frd
 \end_inset
 
@@ -528,7 +528,7 @@ key "RedisReplication"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -575,7 +575,7 @@ http://socket.io/
 
 \end_inset
 
- is one of the most famous websocket server, written in javascript.
+ is one of the most famous websocket servers, written in javascript.
  It is built on top of 
 \begin_inset Quotes fld
 \end_inset
@@ -614,7 +614,7 @@ key "SocketIOProtocol"
 
 \end_inset
 
-) that make it the best choice for our tests.
+) that makes it the best choice for our tests.
  Furthermore it is the best open source websocket server 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -894,7 +894,7 @@ CS-NoSQL
 \end_layout
 
 \begin_layout Itemize
-RDBMS database: that must be scalable among nodes and trigger support to
+RDBMS database: that must be scalable among nodes and triggers support to
  notify changes.
  It is explained in 
 \begin_inset CommandInset ref
@@ -903,11 +903,11 @@ reference "subsec:Database-architecture-traditional"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
-Publish/Subscribe system: to publish notifications of changes as explained.
+Publish/subscribe system: to publish notifications of changes as explained.
  It is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -951,7 +951,7 @@ reference "subsec:Custom-Logic-architecture-traditional"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Itemize
@@ -963,7 +963,7 @@ reference "subsec:Client-library-and-architecture-traditional"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1038,11 +1038,11 @@ Trigger call publishes on a predefined postgreSQL channel for each event.
 \end_layout
 
 \begin_layout Enumerate
-A javascript listener listens on the same postgreSQL channel.
+A javascript listener listens to the same postgreSQL channel.
 \end_layout
 
 \begin_layout Enumerate
-The javascript listener republishes the same message on Publish/Subscribe
+The javascript listener republishes the same message on publish/subscribe
  system defined in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1151,7 +1151,7 @@ reference "subsec:Socket.io-architecture"
 
 \begin_layout Standard
 It implements a distributed (via redis) publish/subscribe, i.e.
- different Publish/Subscribe broker servers communicate through redis.
+ different publish/subscribe broker servers communicate through redis.
  But in this way we do not know the status of the entire network, we do
  not know which brokers are connected.
 \end_layout
@@ -1166,8 +1166,8 @@ reference "subsec:Database-architecture-traditional"
 
 \end_inset
 
- when publishes something simply writes it on redis (without call any broker
- server) 
+ when publishes something simply writes it on redis (without calling any
+ broker server) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOEmiter"
@@ -1178,13 +1178,13 @@ key "SocketIOEmiter"
 \begin_inset Newline newline
 \end_inset
 
-Everything is done automatically without custom configuration on broker
+Everything is done automatically without custom configurations on broker
  server: every event (channel) used by the listener can be subscribed by
  the users.
 \end_layout
 
 \begin_layout Standard
-Socket.io allows to manage channel at high level, we can use:
+Socket.io allows to manage channels at high level, we can use:
 \end_layout
 
 \begin_layout Itemize
@@ -1343,8 +1343,8 @@ reference "subsec:Custom-Logic-architecture-traditional"
 \end_layout
 
 \begin_layout Standard
-The important thing of this approach is that the writing does not depend
- on redis (that has persistence problems as shown in 
+The important thing of this approach is that the writes do not depend on
+ redis (that has persistence problems as shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Redis"
@@ -1366,7 +1366,7 @@ Custom logic
 
 \begin_layout Standard
 With socket.io we can insert a custom logic for events sent by the client,
- a simple example is shown 
+ a simple example is shown in appendix 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-logic-appendix"
@@ -1375,7 +1375,7 @@ reference "subsec:Custom-logic-appendix"
 
 .
  But we cannot modify events generated by others, in that case the socket.io
- servers act only like a 
+ server acts only like a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1416,7 +1416,7 @@ auth
 \begin_layout Itemize
 Send data to database.
  We can define different events for different database operations and for
- each of them map the event with the database library method.
+ each of them mapping the event with the database library method.
 \end_layout
 
 \begin_layout Standard
@@ -1424,7 +1424,7 @@ The only problem with this solution is that there is no persistence of data
  associated to a client.
  If the socket.io server dies, if the client changes the server (if we have
  load balance organization) or if the connection is interrupted (and then
- reestablished) the data associated to a client are lost.
+ reestablished) data associated to a client are lost.
 \begin_inset Newline newline
 \end_inset
 
@@ -1449,6 +1449,7 @@ eventually consistency
 \begin_inset Quotes frd
 \end_inset
 
+.
  
 \begin_inset Newline newline
 \end_inset
@@ -1507,7 +1508,7 @@ local database
 \begin_inset Quotes fld
 \end_inset
 
-last Writer Win
+Last Writer Win
 \begin_inset Quotes frd
 \end_inset
 
@@ -1540,8 +1541,8 @@ User calls write/update: local data are updated.
 \end_layout
 
 \begin_layout Itemize
-Data are updated by the server: a callback is called and it updates the
- local data.
+Data are updated by the server: a callback is called and it updates local
+ data.
 \end_layout
 
 \begin_layout Standard
@@ -1880,7 +1881,7 @@ insert
 \end_layout
 
 \begin_layout Itemize
-We map client data events (add, put, delete) to sql functions (insert, update,
+We map client data events (add, put, delete) to SQL functions (insert, update,
  delete) making some checks.
 \begin_inset Newline newline
 \end_inset
@@ -2038,7 +2039,7 @@ General Local database:
 
 \begin_deeper
 \begin_layout Itemize
-Keep a local copy of data
+Keep a local copy of data.
 \end_layout
 
 \begin_layout Itemize
@@ -2066,7 +2067,7 @@ local database
 \begin_inset Quotes frd
 \end_inset
 
- wants
+ wants.
 \end_layout
 
 \begin_layout Standard

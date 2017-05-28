@@ -71,7 +71,7 @@
 \pdf_title "Evaluating Client-Side Replicated NoSQL Databases Approaches"
 \pdf_author "Claudio Cardinale"
 \pdf_subject "Master Thesis"
-\pdf_keywords "NoSQL; replicated; realtime; CS-NoSQL; client-side"
+\pdf_keywords "NoSQL; replication; realtime; CS-NoSQL; client side"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false

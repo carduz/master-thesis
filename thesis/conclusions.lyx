@@ -166,7 +166,7 @@ reference "subsec:Jepsen-framework"
 
 \end_inset
 
-) and partitioning.
+) and partitioning (NoSQL databases should be very efficient with partitioning).
  
 \begin_inset Newline newline
 \end_inset
@@ -185,10 +185,10 @@ realtime
 \end_layout
 
 \begin_layout Standard
-But since NoSQL is an important topic in recent years, since the application
- target of these systems is something that is increasing in recent years
- and since big companies (like Google) are investing on it, we expect an
- improvement in the future.
+But since NoSQL is an important topic in recent years, since the target
+ applications of these systems is something that is increasing in recent
+ years and since big companies (like Google) are investing on it, we expect
+ an improvement in the future.
 \end_layout
 
 \end_body

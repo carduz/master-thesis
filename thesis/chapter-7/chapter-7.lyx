@@ -194,7 +194,7 @@ Social: we test multiple subscription efficiency, we also remind that the
 \end_layout
 
 \begin_layout Standard
-The tests were executed for 30 seconds, more to finish all executions.
+The tests were executed for 30 seconds, more to finish all the executions.
  The environment was stable and we do not needed to execute the same test
  more than one time (to take an average value).
 \end_layout
@@ -229,9 +229,9 @@ So the total number of writes/reads started together is equal to #writes/reads
 \begin_inset Newline newline
 \end_inset
 
-Concurrency influences the number of task sent to the same writer, but often
- a writer (depends on the implementation of the client of the server) sends
- data in a sequential way.
+Concurrency influences the number of tasks sent to the same writer, but
+ often a writer (depends on the implementation of the client of the server)
+ sends data in a sequential way.
  So to send data in a concurrent way we have to emulate more writers.
 \begin_inset Newline newline
 \end_inset
@@ -242,7 +242,15 @@ t.
 \end_layout
 
 \begin_layout Standard
-We do test as a black box, we do not know details of the systems.
+We do tests as a 
+\begin_inset Quotes fld
+\end_inset
+
+black box
+\begin_inset Quotes frd
+\end_inset
+
+, we do not know details of the systems.
 \begin_inset Newline newline
 \end_inset
 
@@ -274,7 +282,7 @@ realtime
 Note
 \series default
 : Some tests were not executed, since they have not be setuped in a reasonable
- time (>60seconds) or the server dies.
+ time (>60seconds) or the server has died.
 \end_layout
 
 \begin_layout Subsection
@@ -306,7 +314,7 @@ t) they are very slow, increasing the latency.
 \end_layout
 
 \begin_layout Standard
-For each test we have:
+For each class of applications we have:
 \end_layout
 
 \begin_layout Itemize
@@ -317,7 +325,7 @@ Chat: latency is very high when we have more writes (configuration 1 for
 \begin_layout Itemize
 Collaborative: since we have more total writes the latency is higher in
  the first configuration, but it seems that concurrent writes are well managed
- if we they are few.
+ if they are few.
  If we have a lot of concurrent writes like in the third configuration we
  have very bad performances.
 \end_layout
@@ -3315,7 +3323,7 @@ Write performances: they are very slow, increasing the latency.
 \end_layout
 
 \begin_layout Standard
-For each test we have:
+For each class of applications we have:
 \end_layout
 
 \begin_layout Itemize
@@ -6307,7 +6315,7 @@ We remind that we use only 1CPU for gun.js server.
 
 \begin_layout Itemize
 Scalability: it depends, strongly, from the RAM.
- Often it died for 
+ Often it dies for 
 \begin_inset Quotes fld
 \end_inset
 
@@ -6321,7 +6329,7 @@ out of memory
 
 \begin_layout Itemize
 Data volume adaptability: it seems that it depends, strongly, from the volume
- of the data.
+ of data.
 \end_layout
 
 \begin_layout Itemize
@@ -6336,7 +6344,7 @@ Write performances: they are very slow, increasing the latency.
 \end_layout
 
 \begin_layout Standard
-For each test we have:
+For each class of applications we have:
 \end_layout
 
 \begin_layout Itemize
@@ -7947,7 +7955,7 @@ Write performances: they are very quick.
 \end_layout
 
 \begin_layout Standard
-For each test we have:
+For each class of applications we have:
 \end_layout
 
 \begin_layout Itemize
@@ -9575,7 +9583,7 @@ collaborative
 
 \begin_layout Itemize
 Efficient subscriptions delivery: latency does not increase when the number
- of subscriptions are created.
+ of subscriptions increases.
  As shown in 
 \begin_inset Quotes fld
 \end_inset
@@ -9685,7 +9693,7 @@ CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- with a number of advantages like the tradition solution proposed.
+ with a number of advantages like the traditional solution proposed.
 \begin_inset Newline newline
 \end_inset
 
@@ -9695,7 +9703,7 @@ The only advantage, except for the easy configuration since they are a full
 \begin_inset Formula $\simeq$
 \end_inset
 
-#writes.
+ #writes.
  It is the main expectation that we had, analyzing classes of applications
  in 
 \begin_inset CommandInset ref

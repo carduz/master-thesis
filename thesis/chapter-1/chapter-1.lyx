@@ -74,7 +74,7 @@
 \begin_body
 
 \begin_layout Standard
-Since we will cover only HTTP based application we will start analyzing
+Since we will cover only HTTP based applications we will start analyzing
  an HTTP application stack on 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -85,8 +85,9 @@ reference "sec:Traditional-HTTP-Application"
 .
  Of course the protocol is not the only element needed to build an application
  that receives realtime notifications of changes but it is a must.
- Without a right protocol, that allows us to receive messages from the server,
- we are not able to build an efficient application that receives 
+ Without a right protocol, which allows us to receive messages from the
+ server, we are not able to build an efficient application that receives
+ 
 \begin_inset Quotes fld
 \end_inset
 
@@ -127,7 +128,7 @@ CS-NoSQL
 \end_layout
 
 \begin_layout Standard
-Finally we will quickly see concepts beyond cloud computing from the user's
+Finally we will quickly see concepts behind cloud computing from the user's
  point of view in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -135,7 +136,8 @@ reference "sec:Serverless"
 
 \end_inset
 
-, since lots of systems we will analyze in the next chapters are in cloud.
+, since lots of systems that we will analyze in the next chapters are in
+ cloud.
 \end_layout
 
 \begin_layout Section
@@ -149,8 +151,8 @@ HTTP
 \end_layout
 
 \begin_layout Standard
-There are a lot of ways to build an Application over HTTP, a web application,
- but all have common parts.
+There are a lot of ways to build an application over HTTP, a web application,
+ but all these ways have common parts.
 \end_layout
 
 \begin_layout Standard
@@ -208,7 +210,7 @@ the HTTP server (application server) requests data to Database Server
 \end_layout
 
 \begin_layout Enumerate
-the HTTP server (application server) sends the data to the client
+the HTTP server (application server) sends data to the client
 \end_layout
 
 \begin_layout Standard
@@ -282,7 +284,7 @@ HTTP 1.0
 
 \begin_layout Standard
 The original version of HTTP (HTTP 1.0) allowed just connections that must
- be closed immediately after the receiving of data 
+ be closed immediately after receiving data 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP1.0"
@@ -318,13 +320,13 @@ In this version the only approaches available to make realtime notifications
 
 \begin_layout Itemize
 Short polling: scheduling new requests every fixed small amount of time
- to check if the data are changed
+ to check if data are changed.
 \end_layout
 
 \begin_layout Itemize
 Long polling: creating a normal request to the server.
  But the server replies only when there are new data, then the client creates
- a new request
+ a new request.
 \end_layout
 
 \begin_layout Itemize
@@ -333,14 +335,14 @@ Event Stream: a long request without end, where the server continues to
 \end_layout
 
 \begin_layout Standard
-All approaches have a lot of issues that reduce the performances
+All the approaches have a lot of issues that reduce the performances
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PollingStreamProblems"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -427,7 +429,7 @@ key "HTTP1.1"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -479,9 +481,9 @@ push
 \begin_inset Quotes frd
 \end_inset
 
- data, that the client has not requested explicitly and the possibility
- to have multiple parallel requests over a single TCP connection as shown
- in figure 
+ data that the client has not requested explicitly and the possibility to
+ have multiple parallel requests over a single TCP connection as shown in
+ figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:HTTP2-multiple-parallel"
@@ -507,8 +509,7 @@ key "HTTP2.0Energy"
 \end_layout
 
 \begin_layout Standard
-But, since it is new, it is not supported in an efficient way by a lot of
- browsers
+But, since it is new, it is not supported efficiently by a lot of browsers
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0Support"
@@ -729,7 +730,7 @@ key "RESTful"
 \end_inset
 
 It is a simple protocol that uses the HTTP verbs, for example to create
- a new data a 
+ new data a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -737,7 +738,7 @@ post
 \begin_inset Quotes frd
 \end_inset
 
- call must be done, while to update a data a 
+ call must be done, while to update data a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -880,7 +881,7 @@ reference "subsec:Consistency,-Partition-tolerance"
 \begin_inset Newline newline
 \end_inset
 
-Finally we will see the general idea beyond a distributed system in 
+Finally we will see the general idea behind a distributed system in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Partitioning-and-Distribution"
@@ -957,12 +958,12 @@ reference "subsec:Database-trigger"
 \end_layout
 
 \begin_layout Enumerate
-How to manage effeciently clients that want to have information about changes
- of only some things and not of everything? The solution is to use the
+How to manage efficiently clients that want to have information about changes
+ of only some things and not of everything? The solution is to use the 
 \begin_inset Quotes fld
 \end_inset
 
-Publish/Subscribe
+publish/subscribe
 \begin_inset Quotes frd
 \end_inset
 
@@ -1021,31 +1022,31 @@ It has the following components:
 \end_layout
 
 \begin_layout Itemize
-Unique name
+Unique name.
 \end_layout
 
 \begin_layout Itemize
-Trigger event: insert, delete, update
+Trigger event: insert, delete, update.
 \end_layout
 
 \begin_layout Itemize
-Activation time: before or after the trigger event
+Activation time: before or after the trigger event.
 \end_layout
 
 \begin_layout Itemize
-Trigger granularity: for each row, for each statement
+Trigger granularity: for each row, for each statement.
 \end_layout
 
 \begin_layout Itemize
-Trigger condition: SQL condition
+Trigger condition: SQL condition.
 \end_layout
 
 \begin_layout Itemize
-Trigger actions: SQL procedure to execute
+Trigger actions: SQL procedure to execute.
 \end_layout
 
 \begin_layout Itemize
-Trigger timestamp: when the trigger was created
+Trigger timestamp: when the trigger was created.
 \end_layout
 
 \begin_layout Standard
@@ -1065,7 +1066,7 @@ Publish/Subscribe
 \end_layout
 
 \begin_layout Standard
-In Publish/Subscribe pattern (originally known as 
+In publish/subscribe pattern (originally known as 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1089,7 +1090,7 @@ publishes
 \begin_inset Quotes frd
 \end_inset
 
- the data that will be sent to the clients (by the broker server(s)) without
+ data that will be sent to the clients (by the broker server(s)) without
  knowing which are the clients 
 \begin_inset Quotes fld
 \end_inset
@@ -1111,7 +1112,7 @@ key "PubSub"
 \begin_inset Newline newline
 \end_inset
 
-Publish/Subscribe is not compatible with RESTful calls since in the RESTful
+Publish/subscribe is not compatible with RESTful calls since in the RESTful
  approach data must be returned immediately when a request is done as explained
  in 
 \begin_inset CommandInset ref
@@ -1134,12 +1135,12 @@ Topic-based: channels, i.e.
 
 \begin_layout Itemize
 Content-based: messages sent to subscribers interested in some attributes
- or in their content
+ or into their content
 \end_layout
 
 \begin_layout Standard
-The content-based system is more flexible but it is not so easy to develop
- an efficient distributed broker network 
+The content-based system is more flexible but an efficient distributed broker
+ network is not so easy to be developed 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PubSubContent"
@@ -1193,7 +1194,7 @@ subscribes
 \begin_inset Quotes frd
 \end_inset
 
- to the data that it needs.
+ to data that it needs.
 \end_layout
 
 \begin_layout Itemize
@@ -1313,17 +1314,17 @@ key "CAPNoSQL,CAP"
 \end_layout
 
 \begin_layout Itemize
-Consistency: all nodes receive the most recent data (write)
+Consistency: all nodes receive the most recent data (write).
 \end_layout
 
 \begin_layout Itemize
 Availability: all requests receive a response with data (this does not ensure
- that data are the newest)
+ that data are the newest).
 \end_layout
 
 \begin_layout Itemize
 Partition tolerance: the system works properly even if data are partitioned
- among nodes, also if some of them are unreachable
+ among nodes, also if some of them are unreachable.
 \end_layout
 
 \begin_layout Standard
@@ -1332,16 +1333,16 @@ Of course if there are no network errors all properties are hold.
 \end_inset
 
 In the distributed systems the main issue is the synchronization among nodes:
- there is no common clock, so it is not so easy to determine the order of
- commits.
+ there is no common clock, so the order of commits is not so easy to be
+ determined.
 \end_layout
 
 \begin_layout Standard
 ACID (Atomicity, Consistency, Isolation, Durability) databases (traditional
- relational databases) choose Availability and Consistency 
+ relational databases), often, choose availability and consistency 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "CAPNoSQL"
+key "CAPNow"
 
 \end_inset
 
@@ -1367,7 +1368,7 @@ strong consistency
 \begin_inset Quotes frd
 \end_inset
 
- is not implemented, often the 
+ is not implemented, often 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1427,7 +1428,7 @@ key "CAPValidity"
 \end_layout
 
 \begin_layout Standard
-The idea beyond 
+The idea behind 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1485,8 +1486,8 @@ Partitioning and Distribution
 
 \begin_layout Standard
 There are some systems that use both ideas.
- For example HDFS (a distributed file system) replicates the data among
- nodes and it partitions data among nodes 
+ For example HDFS (a distributed file system) replicates data among nodes
+ and it partitions data among nodes 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HDFS"
@@ -1614,8 +1615,8 @@ Commit data in a distributed database: the problem is to find the correct
 \end_layout
 
 \begin_layout Itemize
-Publish/Subscribe: in a Publish/Subscribe application distributed among
- different nodes, how is a published data in a node sent to all the subscribed
+Publish/subscribe: in a publish/subscribe application distributed among
+ different nodes, how are published data in a node sent to all the subscribed
  clients also the ones subscribed on other nodes?
 \end_layout
 
@@ -1643,16 +1644,16 @@ key "MapReduce"
 \end_layout
 
 \begin_layout Enumerate
-Map: filtering and sorting data
+Map: filtering and sorting data.
 \end_layout
 
 \begin_layout Enumerate
-Shuffle: group data by key and send data with the same key to the same reducer
- node
+Shuffle: grouping data by key and sending data with the same key to the
+ same reducer node.
 \end_layout
 
 \begin_layout Enumerate
-Reduce: summary operations
+Reduce: summary operations.
 \end_layout
 
 \begin_layout Subsubsection
@@ -1684,8 +1685,11 @@ eventually consistency
 \end_inset
 
 .
- There are different ways to solve conflicts and obtain eventually consistency,
- one of the simplest ways to solve conflict is 
+\begin_inset Newline newline
+\end_inset
+
+There are different ways to solve conflicts and to obtain eventually consistency.
+ One of the simplest ways to solve conflicts is 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1693,8 +1697,8 @@ Last Writes Wins
 \begin_inset Quotes frd
 \end_inset
 
-, in this way the writing with the highest timestamps is used overwriting
- the concurrent others 
+, in this way the write with the highest timestamp is used overwriting the
+ concurrent others 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "OptimisticReplication"
@@ -1773,7 +1777,7 @@ Master-Slaves
 \end_layout
 
 \begin_layout Standard
-All data are written in one node that replicates them to the other that
+All data are written in one node that replicates them to the others that
  can be used only in 
 \begin_inset Quotes fld
 \end_inset
@@ -1790,8 +1794,8 @@ key "MasterSlaveReplication"
 \end_inset
 
 .
- Of course in this kind of architecture there are less issues than in all
- the issues explained in 
+ Of course in this kind of architecture there are less issues than all the
+ issues explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Distribution"
@@ -1803,7 +1807,7 @@ reference "subsec:Distribution"
 \begin_inset Quotes fld
 \end_inset
 
-Availability
+availability
 \begin_inset Quotes frd
 \end_inset
 
@@ -1838,7 +1842,7 @@ multi-master
 \begin_inset Quotes fld
 \end_inset
 
-master-salves
+master-slaves
 \begin_inset Quotes frd
 \end_inset
 
@@ -1856,8 +1860,8 @@ Serverless
 \end_layout
 
 \begin_layout Standard
-A serverless is a cloud computing architecture, where the developer has
- not to think about the infrastructure.
+A serverless is a cloud computing architecture, where the developer does
+ not have to think about the infrastructure.
  It is something half-way between 
 \begin_inset Quotes fld
 \end_inset
@@ -1887,7 +1891,7 @@ Function as a Service
 \end_inset
 
 The serverless idea is a general idea that can be implemented for different
- things, a classic implementation is for file systems 
+ things, a classical implementation is for file systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ServerlessFilesystem"
@@ -1899,12 +1903,12 @@ key "ServerlessFilesystem"
 
 \begin_layout Standard
 In serverless architecture the developer has to think only to develop the
- application without thinking how to scale the infrastructure, how to store
- data in a secure way and so on.
- In serveless architecture the developer has not to develop a real server,
- the server is already set, he has only to configure it and eventually develop
- some small extensions (in the database case the extension can be simply
- the triggers).
+ application without thinking to how to scale the infrastructure, how to
+ store data in a secure way and so on.
+ In serveless architecture the developer does not have to develop a real
+ server, the server is already set, he has only to configure it and eventually
+ to develop some small extensions (in the database case the extension can
+ be simply the triggers).
 \begin_inset Newline newline
 \end_inset
 
@@ -1917,7 +1921,7 @@ Function as a Service
 \end_inset
 
  suggests we can also have systems where we have to develop just a piece
- of code, a function, that is executed in an 
+ of code, a function, which is executed in an 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1925,8 +1929,8 @@ unknown
 \begin_inset Quotes frd
 \end_inset
 
- infrastructure, where we have not to think about scalability, we pay just
- for usage.
+ infrastructure, where we do not have to think about scalability, we pay
+ just for usage.
  For example we pay the number of executions of that function, this is the
  way used by 
 \begin_inset Quotes fld
@@ -1979,9 +1983,9 @@ reference "subsec:Main-Realtime-Databases"
 
 \end_inset
 
- this kind of architecture is entirely developed on cloud architecture and
- partially developed on Open Source architectures, in open source architecture
- we have the facility to configure and develop the server but we do not
+ this kind of architecture is entirely developed on cloud architectures
+ and partially developed on opensource architectures, in opensource architecture
+s we have the facility to configure and develop the server but we do not
  have an easy scalability like the cloud systems.
 \end_layout
 
@@ -1993,7 +1997,7 @@ reference "subsec:Software-as-a"
 
 \end_inset
 
- we will know how the difference among these three kinds of architecture
+ we will know how the difference among these three kinds of architectures
  is minimal and that often there is overlapping among the architectures.
 \begin_inset Newline newline
 \end_inset
@@ -2002,7 +2006,7 @@ An example of overlapping is
 \begin_inset Quotes fld
 \end_inset
 
-Salesforce.com
+salesforce.com
 \begin_inset Quotes frd
 \end_inset
 
@@ -2022,16 +2026,16 @@ key "SAAS"
 \end_inset
 
 .
- But it has become a sort of Serverless architecture to build business applicati
+ But it has become a sort of serverless architecture to build business applicati
 ons, it has also bought 
 \begin_inset Quotes fld
 \end_inset
 
-Heroku
+heroku
 \begin_inset Quotes frd
 \end_inset
 
- a 
+ (a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2039,7 +2043,7 @@ Platform as a Service
 \begin_inset Quotes frd
 \end_inset
 
- company.
+ company).
  However, even if now it is like a serverless service, the price system
  has remained the same as that of 
 \begin_inset Quotes fld
@@ -2078,8 +2082,8 @@ Platform as a Service
 \begin_inset Quotes frd
 \end_inset
 
- is a cloud computing architecture where the developer has not to think
- about infrastructure.
+ is a cloud computing architecture where the developer does not have to
+ think about the infrastructure.
  He chooses the platform where to develop, that is automatically configured
  and ready to use 
 \begin_inset CommandInset citation
@@ -2107,7 +2111,7 @@ Platform as a Service
 \begin_inset Quotes fld
 \end_inset
 
-Heroku
+heroku
 \begin_inset Quotes frd
 \end_inset
 
@@ -2122,7 +2126,7 @@ key "Heroku"
 \begin_inset Quotes fld
 \end_inset
 
-Heroku
+heroku
 \begin_inset Quotes frd
 \end_inset
 
@@ -2152,11 +2156,11 @@ key "AWSLambdaPricing"
 \begin_inset Quotes fld
 \end_inset
 
-Heroku
+heroku
 \begin_inset Quotes frd
 \end_inset
 
- we pay for number of nodes per second, while in 
+ we pay for the number of nodes per second, while in 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2164,7 +2168,7 @@ AWS Lambda
 \begin_inset Quotes frd
 \end_inset
 
- we pay just for execution time.
+ we pay just for the execution time.
  In 
 \begin_inset Quotes fld
 \end_inset
@@ -2173,7 +2177,7 @@ AWS Lambda
 \begin_inset Quotes frd
 \end_inset
 
- we have not to do anything to execute just one 
+ we do not have to do anything to execute just one 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2185,12 +2189,12 @@ function
 \begin_inset Quotes fld
 \end_inset
 
-Heroku
+heroku
 \begin_inset Quotes frd
 \end_inset
 
- we have to set the right number of nodes or set a correct strategy to dynamical
-ly create/remove nodes.
+ we have to set the right number of nodes or to set a correct strategy to
+ dynamically create/remove nodes.
  So the serverless approach can reach the maximum grade of sharing resources
  in cloud computing.
 \end_layout
@@ -2231,7 +2235,7 @@ Software as a Service
 \begin_inset Quotes fld
 \end_inset
 
-Software as a service
+Software as a Service
 \begin_inset Quotes frd
 \end_inset
 
@@ -2261,7 +2265,7 @@ Software as a Service
 \begin_inset Quotes fld
 \end_inset
 
-Google apps for work
+google apps for work
 \begin_inset Quotes frd
 \end_inset
 
@@ -2272,14 +2276,14 @@ key "GoogleWork"
 
 \end_inset
 
-, a service where the employees of a company have access to company mail,
- company docs, company cloud storage and so on; everything is done only
- by configuring a system without developing anything.
+, a service where the employees of a company have access to the company
+ mail, company docs, company cloud storage and so on; everything is done
+ only by configuring a system without developing anything.
  The price system of 
 \begin_inset Quotes fld
 \end_inset
 
-Google apps for work
+google apps for work
 \begin_inset Quotes frd
 \end_inset
 
@@ -2305,8 +2309,8 @@ Software as a Service
 \begin_inset Quotes frd
 \end_inset
 
- since the developer has not to think about the infrastructure or how to
- build a reliable server, but instead of the 
+ since the developer does not have to think about the infrastructure or
+ how to build a reliable server, but instead of the 
 \begin_inset Quotes fld
 \end_inset
 
