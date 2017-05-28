@@ -197,7 +197,7 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
-; these different devices should be able to use them even if they are offline.
+, these different devices should be able to use them even if they are offline.
  So the devices need a local copy of the database available also offline
  called 
 \begin_inset Quotes fld
