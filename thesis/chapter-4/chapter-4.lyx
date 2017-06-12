@@ -122,7 +122,7 @@ reference "chap:technologies"
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -701,7 +701,7 @@ Messages are sent in FIFO order, an important property to have
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1445,7 +1445,7 @@ key "JWT"
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1517,7 +1517,7 @@ Last Writer Win
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1905,7 +1905,7 @@ The normal read is managed automatically and it is
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1933,7 +1933,7 @@ A notify event is called before the initial retrieve is executed.
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1968,7 +1968,7 @@ A notify change arrives before the answer of the select (but the select
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1996,7 +1996,7 @@ events < initial retrieve: they are not a problem since they are discarded
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 

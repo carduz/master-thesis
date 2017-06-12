@@ -919,7 +919,7 @@ strong consistency
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1318,7 +1318,7 @@ The client does not contact directly the application server but sends all
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency logic
+eventual consistency logic
 \begin_inset Quotes frd
 \end_inset
 

@@ -74,60 +74,63 @@
 \begin_body
 
 \begin_layout Standard
-Since we will cover only HTTP based applications we will start analyzing
- an HTTP application stack on 
+In this chapter we will see all the theoretical knowledge needed to understand
+ the next chapters, in this chapter and in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:State-of-Art"
+
+\end_inset
+
+ (state of art) we will see all the theoretical knowledge of this master
+ thesis.
+\end_layout
+
+\begin_layout Standard
+We will see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Traditional-HTTP-Application"
 
 \end_inset
 
-.
- Of course the protocol is not the only element needed to build an application
- that receives realtime notifications of changes but it is a must.
- Without a right protocol, which allows us to receive messages from the
- server, we are not able to build an efficient application that receives
- 
-\begin_inset Quotes fld
+ the HTTP, then websocket protocol (that is a protocol based on HTTP) that
+ allows sending efficiently messages in realtime to clients through HTTP.
+ The usage of a protocol that uses HTTP is very important because lots of
+ applications of CS-NoSQL are web applications.
+ In that section we will analyze the entire stack of a classical HTTP applicatio
+n, then we will use it to introduce and explain main HTPP versions (1.0,
+ 1.1, 2.0) then we will see the main HTTP based protocols that we will use
+ int his master thesis: websocket (the most important one for this master
+ thesis' topic that allows to send realtime notifications to clients) and
+ RESTful (a standard protocol to exchange messages between client and server).
+\begin_inset Newline newline
 \end_inset
 
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- notifications of changes.
-\end_layout
-
-\begin_layout Standard
-Then we will see basic concepts and issues of data in a distributed system
- in 
+Then we will see basic concepts and issues of data management, in particularly
+ in a distributed system in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Data-Management"
 
 \end_inset
 
-.
+, talking also about publish/subscribe and optimistic replication.
  We will also analyze the database itself, because in traditional databases
  there is no native event notification system: we have to check it every
  time (polling) or we have to create a trigger to do that as we will see
  in the next sections.
+ We will also analyze how to send realtime notifications of changes and
+ the limits that are the causes of the creation of CS-NoSQL.
+ We will see basic concepts of realtime data retrieve (trigger, publish/subscrib
+e and high level steps needed), then we will see the CAP theorem (with eventual
+ consistency and validity today with the new applications) and finally distribut
+ed systems with related issues and basic concepts: distribution & partitioning,
+ replication (master-slaves & multi master) and standard framework to elaborate
+ data in a distributed environment such as mapReduce.
 \begin_inset Newline newline
 \end_inset
 
-We will also analyze how to send realtime notifications of changes and the
- limits that are the causes of the creation of 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 Finally we will quickly see concepts behind cloud computing from the user's
  point of view in 
 \begin_inset CommandInset ref
@@ -138,6 +141,19 @@ reference "sec:Serverless"
 
 , since lots of systems that we will analyze in the next chapters are in
  cloud.
+\end_layout
+
+\begin_layout Standard
+After this chapter, we will have all the elements needed to understand all
+ the topics of this master thesis, except for the topics directly related
+ to CS-NoSQL such as of course NoSQL databases that we will in chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:State-of-Art"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
@@ -160,7 +176,7 @@ There are a lot of ways to build an application over HTTP, a web application,
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -198,23 +214,11 @@ Modern web application stack
 \end_layout
 
 \begin_layout Standard
-In all the classical HTTP applications we have:
-\end_layout
-
-\begin_layout Enumerate
-the client requests something to the HTTP server (application server)
-\end_layout
-
-\begin_layout Enumerate
-the HTTP server (application server) requests data to Database Server
-\end_layout
-
-\begin_layout Enumerate
-the HTTP server (application server) sends data to the client
-\end_layout
-
-\begin_layout Standard
-as shown in figure 
+In all the classical HTTP applications the client requests something to
+ the HTTP server (application server), then the HTTP server (application
+ server) requests data to Database Server and finally the HTTP server (applicati
+on server) sends data to the client.
+ As shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Modern-web-application"
@@ -242,10 +246,12 @@ key "SyncAsync"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-We will also see standards related to HTTP: websocket in 
+Then we will have all elements to analyze the standard related to HTTP:
+ websocket (the most important protocol for this master thesis' topic that
+ allows to send realtime notifications to clients) in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:WebSocket"
@@ -259,7 +265,7 @@ reference "subsec:RESTful"
 
 \end_inset
 
-.
+ (a standard protocol to exchange messages between client and server).
 \end_layout
 
 \begin_layout Subsection
@@ -272,7 +278,7 @@ name "subsec:HTTP-handshake"
 HTTP handshake
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:HTTP-1.0"
@@ -298,43 +304,21 @@ reference "fig:HTTP1.0-vs-HTTP1.1"
 
 \end_inset
 
- (first image):
-\end_layout
+ (first image): the client requests something, then the server replies and
+ finally the connection is closed.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Enumerate
-The client requests something
-\end_layout
-
-\begin_layout Enumerate
-The server replies
-\end_layout
-
-\begin_layout Enumerate
-The connection is closed
-\end_layout
-
-\begin_layout Standard
 In this version the only approaches available to make realtime notifications
- are:
-\end_layout
+ are: short polling (scheduling new requests every fixed small amount of
+ time to check if data are changed), long polling (creating a normal request
+ to the server., but the server replies only when there are new data, then
+ the client creates a new request) and event stream (a long request without
+ end, where the server continues to send data to the client, this approach
+ is used in video/music streaming).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Short polling: scheduling new requests every fixed small amount of time
- to check if data are changed.
-\end_layout
-
-\begin_layout Itemize
-Long polling: creating a normal request to the server.
- But the server replies only when there are new data, then the client creates
- a new request.
-\end_layout
-
-\begin_layout Itemize
-Event Stream: a long request without end, where the server continues to
- send data to the client, this approach is used in video/music streaming.
-\end_layout
-
-\begin_layout Standard
 All the approaches have a lot of issues that reduce the performances
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -350,7 +334,7 @@ key "PollingStreamProblems"
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -402,7 +386,7 @@ key "HTTPPersistent"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:HTTP-1.1"
@@ -430,9 +414,9 @@ key "HTTP1.1"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 The 
 \begin_inset Quotes fld
 \end_inset
@@ -467,7 +451,7 @@ reference "subsec:WebSocket"
  it is the enabling technology for websocket.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 HTTP 2.0
 \end_layout
 
@@ -506,9 +490,9 @@ key "HTTP2.0Energy"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 But, since it is new, it is not supported efficiently by a lot of browsers
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -620,9 +604,9 @@ keep-alive
 \end_inset
 
  option.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 So this protocol allows to create efficient realtime notifications, where
  the client receives immediately a notification from the server (for server
  events)
@@ -769,9 +753,9 @@ key "RESTSOAP,SOAPvsREST"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 RESTful is designed to work with resources, in fact each resource is identified
  by a unique URI and there are standard actions (HTTP verbs) for each resource.
  For example we can have:
@@ -839,9 +823,9 @@ reference "subsec:JSON"
 .
  In fact, often, RESTful services retrieve JSON data, but they can also
  retrieve XML.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 RESTful cannot be used with websocket, but it can be used for short polling
  (GET) even if it is not properly a correct approach.
 \end_layout
@@ -865,19 +849,21 @@ reference "subsec:Data-retrieve"
 
 \end_inset
 
-.
+, we will see basic concepts such as triggers and Publish/Subscribe then
+ the high level steps needed to retrieve data in a realtime way.
 \begin_inset Newline newline
 \end_inset
 
-Then we will see basic concepts and issues of data in a distributed system:
- consistency, partition tolerance and availability in 
+We will see basic concepts and issues of data in a distributed system: consisten
+cy, partition tolerance and availability (CAP theorem) in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Consistency,-Partition-tolerance"
 
 \end_inset
 
-.
+, we will also see useful variations such as eventual consistency and how
+ the original CAP theorem is changed with the new applications.
 \begin_inset Newline newline
 \end_inset
 
@@ -888,7 +874,9 @@ reference "subsec:Partitioning-and-Distribution"
 
 \end_inset
 
-.
+, analyzing the meaning and consequences of partitioning and distributing,
+ standard framework such as mapReduce and replication (master-slaves & multi
+ master).
 \end_layout
 
 \begin_layout Subsection
@@ -923,9 +911,9 @@ reference "fig:Modern-web-application"
 \end_inset
 
  for each request the HTTP server checks the database server.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 If we want to make this process 
 \begin_inset Quotes fld
 \end_inset
@@ -934,12 +922,9 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- we have to solve two main issues:
-\end_layout
-
-\begin_layout Enumerate
-How to have a notification of a change considering also distributed system
- cases? The trivial solution is the usage of a database 
+ we have to solve two main issues: how to have a notification of a change
+ considering also distributed system cases? The trivial solution is the
+ usage of a database 
 \begin_inset Quotes fld
 \end_inset
 
@@ -954,12 +939,9 @@ reference "subsec:Database-trigger"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Enumerate
-How to manage efficiently clients that want to have information about changes
- of only some things and not of everything? The solution is to use the 
+ and how to manage efficiently clients that want to have information about
+ changes of only some things and not of everything? The solution is to use
+ the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -982,9 +964,9 @@ reference "subsec:Publish/Subscribe"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 Finally we recap everything needed in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -995,7 +977,7 @@ reference "subsec:Realtime-retrieve"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Database-trigger"
@@ -1015,47 +997,23 @@ key "SQL1999"
 
  a trigger is a procedure automatically called by the database when some
  specific events occur.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-It has the following components:
-\end_layout
+It has the following components: unique name, trigger event (insert, delete,
+ update), activation time (before or after the trigger event), trigger granulari
+ty (for each row, for each statement), trigger condition (SQL condition),
+ trigger actions (SQL procedure to execute) and trigger timestamp (when
+ the trigger was created).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Unique name.
-\end_layout
-
-\begin_layout Itemize
-Trigger event: insert, delete, update.
-\end_layout
-
-\begin_layout Itemize
-Activation time: before or after the trigger event.
-\end_layout
-
-\begin_layout Itemize
-Trigger granularity: for each row, for each statement.
-\end_layout
-
-\begin_layout Itemize
-Trigger condition: SQL condition.
-\end_layout
-
-\begin_layout Itemize
-Trigger actions: SQL procedure to execute.
-\end_layout
-
-\begin_layout Itemize
-Trigger timestamp: when the trigger was created.
-\end_layout
-
-\begin_layout Standard
 If the event is fired and the condition is valid the trigger is called,
  if there is more than one trigger to be called they are called in timestamp
  ascending order.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Publish/Subscribe"
@@ -1125,20 +1083,12 @@ reference "subsec:RESTful"
 \end_layout
 
 \begin_layout Standard
-There are two types of subscriptions:
-\end_layout
+There are two types of subscriptions: topic-based (channels, i.e.
+ a unique name that identifies the messages) and content-based (messages
+ sent to subscribers interested in some attributes or into their content).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Topic-based: channels, i.e.
- a unique name that identifies the messages
-\end_layout
-
-\begin_layout Itemize
-Content-based: messages sent to subscribers interested in some attributes
- or into their content
-\end_layout
-
-\begin_layout Standard
 The content-based system is more flexible but an efficient distributed broker
  network is not so easy to be developed 
 \begin_inset CommandInset citation
@@ -1148,9 +1098,9 @@ key "PubSubContent"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 Since we need just to receive events of changes on tables the topic-based
  is enough where the topic could be the couple 
 \begin_inset Quotes fld
@@ -1163,7 +1113,7 @@ table-record_id
  as channel.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Realtime-retrieve"
@@ -1182,11 +1132,7 @@ realtime
 \begin_inset Quotes frd
 \end_inset
 
- application:
-\end_layout
-
-\begin_layout Itemize
-Each client 
+ application: each client 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1194,11 +1140,7 @@ subscribes
 \begin_inset Quotes frd
 \end_inset
 
- to data that it needs.
-\end_layout
-
-\begin_layout Itemize
-A trigger on the server 
+ to data that it needs, a trigger on the server 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1206,24 +1148,20 @@ publishes
 \begin_inset Quotes frd
 \end_inset
 
- data on a publish/subscribe system when they are updated.
-\end_layout
-
-\begin_layout Itemize
-The communication between the client and the server is over a websocket
- channel, so immediately after data are published the publish/subscribe
- broker server sends data on this channel.
- As said in 
+ data on a publish/subscribe system when they are updated and finally the
+ communication between the client and the server is over a websocket channel
+ (so immediately after data are published the publish/subscribe broker server
+ sends data on this channel, as said in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/Subscribe"
 
 \end_inset
 
- RESTful cannot be used.
-\end_layout
+ RESTful cannot be used).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 Of course there are still issues related to the distribution and partitioning
  of the infrastructure as explained in 
 \begin_inset CommandInset ref
@@ -1310,24 +1248,13 @@ key "CAPNoSQL,CAP"
 
 \end_inset
 
-:
-\end_layout
+: consistency (all nodes receive the most recent data (write)), availability
+ (all requests receive a response with data (this does not ensure that data
+ are the newest)) and partition tolerance (the system works properly even
+ if data are partitioned among nodes, also if some of them are unreachable).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Consistency: all nodes receive the most recent data (write).
-\end_layout
-
-\begin_layout Itemize
-Availability: all requests receive a response with data (this does not ensure
- that data are the newest).
-\end_layout
-
-\begin_layout Itemize
-Partition tolerance: the system works properly even if data are partitioned
- among nodes, also if some of them are unreachable.
-\end_layout
-
-\begin_layout Standard
 Of course if there are no network errors all properties are hold.
 \begin_inset Newline newline
 \end_inset
@@ -1335,9 +1262,9 @@ Of course if there are no network errors all properties are hold.
 In the distributed systems the main issue is the synchronization among nodes:
  there is no common clock, so the order of commits is not so easy to be
  determined.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 ACID (Atomicity, Consistency, Isolation, Durability) databases (traditional
  relational databases), often, choose availability and consistency 
 \begin_inset CommandInset citation
@@ -1349,7 +1276,7 @@ key "CAPNow"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Eventual-consistency"
@@ -1395,7 +1322,7 @@ key "EventuallyConsistent"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "par:CAP-validity"
@@ -1455,9 +1382,9 @@ strong consistency
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 But since this classification is not used yet by a lot of commercial and
  non systems in the next chapters CAP classification will be used, since
  using 
@@ -1506,9 +1433,9 @@ cluster
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 To elaborate data in a distributed environment one simple, powerful and
  common programming model is: MapReduce (shortly explained in 
 \begin_inset CommandInset ref
@@ -1518,9 +1445,9 @@ reference "subsec:MapReduce"
 \end_inset
 
 ).
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 The two main patterns to structure a distributed replicated architecture
  are: 
 \begin_inset Quotes fld
@@ -1548,7 +1475,7 @@ reference "subsec:Multi-Master-&-Master-Slaves"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Distribution"
@@ -1558,7 +1485,7 @@ name "subsec:Distribution"
 Partitioning & Distribution
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subparagraph
 Partitioning
 \end_layout
 
@@ -1575,7 +1502,7 @@ key "CAPNoSQL,NoSQL"
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subparagraph
 Distribution
 \end_layout
 
@@ -1605,22 +1532,15 @@ key "CAP"
 
 \end_inset
 
- for example in the following scenarios:
+ for example in the following scenarios: commit data in a distributed database
+ (the problem is to find the correct commits order since there is no common
+ clock, we should also provide a distributed lock) or Publish/subscribe
+ (in a publish/subscribe application distributed among different nodes,
+ how are published data in a node sent to all the subscribed clients also
+ the ones subscribed on other nodes?)
 \end_layout
 
-\begin_layout Itemize
-Commit data in a distributed database: the problem is to find the correct
- commits order since there is no common clock, we should also provide a
- distributed lock.
-\end_layout
-
-\begin_layout Itemize
-Publish/subscribe: in a publish/subscribe application distributed among
- different nodes, how are published data in a node sent to all the subscribed
- clients also the ones subscribed on other nodes?
-\end_layout
-
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:MapReduce"
@@ -1640,23 +1560,12 @@ key "MapReduce"
 \end_inset
 
 .
- It is composed by three main actions:
+ It is composed by three main actions: map (filtering and sorting data),
+ shuffle (grouping data by key and sending data with the same key to the
+ same reducer node) and reduce (summary operations).
 \end_layout
 
-\begin_layout Enumerate
-Map: filtering and sorting data.
-\end_layout
-
-\begin_layout Enumerate
-Shuffle: grouping data by key and sending data with the same key to the
- same reducer node.
-\end_layout
-
-\begin_layout Enumerate
-Reduce: summary operations.
-\end_layout
-
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Multi-Master-&-Master-Slaves"
@@ -1680,7 +1589,7 @@ strong consistency
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -1688,7 +1597,7 @@ eventually consistency
 \begin_inset Newline newline
 \end_inset
 
-There are different ways to solve conflicts and to obtain eventually consistency.
+There are different ways to solve conflicts and to obtain eventual consistency.
  One of the simplest ways to solve conflicts is 
 \begin_inset Quotes fld
 \end_inset
@@ -1706,10 +1615,10 @@ key "OptimisticReplication"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-To keep 
+In order to keep 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1728,7 +1637,7 @@ reference "par:CAP-validity"
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subparagraph
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Multi-Master"
@@ -1766,7 +1675,7 @@ reference "subsec:Distribution"
 .
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subparagraph
 \begin_inset CommandInset label
 LatexCommand label
 name "par:Master-Slaves"

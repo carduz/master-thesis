@@ -243,7 +243,7 @@ reference "subsec:CAP-theoremNOSQL"
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -261,7 +261,7 @@ local database
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
@@ -853,7 +853,7 @@ key "CouchDBScaling,CouchDBPartitioning"
 \begin_inset Quotes fld
 \end_inset
 
-eventually consistency
+eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
