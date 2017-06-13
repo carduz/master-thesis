@@ -101,8 +101,8 @@ reference "sec:Traditional-HTTP-Application"
  In that section we will analyze the entire stack of a classical HTTP applicatio
 n, then we will use it to introduce and explain main HTPP versions (1.0,
  1.1, 2.0) then we will see the main HTTP based protocols that we will use
- int his master thesis: websocket (the most important one for this master
- thesis' topic that allows to send realtime notifications to clients) and
+ in this master thesis: websocket (the most important one for this master
+ thesis' topic that allows sending realtime notifications to clients) and
  RESTful (a standard protocol to exchange messages between client and server).
 \begin_inset Newline newline
 \end_inset
@@ -146,7 +146,8 @@ reference "sec:Serverless"
 \begin_layout Standard
 After this chapter, we will have all the elements needed to understand all
  the topics of this master thesis, except for the topics directly related
- to CS-NoSQL such as of course NoSQL databases that we will in chapter 
+ to CS-NoSQL such as of course NoSQL databases that we will see in chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:State-of-Art"
@@ -229,7 +230,7 @@ reference "fig:Modern-web-application"
 \end_layout
 
 \begin_layout Standard
-We will see the evolution of the HTTP that allows to send realtime notifications.
+We will see the evolution of the HTTP that allows sending realtime notifications.
  The core of the issue is the HTTP handshake analyzed in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -251,7 +252,7 @@ key "SyncAsync"
 
 Then we will have all elements to analyze the standard related to HTTP:
  websocket (the most important protocol for this master thesis' topic that
- allows to send realtime notifications to clients) in 
+ allows sending realtime notifications to clients) in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:WebSocket"
@@ -425,7 +426,7 @@ keep-alive
 \begin_inset Quotes frd
 \end_inset
 
- option allows to use the same connection multiple times, i.e.
+ option allows using the same connection multiple times, i.e.
  after a server replies the client can send another message over the same
  connection as shown in figure 
 \begin_inset CommandInset ref
@@ -578,7 +579,7 @@ reference "subsec:HTTP-1.1"
 
 \end_inset
 
- that allows to create a sort of 
+ that allows creating a sort of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -607,7 +608,7 @@ keep-alive
 \begin_inset Newline newline
 \end_inset
 
-So this protocol allows to create efficient realtime notifications, where
+So this protocol allows creating efficient realtime notifications, where
  the client receives immediately a notification from the server (for server
  events)
 \begin_inset CommandInset citation
@@ -914,17 +915,9 @@ reference "fig:Modern-web-application"
 \begin_inset Newline newline
 \end_inset
 
-If we want to make this process 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- we have to solve two main issues: how to have a notification of a change
- considering also distributed system cases? The trivial solution is the
- usage of a database 
+If we want to make this process realtime we have to solve two main issues:
+ how to have a notification of a change considering also distributed system
+ cases? The trivial solution is the usage of a database 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1124,15 +1117,8 @@ Realtime retrieve
 \end_layout
 
 \begin_layout Standard
-Now we have all the elements to create a 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- application: each client 
+Now we have all the elements to create a realtime application: each client
+ 
 \begin_inset Quotes fld
 \end_inset
 

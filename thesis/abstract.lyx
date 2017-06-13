@@ -148,15 +148,8 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 
 \begin_layout Standard
 In today's applications, data are increasing exponentially and also need
- to be replicated on different devices in 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
-; these different devices should be able to use them even if they are offline.
+ to be replicated on different devices in realtime; these different devices
+ should be able to use them even if they are offline.
  So the devices need a local copy of the database available also offline
  called 
 \begin_inset Quotes fld

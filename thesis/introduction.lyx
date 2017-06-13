@@ -189,15 +189,8 @@ key "bigData"
 
 \end_inset
 
- and also need to be replicated on different devices in 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
-, these different devices should be able to use them even if they are offline.
+ and also need to be replicated on different devices in realtime, these
+ different devices should be able to use them even if they are offline.
  So the devices need a local copy of the database available also offline
  called 
 \begin_inset Quotes fld
@@ -224,16 +217,8 @@ key "realtimeGroupware"
 \begin_inset Newline newline
 \end_inset
 
-So what we need is a database which allows to process big data and replicate
- itself among devices in 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
-.
+So what we need is a database which allows processing big data and replicate
+ itself among devices in realtime.
 \end_layout
 
 \begin_layout Standard
@@ -245,16 +230,9 @@ key "bigData2,CAPNoSQL"
 \end_inset
 
 .
- So solutions to replicate the databases in 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- are based on them, they can be in cloud or opensource, one of the most
- famous cloud solution is 
+ So solutions to replicate the databases in realtime are based on them,
+ they can be in cloud or opensource, one of the most famous cloud solution
+ is 
 \begin_inset Quotes fld
 \end_inset
 
@@ -303,7 +281,7 @@ In order to do that, we analyze the theory behind them and we classify some
 \end_inset
 
 Moreover, we develop an alternative system based on a traditional database
- that allows to do the same things of native CS-NoSQL databases and we use
+ that allows doing the same things of native CS-NoSQL databases and we use
  it as comparative system.
 \begin_inset Newline newline
 \end_inset
@@ -326,7 +304,7 @@ We will prove that our comparative system is more efficient in terms of
  On the other hand CS-NoSQL are very efficient, in some cases, for development
  processes, in fact since they were born only for this purpose they are
  a full-stack environment (with other solutions we need to create the entire
- infrastructure) and this allows to create a simpler application with zero
+ infrastructure) and this allows creating a simpler application with zero
  code.
  This is very common in cloud systems but there is the disadvantage that
  it is a proprietary solution and if the system goes down or the cloud company
@@ -361,7 +339,7 @@ key "NoSQL"
 \end_inset
 
  are the core of the system since they are the storage.
- They allow to store an enormous amount of unstructured data such as JSON
+ They allow storing an enormous amount of unstructured data such as JSON
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -393,7 +371,7 @@ key "PubSub"
 
 \end_inset
 
- is a protocol that allows to subscribe to some data and receive notifications
+ is a protocol that allows subscribing to some data and receive notifications
  about them.
  Optimistic replication techniques 
 \begin_inset CommandInset citation
@@ -402,7 +380,7 @@ key "OptimisticReplication"
 
 \end_inset
 
- allow to replicate databases or other data efficiently, the performances
+ allow replicating databases or other data efficiently, the performances
  are not affected by the number of replica, of course the strong consistency
  is lost in favor of eventual consistency according to the CAP theorem 
 \begin_inset CommandInset citation
@@ -412,7 +390,7 @@ key "CAP,OptimisticReplication"
 \end_inset
 
 .
- Both systems, together, allow to distribute the NoSQL databases efficiently
+ Both systems, together, allow distributing the NoSQL databases efficiently
  among the clients.
 \begin_inset Newline newline
 \end_inset
@@ -424,7 +402,7 @@ key "WebSocket"
 
 \end_inset
 
- (a protocol based on HTTP) allows to send messages in realtime to clients
+ (a protocol based on HTTP) allows sending messages in realtime to clients
  using HTTP.
  It is very important since, as said, this kind of applications are used
  in web applications.
@@ -460,7 +438,7 @@ We identify some interesting classes of applications that differ for relevant
 
 We project a test strategy and develop a test framework since there are
  no test frameworks for this kind of systems.
- This test framework allows to test the scalability and performances emulating
+ This test framework allows testing the scalability and performances emulating
  the classes of applications analyzed before and take measurements of performanc
 es that are very relevant for this kind of applications such as time needed
  to replicate a new information to all the clients.
