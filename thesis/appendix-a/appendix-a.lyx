@@ -84,8 +84,8 @@ PostgreSQL realtime retrieve trigger
 \end_layout
 
 \begin_layout Standard
-We will call a command to send updated data (notify changes) to the publish/subs
-cribe system as described in 
+We call a command to send updated data (notify changes) to the publish/subscribe
+ system as described in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Database-architecture-traditional"
@@ -124,9 +124,9 @@ reference "lis:Notify-trigger"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 This way is a standard SQL with triggers, some specific postgreSQL functions
  were used, of course the languages change between database systems and
  needs.

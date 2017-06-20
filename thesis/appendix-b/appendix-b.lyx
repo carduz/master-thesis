@@ -264,10 +264,7 @@ Jepsen rate
 
 \begin_layout Standard
 We can see that tests do a lot of transfers and reads for some seconds.
-\end_layout
-
-\begin_layout Standard
-In charts we have the measures for every operation (or some of them) for
+ In charts we have the measures for every operation (or some of them) for
  every second of the test (or 
 \begin_inset Quotes fld
 \end_inset
@@ -276,33 +273,22 @@ chunks
 \begin_inset Quotes frd
 \end_inset
 
- of seconds), the measures that we have are:
-\end_layout
-
-\begin_layout Itemize
-Time (latency) needed to do the operation, shown in 
+ of seconds), the measures that we have are: time (latency) needed to do
+ the operation, shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Jepsen-latency-raw"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Time (latency) needed to do the operation with quantiles, shown in 
+; time (latency) needed to do the operation with quantiles, shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Jepsen-latency-quantiles"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Throughput of every operation, shown in 
+; throughput of every operation, shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Jepsen-rate"
