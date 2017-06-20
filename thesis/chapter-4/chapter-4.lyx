@@ -75,14 +75,7 @@
 
 \begin_layout Standard
 In this chapter we propose an approach based on a traditional database (RDBMS
- database), we will use this approach to compare the performance of 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
+ database), we  use this approach to compare the performance of CS-NoSQL
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -91,19 +84,8 @@ reference "chap:Performance-Evaluation"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-Of course, except for the database, we try to emulate the approaches of
- 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- explained in 
+ Of course, except for the database, we try to emulate the approaches of
+ CS-NoSQL explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:State-of-Art"
@@ -118,64 +100,50 @@ reference "chap:technologies"
 \end_inset
 
 .
- So we have the local database replication (with 
-\begin_inset Quotes fld
-\end_inset
-
-eventual consistency
-\begin_inset Quotes frd
-\end_inset
-
-) but the central database with 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-The architecture proposed could be implemented with any RDBMS that has an
- advanced trigger support.
+ So we have the local database replication (with eventual consistency) but
+ the central database with strong consistency.
+ The architecture proposed could be implemented with any RDBMS that has
+ an advanced trigger support.
  In fact even if in some cases we use a proprietary solution, an alternative
  (general) solution is provided.
 \end_layout
 
 \begin_layout Standard
-We will give the needed technology background in 
+Firstly we show and explain all the base technologies to example the architectur
+e in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Technologies-traditional"
 
 \end_inset
 
-.
+: PostgreSQL, redis and socket.io.
 \begin_inset Newline newline
 \end_inset
 
-Then we will explain from a theoretical point of view the architecture proposed
- in 
+Then we explain the architecture proposed that is general in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Architecture-traditional"
 
 \end_inset
 
-.
+, it is composed by different parts: database, publish/subscribe, websocket
+ server, input server and custom logic.
+ We explain how to implement each part of the architecture using the technologie
+s explained before.
 \begin_inset Newline newline
 \end_inset
 
-Then we will explain the implementation done in 
+Finally we show our implementation in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Implementation"
 
 \end_inset
 
-.
+, explain better some logic parts that depend on the implementation not
+ on the theoretical concepts: server logic and client logic.
 \end_layout
 
 \begin_layout Section
@@ -199,23 +167,7 @@ PostgreSQL
 \end_layout
 
 \begin_layout Standard
-The RDBS are 
-\begin_inset Quotes fld
-\end_inset
-
-CA
-\begin_inset Quotes frd
-\end_inset
-
- according to the 
-\begin_inset Quotes fld
-\end_inset
-
-CAP
-\begin_inset Quotes frd
-\end_inset
-
- theorem explained in 
+The RDBS are CA according to the CAP theorem explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Consistency,-Partition-tolerance"
@@ -247,26 +199,10 @@ reference "subsec:Multi-Master-&-Master-Slaves"
 
 \end_inset
 
-: 
-\begin_inset Quotes fld
+: multi master or master-slaves.
+\begin_inset Newline newline
 \end_inset
 
-multi master
-\begin_inset Quotes frd
-\end_inset
-
- or 
-\begin_inset Quotes fld
-\end_inset
-
-master-slaves
-\begin_inset Quotes frd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 PostgreSQL 
 \begin_inset Foot
 status open
@@ -322,21 +258,15 @@ key "PostgreReplication"
 \end_layout
 
 \begin_layout Standard
-Moreover it has interesting characteristics that we will use in the next
- sections:
-\end_layout
-
-\begin_layout Itemize
-PostgreSQL is a very flexible database that allows to use custom languages
- 
+Moreover it has interesting characteristics that we  use in the next sections:
+ it is a very flexible database that allows to use custom languages 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PostgreLanguages"
 
 \end_inset
 
-.
- One of them is PL/sh 
+, one of them is PL/sh 
 \begin_inset Foot
 status open
 
@@ -357,13 +287,9 @@ https://github.com/petere/plsh
 \end_inset
 
  a language that allows to execute shell commands, so we are able to call
- an external program.
-\end_layout
-
-\begin_layout Itemize
-PostgreSQL has a feature to create easily a sort of publish/subscribe system,
- it is a queue where you can publish messages and read them in order, to
- do that NOTIFY 
+ an external program and it has a feature to create easily a sort of publish/sub
+scribe system, it is a queue where you can publish messages and read them
+ in order, to do that NOTIFY 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PostgreNotify"
@@ -379,10 +305,7 @@ key "PostgreListen"
 
  commands are used.
  NOTIFY is really called only after the transaction is committed.
-\end_layout
-
-\begin_layout Standard
-Moreover PostgreSQL has JSON as data type
+ Furthermore PostgreSQL has JSON as data type
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PostgreJSON"
@@ -431,44 +354,28 @@ key "CAPNoSQL"
 \end_inset
 
 , data can be written to the disk every fixed amount of time.
- It allows to do a lot of different things:
-\end_layout
-
-\begin_layout Itemize
-Cache system 
+ It allows to do a lot of different things: cache system 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisCache"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Publish/subscribe system 
+; publish/subscribe system 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisPUBSUB"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Queue system, using lists 
+; queue system, using lists 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisQueue,RedisDataTypes"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Distributed lock system that can be used by external systems 
+; distributed lock system that can be used by external systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisLock"
@@ -476,32 +383,17 @@ key "RedisLock"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-With the following features:
-\end_layout
-
-\begin_layout Itemize
-Data partitioning support 
+With the following features: data partitioning support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisPartitioning"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Everything (image, text, json and so on) can be inserted as the 
-\begin_inset Quotes fld
-\end_inset
-
-value
-\begin_inset Quotes frd
-\end_inset
-
+; everything (image, text, json and so on) can be inserted as the value
  (key-value storage), with a high storage limit (512 megabyte per value)
  
 \begin_inset CommandInset citation
@@ -510,18 +402,7 @@ key "RedisDataTypes"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes fld
-\end_inset
-
-Master-slaves
-\begin_inset Quotes frd
-\end_inset
-
- replication support 
+; master-slaves replication support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisReplication"
@@ -529,9 +410,9 @@ key "RedisReplication"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 Unfortunately to keep a high performance data are not stored immediately
  in the disk, but they are written every one second (default configuration)
  
@@ -606,7 +487,7 @@ https://github.com/socketio/engine.io
 
  that is like the transportation level in the ISO/OSI stack, it is very
  efficient but it is only a websocket implementation.
- As we will see socket.io has a lot of integrations and a native implementation
+ As we  see socket.io has a lot of integrations and a native implementation
  (since the protocol is open 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -623,52 +504,11 @@ key "WebsocketServersComparison"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-We will use socket.io for the following features:
-\end_layout
-
-\begin_layout Itemize
-It allows to emit events to all the subscribed clients to that event 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "SocketIOEmitEvent"
-
-\end_inset
-
-.
- So events are channels of a publish/subscribe system.
 \begin_inset Newline newline
 \end_inset
 
-Also the client can send events that, generally, are caught only by the
- server.
- Of course, since it is publish/subscribe, there is no notification of successfu
-lly delivery to the server (ack).
-\begin_inset Newline newline
-\end_inset
-
-So the approach to be used to work with it is the 
-\begin_inset Quotes fld
-\end_inset
-
-event driven approach
-\begin_inset Quotes frd
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Redis integration to create websocket cluster 
+We  use socket.io for the following features: redis integration to create
+ websocket cluster 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIORedis"
@@ -682,22 +522,14 @@ reference "subsec:Redis"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-User/session support 
+; user/session support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOUsers"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Messages are sent in FIFO order, an important property to have 
+; messages are sent in FIFO order, an important property to have 
 \begin_inset Quotes fld
 \end_inset
 
@@ -705,11 +537,7 @@ eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
- as we will see in the next sections.
-\end_layout
-
-\begin_layout Itemize
-P2P support 
+ as we  see in the next sections; P2P support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOP2P"
@@ -731,11 +559,35 @@ reference "subsec:Gun.js"
 
 \end_inset
 
-).
-\end_layout
+); it allows to emit events to all the subscribed clients to that event
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "SocketIOEmitEvent"
 
-\begin_layout Standard
-So we can a have a distributed publish/subscribe with user/session support.
+\end_inset
+
+, so events are channels of a publish/subscribe system.
+ Also the client can send events that, generally, are caught only by the
+ server, of course, since it is publish/subscribe, there is no notification
+ of successfully delivery to the server (ack).
+ So the approach to be used to work with it is the 
+\begin_inset Quotes fld
+\end_inset
+
+event driven approach
+\begin_inset Quotes frd
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Event-driven-approach"
+
+\end_inset
+
+.
+ So we can a have a distributed publish/subscribe with user/session support.
 \end_layout
 
 \begin_layout Section
@@ -802,11 +654,11 @@ reference "fig:Traditional-Architecture-propose"
 
 
 \series default
- we can see the architecture proposed, every part will be explained in the
- following sections.
-\end_layout
+ we can see the architecture proposed, every part is explained in the following
+ sections.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 We have also added an additional level: load balancer/CDN (content delivery
  network) or other analogous things.
  It can be used to scale 
@@ -821,12 +673,12 @@ key "RFCCN,CDNBook"
 \begin_inset Newline newline
 \end_inset
 
-In fact as we will see in the architecture that we propose we can have more
+In fact as we  see in the architecture that we propose we can have more
  than one socket.io server, but there is no system to route users.
 \begin_inset Newline newline
 \end_inset
 
-Since we do not need it in the tests phase (as we will see in 
+Since we do not need it in the tests phase (as we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks-strategy"
@@ -834,9 +686,9 @@ reference "chap:Benchmarks-strategy"
 \end_inset
 
 ), we skip this level to avoid to insert other levels to test.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 As we said in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -846,15 +698,15 @@ reference "sec:Technologies-traditional"
 
  both postgreSQL and redis can be partitioned and/or replicated, but we
  do not do it for simplicity.
- In fact as we will see in 
+ In fact as we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks-strategy"
 
 \end_inset
 
- we will test the performance in replication, moreover since redis is very
- efficient (since it is in-memory database) it will not be the bottleneck.
+ we  test the performance in replication, moreover since redis is very efficient
+ (since it is in-memory database) it is not the bottleneck.
 \end_layout
 
 \begin_layout Standard
@@ -890,73 +742,47 @@ CS-NoSQL
 \begin_inset Quotes frd
 \end_inset
 
- approach:
-\end_layout
-
-\begin_layout Itemize
-RDBMS database: that must be scalable among nodes and triggers support to
- notify changes.
- It is explained in 
+ approach: RDBMS database, that must be scalable among nodes and triggers
+ support to notify changes, it is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Database-architecture-traditional"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Publish/subscribe system: to publish notifications of changes as explained.
- It is explained in 
+; publish/subscribe system, to publish notifications of changes as explained,
+ it is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/Subscribe-architecture-traditional"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Websocket server: for the reason explained.
- It is explained in 
+; websocket server, for the reason explained, it is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Websocket-server-architecture-traditional"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Input server: where receiving data to be sent to the database.
- It is explained in 
+; input server, where receiving data to be sent to the database, it is explained
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Input-Server-architecture-traditional"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Custom logic level: an eventual level where to introduce custom logic.
- It is explained in 
+; custom logic level, an eventual level where to introduce custom logic,
+ it is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-Logic-architecture-traditional"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-Client framework/libraries: to communicate to the server (cluster).
- It is explained in 
+; client framework/libraries, to communicate to the server (cluster), it
+ is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Client-library-and-architecture-traditional"
@@ -964,11 +790,8 @@ reference "subsec:Client-library-and-architecture-traditional"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-In this solution we have a data granularity at a row level, since detailed
- granularity is not required by the further study that we will do.
+ In this solution we have a data granularity at a row level, since detailed
+ granularity is not required by the further study that we  do.
 \end_layout
 
 \begin_layout Subsection
@@ -999,9 +822,9 @@ reference "subsec:PostgreeSQL"
 ).
  So the normal operations are guaranteed by it (it has good libraries),
  so the consistency is guaranteed by it.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 So the only thing we have to solve is the notifications of changes to an
  external system (a publish/subscribe system).
 \begin_inset Newline newline
@@ -1020,50 +843,36 @@ reference "sec:PostgreSQL-realtime-retrieve"
  But the call to an external program is not so efficient (startup time),
  moreover we should find a way to call the external program only after the
  commit.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 So we can use another solution that is more efficient but not standard:
  PUBLISH/NOTIFY.
  The trigger publishes the message, then an external listener republishes
  them in the other publish/subscribe system.
-\begin_inset Newline newline
-\end_inset
-
-So we have the following step when there is a change:
-\end_layout
-
-\begin_layout Enumerate
-Trigger call publishes on a predefined postgreSQL channel for each event.
-\end_layout
-
-\begin_layout Enumerate
-A javascript listener listens to the same postgreSQL channel.
-\end_layout
-
-\begin_layout Enumerate
-The javascript listener republishes the same message on publish/subscribe
- system defined in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe-architecture-traditional"
-
-\end_inset
-
-.
- It also sets namespace and rooms that we will see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe-architecture-traditional"
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
-There are a lot of examples useful for our use case, one of them (with javascrip
-t listener) 
+We have the following step when there is a change: trigger call publishes
+ on a predefined postgreSQL channel for each event; a javascript listener
+ listens to the same postgreSQL channel; the javascript listener republishes
+ the same message on publish/subscribe system defined in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe-architecture-traditional"
+
+\end_inset
+
+, it also sets namespace and rooms that we  see in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe-architecture-traditional"
+
+\end_inset
+
+.
+ There are a lot of examples useful for our use case, one of them (with
+ javascript listener) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PostgreNotifyListenExample"
@@ -1071,10 +880,7 @@ key "PostgreNotifyListenExample"
 \end_inset
 
  was modified and used in our final configuration published on github.
-\end_layout
-
-\begin_layout Standard
-We can see that this approach is like a 
+ We can see that this approach is like a 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1095,6 +901,20 @@ reference "chap:technologies"
 \begin_layout Subsection
 \begin_inset CommandInset label
 LatexCommand label
+name "subsec:Websocket-server-architecture-traditional"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Websocket-Server"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
 name "subsec:Publish/Subscribe-architecture-traditional"
 
 \end_inset
@@ -1106,7 +926,7 @@ name "subsec:traditional-Publish/Subscribe"
 
 \end_inset
 
-Publish/Subscribe
+Publish/Subscribe and Websocket server
 \end_layout
 
 \begin_layout Standard
@@ -1126,17 +946,10 @@ reference "subsec:Publish/subscribeNOSQL"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-As we will see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Websocket-server-architecture-traditional"
-
+\begin_inset Newline newline
 \end_inset
 
- we use socket.io for websocket server.
+We use socket.io for websocket server.
  As said in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1147,16 +960,16 @@ reference "subsec:Socket.io-architecture"
  socket.io is a system built on top of the websocket system (engine.io), so
  the publish/subscribe broker server and the websocket server are in the
  same machine.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 It implements a distributed (via redis) publish/subscribe, i.e.
  different publish/subscribe broker servers communicate through redis.
  But in this way we do not know the status of the entire network, we do
  not know which brokers are connected.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 When a message is published on a broker server this replicates it on redis,
  then other broker servers read it and send it to the subscribed clients.
  So the listener script described in 
@@ -1184,30 +997,23 @@ Everything is done automatically without custom configurations on broker
 \end_layout
 
 \begin_layout Standard
-Socket.io allows to manage channels at high level, we can use:
-\end_layout
-
-\begin_layout Itemize
-Namespaces 
+Socket.io allows to manage channels at high level, we can use: namespaces
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOChannels"
 
 \end_inset
 
-: we can use them to distinguish different tables.
- So we have the same events identified unequivocally for different tables.
-\end_layout
-
-\begin_layout Itemize
-Rooms
+, we can use them to distinguish different tables, so we have the same events
+ identified unequivocally for different tables and rooms
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOChannels"
 
 \end_inset
 
-: we can use them to create a sort of 
+, we can use them to create a sort of 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1217,13 +1023,10 @@ subchannel
 
 , a client could be subscribed only to one room that contains only events
  related only to some rows.
- This can be very useful to set up permissions at a row level.
- Of course a client can write and read only rooms where he is subscribed
- and only the server can subscribe it to rooms.
-\begin_inset Newline newline
-\end_inset
-
-So to do that a custom logic is needed (explained in 
+ Rooms can be very useful to set up permissions at a row level, of course
+ a client can write and read only rooms where he is subscribed and only
+ the server can subscribe it to rooms, so to do that a custom logic is needed
+ (explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-Logic-architecture-traditional"
@@ -1231,43 +1034,6 @@ reference "subsec:Custom-Logic-architecture-traditional"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Websocket-server-architecture-traditional"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Websocket-Server"
-
-\end_inset
-
-Websocket server
-\end_layout
-
-\begin_layout Standard
-As said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe-architecture-traditional"
-
-\end_inset
-
- we use socket.io that is built on top of a websocket system and the communicatio
-n is done by events.
- Also the client (as said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Socket.io-architecture"
-
-\end_inset
-
-) communicates through events.
 \end_layout
 
 \begin_layout Subsection
@@ -1306,9 +1072,9 @@ synchronous requests
 \end_inset
 
 ).
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 But for simplicity we can send also the data form client to servers using
  websocket.
  Using socket.io (as we said in 
@@ -1320,7 +1086,7 @@ reference "subsec:Socket.io-architecture"
 
 ) also the client uses events approach that does not provide a successful
  delivery notification system, of course we can develop our system but for
- the tests that we have to do (as we will see in 
+ the tests that we have to do (as we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks-strategy"
@@ -1332,7 +1098,7 @@ reference "chap:Benchmarks-strategy"
 \end_inset
 
 So for every socket.io event the server calls actions on postgreSQL server,
- we will insert this logic into the custom logic (that we will see in 
+ we  insert this logic into the custom logic (that we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-Logic-architecture-traditional"
@@ -1340,9 +1106,9 @@ reference "subsec:Custom-Logic-architecture-traditional"
 \end_inset
 
 ).
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 The important thing of this approach is that the writes do not depend on
  redis (that has persistence problems as shown in 
 \begin_inset CommandInset ref
@@ -1385,20 +1151,15 @@ switch
 
  of messages, i.e.
  in a socket.io node we cannot modify messages sent by postgreSQL listener.
-\end_layout
-
-\begin_layout Standard
-The two main things to do in this level are:
-\end_layout
-
-\begin_layout Itemize
-Manage subscriptions to rooms.
- This depends on the role of rooms.
 \begin_inset Newline newline
 \end_inset
 
-But if we use them for authorizations a simple solution is catching an event
- (sent by client) 
+The two main things to do in this level are: send data to database, we can
+ define different events for different database operations and for each
+ of them mapping the event with the database library method and manage subscript
+ions to rooms, this depends on the role of rooms.
+ But if we use them for authorizations a simple solution is catching an
+ event (sent by client) 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1411,12 +1172,6 @@ auth
  For example we can subscribe (join to a room) the client only to rows that
  he owns (i.e.
  owner_id field matching).
-\end_layout
-
-\begin_layout Itemize
-Send data to database.
- We can define different events for different database operations and for
- each of them mapping the event with the database library method.
 \end_layout
 
 \begin_layout Standard
@@ -1472,7 +1227,7 @@ name "subsec:Client-library-and-architecture-traditional"
 
 \end_inset
 
-Client library and local database
+Client library and Local database
 \end_layout
 
 \begin_layout Standard
@@ -1486,9 +1241,9 @@ reference "subsec:Local-database"
  we have to create a local database that is the final interface of our client.
  So the client contacts only it, the local database sends data through websocket
  and receives notifications of changes through websocket as we said previously.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 As explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1512,7 +1267,7 @@ Last Writer Win
 \begin_inset Quotes frd
 \end_inset
 
-, this approach will be used.
+, this approach is used.
  So the replication should be 
 \begin_inset Quotes fld
 \end_inset
@@ -1528,21 +1283,13 @@ eventual consistency
 
 So a local database implementation is an object that contains data and provides
  the read/write methods for the user.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-We have the following situations:
-\end_layout
-
-\begin_layout Itemize
-User calls write/update: local data are updated.
- At the same time the local database tries to update the remote servers
- until there are no network errors.
-\end_layout
-
-\begin_layout Itemize
-Data are updated by the server: a callback is called and it updates local
- data.
+We have the following situations: user calls write/update, local data are
+ updated, at the same time the local database tries to update the remote
+ servers until there are no network errors and data are updated by the server,
+ a callback is called and it updates local data.
 \end_layout
 
 \begin_layout Standard
@@ -1561,32 +1308,15 @@ SQL interpreter
  Of course if there are no network problems the issue could be solved waiting
  for the answer of the server, but this means to make the application not
  optimistic.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 This issue is solved by other systems in the following ways (some of them
- are already implemented since they are NoSQL):
-\end_layout
-
-\begin_layout Itemize
-Simplify constraints (the client can replicate them easily).
-\end_layout
-
-\begin_layout Itemize
-Simplify defaults (the client can replicate them easily).
-\end_layout
-
-\begin_layout Itemize
-No triggers.
-\end_layout
-
-\begin_layout Itemize
-Unique ID that can be generated by the client.
-\end_layout
-
-\begin_layout Standard
-For our application and tests we can skip everything except for ID, to solve
- it we can use a UUID (Universally Unique Identifier) 
+ are already implemented since they are NoSQL): simplify constraints (the
+ client can replicate them easily), simplify defaults (the client can replicate
+ them easily), no triggers, unique ID that can be generated by the client.
+ For our application and tests we can skip everything except for ID, to
+ solve it we can use a UUID (Universally Unique Identifier) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "UUID"
@@ -1624,10 +1354,7 @@ reference "subsec:Event-driven-approach"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-On github 
+ On github 
 \begin_inset Foot
 status open
 
@@ -1671,15 +1398,11 @@ key "PromiseJS"
 \end_layout
 
 \begin_layout Standard
-Now we analyze quickly the structure of the code, of course everything is
- commented so we explain only the critical points.
+We analyze quickly the structure of the code, of course everything is commented
+ so we explain only the critical points.
 \begin_inset Newline newline
 \end_inset
 
-We have the following main objects:
-\end_layout
-
-\begin_layout Itemize
 Database, sample table, trigger with related functions, these are very simple
  and follow the structure explained in 
 \begin_inset CommandInset ref
@@ -1690,9 +1413,9 @@ reference "subsec:Database-architecture-traditional"
 
 .
  As we said previously the database is neither distributed nor partitioned.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 Database listener, this is very simple and follow the structure explained
  in 
 \begin_inset CommandInset ref
@@ -1709,7 +1432,7 @@ reference "subsec:Database-architecture-traditional"
 \begin_inset Newline newline
 \end_inset
 
-This listener sends an event to clients of a specif room (we will see logic
+This listener sends an event to clients of a specif room (we  see logic
  of rooms in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1743,15 +1466,15 @@ delete
 
 ) as socket.io event (the event name is the SQL action).
  As we said previously the table is specified as namespace.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 Redis server, this does not require additional codes, so only vagrant installer
  script is provided.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Websocket server, this will be explained in 
+Websocket server, this is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Server-traditional"
@@ -1768,7 +1491,7 @@ reference "sec:Architecture-traditional"
 
 , but only the installer script of a single machine is provided (no load
  balancer script) since we do not want to test load balancer (that means
- another level to test) as we will see in 
+ another level to test) as we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks-strategy"
@@ -1776,10 +1499,10 @@ reference "chap:Benchmarks-strategy"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Client, this will be explained in 
+Client, this is explained in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Client-traditional"
@@ -1787,9 +1510,9 @@ reference "subsec:Client-traditional"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 All things explained previously (in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1819,14 +1542,10 @@ Websocket server
 
 \begin_layout Standard
 The behavior is trivial, since much work is done automatically as we said
- previously.
-\end_layout
+ previously, we recap briefly what we have done.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-We recap briefly what we have done:
-\end_layout
-
-\begin_layout Itemize
 We define the same actions for all tables (specified in namespace via 
 \begin_inset Quotes fld
 \end_inset
@@ -1836,9 +1555,10 @@ of
 \end_inset
 
 ).
-\end_layout
+ 
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 We define 
 \begin_inset Quotes fld
 \end_inset
@@ -1848,9 +1568,9 @@ auth
 \end_inset
 
  event callback that identifies the client.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 We define 
 \begin_inset Quotes fld
 \end_inset
@@ -1862,12 +1582,8 @@ join
  event callback that allows to a client to subscribe to rooms enabled for
  him.
  In this case we have provided a simple permission system where the room
- number is the owner_id of the row.
-\begin_inset Newline newline
-\end_inset
-
-When a client joins a room all rows of that room are sent to the client
- (initial retrieve): emulating the 
+ number is the owner_id of the row.When a client joins a room all rows of
+ that room are sent to the client (initial retrieve): emulating the 
 \begin_inset Quotes fld
 \end_inset
 
@@ -1878,15 +1594,12 @@ insert
  event created by the database listener after having done a read all for
  that room.
  Of course the number of rows can be limited.
-\end_layout
-
-\begin_layout Itemize
-We map client data events (add, put, delete) to SQL functions (insert, update,
- delete) making some checks.
 \begin_inset Newline newline
 \end_inset
 
-If there is an error (such as no permission) we discard the command and
+We map client data events (add, put, delete) to SQL functions (insert, update,
+ delete) making some checks.
+ If there is an error (such as no permission) we discard the command and
  send the right command only to the client that has sent the request to
  update the local database of the client.
  For example if a client tries to add a row using an owner_id that is not
@@ -1910,20 +1623,13 @@ eventual consistency
 \end_inset
 
  since the replication to local database is not synchronized but socket.io
- guarantees FIFO delivery.
-\end_layout
+ guarantees FIFO delivery.There is only one critical point: what if there
+ is a change during the initial retrieve considering that the client is
+ not able to distinguish data (initial retrieve or other events)? We could
+ have different situations.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-There is only one critical point: what if there is a change during the initial
- retrieve considering that the client is not able to distinguish data (initial
- retrieve or other events)?
-\end_layout
-
-\begin_layout Standard
-We could have the following situations:
-\end_layout
-
-\begin_layout Itemize
 A notify event is called before the initial retrieve is executed.
  Updates and deletes are discarded since there is no data, insertions are
  added to local database but they cannot be newer than the data sent from
@@ -1938,9 +1644,9 @@ eventual consistency
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 A notify event is called (and so the websocket event) before the operation
  is committed and so visible to the 
 \begin_inset Quotes fld
@@ -1950,18 +1656,17 @@ select
 \begin_inset Quotes frd
 \end_inset
 
- done meantime (this will cause select data older than notify event sent
- previously).
+ done meantime (this  cause select data older than notify event sent previously).
  This is impossible since the notify is really called only after commit.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 A notify event is called during the sending of initial data to the client.
  Since socket.io is executed in the same thread and delivery is FIFO, the
  sending of initial data is done before the new ones.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
 A notify change arrives before the answer of the select (but the select
  command was already sent).
  In this case we lose the change, but it is still 
@@ -1987,11 +1692,7 @@ called before
 \begin_inset Quotes frd
 \end_inset
 
-):
-\end_layout
-
-\begin_layout Itemize
-events < initial retrieve: they are not a problem since they are discarded
+): events < initial retrieve, they are not a problem since they are discarded
  or cause 
 \begin_inset Quotes fld
 \end_inset
@@ -2000,15 +1701,8 @@ eventual consistency
 \begin_inset Quotes frd
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-events > initial retrieve: they are sent after initial retrieve.
-\end_layout
-
-\begin_layout Itemize
-events during initial retrieve: we can lose something but we keep 
+; events > initial retrieve, they are sent after initial retrieve; events
+ during initial retrieve, we can lose something but we keep 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2030,36 +1724,8 @@ Client
 \end_layout
 
 \begin_layout Standard
-We have two main classes:
-\end_layout
-
-\begin_layout Itemize
-General Local database:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Keep a local copy of data.
-\end_layout
-
-\begin_layout Itemize
-When a change is requested, it updates local data then sends update to the
- server (retrying to send it if there are network delays).
-\end_layout
-
-\begin_layout Itemize
-When a notification of change is received it updates local data and calls
- a callback that says that data were updated.
-\end_layout
-
-\begin_layout Itemize
-As explained previously it adds a UUID to each row created.
-\end_layout
-
-\end_deeper
-\begin_layout Itemize
-Socket.io client: this class simply maps to socket.io commands functions and
- callbacks that 
+We have two main classes: socket.io client, this class simply maps to socket.io
+ commands functions and callbacks that 
 \begin_inset Quotes fld
 \end_inset
 
@@ -2067,11 +1733,14 @@ local database
 \begin_inset Quotes frd
 \end_inset
 
- wants.
-\end_layout
-
-\begin_layout Standard
-Of course the final client interacts only with the local database.
+ wants and general local database.
+ The general local database has to do the following things: keep a local
+ copy of data; when a change is requested, it updates local data then sends
+ update to the server (retrying to send it if there are network delays);
+ when a notification of change is received it updates local data and calls
+ a callback that says that data were updated; as explained previously it
+ adds a UUID to each row created.
+ Of course the final client interacts only with the local database.
 \end_layout
 
 \end_body
