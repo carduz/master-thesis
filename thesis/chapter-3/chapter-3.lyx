@@ -74,27 +74,36 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will analyze some 
-\begin_inset Quotes fld
+In this chapter we analyze some commercial CS-NoSQL both opensource and
+ in cloud.
+ We select some of them for a future analysis, All the systems selected
+ are in cloud systems since we have much more control and we can do better
+ tests.
+ The set is composed by CS-NoSQL with different characteristics such as
+ different CAP, different data structures and so on.
+ These characteristics are based on theoretical concepts we have seen in
+ chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:State-of-Art"
+
 \end_inset
 
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
-, selecting some of them for further analysis in the next chapters.
- We will explain which are the classes of applications where these systems
- should be better than a traditional approach in 
+.
+ Some of the systems analyzed in this chapter are the same used in the chapter
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:class-of-applications"
 
 \end_inset
 
- then we will prove or that they work better or not in 
+ to define important classes of applications.
+ The CS-NoSQL selected for future analysis are the ones we use in the test
+ benchmarks in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:Performance-Evaluation"
+reference "chap:Benchmarks"
 
 \end_inset
 
@@ -102,8 +111,7 @@ reference "chap:Performance-Evaluation"
 \end_layout
 
 \begin_layout Standard
-We will start analyzing the general characteristics to be considered in
- 
+In this chapter we describe the main characteristics to consider in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Characteristics-to-consider"
@@ -111,1524 +119,23 @@ reference "sec:Characteristics-to-consider"
 \end_inset
 
 .
+ In that section we also show a recap of the main characteristics of the
+ CS-NoSQL selected.
 \begin_inset Newline newline
 \end_inset
 
-Then we will see some real 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- (open source and in cloud) in 
+Then we analyze all the characteristics described before for some CS-NoSQL
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:AnalysisNoSQL"
 
 \end_inset
 
-, according to the characteristics analyzed previously.
-\begin_inset Newline newline
-\end_inset
-
-Finally we will do a short summary of databases selected for a further analysis.
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Characteristics-to-consider"
-
-\end_inset
-
-Characteristics to be considered
-\end_layout
-
-\begin_layout Standard
-We consider NoSQL databases with the following characteristics:
-\end_layout
-
-\begin_layout Itemize
-JSON as data model: to have a flexible standard that is easy to use as seen
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:JSON"
-
-\end_inset
-
 .
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Quotes fld
-\end_inset
-
-Realtime
-\begin_inset Quotes frd
-\end_inset
-
- notifications support with publish/subscribe as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/subscribeNOSQL"
-
-\end_inset
-
-.
- Of course this can be provided by other plugins.
-\end_layout
-
-\begin_layout Itemize
-Javascript library since it is the language that we will use as explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-language"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Then we will keep in consideration, to distinguish different systems, the
- following characteristics:
-\end_layout
-
-\begin_layout Itemize
-Data granularity for subscriptions as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/subscribeNOSQL"
-
-\end_inset
-
-.
- Even if data are stored in JSON we can have a granularity only to the first
- level of the JSON object (it is like 
-\begin_inset Quotes fld
-\end_inset
-
-key-value
-\begin_inset Quotes frd
-\end_inset
-
-) or have a key-value structure where the value is JSON.
-\end_layout
-
-\begin_layout Itemize
-Local database implemented, it is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Classification according to the CAP theorem explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:CAP-theoremNOSQL"
-
-\end_inset
-
-.
- Of course considering also 
-\begin_inset Quotes fld
-\end_inset
-
-eventual consistency
-\begin_inset Quotes frd
-\end_inset
-
- if available.
- This is done only for the server distribution, we do not have enough informatio
-n to do this classification for the 
-\begin_inset Quotes fld
-\end_inset
-
-local database
-\begin_inset Quotes frd
-\end_inset
-
- (generally it implements 
-\begin_inset Quotes fld
-\end_inset
-
-eventual consistency
-\begin_inset Quotes frd
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Itemize
-Distribution (with MapReduce support) and partitioning explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Distribution-and-partitioningNOSQL"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Replication model: 
-\begin_inset Quotes fld
-\end_inset
-
-multi-master
-\begin_inset Quotes frd
-\end_inset
-
- or 
-\begin_inset Quotes fld
-\end_inset
-
-master-slaves
-\begin_inset Quotes frd
-\end_inset
-
- explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Multi-Master-&-Master-Slaves"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Protocol used to send notifications, protocols are explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Traditional-HTTP-Application"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Protocol used to send data.
-\end_layout
-
-\begin_layout Itemize
-Constraints and permissions support (with user management) explained in
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraints-and-permissionsNoSQL"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Query support explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:QueriesNoSQL"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-This detailed analysis is done only for systems that we will test in the
- next chapters.
- 
-\end_layout
-
-\begin_layout Section
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Main-Realtime-Databases"
-
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:AnalysisNoSQL"
-
-\end_inset
-
-Analysis
-\end_layout
-
-\begin_layout Standard
-Even if this kind of systems are young a lot of systems have already been
- created, there are both opensource and SaaS (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Software-as-a"
-
-\end_inset
-
-) systems.
-\begin_inset Newline newline
-\end_inset
-
-Some SaaS systems are very famous and used but they do not allow to do all
- tests and performance measurements needed for our study, since we do not
- know the internal structure and replication, so we will analyze only opensource
- systems.
- Of course we will see quickly the characteristics of the main SaaS systems
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:SaaS-realtime"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-We will analyze some opensource systems in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:OpenSourceNoSQL"
-
-\end_inset
-
-, some of them are analyzed quickly because are not studied in the next
- chapters but they are well-known or particular.
- Then we will analyze some SaaS systems in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:SaaS-realtime"
-
-\end_inset
-
- that are very used, they are not studied in the next chapters.
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Note:
-\series default
- The information is retrieved from data shown on the official sites of the
- products, but, in most cases, they are not verified empirically.
- Moreover the term 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- is used improperly as said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:NoSQL-databases"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:OpenSourceNoSQL"
-
-\end_inset
-
-OpenSource
-\end_layout
-
-\begin_layout Subsubsection
-CouchBase
-\end_layout
-
-\begin_layout Standard
-CouchBase 
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://couchbase.com
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is a NoSQL database with 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- extension called 
-\begin_inset Quotes fld
-\end_inset
-
-syncGateway
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://developer.couchbase.com/documentation/mobile/1.1.0/get-started/sync-gateway-o
-verview/index.html
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- (every action must be done passing through this gateway).
- It is one of the most famous open source systems, for that reason we test
- it in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Performance-Evaluation"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-According to the characteristics described in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Characteristics-to-consider"
-
-\end_inset
-
-, using syncGateway + couchbase, we have:
-\end_layout
-
-\begin_layout Itemize
-Data granularity for subscription: 
-\begin_inset Quotes fld
-\end_inset
-
-key-value
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchDBChanges"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Local database:
-\series bold
- 
-\series default
-none.
-\end_layout
-
-\begin_layout Itemize
-CAP: 
-\begin_inset Quotes fld
-\end_inset
-
-CP
-\begin_inset Quotes frd
-\end_inset
-
- (consistency and partitioning) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseCAP"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-MapReduce: MapReduce support 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseMapReduce"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Replication model: 
-\begin_inset Quotes fld
-\end_inset
-
-master-slaves
-\begin_inset Quotes frd
-\end_inset
-
- replication support 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchBaseReplication"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Protocol used for notifications: websocket and all the ways explained in
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Traditional-HTTP-Application"
-
-\end_inset
-
- to receive events 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseWebsocket"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Protocol used to send data: proprietary.
-\end_layout
-
-\begin_layout Itemize
-Constraints and permissions support: user management 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseUsers"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Query support: 
-\begin_inset Quotes fld
-\end_inset
-
-N1QL
-\begin_inset Quotes frd
-\end_inset
-
-: a super set of 
-\begin_inset Quotes fld
-\end_inset
-
-SQL
-\begin_inset Quotes frd
-\end_inset
-
- to query JSON 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseN1QL"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Other interesting features are:
-\end_layout
-
-\begin_layout Itemize
-Powerful cluster configuration 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseCluster"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Full text search 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchbaseFullText"
-
-\end_inset
-
-: 
-\begin_inset Quotes fld
-\end_inset
-
-full text allows you to search and find what you are looking for even without
- exact matches.
- Just like the LIKE keyword in SQL? Not really.
- It is something else.
- LIKE allows the use of wildcards, which is quite different.[...] This means
- it is case insensitive, it can ignore unimportant words like 'is' (stop
- word is the technical term), and is tolerant to mistakes like typos.
-\begin_inset Quotes frd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection
-PouchDB
-\end_layout
-
-\begin_layout Standard
-PouchDB 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://pouchdb.com/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is just a javascript library that interacts with a NoSQL database: CouchDB.
- Since PouchDB uses a stable and used system like CouchDB is a system that
- is tested as shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Performance-Evaluation"
-
-\end_inset
-
-.
- PouchDB, in addition to the interface, implements also a local database
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Paragraph
-\begin_inset CommandInset label
-LatexCommand label
-name "par:CouchDB"
-
-\end_inset
-
-CouchDB
-\end_layout
-
-\begin_layout Standard
-CouchDB 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://couchdb.apache.org
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is one of the most famous NoSQL databases and it is very simple.
-\end_layout
-
-\begin_layout Standard
-According to the characteristics described in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Characteristics-to-consider"
-
-\end_inset
-
-, using PouchDB + CouchDB, we have:
-\end_layout
-
-\begin_layout Itemize
-Data granularity for subscriptions: 
-\begin_inset Quotes fld
-\end_inset
-
-key-value
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchDBChanges"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Local database: PouchDB 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PouchDBLocalDB,PouchDBReplication"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-CAP: 
-\begin_inset Quotes fld
-\end_inset
-
-AP
-\begin_inset Quotes frd
-\end_inset
-
- (availability and partitioning) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchDBScaling,CouchDBPartitioning"
-
-\end_inset
-
-, but 
-\begin_inset Quotes fld
-\end_inset
-
-eventual consistency
-\begin_inset Quotes frd
-\end_inset
-
- is implemented 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchDBConsistency"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Mapreduce: MapReduce support 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchdbMapReduce"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Replication model: 
-\begin_inset Quotes fld
-\end_inset
-
-multi master
-\begin_inset Quotes frd
-\end_inset
-
- replication support 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchdbReplication"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Protocol used for notifications: long polling to receive events 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchDBChanges"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Protocol to send data: RESTful native interface
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchDBREST"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Constraints and permissions support: simple user management 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchdbSecurity"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Query support: limited 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CouchdbQueries"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-These features allow to 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsRealtime"
-
-\end_inset
-
- interface to it efficiently and in a realtime way.
- The only negative aspect of CouchDB is that it has a lower query expressiveness
- power (for example there is no SQL 
-\begin_inset Quotes fld
-\end_inset
-
-join
-\begin_inset Quotes frd
-\end_inset
-
- equivalent) than other analogous NoSQL databases like 
-\begin_inset Quotes fld
-\end_inset
-
-MongoDB
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MongoDB"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:Gun.js"
-
-\end_inset
-
-Gun.js
-\end_layout
-
-\begin_layout Standard
-Gun.js 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://gun.js.org
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is a full stack 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- implemented in javascript.
- It does not use any already implemented software, but everything is ad
- hoc implemented.
- For that reason, for some features and for the fact that is implemented
- in javascript (advantages are explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-best-practices"
-
-\end_inset
-
-) it is useful to test it as shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Performance-Evaluation"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-An important characteristic is that there are no centralized structures
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsDistributed"
-
-\end_inset
-
-, there is no central server required, any client can be a server, so it
- is 
-\begin_inset Quotes fld
-\end_inset
-
-peer to peer
-\begin_inset Quotes frd
-\end_inset
-
- (commonly know as 
-\begin_inset Quotes fld
-\end_inset
-
-P2P
-\begin_inset Quotes frd
-\end_inset
-
-)
-\begin_inset CommandInset citation
-LatexCommand cite
-key "P2P"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-According to the characteristics described in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Characteristics-to-consider"
-
-\end_inset
-
-, using Gun.js, we have:
-\end_layout
-
-\begin_layout Itemize
-Data granularity for subscriptions: JSON full path 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsData"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Local database: yes, since any client can act as server as said previously.
-\end_layout
-
-\begin_layout Itemize
-CAP: 
-\begin_inset Quotes fld
-\end_inset
-
-AP
-\begin_inset Quotes frd
-\end_inset
-
- (availability and partitioning) 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsCAP"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-MapReduce: none.
-\end_layout
-
-\begin_layout Itemize
-Replication model: 
-\begin_inset Quotes fld
-\end_inset
-
-multi master
-\begin_inset Quotes frd
-\end_inset
-
-, since it is fully distributed as said previously.
-\end_layout
-
-\begin_layout Itemize
-Protocol used for notifications: websocket 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsRealtime"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Protocol used to send data: websocket 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsRealtime"
-
-\end_inset
-
-.
- This choice since it is fully distributed as said previously.
-\end_layout
-
-\begin_layout Itemize
-Constraints and permissions support: authentication support in a P2P environment
-, using asymmetric cryptography 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsSecurity"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Query support: none.
-\end_layout
-
-\begin_layout Standard
-Other interesting features are:
-\end_layout
-
-\begin_layout Itemize
-Graph support 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsGraphs"
-
-\end_inset
-
-, the ability to explicitly link documents together.
- Of course in any NoSQL database a link can be done manually using a sort
- of 
-\begin_inset Quotes fld
-\end_inset
-
-ID
-\begin_inset Quotes frd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Reliable storage, it allows to store data on 
-\begin_inset Quotes fld
-\end_inset
-
-AWS S3
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "GunjsStorage"
-
-\end_inset
-
-.
- 
-\begin_inset Quotes fld
-\end_inset
-
-AWS S3
-\begin_inset Quotes frd
-\end_inset
-
- is a reliable cloud storage 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "AWSS3"
-
-\end_inset
-
- implemented by 
-\begin_inset Quotes fld
-\end_inset
-
-Amazon
-\begin_inset Quotes frd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection
-MemSQL
-\end_layout
-
-\begin_layout Standard
-MemSQL 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-http://www.memsql.com/product/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is scalable and replicated in memory SQL database (it is like traditional
- databases).
- It is very interesting but, since it is an hybrid system that does not
- use the potentiality of NoSQL, it is not analyzed in this thesis.
-\end_layout
-
-\begin_layout Subsubsection
-Meteor
-\end_layout
-
-\begin_layout Standard
-Meteor 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.meteor.com/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is a Javascript Client and Server Framework that uses MongDB
-\begin_inset CommandInset citation
-LatexCommand cite
-key "MongoDB"
-
-\end_inset
-
- to create a 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- application.
-\begin_inset Newline newline
-\end_inset
-
-But it is not fully opened to other technologies and the server side can
- be fully developed.
- The last issue can be a problem for the scalability and efficiency, in
- fact it cannot be used as 
-\begin_inset Quotes fld
-\end_inset
-
-serverless
-\begin_inset Quotes frd
-\end_inset
-
- but instead like a classical application, like classical approach explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Traditional-technologies"
-
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-For this reason it is not analyzed in this thesis.
-\end_layout
-
-\begin_layout Subsection
-\begin_inset CommandInset label
-LatexCommand label
-name "subsec:SaaS-realtime"
-
-\end_inset
-
-SaaS
-\end_layout
-
-\begin_layout Standard
-These kinds of systems can be easily adapted to a SaaS service, since they
- can have no code on the backend, even if a more correct classification
- should be 
-\begin_inset Quotes fld
-\end_inset
-
-serverless
-\begin_inset Quotes frd
-\end_inset
-
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Serverless"
-
-\end_inset
-
-).
- In fact all the commercial systems advertise the ability to 
-\begin_inset Quotes fld
-\end_inset
-
-build the application without thinking to the structure
-\begin_inset Quotes frd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "par:Firebase"
-
-\end_inset
-
-Firebase
-\end_layout
-
-\begin_layout Standard
-Firebase 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://firebase.google.com/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is one of the most famous commercial in cloud 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
-, it is owned by Google.
- It gives just a JSON document where you can subscribe to any level.
-\end_layout
-
-\begin_layout Standard
-In order to offer scalability in an efficient way it does not allow to write
- any line of code on the backend, you can put only static resources on the
- backend (that of course are not CPU time expensive).
- On the other hand it allows to define backend rules that act like 
-\begin_inset Quotes fld
-\end_inset
-
-triggers
-\begin_inset Quotes frd
-\end_inset
-
- to validate data and have some useful additional features like login system.
-\begin_inset Newline newline
-\end_inset
-
-Of course it provides libraries and protocols to access it efficiently and
- in a realtime way such as: RESTful interface (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful"
-
-\end_inset
-
-), websocket (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:WebSocket"
-
-\end_inset
-
-) and Event Stream (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:HTTP-1.0"
-
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-Furthermore the cost system can be easily adapted to data used; in fact,
- since the infrastructure is closed it can be very efficient and the 
-\begin_inset Quotes fld
-\end_inset
-
-queries
-\begin_inset Quotes frd
-\end_inset
-
- are not complex 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "FirebasePricing"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Moreover, since it is one of the most used databases of this type, it can
- be easily integrated with other external systems.
-\end_layout
-
-\begin_layout Subsubsection
-\begin_inset CommandInset label
-LatexCommand label
-name "par:Pubnub"
-
-\end_inset
-
-Pubnub
-\end_layout
-
-\begin_layout Standard
-Pubnub 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.pubnub.com/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is a cloud publish/subscribe topic-based system (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe"
-
-\end_inset
-
-) with storage support.
- So it does not have the power of 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- servers since the 
-\begin_inset Quotes fld
-\end_inset
-
-channels
-\begin_inset Quotes frd
-\end_inset
-
- are not related to data.
-\end_layout
-
-\begin_layout Standard
-Of course there are opensource publish/subscribe implementations like 
-\begin_inset Quotes fld
-\end_inset
-
-socket.io
-\begin_inset Quotes frd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Socketio"
-
-\end_inset
-
-.
- Pubnub has the advantage to be in cloud, so it resolves also scalability
- issues.
- 
-\end_layout
-
-\begin_layout Subsubsection
-Backand
-\end_layout
-
-\begin_layout Standard
-Backand 
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-\begin_inset Flex URL
-status open
-
-\begin_layout Plain Layout
-
-https://www.backand.com/
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- is a proprietary serverless architecture for web applications, it is a
- publish/subscribe service like 
-\begin_inset Quotes fld
-\end_inset
-
-Pubnub
-\begin_inset Quotes frd
-\end_inset
-
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Pubnub"
-
-\end_inset
-
-).
- But it allows also to have more control on the backend, like 
-\begin_inset Quotes fld
-\end_inset
-
-firebase
-\begin_inset Quotes frd
-\end_inset
-
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Firebase"
-
-\end_inset
-
-).
+ We do a better analysis with all the characteristics for systems that we
+ select, for others we do only a simple description with the main characterizing
+ features.
 \end_layout
 
 \begin_layout Section
@@ -1645,7 +152,114 @@ name "sec:SummaryNoSQL"
 
 \end_inset
 
-Summary
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Characteristics-to-consider"
+
+\end_inset
+
+Characteristics to be considered
+\end_layout
+
+\begin_layout Standard
+We consider NoSQL databases with the following characteristics: JSON as
+ data model, to have a flexible standard that is easy to use as seen in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:JSON"
+
+\end_inset
+
+; realtime notifications support with publish/subscribe as explained in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/subscribeNOSQL"
+
+\end_inset
+
+, of course this can be provided by other plugins; javascript library since
+ it is the language that we use as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-language"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Then we  keep in consideration, to distinguish different systems, the following
+ characteristics: data granularity for subscriptions as explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/subscribeNOSQL"
+
+\end_inset
+
+, even if data are stored in JSON we can have a granularity only to the
+ first level of the JSON object (it is like key-value) or have a key-value
+ structure where the value is JSON; local database implemented, it is explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+; classification according to the CAP theorem explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:CAP-theoremNOSQL"
+
+\end_inset
+
+, of course considering also eventual consistency if available, this is
+ done only for the server distribution, we do not have enough information
+ to do this classification for the local database (generally it implements
+ eventual consistency); distribution (with MapReduce support) and partitioning
+ explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Distribution-and-partitioningNOSQL"
+
+\end_inset
+
+; replication model: multi-master or master-slaves explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Multi-Master-&-Master-Slaves"
+
+\end_inset
+
+; protocol used to send notifications, protocols are explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-HTTP-Application"
+
+\end_inset
+
+; protocol used to send data; constraints and permissions support (with
+ user management) explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Constraints-and-permissionsNoSQL"
+
+\end_inset
+
+; query support explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:QueriesNoSQL"
+
+\end_inset
+
+.
+ This detailed analysis is done only for systems that we  test in the next
+ chapters.
 \end_layout
 
 \begin_layout Standard
@@ -1659,9 +273,9 @@ reference "par:CAP-validity"
  the CAP theorem is not enough for a lot of things but, as explained, today
  is not possible to make a classification under other systems for a lot
  of systems.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 In table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1670,7 +284,7 @@ reference "tab:Realtime-Databases-comparison"
 \end_inset
 
  we see the main characteristics of the databases selected for a further
- analysis.
+ analysis in the next chapters.
 \end_layout
 
 \begin_layout Standard
@@ -1678,7 +292,7 @@ reference "tab:Realtime-Databases-comparison"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2151,6 +765,1144 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Main-Realtime-Databases"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:AnalysisNoSQL"
+
+\end_inset
+
+Analysis
+\end_layout
+
+\begin_layout Standard
+Even if this kind of systems are young a lot of systems have already been
+ created, there are both opensource and SaaS (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Software-as-a"
+
+\end_inset
+
+) systems.
+\begin_inset Newline newline
+\end_inset
+
+Some SaaS systems are very famous and used but they do not allow to do all
+ tests and performance measurements needed for our study, since we do not
+ know the internal structure and replication, so we  analyze only opensource
+ systems.
+ Of course we  see quickly the characteristics of the main SaaS systems
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:SaaS-realtime"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+We  analyze some opensource systems in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:OpenSourceNoSQL"
+
+\end_inset
+
+, some of them are analyzed quickly because are not studied in the next
+ chapters but they are well-known or particular.
+ Then we analyze some SaaS systems in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:SaaS-realtime"
+
+\end_inset
+
+ that are very used, they are not studied in the next chapters.
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Note:
+\series default
+ The information is retrieved from data shown on the official sites of the
+ products, but, in most cases, they are not verified empirically.
+ Moreover the term 
+\begin_inset Quotes fld
+\end_inset
+
+realtime
+\begin_inset Quotes frd
+\end_inset
+
+ is used improperly as said in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:NoSQL-databases"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:OpenSourceNoSQL"
+
+\end_inset
+
+OpenSource
+\end_layout
+
+\begin_layout Paragraph
+CouchBase
+\end_layout
+
+\begin_layout Standard
+CouchBase 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://couchbase.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a NoSQL database with realtime extension called syncGateway 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://developer.couchbase.com/documentation/mobile/1.1.0/get-started/sync-gateway-o
+verview/index.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ (every action must be done passing through this gateway).
+ It is one of the most famous open source systems, for that reason we test
+ it in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to the characteristics described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Characteristics-to-consider"
+
+\end_inset
+
+, using syncGateway + couchbase, we have:
+\end_layout
+
+\begin_layout Itemize
+Data granularity for subscription: key-value 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBChanges"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Local database:
+\series bold
+ 
+\series default
+none.
+\end_layout
+
+\begin_layout Itemize
+CAP: 
+\begin_inset Quotes fld
+\end_inset
+
+CP
+\begin_inset Quotes frd
+\end_inset
+
+ (consistency and partitioning) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseCAP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+MapReduce: MapReduce support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseMapReduce"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Replication model: master-slaves replication support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchBaseReplication"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Protocol used for notifications: websocket and all the ways explained in
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-HTTP-Application"
+
+\end_inset
+
+ to receive events 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseWebsocket"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Protocol used to send data: proprietary.
+\end_layout
+
+\begin_layout Itemize
+Constraints and permissions support: user management 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseUsers"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Query support: 
+\begin_inset Quotes fld
+\end_inset
+
+N1QL
+\begin_inset Quotes frd
+\end_inset
+
+: a super set of SQL to query JSON 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseN1QL"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Other interesting features are: powerful cluster configuration 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseCluster"
+
+\end_inset
+
+ and full text search 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchbaseFullText"
+
+\end_inset
+
+ i.e.
+ 
+\begin_inset Quotes fld
+\end_inset
+
+full text allows you to search and find what you are looking for even without
+ exact matches.
+ Just like the LIKE keyword in SQL? Not really.
+ It is something else.
+ LIKE allows the use of wildcards, which is quite different.[...] This means
+ it is case insensitive, it can ignore unimportant words like 'is' (stop
+ word is the technical term), and is tolerant to mistakes like typos.
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+PouchDB
+\end_layout
+
+\begin_layout Standard
+PouchDB 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://pouchdb.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is just a javascript library that interacts with a NoSQL database: CouchDB.
+ Since PouchDB uses a stable and used system like CouchDB is a system that
+ is tested as shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+.
+ PouchDB, in addition to the interface, implements also a local database
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Local-database"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subparagraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:CouchDB"
+
+\end_inset
+
+CouchDB
+\end_layout
+
+\begin_layout Standard
+CouchDB 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://couchdb.apache.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is one of the most famous NoSQL databases and it is very simple.
+\end_layout
+
+\begin_layout Standard
+According to the characteristics described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Characteristics-to-consider"
+
+\end_inset
+
+, using PouchDB + CouchDB, we have:
+\end_layout
+
+\begin_layout Itemize
+Data granularity for subscriptions: 
+\begin_inset Quotes fld
+\end_inset
+
+key-value
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBChanges"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Local database: PouchDB 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "PouchDBLocalDB,PouchDBReplication"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+CAP: AP (availability and partitioning) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBScaling,CouchDBPartitioning"
+
+\end_inset
+
+, but eventual consistency is implemented 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBConsistency"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Mapreduce: MapReduce support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbMapReduce"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Replication model: multi master replication support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbReplication"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Protocol used for notifications: long polling to receive events 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBChanges"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Protocol to send data: RESTful native interface
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchDBREST"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Constraints and permissions support: simple user management 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbSecurity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Query support: limited 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "CouchdbQueries"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+These features allow to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsRealtime"
+
+\end_inset
+
+ interface to it efficiently and in a realtime way.
+ The only negative aspect of CouchDB is that it has a lower query expressiveness
+ power (for example there is no SQL 
+\begin_inset Quotes fld
+\end_inset
+
+join
+\begin_inset Quotes frd
+\end_inset
+
+ equivalent) than other analogous NoSQL databases like MongoDB 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MongoDB"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Gun.js"
+
+\end_inset
+
+Gun.js
+\end_layout
+
+\begin_layout Standard
+Gun.js 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://gun.js.org
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a full stack 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ implemented in javascript.
+ It does not use any already implemented software, but everything is ad
+ hoc implemented.
+ For that reason, for some features and for the fact that is implemented
+ in javascript (advantages are explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Client-best-practices"
+
+\end_inset
+
+) it is useful to test it as shown in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Performance-Evaluation"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+An important characteristic is that there are no centralized structures
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsDistributed"
+
+\end_inset
+
+, there is no central server required, any client can be a server, so it
+ is 
+\begin_inset Quotes fld
+\end_inset
+
+peer to peer
+\begin_inset Quotes frd
+\end_inset
+
+ (commonly know as P2P)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "P2P"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to the characteristics described in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Characteristics-to-consider"
+
+\end_inset
+
+, using Gun.js, we have:
+\end_layout
+
+\begin_layout Itemize
+Data granularity for subscriptions: JSON full path 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsData"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Local database: yes, since any client can act as server as said previously.
+\end_layout
+
+\begin_layout Itemize
+CAP: AP (availability and partitioning) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsCAP"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+MapReduce: none.
+\end_layout
+
+\begin_layout Itemize
+Replication model: multi master, since it is fully distributed as said previousl
+y.
+\end_layout
+
+\begin_layout Itemize
+Protocol used for notifications: websocket 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsRealtime"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Protocol used to send data: websocket 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsRealtime"
+
+\end_inset
+
+.
+ This choice since it is fully distributed as said previously.
+\end_layout
+
+\begin_layout Itemize
+Constraints and permissions support: authentication support in a P2P environment
+, using asymmetric cryptography 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsSecurity"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Query support: none.
+\end_layout
+
+\begin_layout Standard
+Other interesting features are: graph support 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsGraphs"
+
+\end_inset
+
+, the ability to explicitly link documents together, of course in any NoSQL
+ database a link can be done manually using a sort of ID and reliable storage,
+ it allows to store data on AWS S3 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "GunjsStorage"
+
+\end_inset
+
+, AWS S3 is a reliable cloud storage 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AWSS3"
+
+\end_inset
+
+ implemented by Amazon.
+\end_layout
+
+\begin_layout Paragraph
+MemSQL
+\end_layout
+
+\begin_layout Standard
+MemSQL 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://www.memsql.com/product/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is scalable and replicated in memory SQL database (it is like traditional
+ databases).
+ It is very interesting but, since it is an hybrid system that does not
+ use the potentiality of NoSQL, it is not analyzed in this thesis.
+\end_layout
+
+\begin_layout Paragraph
+Meteor
+\end_layout
+
+\begin_layout Standard
+Meteor 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.meteor.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a Javascript Client and Server Framework that uses MongDB
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MongoDB"
+
+\end_inset
+
+ to create a 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ application.
+\begin_inset Newline newline
+\end_inset
+
+But it is not fully opened to other technologies and the server side can
+ be fully developed.
+ The last issue can be a problem for the scalability and efficiency, in
+ fact it cannot be used as 
+\begin_inset Quotes fld
+\end_inset
+
+serverless
+\begin_inset Quotes frd
+\end_inset
+
+ but instead like a classical application, like classical approach explained
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Traditional-technologies"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+For this reason it is not analyzed in this thesis.
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:SaaS-realtime"
+
+\end_inset
+
+SaaS
+\end_layout
+
+\begin_layout Standard
+These kinds of systems can be easily adapted to a SaaS service, since they
+ can have no code on the backend, even if a more correct classification
+ should be 
+\begin_inset Quotes fld
+\end_inset
+
+serverless
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Serverless"
+
+\end_inset
+
+).
+ In fact all the commercial systems advertise the ability to 
+\begin_inset Quotes fld
+\end_inset
+
+build the application without thinking to the structure
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Firebase"
+
+\end_inset
+
+Firebase
+\end_layout
+
+\begin_layout Standard
+Firebase 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://firebase.google.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is one of the most famous commercial in cloud 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+, it is owned by Google.
+ It gives just a JSON document where you can subscribe to any level.
+\begin_inset Newline newline
+\end_inset
+
+In order to offer scalability in an efficient way it does not allow to write
+ any line of code on the backend, you can put only static resources on the
+ backend (that of course are not CPU time expensive).
+ On the other hand it allows to define backend rules that act like 
+\begin_inset Quotes fld
+\end_inset
+
+triggers
+\begin_inset Quotes frd
+\end_inset
+
+ to validate data and have some useful additional features like login system.
+\begin_inset Newline newline
+\end_inset
+
+Of course it provides libraries and protocols to access it efficiently and
+ in a realtime way such as: RESTful interface (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:RESTful"
+
+\end_inset
+
+), websocket (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:WebSocket"
+
+\end_inset
+
+) and Event Stream (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:HTTP-1.0"
+
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+Furthermore the cost system can be easily adapted to data used; in fact,
+ since the infrastructure is closed it can be very efficient and the 
+\begin_inset Quotes fld
+\end_inset
+
+queries
+\begin_inset Quotes frd
+\end_inset
+
+ are not complex 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FirebasePricing"
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Moreover, since it is one of the most used databases of this type, it can
+ be easily integrated with other external systems.
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Pubnub"
+
+\end_inset
+
+Pubnub
+\end_layout
+
+\begin_layout Standard
+Pubnub 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.pubnub.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a cloud publish/subscribe topic-based system (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Publish/Subscribe"
+
+\end_inset
+
+) with storage support.
+ So it does not have the power of 
+\begin_inset Quotes fld
+\end_inset
+
+CS-NoSQL
+\begin_inset Quotes frd
+\end_inset
+
+ servers since the 
+\begin_inset Quotes fld
+\end_inset
+
+channels
+\begin_inset Quotes frd
+\end_inset
+
+ are not related to data.
+\begin_inset Newline newline
+\end_inset
+
+Of course there are opensource publish/subscribe implementations like 
+\begin_inset Quotes fld
+\end_inset
+
+socket.io
+\begin_inset Quotes frd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Socketio"
+
+\end_inset
+
+.
+ Pubnub has the advantage to be in cloud, so it resolves also scalability
+ issues.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Backand
+\end_layout
+
+\begin_layout Standard
+Backand 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.backand.com/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ is a proprietary serverless architecture for web applications, it is a
+ publish/subscribe service like 
+\begin_inset Quotes fld
+\end_inset
+
+Pubnub
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Pubnub"
+
+\end_inset
+
+).
+ But it allows also to have more control on the backend, like 
+\begin_inset Quotes fld
+\end_inset
+
+firebase
+\begin_inset Quotes frd
+\end_inset
+
+ (explained in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "par:Firebase"
+
+\end_inset
+
+).
 \end_layout
 
 \end_body
