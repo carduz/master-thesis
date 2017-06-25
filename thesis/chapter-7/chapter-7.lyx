@@ -218,50 +218,80 @@ Note
 Couchbase
 \end_layout
 
-\begin_layout Itemize
-Scalability: it depends, strongly, from the CPU, but it has a low scalability.
+\begin_layout Subsubsection*
+General properties
+\end_layout
+
+\begin_layout Subparagraph
+Scalability
+\end_layout
+
+\begin_layout Standard
+it depends, strongly, from the CPU, but it has a low scalability.
  We have seen this also analyzing the machine during the tests.
  
 \end_layout
 
-\begin_layout Itemize
-Data volume adaptability: it depends from the total volume of data.
+\begin_layout Subparagraph
+Data volume adaptability
+\end_layout
+
+\begin_layout Standard
+It depends from the total volume of data.
  Gradually data increase the latency increases, in fact (during pre-tests,
  the development phase) we needed to clear the database to have a reasonable
  speed (thing not needed with other systems).
 \end_layout
 
-\begin_layout Itemize
-Latency stability: the latency is stable in time.
+\begin_layout Subparagraph
+Latency stability
 \end_layout
 
-\begin_layout Itemize
-Write performances: if we have a big amount of writes (not necessarily concurren
-t) they are very slow, increasing the latency.
+\begin_layout Standard
+The latency is stable in time.
+\end_layout
+
+\begin_layout Subparagraph
+Write performances
+\end_layout
+
+\begin_layout Standard
+If we have a big amount of writes (not necessarily concurrent) they are
+ very slow, increasing the latency.
  At the same time it seems that the concurrent writes are not so critical
  (they do not influence the result so much compared with a normal write).
 \end_layout
 
+\begin_layout Subsubsection*
+Classes of applications
+\end_layout
+
+\begin_layout Subparagraph
+Chat
+\end_layout
+
 \begin_layout Standard
-For each class of applications we have:
+Latency is very high when we have more writes (configuration 1 for high
+ concurrency and case 3), but a big amount of readers are well managed.
 \end_layout
 
-\begin_layout Itemize
-Chat: latency is very high when we have more writes (configuration 1 for
- high concurrency and case 3), but a big amount of readers are well managed.
+\begin_layout Subparagraph
+Collaborative
 \end_layout
 
-\begin_layout Itemize
-Collaborative: since we have more total writes the latency is higher in
- the first configuration, but it seems that concurrent writes are well managed
- if they are few.
+\begin_layout Standard
+Since we have more total writes the latency is higher in the first configuration
+, but it seems that concurrent writes are well managed if they are few.
  If we have a lot of concurrent writes like in the third configuration we
  have very bad performances.
 \end_layout
 
-\begin_layout Itemize
-Social: when we have more readers and so a lot of subscriptions things go
- bad.
+\begin_layout Subparagraph
+Social
+\end_layout
+
+\begin_layout Standard
+When we have more readers and so a lot of subscriptions things go bad.
 \end_layout
 
 \begin_layout Standard
@@ -3232,42 +3262,73 @@ Social (couchbase) benchmarks
 Pouchdb
 \end_layout
 
-\begin_layout Itemize
-Scalability: it depends from the CPU and RAM.
+\begin_layout Subsubsection*
+General properties
 \end_layout
 
-\begin_layout Itemize
-Data volume adaptability: it seems that it does not depend on the volume
- of data, of course more specific tests should be done.
+\begin_layout Subparagraph
+Scalability
 \end_layout
 
-\begin_layout Itemize
-Latency stability: the latency is not stable in time.
+\begin_layout Standard
+It depends from the CPU and RAM.
 \end_layout
 
-\begin_layout Itemize
-Write performances: they are very slow, increasing the latency.
+\begin_layout Subparagraph
+Data volume adaptability
+\end_layout
+
+\begin_layout Standard
+It seems that it does not depend on the volume of data, of course more specific
+ tests should be done.
+\end_layout
+
+\begin_layout Subparagraph
+Latency stability
+\end_layout
+
+\begin_layout Standard
+The latency is not stable in time.
+\end_layout
+
+\begin_layout Subparagraph
+Write performances
+\end_layout
+
+\begin_layout Standard
+They are very slow, increasing the latency.
  It seems also that concurrent writes are a problem (we had to skip some
  tests).
 \end_layout
 
+\begin_layout Subsubsection*
+Classes of applications
+\end_layout
+
+\begin_layout Subparagraph
+Chat
+\end_layout
+
 \begin_layout Standard
-For each class of applications we have:
+Latency is high when we have more writers, but a big amount of readers are
+ well managed (latency is not influenced).
 \end_layout
 
-\begin_layout Itemize
-Chat: latency is high when we have more writers, but a big amount of readers
- are well managed (latency is not influenced).
+\begin_layout Subparagraph
+Collaborative
 \end_layout
 
-\begin_layout Itemize
-Collaborative: concurrent writes are not well managed, the latency increases
- and throughput decreases.
+\begin_layout Standard
+Concurrent writes are not well managed, the latency increases and throughput
+ decreases.
 \end_layout
 
-\begin_layout Itemize
-Social: when we have more readers and so a lot of subscriptions things go
- bad.
+\begin_layout Subparagraph
+Social
+\end_layout
+
+\begin_layout Standard
+When we have more readers and so a lot of subscriptions things go bad.
 \end_layout
 
 \begin_layout Standard
@@ -6242,8 +6303,16 @@ Gun.js
 We remind that we use only 1CPU for gun.js server.
 \end_layout
 
-\begin_layout Itemize
-Scalability: it depends, strongly, from the RAM.
+\begin_layout Subsubsection*
+General properties
+\end_layout
+
+\begin_layout Subparagraph
+Scalability
+\end_layout
+
+\begin_layout Standard
+It depends, strongly, from the RAM.
  Often it dies for 
 \begin_inset Quotes fld
 \end_inset
@@ -6256,39 +6325,61 @@ out of memory
  but at the same time we have seen that it saturated the only core used.
 \end_layout
 
-\begin_layout Itemize
-Data volume adaptability: it seems that it depends, strongly, from the volume
- of data.
+\begin_layout Subparagraph
+Data volume adaptability
 \end_layout
 
-\begin_layout Itemize
-Latency stability: the latency is stable in time, it is influenced by data
- volume (but regularly).
+\begin_layout Standard
+It seems that it depends, strongly, from the volume of data.
 \end_layout
 
-\begin_layout Itemize
-Write performances: they are very slow, increasing the latency.
+\begin_layout Subparagraph
+Latency stability
+\end_layout
+
+\begin_layout Standard
+The latency is stable in time, it is influenced by data volume (but regularly).
+\end_layout
+
+\begin_layout Subparagraph
+Write performances
+\end_layout
+
+\begin_layout Standard
+They are very slow, increasing the latency.
  It seems also that concurrent writes are a problem (we had to skip some
  tests).
 \end_layout
 
+\begin_layout Subsubsection*
+Classes of applications
+\end_layout
+
+\begin_layout Subparagraph
+Chat
+\end_layout
+
 \begin_layout Standard
-For each class of applications we have:
+A big amount of readers are well managed (latency is not influenced).
 \end_layout
 
-\begin_layout Itemize
-Chat: a big amount of readers are well managed (latency is not influenced).
+\begin_layout Subparagraph
+Collaborative
 \end_layout
 
-\begin_layout Itemize
-Collaborative: concurrent writes are not well managed, the latency increases
- and throughput decreases.
+\begin_layout Standard
+Concurrent writes are not well managed, the latency increases and throughput
+ decreases.
 \end_layout
 
-\begin_layout Itemize
-Social: when we have more readers and so a lot of subscriptions things do
- not go so bad, so multiple subscriptions are well managed (not perfectly
- but better than other systems).
+\begin_layout Subparagraph
+Social
+\end_layout
+
+\begin_layout Standard
+When we have more readers and so a lot of subscriptions things do not go
+ so bad, so multiple subscriptions are well managed (not perfectly but better
+ than other systems).
 \end_layout
 
 \begin_layout Standard
@@ -7864,43 +7955,75 @@ Moreover, after some tests, we have seen that postgreSQL is not the bottleneck,
  so can avoid to test different environments for it.
 \end_layout
 
-\begin_layout Itemize
-Scalability: it does not depend on the RAM.
- Analyzing the machine we have seen that it saturated the only core used.
+\begin_layout Subsubsection*
+General properties
 \end_layout
 
-\begin_layout Itemize
-Data volume adaptability: it seems that it does not depend on the volume
- of data, of course more specific tests should be done.
-\end_layout
-
-\begin_layout Itemize
-Latency stability: the latency is not so stable.
-\end_layout
-
-\begin_layout Itemize
-Write performances: they are very quick.
- It seems also that concurrent writes are not a problem.
+\begin_layout Subparagraph
+Scalability
 \end_layout
 
 \begin_layout Standard
-For each class of applications we have:
+It does not depend on the RAM.
+ Analyzing the machine we have seen that it saturated the only core used.
 \end_layout
 
-\begin_layout Itemize
-Chat: a big amount of readers are well managed (latency is not influenced).
+\begin_layout Subparagraph
+Data volume adaptability
+\end_layout
+
+\begin_layout Standard
+It seems that it does not depend on the volume of data, of course more specific
+ tests should be done.
+\end_layout
+
+\begin_layout Subparagraph
+Latency stability
+\end_layout
+
+\begin_layout Standard
+The latency is not so stable.
+\end_layout
+
+\begin_layout Subparagraph
+Write performances
+\end_layout
+
+\begin_layout Standard
+They are very quick.
+ It seems also that concurrent writes are not a problem.
+\end_layout
+
+\begin_layout Subsubsection*
+Classes of applications
+\end_layout
+
+\begin_layout Subparagraph
+Chat
+\end_layout
+
+\begin_layout Standard
+A big amount of readers are well managed (latency is not influenced).
  At the same time the latency is not influenced by the number of writers.
 \end_layout
 
-\begin_layout Itemize
-Collaborative: it seems that concurrent writes are managed not so bad.
+\begin_layout Subparagraph
+Collaborative
+\end_layout
+
+\begin_layout Standard
+It seems that concurrent writes are managed not so bad.
  The increase of the latency is not so big (compared with other systems)
  and the decrease of the throughput is not so big.
 \end_layout
 
-\begin_layout Itemize
-Social: when we have more readers and so a lot of subscriptions things go
- well, so multiple subscriptions are well managed.
+\begin_layout Subparagraph
+Social
+\end_layout
+
+\begin_layout Standard
+When we have more readers and so a lot of subscriptions things go well,
+ so multiple subscriptions are well managed.
 \end_layout
 
 \begin_layout Standard
