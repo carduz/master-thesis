@@ -74,8 +74,8 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we will see the idea behind benchmarks, whose results are
- published and commented in 
+In this chapter we see the idea behind benchmarks, whose results are published
+ and commented in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks"
@@ -83,10 +83,17 @@ reference "chap:Benchmarks"
 \end_inset
 
 .
+ We see how to test the classes of applications analyzed in the previous
+ chapter, how to test scalability of different systems and which indices
+ to take to compare systems.
+ So we show theoretical concepts and we design our test framework from a
+ theoretical point of view.
+ 
 \end_layout
 
 \begin_layout Standard
-We will see how to test scalability in 
+We analyze the theoretical concepts of scalability and how to test scalability
+ with our systems in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Scaling-test"
@@ -97,8 +104,8 @@ reference "sec:Scaling-test"
 \begin_inset Newline newline
 \end_inset
 
-Then we will quickly analyze the framework we realized for benchmarks in
- 
+We show the idea behind some test frameworks and we design our test framework
+ for CS-NoSQL in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Custom-framework"
@@ -109,10 +116,11 @@ reference "subsec:Custom-framework"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see how to test the classes of applications seen 
+Then we show how to test the classes of applications analyzed in the previous
+ chapter in a general way 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "chap:class-of-applications"
+reference "sec:Tests-to-do-test"
 
 \end_inset
 
@@ -120,25 +128,15 @@ reference "chap:class-of-applications"
 \begin_inset Newline newline
 \end_inset
 
-Then we will see how to adapt different systems, that we analyzed in 
+Finally we explain how to integrate the tests of different classes of applicatio
+ns to our test framework in section 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Realtime-technologies"
+reference "sec:Adapters-for-systems-test"
 
 \end_inset
 
- and in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:A-traditional-approach"
-
-\end_inset
-
-, and what to consider.
-\end_layout
-
-\begin_layout Standard
-All the things explained in the previous chapters are considered implicit.
+.
 \end_layout
 
 \begin_layout Section
@@ -152,13 +150,8 @@ Scaling Test
 \end_layout
 
 \begin_layout Standard
-In this section we will see what we have to do to test the scaling of different
- solutions.
-\end_layout
-
-\begin_layout Standard
-We will analyze the scaling that we will do and the reasons of those choices
- in 
+In this section we show how we can test the scaling of different solutions.
+ We analyze the scaling that we do and the reasons of those choices in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Scaling-tests"
@@ -166,11 +159,8 @@ reference "subsec:Scaling-tests"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-Then we will see different test environments based on the previous choices
- in 
+ Then we see different test environments based on the previous choices in
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Environments-test"
@@ -252,24 +242,14 @@ For the same reason we do not scale the traditional approach that we proposed
  Here the scaling we mean: partitioning and replication of postgreSQL server
  and replication of socket.io machines, redis is not a bottleneck so it does
  not need scaling.
-\end_layout
-
-\begin_layout Standard
-But we will do a vertically scaling (also called up/down) 
+ But we  do a vertically scaling (also called up/down) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scaling"
 
 \end_inset
 
- that we will explain in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Environments-test"
-
-\end_inset
-
-.
+ that we  explain in the next section.
 \end_layout
 
 \begin_layout Subsection
@@ -283,14 +263,7 @@ Environments
 \end_layout
 
 \begin_layout Standard
-As we said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Scaling-tests"
-
-\end_inset
-
-, we do only vertical scaling.
+As we said previously, we do only vertical scaling.
  So in this section we show different configurations that we want to test.
 \begin_inset Newline newline
 \end_inset
@@ -298,9 +271,9 @@ reference "subsec:Scaling-tests"
 These configurations were found after some minor empirical tests.
  We have also set them to have the same maximum and minimum sum of resources
  used (counting not static servers).
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 As said previously, 
 \begin_inset Quotes fld
 \end_inset
@@ -310,29 +283,15 @@ CS-NoSQL
 \end_inset
 
  are a full stack solution implemented in just one server.
- So we can create a common environment for them, shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:NoSQL-realtime-databases-test"
-
-\end_inset
-
-.
+ So we can create a common environment for them, shown below.
 \begin_inset Newline newline
 \end_inset
 
 While on the traditional approach proposed we have different servers.
- So they need an advanced discussion, shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Traditional-approach-test"
-
+ So they need an advanced discussion.
+\begin_inset Newline newline
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
 Socket.io and gun.js could be considered mono-thread so we do not scale the
  CPU.
  In fact we have a main thread where to execute callbacks and other operations,
@@ -346,9 +305,9 @@ key "NodeEventDriven"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 To keep things more generally all the tests are done using virtual machines
  (using virtualbox 
 \begin_inset Foot
@@ -378,8 +337,11 @@ key "Virtualization"
 \end_inset
 
  on the same physical machine.
- So all the components and technical characteristics are the same (such
- as RAM speed).
+\begin_inset Newline newline
+\end_inset
+
+So all the components and technical characteristics are the same (such as
+ RAM speed).
 \series bold
 
 \begin_inset Newline newline
@@ -391,7 +353,7 @@ Note
  all servers the same CPU was used.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:NoSQL-realtime-databases-test"
@@ -411,7 +373,7 @@ reference "tab:NoSQL-realtime-database-envs"
 
 .
  As we said previously gun.js can be considered mono-thread, so we can test
- it with just one CPU (so we will have only two cases based on the RAM).
+ it with just one CPU (so we  have only two cases based on the RAM).
 \end_layout
 
 \begin_layout Standard
@@ -626,14 +588,14 @@ N° CPU
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Paragraph
 \begin_inset CommandInset label
 LatexCommand label
 name "subsec:Traditional-approach-test"
 
 \end_inset
 
-Traditional approach
+Comparing traditional approach
 \end_layout
 
 \begin_layout Standard
@@ -641,7 +603,7 @@ Here we have 4 servers, for each of them we use a virtual machine:
 \end_layout
 
 \begin_layout Itemize
-PostgreSQL: this is a critical point and we will follow table 
+PostgreSQL: this is a critical point and we  follow table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:postgresql-test"
@@ -664,7 +626,7 @@ Listener: this is not a critical point, it is not also a thing to test.
 \end_layout
 
 \begin_layout Itemize
-Socket.io: this is a critical point and we will follow table 
+Socket.io: this is a critical point and we  follow table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:socketio-test"
@@ -1040,15 +1002,7 @@ Test Framework
 Since the systems used are custom or are new there are no stable frameworks
  to test their performance.
  So we started taking the approach, from one used and customizable framework
- called 
-\begin_inset Quotes fld
-\end_inset
-
-YCSB
-\begin_inset Quotes frd
-\end_inset
-
- 
+ called YCSB 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "YCSB"
@@ -1079,20 +1033,12 @@ https://github.com/carduz/master-thesis-source/tree/master/tests
 \end_inset
 
  with instructions on the readme.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 But we tested only performances (throughput and latency).
  A further analysis should test the consistency of the distributed environment,
- to do that there are some tools like 
-\begin_inset Quotes fld
-\end_inset
-
-jepsen
-\begin_inset Quotes frd
-\end_inset
-
-
+ to do that there are some tools like jepsen
 \begin_inset CommandInset citation
 LatexCommand cite
 key "JepsenTool"
@@ -1116,13 +1062,9 @@ reference "subsec:Jepsen-framework"
 \begin_layout Standard
 The framework we realized is done in javascript, so it is easy to integrate
  it with other platforms.
- Since we know which are the measures that we need, we have just to implement
- generally:
-\end_layout
-
-\begin_layout Itemize
-Generator of data, according to the data structure.
- It is shown in 
+ Since we know which are the indices that we need, we have just to implement
+ general things.
+ Generator of data, according to the data structure, it is shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1130,12 +1072,8 @@ reference "sec:Tests-to-do-test"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Itemize
-Client, general client that allows to send data and to read local databases
- (or receive data).
- It is shown in 
+ And client, general client that allows to send data and to read local databases
+ (or receive data), it is shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Adapters-for-systems-test"
@@ -1143,9 +1081,9 @@ reference "sec:Adapters-for-systems-test"
 \end_inset
 
 .
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 What we need to test are write and read performances.
  In fact, as we said, we have different models of data, but we do not have
  complex operations so we have only basic writes and written replications
@@ -1156,13 +1094,13 @@ What we need to test are write and read performances.
 Since our critical point is the replication, we have to test with more than
  one client.
  We can consider a write completed when it is replicated in all clients.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 So we need at least one client to make writes and at least one to check
  replications (called reads).
  The number of clients (writer and reader) depends on the type of application,
- that we will see in 
+ that we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1173,15 +1111,15 @@ reference "sec:Tests-to-do-test"
 \end_layout
 
 \begin_layout Standard
-As we will see in 
+As we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
 
 \end_inset
 
- we will emulate different situations where we have (for example) 1 writer
- and 100 reader clients.
+ we  emulate different situations where we have (for example) 1 writer and
+ 100 reader clients.
  So an important information is the latency of the synchronization to all
  these clients.
  We call execution the write/read data according to the number of writers/reader
@@ -1196,23 +1134,14 @@ reference "sec:Tests-to-do-test"
 \begin_inset Newline newline
 \end_inset
 
-So we measure the following things:
-\end_layout
+So we measure the different things.
+ Latency to synchronize all clients and throughput (request/latency to synchroni
+ze everything), for every execution.
+ Mean (with variance) latency to get data by each client.
+ Final throughput: total number of requests (reads and writes) per second.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-For every execution: latency to synchronize all clients and throughput (request/
-latency to synchronize everything).
-\end_layout
-
-\begin_layout Itemize
-Mean (with variance) latency to get data by each client.
-\end_layout
-
-\begin_layout Itemize
-Final throughput: total number of requests (reads and writes) per second.
-\end_layout
-
-\begin_layout Standard
 So each test unit is composed by different clients as defined in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1221,9 +1150,9 @@ reference "sec:Tests-to-do-test"
 \end_inset
 
 , so we execute more than one unit in parallel.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 To do that we have a test manager that checks everything and communicates
  with clients, in fact every client is implemented as another process.
 \begin_inset Newline newline
@@ -1231,7 +1160,7 @@ To do that we have a test manager that checks everything and communicates
 
 The creation of a process and communication is managed by the framework
  in a transparent way.
- As we will see in 
+ As we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Adapters-for-systems-test"
@@ -1240,16 +1169,13 @@ reference "sec:Adapters-for-systems-test"
 
 , in order to map we need only client functions with the general client
  (it is done by the adapter).
-\end_layout
-
-\begin_layout Standard
-The framework, since it is not a general framework, does not generate charts,
- it only generates raw data, charts can be generated using external and
- powerful instruments like sheet softwares.
 \begin_inset Newline newline
 \end_inset
 
-Of course the test framework is executed on another virtual machine (with
+The framework, since it is not a general framework, does not generate charts,
+ it only generates raw data, charts can be generated using external and
+ powerful instruments like sheet softwares.
+ Of course the test framework is executed on another virtual machine (with
  high resources) or in the host machine.
 \end_layout
 
@@ -1264,32 +1190,26 @@ Tests to do
 \end_layout
 
 \begin_layout Standard
-In this section we will see what every class of the classes of applications
+In this section we  see what every class of the classes of applications
  (analyzed previously) needs.
- We will also define for each of them the number of clients to be used for
- tests, for some of them we can define more versions (e.g.
+ We  also define for each of them the number of clients to be used for tests,
+ for some of them we can define more versions (e.g.
  test with 1 reader client then test 10 reader clients) to test scalability
  and adaptability of replication and concurrent writing.
-\end_layout
-
-\begin_layout Standard
-Of course this is a simplified simulation of the behavior in these classes
+ Of course this is a simplified simulation of the behavior in these classes
  of applications.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 All data shown (like the number of clients) are found after some minor empirical
  tests.
-\end_layout
-
-\begin_layout Standard
-In some cases data structures need some changes to be adapted to the model
+ In some cases data structures need some changes to be adapted to the model
  of the database used.
  There are minor changes (simplifications) that are not shown here, of course
  the code on github contains everything.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 We should consider also the size of data, but after some experiments, we
  have seen that some systems do not support a big amount of data.
  So the test would be inconsistent.
@@ -1542,8 +1462,7 @@ After a trial data initialization (e.g.
  users creation or room creation), to do tests we have just to create messages.
  So our generator is simply a faker text generator, other things like the
  user can be static.
- As we will see in the next section, we have to manage the room where to
- write.
+ As we  see in the next section, we have to manage the room where to write.
  
 \end_layout
 
@@ -2088,11 +2007,8 @@ Likes: we can see that they are like comments.
 \begin_layout Standard
 We can say that there are more comments than posts, for simplicity we can
  send a post every 9 comments.
-\end_layout
-
-\begin_layout Standard
-When we generate a post we have a new post that can have comments, and where
- users can subscribe.
+ When we generate a post we have a new post that can have comments, and
+ where users can subscribe.
  So we have a subscription to new posts and multiple subscriptions for comments,
  each for every post.
 \end_layout
@@ -2104,10 +2020,8 @@ Writing
 \begin_layout Standard
 As said previously the creation of a post is done every 9 comments, it is
  done by all writers.
-\end_layout
-
-\begin_layout Standard
-We want that for each post we have two writers that write comments (if possible).
+ We want that for each post we have two writers that write comments (if
+ possible).
  The writers can comment to all posts, also older ones.
 \end_layout
 
@@ -2117,10 +2031,7 @@ Reading
 
 \begin_layout Standard
 All clients subscribe to posts, they read all the new posts.
-\end_layout
-
-\begin_layout Standard
-A client is subscribed to half of the posts.
+ A client is subscribed to half of the posts.
  Even if new posts are created the old subscriptions are not deleted.
  So the more time passes, the more subscriptions are created.
 \end_layout
@@ -2136,35 +2047,17 @@ Adapters for systems
 \end_layout
 
 \begin_layout Standard
-The general client needs:
-\end_layout
+The general client needs: login method, join method to subscribe to channel
+ and to a table/document, write command, data callback that is called when
+ there are new data (of course new data are passed as argument).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Login method.
-\end_layout
-
-\begin_layout Itemize
-Join method to subscribe to channel and to a table/document.
-\end_layout
-
-\begin_layout Itemize
-Write command.
-\end_layout
-
-\begin_layout Itemize
-Data callback, that is called when there are new data (of course new data
- are passed as argument).
-\end_layout
-
-\begin_layout Standard
 We have already proved that systems can provide authentication.
  But since it is implemented in different ways it could add another variable
- factor to consider that can change the final results, so we will skip it
- since it is not our main target to test.
-\end_layout
-
-\begin_layout Standard
-Now we will analyze quickly how to implement these for all the platforms.
+ factor to consider that can change the final results, so we  skip it since
+ it is not our main target to test.
+ Now we analyze quickly how to implement these for all the platforms.
 \end_layout
 
 \begin_layout Paragraph
@@ -2247,7 +2140,7 @@ Data callback: it returns new data from the local database.
 \end_layout
 
 \begin_layout Paragraph
-Traditional approach
+Comparing traditional approach
 \end_layout
 
 \begin_layout Itemize
