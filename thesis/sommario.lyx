@@ -148,23 +148,15 @@ La terza frase riassume brevemente l’attività svolta, i risultati ottenuti
 
 \begin_layout Standard
 Oggi, nelle applicazioni i dati crescono esponenzialmente e vanno replicati
- su diversi device in realtime, device che dovrebbero poterli utilizzare
- anche se sono offline.
- Tali device necessitano di una copia locale del database disponibile anche
- offline chiamato 
-\begin_inset Quotes fld
-\end_inset
-
-database locale
-\begin_inset Quotes frd
-\end_inset
-
-.
+ su diversi dispositivo in realtime, dispositivo che si dovrebbe poter utilizzar
+e anche se sono offline.
+ Tali dispositivo necessitano di una copia locale del database disponibile
+ anche offline chiamato database locale.
 \begin_inset Newline newline
 \end_inset
 
-Il device tipico che usa questo tipo di applicazione è lo smartphone, ma
- anche applicazioni web come i software collaborativi (come Google Docs)
+Il dispositivo tipico che usa questo tipo di applicazione è lo smartphone,
+ ma anche applicazioni web come i software collaborativi (come Google Docs)
  le usano.
 \end_layout
 
@@ -173,77 +165,23 @@ Sono state proposte diverse soluzioni basate sui database NoSQL (sia in
  cloud che opensource), ma anche soluzioni personalizzate basate su RDBMS
  sono fattibili.
  Le soluzioni basate sui NoSQL non sono standardizzate e non hanno un nome
- definito quindi le chiameremo 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- (NoSQL lato client).
+ definito quindi le chiameremo CS-NoSQL (NoSQL lato client).
 \begin_inset Newline newline
 \end_inset
 
-Sono stati scelti i NoSQL per i dati non strutturati e per la loro dimensione.
- Inoltre, spesso, la 
-\begin_inset Quotes fld
-\end_inset
-
-strong consistency
-\begin_inset Quotes frd
-\end_inset
-
- non è necessaria ma è sufficiente una 
-\begin_inset Quotes fld
-\end_inset
-
-eventual consistency
-\begin_inset Quotes frd
-\end_inset
-
-, quindi vengono scelte la 
-\begin_inset Quotes fld
-\end_inset
-
-partition tolerance
-\begin_inset Quotes frd
-\end_inset
-
- e la 
-\begin_inset Quotes fld
-\end_inset
-
-availability
-\begin_inset Quotes frd
-\end_inset
-
- secondo il teorema CAP.
+Sono stati scelti i NoSQL per il fatto che si trattano dati non strutturati
+ e di grandi dimensioni.
 \begin_inset Newline newline
 \end_inset
 
-Uno dei principali vantaggi dei 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- è la completa integrazione, sono un ambiente completo, volendo invece una
- soluzione basata su RDBMS va sviluppata un'intera infrastruttura.
+Uno dei principali vantaggi dei CS-NoSQL è che sono un ambiente completo
+ (con le altre soluzioni dobbiamo creare l'intera infrastruttura) e ciò
+ consente di creare un'applicazione più semplice senza codice.
 \end_layout
 
 \begin_layout Standard
-In questa tesi abbiamo analizzato alcuni 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- che implementano la replicazione sui client.
+In questa tesi analizziamo alcuni CS-NoSQL che implementano la replicazione
+ sui client.
  Ne verifichiamo performance e stabilità per le classi di applicazioni per
  cui sono progettati, comparandoli con una soluzione basata su RDBMS.
 \end_layout
@@ -253,15 +191,7 @@ Per far ciò, abbiamo implementato una soluzione comparata basata su postgreSQL
  (un server RDBMS) che replica i dati sui client usando websocket, implementato
  un semplice database locale per esso, creato un framework personalizzato
  per testare questi sistemi e fatto test di benchmark emulando le differenti
- classi di applicazioni per cui i 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- sono stati progettati.
+ classi di applicazioni per cui i CS-NoSQL sono stati progettati.
 \begin_inset Newline newline
 \end_inset
 
