@@ -165,7 +165,7 @@ Different solutions based on NoSQL databases were proposed (both in cloud
  and opensource), but of course custom solutions based on RDBMS are also
  feasible.
  The NoSQL based solutions are not standardized, so there is no name even
- for them so we will call them CS-NoSQL (client side NoSQL).
+ for them so we call them CS-NoSQL (client side NoSQL).
 \begin_inset Newline newline
 \end_inset
 

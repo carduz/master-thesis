@@ -244,7 +244,7 @@ key "firebaseArticle"
 \end_inset
 
 These solutions are not standardized, so there is no name even for them
- so we will call them CS-NoSQL (client side NoSQL database).
+ so we call them CS-NoSQL (client side NoSQL database).
 \end_layout
 
 \begin_layout Standard
@@ -255,8 +255,8 @@ In this master thesis we want to verify the performances of CS-NoSQL for
 \begin_inset Newline newline
 \end_inset
 
-We analyze the theory behind these DBs, then we classify and analyse the
- ones which have significant characteristics.
+We analyze the theory behind these databases, then we classify and analyze
+ the ones which have significant characteristics.
  We choose opensource systems since we can verify the characteristics declared
  by vendors, we can take more grained measurements of their performances
  (also low level data) and the technology behind them is more standard than
@@ -270,7 +270,7 @@ Moreover, we develop an alternative system based on a traditional database
 \begin_inset Newline newline
 \end_inset
 
-In order to test these specific Dbs we identify some significant classes
+In order to test these specific databases we identify some significant classes
  of applications where they should perform efficiently, the classes of applicati
 ons differ for elements that are typical of this kind of applications such
  as the number of clients subscribed, data structure and so on.
@@ -278,14 +278,17 @@ ons differ for elements that are typical of this kind of applications such
  this kind of applications which considers issues related to them such as
  the number of clients subscribed.
  
+\end_layout
+
+\begin_layout Standard
+We prove that our classical comparative system is more efficient in terms
+ of performance, but also in terms of scalability and stability (CS-NoSQL
+ are very unstable with a reasonable amount of data).
+ In some cases, it is also 10x faster.
 \begin_inset Newline newline
 \end_inset
 
-We will prove that our classical comparative system is more efficient in
- terms of performance, but also in terms of scalability and stability (CS-NoSQL
- are very unstable with a reasonable amount of data).
- In some cases, it is also 10x faster.
- Besides CS-NoSQL are very efficient, in some cases, for development processes,
+Besides CS-NoSQL are very efficient, in some cases, for development processes,
  in fact since they were born only for this purpose they are a full-stack
  environment (with other solutions we need to create the entire infrastructure)
  and this allows creating a simpler application with zero code.
@@ -293,11 +296,8 @@ We will prove that our classical comparative system is more efficient in
  it is a proprietary solution and if the system goes down or the cloud company
  fails all data are lost and there is no way to replicate the system in
  another server so a new development is needed.
-\begin_inset Newline newline
-\end_inset
-
-So lots of issues are related to the fact that solutions are proprietary,
- we have issues like non standard way to do tests, non standard development
+ So lots of CS-NoSQL issues are related to the fact that solutions are proprieta
+ry, we have issues like non standard way to do tests, non standard development
  processes and so on.
  This is a big cost for companies that want to use this kind of systems
  since they need a different training for each system used.
@@ -311,89 +311,8 @@ So lots of issues are related to the fact that solutions are proprietary,
 \begin_layout Standard
 Since CS-NoSQL are not standardized and are new, their literature is poor
  but they are just a combination of technologies already well-studied.
-\begin_inset Newline newline
-\end_inset
-
-NoSQL databases 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "NoSQL"
-
-\end_inset
-
- are the core of the system since they are the storage.
- They allow storing an enormous amount of unstructured data such as JSON
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "JSON"
-
-\end_inset
-
- that are very useful for big data, as we will see, JSON is very useful
- for CS-NoSQL since we can have a different granularity in data and subscription
- that depends on the class of applications.
- Moreover, they can be distributed and partitioned, this is very important
- for big data but in some cases we could renounce to strong consistency
- in favor of eventual consistency according to the CAP theorem to keep good
- performances 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CAP,CAPNoSQL2,CAPNoSQL"
-
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-The publish/subscribe protocol 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "PubSub"
-
-\end_inset
-
- is a protocol that allows subscribing to some data and receive notifications
- about them.
- Optimistic replication techniques 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "OptimisticReplication"
-
-\end_inset
-
- allow replicating databases or other data efficiently, the performances
- are not affected by the number of replica, of course the strong consistency
- is lost in favor of eventual consistency according to the CAP theorem 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "CAP,OptimisticReplication"
-
-\end_inset
-
-.
- Both systems, together, allow distributing the NoSQL databases efficiently
- among the clients.
-\begin_inset Newline newline
-\end_inset
-
-Websocket protocol 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "WebSocket"
-
-\end_inset
-
- (a protocol based on HTTP) allows sending messages in realtime to clients
- using HTTP.
- It is very important since, as said, this kind of applications are used
- in web applications.
- In fact all the systems that we see are HTTP based.
-\end_layout
-
-\begin_layout Standard
-In order to study these systems we only have information from vendors.
+ The problems related to their use is that we have only information from
+ vendors.
  So we choose some theoretical information that are relevant and take these
  information from vendors (or if they are not available we try to deduct
  them from other sources such as the source code) for each CS-NoSQL that
@@ -404,12 +323,8 @@ In order to study these systems we only have information from vendors.
 \end_inset
 
 As said previously, we develop a comparing system that is based on a traditional
- database.
- It is composed by a postgreSQL database that sends notifications for each
- change in a distributed cluster of websocket servers, through redis server.
- Finally websocket servers send notifications to the clients, the clients
- implement a local database that uses these notifications to make replica
- in an eventual consistency way.
+ database using postgreSQL and classical communication methods based on
+ websockets.
 \end_layout
 
 \begin_layout Standard

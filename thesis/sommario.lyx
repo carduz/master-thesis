@@ -165,7 +165,7 @@ Sono state proposte diverse soluzioni basate sui database NoSQL (sia in
  cloud che opensource), ma anche soluzioni personalizzate basate su RDBMS
  sono fattibili.
  Le soluzioni basate sui NoSQL non sono standardizzate e non hanno un nome
- definito quindi le chiameremo CS-NoSQL (NoSQL lato client).
+ definito quindi le chiamiamo CS-NoSQL (NoSQL lato client).
 \begin_inset Newline newline
 \end_inset
 
