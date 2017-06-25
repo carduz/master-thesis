@@ -144,14 +144,7 @@ reference "sec:Serverless"
 \begin_layout Standard
 After this chapter, we  have all the elements needed to understand all the
  topics of this master thesis, except for the topics directly related to
- CS-NoSQL such as of course NoSQL databases that we  see in chapter 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:State-of-Art"
-
-\end_inset
-
-.
+ CS-NoSQL such as of course NoSQL databases that we see in the next chapter.
 \end_layout
 
 \begin_layout Section
