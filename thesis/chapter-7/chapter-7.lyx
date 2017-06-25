@@ -75,39 +75,13 @@
 
 \begin_layout Standard
 In this chapter we see the benchmark tests that we have done according to
- what we have seen 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Benchmarks-strategy"
-
-\end_inset
-
-, for the classes of applications we analyzed in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:class-of-applications"
-
-\end_inset
-
- and for the systems we have seen in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:technologies"
-
-\end_inset
-
- and in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:A-traditional-approach"
-
-\end_inset
-
-.
+ what we have seen in the previous chapter, for the classes of applications
+ and for the systems we previously defined.
 \end_layout
 
 \begin_layout Standard
-We will show the test results in 
+We analyze the tests done, with some assumptions raised with practical experimen
+ts in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-bench"
@@ -115,10 +89,13 @@ reference "sec:Tests-bench"
 \end_inset
 
 .
+ Tests executions are organized by technology, for each technology they
+ are organized by class of application.
 \begin_inset Newline newline
 \end_inset
 
-Then we will analyze them in 
+Finally we recap the results obtained, showing why in most cases our traditional
+ comparative approach is better in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Analysis-bench"
@@ -145,20 +122,14 @@ Here we show data of the execution of the tests.
 \end_inset
 
 Moreover even if we measure different data (such as request throughput or
- variance of latency) explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Custom-framework"
-
-\end_inset
-
-, since they would make the comparison confusing, we show only final throughput
- (in tables) and average latency in seconds (in charts).
+ variance of latency) explained in the previous chapter, since they would
+ make the comparison confusing, we show only final throughput (in tables)
+ and average latency in seconds (in charts).
  Of course the tool developed generates the other data and tests can be
  easily reproduced.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 For each system we have executed the test for every class of applications.
  For each of them we have a table (with executions) and a chart.
 \begin_inset Newline newline
@@ -170,30 +141,20 @@ In the table we reported results for different numbers of clients and for
 \end_layout
 
 \begin_layout Standard
-For each system we do some comments for: scalability, data volume adaptability,
- latency stability and write performances (what is possible to deduct from
- indirect measurements that do).
+For each system we do a short analysis of the results for: scalability,
+ data volume adaptability, latency stability and write performances (what
+ is possible to deduct from indirect measurements that do).
 \begin_inset Newline newline
 \end_inset
 
 Then we do observations for each class of applications, remember that the
- main thing to test for each of them is:
-\end_layout
+ main things to test for each of them are: chat (we test subscription delivery
+ efficiency), collaborative (we test the concurrent writes efficiency),
+ social (we test multiple subscription efficiency, we also remind that the
+ number of subscriptions increases during the time).
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Itemize
-Chat: we test subscription delivery efficiency.
-\end_layout
-
-\begin_layout Itemize
-Collaborative: we test the concurrent writes efficiency.
-\end_layout
-
-\begin_layout Itemize
-Social: we test multiple subscription efficiency, we also remind that the
- number of subscriptions increases during the time.
-\end_layout
-
-\begin_layout Standard
 The tests were executed for 30 seconds, more to finish all the executions.
  The environment was stable and we do not needed to execute the same test
  more than one time (to take an average value).
@@ -201,15 +162,7 @@ The tests were executed for 30 seconds, more to finish all the executions.
 
 \begin_layout Standard
 For each configuration of number of clients, for each class of applications
- and for systems we had to find the right value of 
-\begin_inset Quotes fld
-\end_inset
-
-concurrency
-\begin_inset Quotes frd
-\end_inset
-
-.
+ and for systems we had to find the right value of concurrency.
 \begin_inset Newline newline
 \end_inset
 
@@ -239,46 +192,22 @@ Concurrency influences the number of tasks sent to the same writer, but
 This value is found in an empirical way: the value chosen is the first value
  (starting from lower) that guarantees the max throughput in the best environmen
 t.
-\end_layout
-
-\begin_layout Standard
-We do tests as a 
-\begin_inset Quotes fld
+\begin_inset Newline newline
 \end_inset
 
-black box
-\begin_inset Quotes frd
-\end_inset
-
-, we do not know details of the systems.
+We do tests as a black box, we do not know details of the systems.
 \begin_inset Newline newline
 \end_inset
 
 So, for example, if writers are slow we do not know if the problem is the
- database itself or the 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- delivery level.
+ database itself or the realtime delivery level.
  But if we see that concurrent writes have the same time of non concurrent
- writes we can expect that the bottleneck is the 
-\begin_inset Quotes fld
-\end_inset
-
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- delivery level.
-\end_layout
-
-\begin_layout Standard
-
+ writes we can expect that the bottleneck is the realtime delivery level.
 \series bold
+
+\begin_inset Newline newline
+\end_inset
+
 Note
 \series default
 : Some tests were not executed, since they have not be setuped in a reasonable
@@ -337,7 +266,7 @@ Social: when we have more readers and so a lot of subscriptions things go
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -1289,7 +1218,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -1325,7 +1254,7 @@ Chat (couchbase) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -2277,7 +2206,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -2313,7 +2242,7 @@ Collaborative (couchbase) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -3265,7 +3194,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -3343,7 +3272,7 @@ Social: when we have more readers and so a lot of subscriptions things go
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -4295,7 +4224,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -4331,7 +4260,7 @@ Chat (pouchdb) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -5283,7 +5212,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -5319,7 +5248,7 @@ Collaborative (pouchdb) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -6271,7 +6200,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -6364,7 +6293,7 @@ Social: when we have more readers and so a lot of subscriptions things do
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -6848,7 +6777,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -6884,7 +6813,7 @@ Chat (gun.js) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -7368,7 +7297,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -7404,7 +7333,7 @@ Collaborative (gun.js) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -7888,7 +7817,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -7976,7 +7905,7 @@ Social: when we have more readers and so a lot of subscriptions things go
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -8460,7 +8389,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -8496,7 +8425,7 @@ Chat (traditional) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -8980,7 +8909,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -9016,7 +8945,7 @@ Collaborative (traditional) benchmarks
 
 \begin_layout Standard
 \begin_inset Float table
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -9500,7 +9429,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Float figure
-placement p
+placement H
 wide false
 sideways false
 status collapsed
@@ -9541,85 +9470,38 @@ name "sec:Analysis-bench"
 
 \end_inset
 
-Analysis of the Results
+Lesson Learned
 \end_layout
 
 \begin_layout Standard
-We can see that there is not a real advantage in using 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
-.
+We can see that there is not a real advantage in using CS-NoSQL.
  The traditional solution proposed is, often, better, it has:
 \end_layout
 
 \begin_layout Itemize
-The highest throughput: except for the first two configurations of 
-\begin_inset Quotes fld
-\end_inset
-
-collaborative
-\begin_inset Quotes frd
-\end_inset
-
+The highest throughput: except for the first two configurations of collaborative
  tests.
 \end_layout
 
 \begin_layout Itemize
-Low latency: except for 
-\begin_inset Quotes fld
-\end_inset
-
-collaborative
-\begin_inset Quotes frd
-\end_inset
-
- tests.
+Low latency: except for collaborative tests.
 \end_layout
 
 \begin_layout Itemize
 Efficient subscriptions delivery: latency does not increase when the number
  of subscriptions increases.
- As shown in 
-\begin_inset Quotes fld
-\end_inset
-
-chat
-\begin_inset Quotes frd
-\end_inset
-
- test.
+ As shown in chat test.
 \end_layout
 
 \begin_layout Itemize
 Efficient multiple subscriptions delivery: even if the number of subscriptions
  increases in time during the test, the latency remains the same.
- As shown in 
-\begin_inset Quotes fld
-\end_inset
-
-social
-\begin_inset Quotes frd
-\end_inset
-
- test.
+ As shown in social test.
 \end_layout
 
 \begin_layout Itemize
 Better performances when there are a lot of concurrent writes: as shown
- in 
-\begin_inset Quotes fld
-\end_inset
-
-collaborative
-\begin_inset Quotes frd
-\end_inset
-
- tests.
+ in collaborative tests.
 \end_layout
 
 \begin_layout Itemize
@@ -9627,15 +9509,7 @@ It does not depend on data volume.
 \end_layout
 
 \begin_layout Standard
-Of course, there are some points where it is not so good like 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
-:
+Of course, there are some points where it is not so good like CS-NoSQL:
 \end_layout
 
 \begin_layout Itemize
@@ -9643,14 +9517,7 @@ Latency stability.
 \end_layout
 
 \begin_layout Itemize
-Concurrent writes for few data: in the first configurations of 
-\begin_inset Quotes fld
-\end_inset
-
-collaborative
-\begin_inset Quotes frd
-\end_inset
-
+Concurrent writes for few data: in the first configurations of collaborative
  tests, latency and throughput are not so good.
  But if we increase data we obtain better results than other systems.
 \end_layout
@@ -9673,27 +9540,12 @@ key "PM2"
 
 \end_inset
 
- to implement 
-\begin_inset Quotes fld
-\end_inset
-
-load balance
-\begin_inset Quotes frd
-\end_inset
-
- between local cores.
+ to implement load balance between local cores.
 \end_layout
 
 \begin_layout Standard
-There is no 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- with a number of advantages like the traditional solution proposed.
+There is no CS-NoSQL with a number of advantages like the traditional solution
+ proposed.
 \begin_inset Newline newline
 \end_inset
 
@@ -9716,15 +9568,8 @@ reference "chap:class-of-applications"
 \begin_inset Newline newline
 \end_inset
 
-So we proved that, except for 
-\begin_inset Quotes fld
-\end_inset
-
-collaborative
-\begin_inset Quotes frd
-\end_inset
-
- tests, we have better results with a traditional approach.
+So we proved that, except for collaborative tests, we have better results
+ with a traditional approach.
  Moreover the traditional approach proposed seems more stable.
 \begin_inset Newline newline
 \end_inset
