@@ -816,7 +816,7 @@ filename "chapter-7/chapter-7.lyx"
 
 \end_layout
 
-\begin_layout Chapter*
+\begin_layout Chapter
 Conclusions
 \begin_inset CommandInset label
 LatexCommand label
@@ -828,26 +828,6 @@ name "chap:conclusion"
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-addcontentsline{toc}{chapter}{Conclusions}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-markboth{Conclusions}{Conclusions}
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset include
 LatexCommand input
 filename "conclusions.lyx"
