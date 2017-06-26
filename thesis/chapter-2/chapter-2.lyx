@@ -175,62 +175,18 @@ realtime databases
 
 These databases have some advantages.
  They can be easily partitioned and distributed over different nodes, an
- important property as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Distributed-issues"
-
-\end_inset
-
-.
+ important property.
  Moreover they allow easily to subscribe to different granularities of data
- and to receive notifications of changes using publish/subscribe as explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/subscribeNOSQL"
-
-\end_inset
-
-.
+ and to receive notifications of changes using publish/subscribe.
  This is done without writing any line of code in the server.
  They implement also the publish/subscribe broker server.
  Furthermore they can have partially support to constraints, permissions
- and queries support as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraints,-permissions-and"
-
-\end_inset
-
-.
- Also they can be easily implemented in a serverless approach (it is explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Serverless"
-
-\end_inset
-
-) as we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:technologies"
-
-\end_inset
-
- with real databases.
+ and queries support.
+ Also they can be easily implemented in a serverless approach with real
+ databases.
  It is an efficient approach that can also give a lot of economic advantages
  in different situations.
- Finally they implement client best practices providing all libraries/framework
- explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-best-practices"
-
-\end_inset
-
-.
+ Finally they implement client best practices providing all libraries/framework.
 \end_layout
 
 \begin_layout Standard
@@ -247,14 +203,7 @@ They were born to create scalable databases for Big Data (a set of data
  that are too large or too complex to be managed/elaborated with a traditional
  system) applications.
  Even this means losing query expressiveness power, in fact they can have
- multiple masters support explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Multi-Master"
-
-\end_inset
-
- 
+ multiple masters support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -274,14 +223,7 @@ reference "fig:-Database-triangle"
 
 \end_inset
 
- (more details are explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Distributed-issues"
-
-\end_inset
-
-), we  see more details analyzing real applications in 
+, we  see more details analyzing real applications in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
@@ -292,33 +234,19 @@ reference "chap:technologies"
 \begin_inset Newline newline
 \end_inset
 
-Data are stored in unstructured formats, as we  analyze in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Data-models"
-
-\end_inset
-
-.
+Data are stored in unstructured formats.
  We  see two main formats: key-value and JSON, we  use JSON when possible
  in our applications, but as we  see key-value is very important in some
  applications and it is a sort base of JSON for some aspects.
 \begin_inset Newline newline
 \end_inset
 
-Then we  see distributed issues with pros and cons in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Distributed-issues"
-
-\end_inset
-
-, we  analyze the CAP theorem and distribution and partitioning applied
- to CS-NoSQL.
+Then we  see distributed issues with pros and cons, we  analyze the CAP
+ theorem and distribution and partitioning applied to CS-NoSQL.
 \begin_inset Newline newline
 \end_inset
 
-Moreover we  see publish/subscribe implemented in these databases in 
+Moreover we  see publish/subscribe implemented in these databases
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/subscribeNOSQL"
@@ -330,14 +258,7 @@ reference "subsec:Publish/subscribeNOSQL"
 \end_inset
 
 Finally non trivial tasks and issues such as constraints, permissions and
- queries in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraints,-permissions-and"
-
-\end_inset
-
-.
+ queries.
 \end_layout
 
 \begin_layout Subsection
@@ -624,14 +545,7 @@ A simple example can be a system where we have some users, each of them
 \begin_inset Newline newline
 \end_inset
 
-As introduced in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful"
-
-\end_inset
-
- the RESTful is a good protocol for JSON and, in general, for NoSQL databases
+The RESTful is a good protocol for JSON and, in general, for NoSQL databases
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -672,14 +586,7 @@ We can also see that the expressiveness power is the same of key-value since
 \end_inset
 
 We see better what it means to subscribe to a specif path of the JSON structure
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
-
-\end_inset
-
-.
+ below.
 \begin_inset Newline newline
 \end_inset
 
@@ -705,14 +612,8 @@ As introduced at the beginning NoSQL databases can be easily distributed
 \begin_inset Newline newline
 \end_inset
 
-These databases, often, implement MapReduce (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:MapReduce"
-
-\end_inset
-
-) to elaborate distributed data efficiently 
+These databases, often, implement MapReduce to elaborate distributed data
+ efficiently 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQLQueries"
@@ -760,14 +661,7 @@ reference "chap:technologies"
 \end_inset
 
 Since, often, they do not implement a strong consistency an eventual consistency
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:Eventual-consistency"
-
-\end_inset
-
-) is implemented.
+ is implemented.
 \end_layout
 
 \begin_layout Paragraph
@@ -851,15 +745,8 @@ reference "sec:Traditional-HTTP-Application"
 \end_inset
 
 Of course we still have issues due to the fact that we have to scale also
- the broker servers and as said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe"
-
-\end_inset
-
- it is not an easy task (even if for topic-based is easier than for content-base
-d).
+ the broker servers and as previously said it is not an easy task (even
+ if for topic-based is easier than for content-based).
  Fortunately these databases provide an integrated publish/subscribe that
  scales with the database itself.
 \end_layout
@@ -877,14 +764,7 @@ Constraints, permissions and queries
 \begin_layout Standard
 As we see with real databases constraints on data, permissions and queries
  are not a trivial task, especially in CS-NoSQL.
- In fact we have to replicate them on the client as we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
-.
+ In fact we have to replicate them on the client.
 \end_layout
 
 \begin_layout Paragraph
@@ -1360,32 +1240,10 @@ RESTful approach
 \end_layout
 
 \begin_layout Standard
-What we said previously in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
-
-\end_inset
-
- for path is valid also for RESTful URI as introduced in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful"
-
-\end_inset
-
-.
+What we said previously for path is valid also for RESTful URI.
  RESTful is useful to post/put/delete data and to retrieve them synchronously,
- synchronous retrieve can be useful to populate local databases (explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
-) at the beginning, in fact RESTful is not compatible with asynchronous
- requests.
+ synchronous retrieve can be useful to populate local databases at the beginning
+, in fact RESTful is not compatible with asynchronous requests.
  There is no reason to do this kind of operations in an asynchronous way,
  of course they can be done via a websocket connection, but they are done
  in a sort of synchronous way.
@@ -1456,28 +1314,14 @@ So the developer can call all the methods (get data, put data and so on)
 \end_inset
 
 Of course some server constraints/modifications or also permissions constraints
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Constraints-and-permissionsNoSQL"
-
-\end_inset
-
-) are applied when the network comes back up.
+ are applied when the network comes back up.
  Some of the constraints/modifications applied by the server can be implemented
- in the client such as type constraints, integrity constraints and so on;
- of course the server rechecks everything again.
+ in the client such as type constraints, integrity constraints and so on.
+ Of course the server rechecks everything again.
 \begin_inset Newline newline
 \end_inset
 
-The client could also implement the query logic (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:QueriesNoSQL"
-
-\end_inset
-
-).
+The client could also implement the query logic.
  But for simplicity, often, this kind of systems have simple query support
  or no query support (neither client nor server).
 \begin_inset Newline newline

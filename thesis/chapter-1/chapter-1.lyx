@@ -221,14 +221,8 @@ reference "fig:Modern-web-application"
 \begin_layout Standard
 In the rest of this section we describe the evolution of the HTTP that allows
  sending realtime notifications.
- The core of the issue is the HTTP handshake analyzed in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:HTTP-handshake"
-
-\end_inset
-
-, in fact we need to have asynchronous requests, i.e.
+ The core of the issue is the HTTP handshake analyzed below, in fact we
+ need to have asynchronous requests, i.e.
  the server should be able to send messages to the client at any time 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -240,24 +234,10 @@ key "SyncAsync"
 \begin_inset Newline newline
 \end_inset
 
-In sections in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:WebSocket"
-
-\end_inset
-
- and in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful"
-
-\end_inset
-
- we present standards related to HTTP: websocket (the most important protocol
- for this master thesis' topic that allows sending realtime notifications
- to clients) and RESTful (a standard protocol to exchange messages between
- client and server).
+In following sections we present standards related to HTTP: websocket (the
+ most important protocol for this master thesis' topic that allows sending
+ realtime notifications to clients) and RESTful (a standard protocol to
+ exchange messages between client and server).
 \end_layout
 
 \begin_layout Subsection
@@ -417,14 +397,7 @@ reference "fig:HTTP1.0-vs-HTTP1.1"
 
 This was originally designed to request different files over the same connection
  and it constitutes also the enabling technology for websocket, as we see
- in the section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:WebSocket"
-
-\end_inset
-
-.
+ below.
 \end_layout
 
 \begin_layout Paragraph
@@ -547,15 +520,9 @@ WebSocket
 \end_layout
 
 \begin_layout Standard
-It is a protocol built over 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:HTTP-1.1"
-
-\end_inset
-
- that allows creating a sort of socket where both the client and the server
- can send and receive messages at any time
+It is a protocol built over HTTP 1.1 that allows creating a sort of socket
+ where both the client and the server can send and receive messages at any
+ time
 \begin_inset CommandInset citation
 LatexCommand cite
 key "WebSocket"
@@ -780,41 +747,22 @@ Data Management
 
 \begin_layout Standard
 In this section we shortly describe the basic concepts of database systems
- to retrieve data in a realtime way in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Data-retrieve"
-
-\end_inset
-
-, we  see basic concepts such as triggers and Publish/Subscribe then the
- high level steps needed to retrieve data in a realtime way.
+ to retrieve data in a realtime way, we  see basic concepts such as triggers
+ and Publish/Subscribe then the high level steps needed to retrieve data
+ in a realtime way.
 \begin_inset Newline newline
 \end_inset
 
 We  see basic concepts and issues of data in a distributed system: consistency,
- partition tolerance and availability (CAP theorem) in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Consistency,-Partition-tolerance"
-
-\end_inset
-
-, we  also see useful variations such as eventual consistency and how the
- original CAP theorem is changed with the new applications.
+ partition tolerance and availability (CAP theorem), we  also see useful
+ variations such as eventual consistency and how the original CAP theorem
+ is changed with the new applications.
 \begin_inset Newline newline
 \end_inset
 
-Finally we  see the general idea behind a distributed system in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Partitioning-and-Distribution"
-
-\end_inset
-
-, analyzing the meaning and consequences of partitioning and distributing,
- standard framework such as mapReduce and replication (master-slaves & multi
- master).
+Finally we  see the general idea behind a distributed system, analyzing
+ the meaning and consequences of partitioning and distributing, standard
+ framework such as mapReduce and replication (master-slaves & multi master).
 \end_layout
 
 \begin_layout Subsection
@@ -939,15 +887,7 @@ key "PubSub"
 \end_inset
 
 Publish/subscribe is not compatible with RESTful calls since in the RESTful
- approach data must be returned immediately when a request is done as explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful"
-
-\end_inset
-
-.
+ approach data must be returned immediately when a request is done.
 \end_layout
 
 \begin_layout Standard
@@ -989,26 +929,12 @@ Now we have all the elements to create a realtime application: each client
  on a publish/subscribe system when they are updated and finally the communicati
 on between the client and the server is over a websocket channel (so immediately
  after data are published the publish/subscribe broker server sends data
- on this channel, as said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe"
-
-\end_inset
-
- RESTful cannot be used).
+ on this channel, as previously said RESTful cannot be used).
 \begin_inset Newline newline
 \end_inset
 
 Of course there are still issues related to the distribution and partitioning
- of the infrastructure as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Partitioning-and-Distribution"
-
-\end_inset
-
-.
+ of the infrastructure.
 \end_layout
 
 \begin_layout Subsection
@@ -1254,15 +1180,7 @@ Distribution
 The distribution is the replication of the infrastructure among different
  nodes, each node does the same thing.
  It is not a so easy concept, in fact there is the synchronization problem
- (formally known as consistency as shown by the CAP theorem explained in
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Consistency,-Partition-tolerance"
-
-\end_inset
-
-) 
+ (formally known as consistency as shown by the CAP theorem) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "CAP"
@@ -1337,14 +1255,7 @@ key "OptimisticReplication"
 \end_inset
 
 In order to keep strong consistency we need a distributed lock that causes
- delays, problem shortly explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "par:CAP-validity"
-
-\end_inset
-
-.
+ delays, problem shortly.
 \end_layout
 
 \begin_layout Subparagraph
@@ -1368,14 +1279,7 @@ key "MultiMasterReplication"
 
 .
  Of course in this kind of architecture there can be issues due to the CAP
- theorem as explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Distribution"
-
-\end_inset
-
-.
+ theorem.
 \end_layout
 
 \begin_layout Subparagraph
@@ -1458,14 +1362,7 @@ key "AWSLambda,AWSLambdaPricing"
 
 .
  This is a big advantage for the user, because there is an instant scalability
- that there is not on Platform as a Service as we see on 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Platform-as-a"
-
-\end_inset
-
-.
+ that there is not on Platform as a Service.
 \end_layout
 
 \begin_layout Standard
@@ -1483,15 +1380,9 @@ s we have the facility to configure and develop the server but we do not
 \end_layout
 
 \begin_layout Standard
-After we  see 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Software-as-a"
-
-\end_inset
-
- we  know how the difference among these three kinds of architectures is
- minimal and that often there is overlapping among the architectures.
+After we  see the sections below we  know how the difference among these
+ three kinds of architectures is minimal and that often there is overlapping
+ among the architectures.
 \begin_inset Newline newline
 \end_inset
 
@@ -1618,8 +1509,8 @@ key "GoogleWork"
 \end_inset
 
 , a service where the employees of a company have access to the company
- mail, company docs, company cloud storage and so on; everything is done
- only by configuring a system without developing anything.
+ mail, company docs, company cloud storage and so on.
+ Everything is done only by configuring a system without developing anything.
  The price system of google apps for work is a system where the company
  has to pay for the number of users not for the usage 
 \begin_inset CommandInset citation

@@ -164,24 +164,28 @@ Characteristics to be considered
 
 \begin_layout Standard
 We consider NoSQL databases with the following characteristics: JSON as
- data model, to have a flexible standard that is easy to use; realtime notificat
-ions support with publish/subscribe, of course this can be provided by other
- plugins; javascript library since it is the language that we use.
+ data model to have a flexible standard that is easy to use, realtime notificati
+ons support with publish/subscribe (of course this can be provided by other
+ plugins)and a javascript library since it is the language that we use.
 \end_layout
 
 \begin_layout Standard
-Then we  keep in consideration, to distinguish different systems, the following
- characteristics: data granularity for subscriptions, even if data are stored
+Then we  keep in consideration, to distinguish different systems, different
+ characteristics.
+ We consider data granularity for subscriptions, even if data are stored
  in JSON we can have a granularity only to the first level of the JSON object
  (it is like key-value) or have a key-value structure where the value is
- JSON; local database implemented; classification according to the CAP theorem,
+ JSON.
+ Of course we analyze also the classification according to the CAP theorem,
  of course considering also eventual consistency if available, this is done
  only for the server distribution, we do not have enough information to
  do this classification for the local database (generally it implements
- eventual consistency); distribution (with MapReduce support) and partitioning;
- replication model: multi-master or master-slaves; protocol used to send
- notifications; protocol used to send data; constraints and permissions
- support (with user management); query support.
+ eventual consistency).
+ But we keep in consideration also: distribution (with MapReduce support)
+ and partitioning, local database implemented, replication model (multi-master
+ or master-slaves), protocol used to send notifications, protocol used to
+ send data constraints and permissions support (with user management) and
+ query support.
  This detailed analysis is done only for systems that we  test in the next
  chapters.
 \end_layout
@@ -708,7 +712,7 @@ Even if this kind of systems are young a lot of systems have already been
 \begin_inset Newline newline
 \end_inset
 
-Some SaaS systems are very famous and used but they do not allow to do all
+Some SaaS systems are very famous and used but they do not allow doing all
  tests and performance measurements needed for our study, since we do not
  know the internal structure and replication, so we  analyze only opensource
  systems.
@@ -1446,7 +1450,7 @@ Of course it provides libraries and protocols to access it efficiently and
 \begin_inset Newline newline
 \end_inset
 
-Furthermore the cost system can be easily adapted to data used; in fact,
+Furthermore the cost system can be easily adapted to data used, in fact,
  since the infrastructure is closed it can be very efficient and the queries
  are not complex 
 \begin_inset CommandInset citation
