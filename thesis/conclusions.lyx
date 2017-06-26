@@ -91,10 +91,10 @@ Si mostrano le prospettive future di ricerca nell’area dove si è svolto
 \end_layout
 
 \begin_layout Standard
-Analyzing tests of performances we discovered important results.
- CS-NoSQL are not so efficient as we can think since they are a dedicated
- system based on NoSQL databases that as we know for a lot of situations
- are very efficient 
+Analyzing tests of performances of classes of applications typical of CS-NoSQL
+ we discovered important results: CS-NoSQL are not so efficient as we can
+ think since they are a dedicated system based on NoSQL databases that as
+ we know for a lot of situations are very efficient 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "NoSQL"
@@ -102,32 +102,25 @@ key "NoSQL"
 \end_inset
 
 .
-\begin_inset Newline newline
-\end_inset
-
-Often, the traditional approach we proposed is more efficient.
- 
+ Often, the traditional comparing approach we proposed is more efficient,
+ in same cases even 10x faster.
+ So, at the moment, generally for realtime applications a custom solution
+ based on traditional technology is advised.
 \end_layout
 
 \begin_layout Standard
-Moreover, this kind of systems resulted to be not so stable from benchmark
- tests.
-\begin_inset Newline newline
-\end_inset
-
-Often they are wrong documented, sometimes, we had some problems to find
+Moreover, CS-NoSQL resulted to be not so stable in time and not so scalable
+ from benchmark tests.
+ Often they are wrong documented, sometimes, we had some problems to find
  out the theoretical information (such as information about the CAP theorem)
  and we had some problems to use some not so common features.
  This is because these systems are not so used.
-\end_layout
-
-\begin_layout Standard
-They do not have a standard, this means that there are lots of problems
- if we want to use them commercially.
 \begin_inset Newline newline
 \end_inset
 
-There are no standard ways for tests, additional development skills should
+They do not have a standard (there is not literature about them), this means
+ that there are lots of problems if we want to use them commercially.
+ There are no standard ways for tests, additional development skills should
  be required and the support to this system could be dropped anytime.
  So, if we consider these things (that are a cost) and the not so impressive
  performances, it seems that this kind of systems are only a higher cost
@@ -137,24 +130,18 @@ There are no standard ways for tests, additional development skills should
 
 We should consider also other costs like infrastructures cost.
  But we should analyze also the cost of a cloud solution.
-\end_layout
-
-\begin_layout Standard
-In fact, cloud solutions could be very good also for the cost model.
- Especially if other solutions are also based on cloud.
 \begin_inset Newline newline
 \end_inset
 
-As we said, cloud solutions have a lot of advantages like an easy configuration,
- full stack environment, 0 code required.
+In fact, cloud solutions could be very good also for the cost model.
+ Especially if other solutions are also based on cloud.
+ As we said, cloud solutions have a lot of advantages like an easy configuration
+, full stack environment, zero code required.
  But since they are not opened and they are not based on standard technologies
  (like other cloud solutions), if the support to them is dropped the entire
  application is lost.
-\begin_inset Newline newline
-\end_inset
-
-Of course, a study to this should be done, but is not so easy since as said
- previously we can manage only few things.
+ Of course, a study to this should be done, but is not so easy since as
+ said previously we can manage only few things.
 \end_layout
 
 \begin_layout Standard
@@ -173,18 +160,11 @@ reference "subsec:Jepsen-framework"
 
 We should also do better tests that go inside the infrastructure of CS-NoSQL
  so we are able to measure the single time of every action: time required
- to update the local database, to deliver 
-\begin_inset Quotes fld
+ to update the local database, to deliver realtime notifications, time to
+ do a write, time to publish new data and so on.
+\begin_inset Newline newline
 \end_inset
 
-realtime
-\begin_inset Quotes frd
-\end_inset
-
- notifications, time to do a write, time to publish new data and so on.
-\end_layout
-
-\begin_layout Standard
 But since NoSQL is an important topic in recent years, since the target
  applications of these systems is something that is increasing in recent
  years and since big companies (like Google) are investing on it, we expect
