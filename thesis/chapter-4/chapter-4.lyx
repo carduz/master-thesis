@@ -75,7 +75,7 @@
 
 \begin_layout Standard
 In this chapter we propose an approach based on a traditional database (RDBMS
- database), we  use this approach to compare the performance of CS-NoSQL
+ database), we use this approach to compare the performance of CS-NoSQL
  in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -85,23 +85,7 @@ reference "chap:Performance-Evaluation"
 
 .
  Of course, except for the database, we try to emulate the approaches of
- CS-NoSQL explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:State-of-Art"
-
-\end_inset
-
- and in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:technologies"
-
-\end_inset
-
-.
- So we have the local database replication (with eventual consistency) but
- the central database with strong consistency.
+ CS-NoSQL.
  The architecture proposed could be implemented with any RDBMS that has
  an advanced trigger support.
  In fact even if in some cases we use a proprietary solution, an alternative
@@ -109,7 +93,7 @@ reference "chap:technologies"
 \end_layout
 
 \begin_layout Standard
-Firstly we show and explain all the base technologies to example the architectur
+Firstly we show and explain all the base technologies to explain the architectur
 e in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -167,14 +151,7 @@ PostgreSQL
 \end_layout
 
 \begin_layout Standard
-The RDBS are CA according to the CAP theorem explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Consistency,-Partition-tolerance"
-
-\end_inset
-
- and shown in figure 
+The RDBS are CA according to the CAP theorem and as shown in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:-Database-triangle"
@@ -244,7 +221,7 @@ key "PostgreReplication"
 
 \begin_layout Standard
 Moreover it has interesting characteristics that we  use in the next sections:
- it is a very flexible database that allows to use custom languages 
+ it is a very flexible database that allows using custom languages 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PostgreLanguages"
@@ -271,7 +248,7 @@ https://github.com/petere/plsh
 
 \end_inset
 
- a language that allows to execute shell commands, so we are able to call
+ a language that allows executing shell commands, so we are able to call
  an external program and it has a feature to create easily a sort of publish/sub
 scribe system, it is a queue where you can publish messages and read them
  in order, to do that NOTIFY 
@@ -339,28 +316,28 @@ key "CAPNoSQL"
 \end_inset
 
 , data can be written to the disk every fixed amount of time.
- It allows to do a lot of different things: cache system 
+ It allows implementing a lot of different things: cache system 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisCache"
 
 \end_inset
 
-; publish/subscribe system 
+, publish/subscribe system 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisPUBSUB"
 
 \end_inset
 
-; queue system, using lists 
+, queue system using lists 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisQueue,RedisDataTypes"
 
 \end_inset
 
-; distributed lock system that can be used by external systems 
+ and distributed lock system that can be used by external systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisLock"
@@ -371,26 +348,27 @@ key "RedisLock"
 \begin_inset Newline newline
 \end_inset
 
-With the following features: data partitioning support 
+And has interesting features such as data partitioning support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisPartitioning"
 
 \end_inset
 
-; everything (image, text, json and so on) can be inserted as the value
- (key-value storage), with a high storage limit (512 megabyte per value)
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "RedisDataTypes"
-
-\end_inset
-
-; master-slaves replication support 
+ or master-slaves replication support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisReplication"
+
+\end_inset
+
+.
+ Moreover everything (image, text, json and so on) can be inserted as the
+ value (key-value storage), with a high storage limit (512 megabyte per
+ value) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RedisDataTypes"
 
 \end_inset
 
@@ -484,71 +462,47 @@ key "WebsocketServersComparison"
 \begin_inset Newline newline
 \end_inset
 
-We  use socket.io for the following features: redis integration to create
- websocket cluster 
+Socket.io has useful features for our application such as redis integration
+ to create websocket cluster 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIORedis"
 
 \end_inset
 
-, redis is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Redis"
-
-\end_inset
-
-; user/session support 
+, user/session support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOUsers"
 
 \end_inset
 
-; messages are sent in FIFO order, an important property to have eventual
- consistency as we  see in the next sections; P2P support 
+, P2P support 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOP2P"
 
 \end_inset
 
-, it could be useful to implement a system like gun.js (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Gun.js"
-
+ that could be useful to implement a system like gun.js.
+ Moreover messages are sent in FIFO order, it is an important property to
+ have eventual consistency as we  see in the next sections.
+\begin_inset Newline newline
 \end_inset
 
-); it allows to emit events to all the subscribed clients to that event
- 
+Furthermore Socket.io allows emiting events to all the subscribed clients
+ to that event 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOEmitEvent"
 
 \end_inset
 
-, so events are channels of a publish/subscribe system.
- Also the client can send events that, generally, are caught only by the
- server, of course, since it is publish/subscribe, there is no notification
- of successfully delivery to the server (ack).
- So the approach to be used to work with it is the 
-\begin_inset Quotes fld
-\end_inset
-
-event driven approach
-\begin_inset Quotes frd
-\end_inset
-
-
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
-
-\end_inset
-
-.
+, so events are channels of a publish/subscribe system, also the client
+ can send events that, generally, are caught only by the server, of course,
+ since it is publish/subscribe, there is no notification of successfully
+ delivery to the server (ack).
+ So the approach to be used to work with it is the event driven approach.
  So we can a have a distributed publish/subscribe with user/session support.
 \end_layout
 
@@ -605,7 +559,7 @@ Traditional Architecture Proposed
 \end_layout
 
 \begin_layout Standard
-In image 
+In figure 
 \series bold
 
 \begin_inset CommandInset ref
@@ -622,8 +576,8 @@ reference "fig:Traditional-Architecture-propose"
 \end_inset
 
 We have also added an additional level: load balancer/CDN (content delivery
- network) or other analogous things.
- It can be used to scale 
+ network).
+ Load balancer is used to scale 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RFCCN,CDNBook"
@@ -631,7 +585,6 @@ key "RFCCN,CDNBook"
 \end_inset
 
 , to route users to different socket.io servers.
- 
 \begin_inset Newline newline
 \end_inset
 
@@ -640,103 +593,45 @@ In fact as we  see in the architecture that we propose we can have more
 \begin_inset Newline newline
 \end_inset
 
-Since we do not need it in the tests phase (as we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Benchmarks-strategy"
-
-\end_inset
-
-), we skip this level to avoid to insert other levels to test.
+Since we do not need it in the tests phase, we skip this level to avoid
+ to insert other levels to test.
 \begin_inset Newline newline
 \end_inset
 
-As we said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Technologies-traditional"
-
-\end_inset
-
- both postgreSQL and redis can be partitioned and/or replicated, but we
- do not do it for simplicity.
- In fact as we  see in 
+As we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks-strategy"
 
 \end_inset
 
- we  test the performance in replication, moreover since redis is very efficient
- (since it is in-memory database) it is not the bottleneck.
+ we do not partition postgreSQL and redis, in fact there are not the bottleneck
+ and we want to test only the realtime feature.
+ In that way we keep things more simple, since we do not have also to consider
+ the issues related to partitioning such as latency.
 \end_layout
 
 \begin_layout Standard
 While a CS-NoSQL offers a full stack solution (often with client local database
  support) here we have to define every aspect of the stack.
- So we implement what we have defined in 
+ So we need to implement what we have defined in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Realtime-retrieve"
 
 \end_inset
 
-, client best practices explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-best-practices"
-
+, client best practices, related needed things and what can be useful to
+ emulate CS-NoSQL approach.
+\begin_inset Newline newline
 \end_inset
 
-, related needed things and what can be useful to emulate CS-NoSQL approach:
- RDBMS database, that must be scalable among nodes and triggers support
- to notify changes, it is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Database-architecture-traditional"
-
-\end_inset
-
-; publish/subscribe system, to publish notifications of changes as explained,
- it is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe-architecture-traditional"
-
-\end_inset
-
-; websocket server, for the reason explained, it is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Websocket-server-architecture-traditional"
-
-\end_inset
-
-; input server, where receiving data to be sent to the database, it is explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Input-Server-architecture-traditional"
-
-\end_inset
-
-; custom logic level, an eventual level where to introduce custom logic,
- it is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Custom-Logic-architecture-traditional"
-
-\end_inset
-
-; client framework/libraries, to communicate to the server (cluster), it
- is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-library-and-architecture-traditional"
-
-\end_inset
-
-.
+We implement a RDBMS database that must be scalable among nodes and triggers
+ support to notify change, publish/subscribe system to publish notifications
+ of changes, websocket server, input server where receiving data to be sent
+ to the database, custom logic level an eventual level where to introduce
+ custom logic and client framework/libraries to communicate to the server
+ (cluster).
  In this solution we have a data granularity at a row level, since detailed
  granularity is not required by the further study that we  do.
 \end_layout
@@ -759,16 +654,8 @@ Database
 \end_layout
 
 \begin_layout Standard
-We use postgreSQL (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:PostgreeSQL"
-
-\end_inset
-
-).
- So the normal operations are guaranteed by it (it has good libraries),
- so the consistency is guaranteed by it.
+We use postgreSQL So the normal operations are guaranteed by it (it has
+ good libraries), so the consistency is guaranteed by it.
 \begin_inset Newline newline
 \end_inset
 
@@ -800,24 +687,11 @@ So we can use another solution that is more efficient but not standard:
 \end_layout
 
 \begin_layout Standard
-We have the following step when there is a change: trigger call publishes
- on a predefined postgreSQL channel for each event; a javascript listener
- listens to the same postgreSQL channel; the javascript listener republishes
- the same message on publish/subscribe system defined in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe-architecture-traditional"
-
-\end_inset
-
-, it also sets namespace and rooms that we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/Subscribe-architecture-traditional"
-
-\end_inset
-
-.
+We have the following steps when there is a change: trigger call publishes
+ on a predefined postgreSQL channel for each event then a javascript listener
+ listens to the same postgreSQL channel finally the javascript listener
+ republishes the same message on publish/subscribe system setting also namespace
+ and rooms.
  There are a lot of examples useful for our use case, one of them (with
  javascript listener) 
 \begin_inset CommandInset citation
@@ -826,23 +700,8 @@ key "PostgreNotifyListenExample"
 
 \end_inset
 
- was modified and used in our final configuration published on github.
- We can see that this approach is like a 
-\begin_inset Quotes fld
-\end_inset
-
-key-value
-\begin_inset Quotes frd
-\end_inset
-
- approach studied in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:technologies"
-
-\end_inset
-
-.
+ was modified and used in our final configuration published on github, we
+ can see that this approach is like a key-value approach.
 \end_layout
 
 \begin_layout Subsection
@@ -877,28 +736,14 @@ Publish/Subscribe and Websocket server
 \end_layout
 
 \begin_layout Standard
-We try to emulate the approach used in CS-NoSQL explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Publish/subscribeNOSQL"
-
-\end_inset
-
-.
+We try to emulate the approach used in CS-NoSQL.
 \begin_inset Newline newline
 \end_inset
 
 We use socket.io for websocket server.
- As said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Socket.io-architecture"
-
-\end_inset
-
- socket.io is a system built on top of the websocket system (engine.io), so
- the publish/subscribe broker server and the websocket server are in the
- same machine.
+ As previously said socket.io is a system built on top of the websocket system
+ (engine.io), so the publish/subscribe broker server and the websocket server
+ are in the same machine.
 \begin_inset Newline newline
 \end_inset
 
@@ -911,15 +756,8 @@ It implements a distributed (via redis) publish/subscribe, i.e.
 
 When a message is published on a broker server this replicates it on redis,
  then other broker servers read it and send it to the subscribed clients.
- So the listener script described in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Database-architecture-traditional"
-
-\end_inset
-
- when publishes something simply writes it on redis (without calling any
- broker server) 
+ So the listener script previously described when publishes something simply
+ writes it on redis (without calling any broker server) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "SocketIOEmiter"
@@ -936,7 +774,7 @@ Everything is done automatically without custom configurations on broker
 \end_layout
 
 \begin_layout Standard
-Socket.io allows to manage channels at high level, we can use: namespaces
+Socket.io allows managing channels at high level, we can use: namespaces
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -956,15 +794,7 @@ key "SocketIOChannels"
  only to one room that contains only events related only to some rows.
  Rooms can be very useful to set up permissions at a row level, of course
  a client can write and read only rooms where he is subscribed and only
- the server can subscribe it to rooms, so to do that a custom logic is needed
- (explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Custom-Logic-architecture-traditional"
-
-\end_inset
-
-).
+ the server can subscribe it to rooms, so to do that a custom logic is needed.
 \end_layout
 
 \begin_layout Subsection
@@ -978,61 +808,28 @@ Input server
 \end_layout
 
 \begin_layout Standard
-As we said 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:RESTful-Approach"
-
-\end_inset
-
- a good approach is to use RESTful to communications that do not need to
+A good approach is to use RESTful to communications that do not need to
  be realtime events (they are synchronous requests).
 \begin_inset Newline newline
 \end_inset
 
 But for simplicity we can send also the data form client to servers using
  websocket.
- Using socket.io (as we said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Socket.io-architecture"
-
-\end_inset
-
-) also the client uses events approach that does not provide a successful
- delivery notification system, of course we can develop our system but for
- the tests that we have to do (as we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Benchmarks-strategy"
-
-\end_inset
-
-) this (ack of actions done by the client) is not important.
+ Using socket.io also the client uses events approach that does not provide
+ a successful delivery notification system, of course we can develop our
+ system but for the tests that we have to do this (ack of actions done by
+ the client) is not important.
 \begin_inset Newline newline
 \end_inset
 
 So for every socket.io event the server calls actions on postgreSQL server,
- we  insert this logic into the custom logic (that we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Custom-Logic-architecture-traditional"
-
-\end_inset
-
-).
+ we  insert this logic into the custom logic.
 \begin_inset Newline newline
 \end_inset
 
 The important thing of this approach is that the writes do not depend on
- redis (that has persistence problems as shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Redis"
-
-\end_inset
-
-) and the consistency of data is managed by postgreSQL.
+ redis (that has persistence problems) and the consistency of data is managed
+ by postgreSQL.
 \end_layout
 
 \begin_layout Subsection
@@ -1123,29 +920,14 @@ Client library and Local database
 \end_layout
 
 \begin_layout Standard
-As said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
- we have to create a local database that is the final interface of our client.
+We have to create a local database that is the final interface of our client.
  So the client contacts only it, the local database sends data through websocket
  and receives notifications of changes through websocket as we said previously.
 \begin_inset Newline newline
 \end_inset
 
-As explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Local-database"
-
-\end_inset
-
- one common way to implement local database is Last Writer Win, this approach
- is used.
- So the replication should be eventual consistency.
+We use Last Writer Win to implement local database, so the replication should
+ be eventual consistency.
  
 \begin_inset Newline newline
 \end_inset
@@ -1200,25 +982,10 @@ Implementation
 \end_layout
 
 \begin_layout Standard
-We tried to use Ecmascript where it is possible for the same reasons explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-language"
-
-\end_inset
-
-, using event driven approach explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Event-driven-approach"
-
-\end_inset
-
-.
+We tried to use Ecmascript where it is possible, using event driven approach.
  On github 
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Flex URL
@@ -1236,7 +1003,7 @@ https://github.com/carduz/master-thesis-source/tree/master/proposed_solution
 
 \end_inset
 
- there are both code, configurations and vagrant installer scripts.
+ there are code, configurations and vagrant installer scripts.
  The installation instructions can be found in the readme.
  We used also promise pattern 
 \begin_inset CommandInset citation
@@ -1255,28 +1022,13 @@ We analyze quickly the structure of the code, of course everything is commented
 \end_inset
 
 Database, sample table, trigger with related functions, these are very simple
- and follow the structure explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Database-architecture-traditional"
-
-\end_inset
-
-.
+ and follow the structure.
  As we said previously the database is neither distributed nor partitioned.
 \begin_inset Newline newline
 \end_inset
 
-Database listener, this is very simple and follow the structure explained
- in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Database-architecture-traditional"
-
-\end_inset
-
-.
- We inserted it in a separated section because (as we have done in the vagrant
+Database listener is very simple and follows the structure previously explained.
+ We insert it in a separated section because (as we have done in the vagrant
  installer scripts) it can be deployed on another machine (only one machine,
  in fact it cannot be distributed), of course it can be deployed in the
  same machine of the database.
@@ -1284,78 +1036,25 @@ reference "subsec:Database-architecture-traditional"
 \end_inset
 
 This listener sends an event to clients of a specif room (we  see logic
- of rooms in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Server-traditional"
-
-\end_inset
-
-) for every action done in the table (insert, update, delete) as socket.io
- event (the event name is the SQL action).
+ of rooms below) for every action done in the table (insert, update, delete)
+ as socket.io event (the event name is the SQL action).
  As we said previously the table is specified as namespace.
 \begin_inset Newline newline
 \end_inset
 
-Redis server, this does not require additional codes, so only vagrant installer
+Redis server does not require additional codes, so only vagrant installer
  script is provided.
 \begin_inset Newline newline
 \end_inset
 
-Websocket server, this is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Server-traditional"
-
-\end_inset
-
- since it is very complex.
- This can be distributed using a load balance as we said in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Architecture-traditional"
-
-\end_inset
-
-, but only the installer script of a single machine is provided (no load
- balancer script) since we do not want to test load balancer (that means
- another level to test) as we  see in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:Benchmarks-strategy"
-
-\end_inset
-
-.
+Websocket server is explained below since it is very complex.
+ It can be distributed using a load balance, but only the installer script
+ of a single machine is provided (no load balancer script) since we do not
+ want to test load balancer (that means another level to test).
 \begin_inset Newline newline
 \end_inset
 
-Client, this is explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Client-traditional"
-
-\end_inset
-
-.
-\begin_inset Newline newline
-\end_inset
-
-All things explained previously (in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Technologies-traditional"
-
-\end_inset
-
- and in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Architecture-traditional"
-
-\end_inset
-
-) are implicit and are not linked in the next sections.
+Finally we quickly see below what the client does.
 \end_layout
 
 \begin_layout Subsection
@@ -1463,13 +1162,16 @@ A notify change arrives before the answer of the select (but the select
  Of course improvements such as queue of events locked (until initial retrieve
  is finished) are good, but are not implemented to keep the simplicity of
  the code.
-\end_layout
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
-Recap (< means called before): events < initial retrieve, they are not a
- problem since they are discarded or cause eventual consistency; events
- > initial retrieve, they are sent after initial retrieve; events during
- initial retrieve, we can lose something but we keep casually consistency.
+So if the events are fired before initial retrieve, they are not a problem
+ since they are discarded or cause eventually consistency.
+ At the same time if events are fired after initial retrieve, they are not
+ a problem since they are caught (since there is FIFO guarantee).
+ But events sent during initial retrieve are a problem since we can lose
+ something due to the fact that we could discard them, of course we keep
+ eventually consistency.
 \end_layout
 
 \begin_layout Subsection
@@ -1484,20 +1186,16 @@ Client
 
 \begin_layout Standard
 We have two main classes: socket.io client, this class simply maps to socket.io
- commands functions and callbacks that 
-\begin_inset Quotes fld
+ commands functions and callbacks that local database wants and general
+ local database.
+\begin_inset Newline newline
 \end_inset
 
-local database
-\begin_inset Quotes frd
-\end_inset
-
- wants and general local database.
- The general local database has to do the following things: keep a local
- copy of data; when a change is requested, it updates local data then sends
- update to the server (retrying to send it if there are network delays);
- when a notification of change is received it updates local data and calls
- a callback that says that data were updated; as explained previously it
+The general local database has to do the following things: keep a local
+ copy of data, when a change is requested it updates local data then sends
+ update to the server retrying to send it if there are network delays, when
+ a notification of change is received it updates local data and calls a
+ callback that says that data were updated and as explained previously it
  adds a UUID to each row created.
  Of course the final client interacts only with the local database.
 \end_layout
