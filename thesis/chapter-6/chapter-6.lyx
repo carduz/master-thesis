@@ -117,7 +117,7 @@ reference "subsec:Custom-framework"
 \end_inset
 
 Then we show how to test the classes of applications analyzed in the previous
- chapter in a general way 
+ chapter in a general way in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -151,23 +151,8 @@ Scaling Test
 
 \begin_layout Standard
 In this section we show how we can test the scaling of different solutions.
- We analyze the scaling that we do and the reasons of those choices in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Scaling-tests"
-
-\end_inset
-
-.
- Then we see different test environments based on the previous choices in
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Environments-test"
-
-\end_inset
-
-.
+ We analyze the scaling that we do and the reasons of those choices.
+ Then we see different test environments based on the previous choices.
 \end_layout
 
 \begin_layout Subsection
@@ -1064,7 +1049,8 @@ The framework we realized is done in javascript, so it is easy to integrate
  it with other platforms.
  Since we know which are the indices that we need, we have just to implement
  general things.
- Generator of data, according to the data structure, it is shown in 
+ Generator of data, according to the data structure, it is shown in section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1072,8 +1058,8 @@ reference "sec:Tests-to-do-test"
 \end_inset
 
 .
- And client, general client that allows to send data and to read local databases
- (or receive data), it is shown in 
+ And client, general client that allows sending data and to read local databases
+ (or receive data), it is shown in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Adapters-for-systems-test"
@@ -1100,7 +1086,7 @@ Since our critical point is the replication, we have to test with more than
 So we need at least one client to make writes and at least one to check
  replications (called reads).
  The number of clients (writer and reader) depends on the type of application,
- that we  see in 
+ that we  see in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1111,7 +1097,7 @@ reference "sec:Tests-to-do-test"
 \end_layout
 
 \begin_layout Standard
-As we  see in 
+As we  see in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1123,7 +1109,7 @@ reference "sec:Tests-to-do-test"
  So an important information is the latency of the synchronization to all
  these clients.
  We call execution the write/read data according to the number of writers/reader
-s specified in the model in 
+s specified in the model in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1142,7 +1128,8 @@ ze everything), for every execution.
 \begin_inset Newline newline
 \end_inset
 
-So each test unit is composed by different clients as defined in 
+So each test unit is composed by different clients as defined in section
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1160,7 +1147,7 @@ To do that we have a test manager that checks everything and communicates
 
 The creation of a process and communication is managed by the framework
  in a transparent way.
- As we  see in 
+ As we  see in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Adapters-for-systems-test"
@@ -1230,7 +1217,7 @@ As we said previously, since it has a room based chat, we expect #reads
  >> #writes.
  This example is useful to test the performances of a lot of clients subscribed
  to a subscription.
- So a reasonable number of clients could be the one shown in 
+ So a reasonable number of clients could be the one shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Realtime-chat-clients"
@@ -1497,7 +1484,7 @@ As we said previously, we expect #reads
 
 #writes.
  This example is useful to test the performances of concurrent writes.
- So a reasonable number of clients could be the one shown in 
+ So a reasonable number of clients could be the one shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Collaborative-software-clients"
@@ -1687,7 +1674,7 @@ Data generation
 \begin_layout Standard
 After a trial data initialization (e.g.
  users creation), to do tests we have just to create changes.
- A change is a JSON object of the structure shown in 
+ A change is a JSON object of the structure shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Collaborative-sw-te"
@@ -1792,7 +1779,7 @@ Clients
 As we said previously we expect #reads >> #writes.
  This example is useful to test the performances of a lot of clients subscribed
  to multiple subscriptions.
- So a reasonable number of clients could be the one shown in 
+ So a reasonable number of clients could be the one shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Social-clients"

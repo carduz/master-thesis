@@ -1234,15 +1234,8 @@ Even if the first data structure seems good, the second is better.
 \end_inset
 
 For simplicity permissions and related things are skipped.
- Like the previous use case (shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Collaborative-Software-class"
-
-\end_inset
-
-), even if we have more than one subscription we can manage them easily
- (with different tables).
+ Like the previous use case, even if we have more than one subscription
+ we can manage them easily (with different tables).
  We  have: users, likes (with reference to user and to post), comments (with
  reference to user and to post), post (with reference to user).
 \begin_inset Newline newline
@@ -1270,15 +1263,8 @@ reference "lis:Social-structure"
 \end_inset
 
 It seems that everything can be managed efficiently with a traditional approach
- so, like the first use case (shown in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "subsec:Realtime-Chat-class"
-
-\end_inset
-
-), we expect minor improvements due to efficient architecture and delivery
- optimized.
+ so, like the first use case, we expect minor improvements due to efficient
+ architecture and delivery optimized.
 \end_layout
 
 \begin_layout Section
@@ -1379,7 +1365,7 @@ Logitech Harmony Ultimate Home
 \end_layout
 
 \begin_layout Standard
-Logitech harmony ultimate home is a home automation hub that allows to control
+Logitech harmony ultimate home is a home automation hub that allows controlling
  home from the app and by other means.
  It is developed over pubnub 
 \begin_inset CommandInset citation
