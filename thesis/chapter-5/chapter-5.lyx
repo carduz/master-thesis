@@ -163,10 +163,13 @@ Use Cases
 \end_layout
 
 \begin_layout Standard
-The main elements to be considered are: number of reads, if #reads>>#writes;
- structure of data, if JSON could increase performance/readability; constraints,
- modifications, permissions needed by the server; subscriptions granularity;
- notifications structure.
+We have different elements to consider.
+ The most important is the number of reads, if #reads>>#writes, but also
+ the structure of data is very important, if JSON could increase performance/rea
+dability.
+ Of course we need to consider also things such as subscriptions granularity,
+ notifications structure and constraints, modifications, permissions needed
+ by the server.
 \begin_inset Newline newline
 \end_inset
 
@@ -186,15 +189,7 @@ reference "chap:A-traditional-approach"
 \end_inset
 
  are considered implicit.
- More use cases could be found on 
-\begin_inset Quotes fld
-\end_inset
-
-pubnub solutions site
-\begin_inset Quotes frd
-\end_inset
-
- 
+ More use cases could be found on pubnub solutions site 
 \begin_inset Foot
 status collapsed
 
@@ -474,7 +469,7 @@ CS-NoSQL
 \begin_inset Newline newline
 \end_inset
 
-So we have three tables: messages, rooms, users; for every row of messages
+So we have three tables: messages, rooms and users, for every row of messages
  we have a reference to user and room.
  If we want to link users to rooms (permission) we need a pivot table that
  links users and rooms.
@@ -808,7 +803,7 @@ We have also two subscriptions (users and history) that are easy to manage
 But of course we can manage them with a traditional approach, in fact they
  become two different tables.
  We  have: history table with timestamp, user reference, changeObject (that
- could be the JSON as string) fields; users with position and positionEnd
+ could be the JSON as string) fields and users with position and positionEnd
  fields.
 \begin_inset Newline newline
 \end_inset

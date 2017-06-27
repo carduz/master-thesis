@@ -9692,8 +9692,9 @@ reference "sec:Architecture-traditional"
 
 \end_inset
 
- we can use a load balancer; moreover, since we used standard technologies,
- we can use standard technologies 
+ we can use a load balancer.
+ Moreover, since we used standard technologies, we can use standard technologies
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "PM2"
