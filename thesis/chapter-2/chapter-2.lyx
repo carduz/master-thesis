@@ -908,8 +908,8 @@ Of course, since there is no standard, any application implements different
 \begin_inset Newline newline
 \end_inset
 
-Note: with application server (then server) we mean the CS-NoSQL with integrated
- publish/subscribe broker server.
+Note that with application server (then server) we mean the CS-NoSQL with
+ integrated publish/subscribe broker server.
 \begin_inset Newline newline
 \end_inset
 

@@ -209,9 +209,9 @@ So, for example, if writers are slow we do not know if the problem is the
 \begin_inset Newline newline
 \end_inset
 
-Note
+
 \series default
-: Some tests were not executed, since they have not be setuped in a reasonable
+Some tests were not executed, since they have not be setuped in a reasonable
  time (>60seconds) or the server has died.
 \end_layout
 
