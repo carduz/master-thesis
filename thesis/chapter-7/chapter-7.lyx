@@ -284,8 +284,8 @@ We observe the throughput obtained for the different configurations and
 At the same time we observe the latency during the entire process for the
  best environment for each configuration, shown with different colors (the
  legend shows the couple #writers-#readers).
- It is shown as a chart, in the abscissa we have the relative time (in seconds)
- into the process whereas in the ordinate we have the latency value (in
+ It is shown as a chart, on the abscissa we have the relative time (in seconds)
+ into the process whereas on the ordinate we have the latency value (in
  seconds).
  For each class of application we have a separate chart.
 \end_layout
@@ -1325,7 +1325,7 @@ status open
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -3426,8 +3426,8 @@ We observe the throughput obtained for the different configurations and
 At the same time we observe the latency during the entire process for the
  best environment for each configuration, shown with different colors (the
  legend shows the couple #writers-#readers).
- It is shown as a chart, in the abscissa we have the relative time (in seconds)
- into the process whereas in the ordinate we have the latency value (in
+ It is shown as a chart, on the abscissa we have the relative time (in seconds)
+ into the process whereas on the ordinate we have the latency value (in
  seconds).
  For each class of application we have a separate chart.
 \end_layout
@@ -6581,8 +6581,8 @@ We observe the throughput obtained for the different configurations and
 At the same time we observe the latency during the entire process for the
  best environment for each configuration, shown with different colors (the
  legend shows the couple #writers-#readers).
- It is shown as a chart, in the abscissa we have the relative time (in seconds)
- into the process whereas in the ordinate we have the latency value (in
+ It is shown as a chart, on the abscissa we have the relative time (in seconds)
+ into the process whereas on the ordinate we have the latency value (in
  seconds).
  For each class of application we have a separate chart.
 \end_layout
@@ -8329,8 +8329,8 @@ We observe the throughput obtained for the different configurations and
 At the same time we observe the latency during the entire process for the
  best environment for each configuration, shown with different colors (the
  legend shows the couple #writers-#readers).
- It is shown as a chart, in the abscissa we have the relative time (in seconds)
- into the process whereas in the ordinate we have the latency value (in
+ It is shown as a chart, on the abscissa we have the relative time (in seconds)
+ into the process whereas on the ordinate we have the latency value (in
  seconds).
  For each class of application we have a separate chart.
 \end_layout
