@@ -74,8 +74,8 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we see the idea behind benchmarks, whose results are published
- and commented in chapter 
+In this chapter we describe the idea behind benchmarks, whose results are
+ published and commented in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:Benchmarks"
@@ -196,16 +196,9 @@ key "Scaling"
 \begin_inset Newline newline
 \end_inset
 
-Furthermore, since 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- are a full stack solution, also the internal realtime delivery server is
- scaled horizontally (it is scaled with the database).
+Furthermore, since CS-NoSQL are a full stack solution, also the internal
+ realtime delivery server is scaled horizontally (it is scaled with the
+ database).
 \end_layout
 
 \begin_layout Standard
@@ -224,9 +217,12 @@ Moreover, since our topic is compared to these kinds of applications with
 
 For the same reason we do not scale the traditional approach that we proposed
  horizontally.
- Here the scaling we mean: partitioning and replication of postgreSQL server
- and replication of socket.io machines, redis is not a bottleneck so it does
- not need scaling.
+ Here the 
+\shape slanted
+scaling
+\shape default
+ we mean: partitioning and replication of postgreSQL server and replication
+ of socket.io machines, redis is not a bottleneck so it does not need scaling.
  But we  do a vertically scaling (also called up/down) 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -248,26 +244,15 @@ Environments
 \end_layout
 
 \begin_layout Standard
-As we said previously, we do only vertical scaling.
- So in this section we show different configurations that we want to test.
-\begin_inset Newline newline
-\end_inset
-
-These configurations were found after some minor empirical tests.
+In this section we show different configurations that we want to test.
+ These configurations were found after some minor empirical tests.
  We have also set them to have the same maximum and minimum sum of resources
  used (counting not static servers).
 \begin_inset Newline newline
 \end_inset
 
-As said previously, 
-\begin_inset Quotes fld
-\end_inset
-
-CS-NoSQL
-\begin_inset Quotes frd
-\end_inset
-
- are a full stack solution implemented in just one server.
+As said previously, CS-NoSQL are a full stack solution implemented in just
+ one server.
  So we can create a common environment for them, shown below.
 \begin_inset Newline newline
 \end_inset
@@ -293,7 +278,7 @@ key "NodeEventDriven"
 \begin_inset Newline newline
 \end_inset
 
-To keep things more generally all the tests are done using virtual machines
+To keep things more general all the tests are done using virtual machines
  (using virtualbox 
 \begin_inset Foot
 status open
@@ -986,16 +971,15 @@ Test Framework
 \begin_layout Standard
 Since the systems used are custom or are new there are no stable frameworks
  to test their performance.
- So we started taking the approach, from one used and customizable framework
- called YCSB 
+ So we follow the guidelines of an existing framework called YCSB 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "YCSB"
 
 \end_inset
 
-, we realized our framework that tests only what we need and in the way
- we want.
+, we realize our framework that tests only what we need and in the way we
+ want.
  The framework with tests prepared (and related things like SQL tables)
  could be found on github 
 \begin_inset Foot
@@ -1048,9 +1032,9 @@ reference "subsec:Jepsen-framework"
 The framework we realized is done in javascript, so it is easy to integrate
  it with other platforms.
  Since we know which are the indices that we need, we have just to implement
- general things.
- Generator of data, according to the data structure, it is shown in section
- 
+ general aspects.
+ We realize a generator of data, according to the data structure, it is
+ shown in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Tests-to-do-test"
@@ -1058,7 +1042,7 @@ reference "sec:Tests-to-do-test"
 \end_inset
 
 .
- And client, general client that allows sending data and to read local databases
+ And a general client that allows sending data and reading local databases
  (or receive data), it is shown in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1085,38 +1069,16 @@ Since our critical point is the replication, we have to test with more than
 
 So we need at least one client to make writes and at least one to check
  replications (called reads).
- The number of clients (writer and reader) depends on the type of application,
- that we  see in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Tests-to-do-test"
-
-\end_inset
-
-.
+ The number of clients (writer and reader) depends on the type of application.
 \end_layout
 
 \begin_layout Standard
-As we  see in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Tests-to-do-test"
-
-\end_inset
-
- we  emulate different situations where we have (for example) 1 writer and
+We  emulate different situations where we have (for example) 1 writer and
  100 reader clients.
  So an important information is the latency of the synchronization to all
  these clients.
  We call execution the write/read data according to the number of writers/reader
-s specified in the model in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Tests-to-do-test"
-
-\end_inset
-
-.
+s specified in the model.
 \begin_inset Newline newline
 \end_inset
 
@@ -1128,15 +1090,8 @@ ze everything), for every execution.
 \begin_inset Newline newline
 \end_inset
 
-So each test unit is composed by different clients as defined in section
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Tests-to-do-test"
-
-\end_inset
-
-, so we execute more than one unit in parallel.
+So each test unit is composed by different clients, so we execute more than
+ one unit in parallel.
 \begin_inset Newline newline
 \end_inset
 
@@ -1147,15 +1102,8 @@ To do that we have a test manager that checks everything and communicates
 
 The creation of a process and communication is managed by the framework
  in a transparent way.
- As we  see in section 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:Adapters-for-systems-test"
-
-\end_inset
-
-, in order to map we need only client functions with the general client
- (it is done by the adapter).
+ In order to map we need only client functions with the general client (it
+ is done by the adapter).
 \begin_inset Newline newline
 \end_inset
 
@@ -1173,11 +1121,11 @@ name "sec:Tests-to-do-test"
 
 \end_inset
 
-Tests to do
+Tests sets
 \end_layout
 
 \begin_layout Standard
-In this section we  see what every class of the classes of applications
+In this section we  see what every element of the classes of applications
  (analyzed previously) needs.
  We  also define for each of them the number of clients to be used for tests,
  for some of them we can define more versions (e.g.
@@ -1217,14 +1165,15 @@ As we said previously, since it has a room based chat, we expect #reads
  >> #writes.
  This example is useful to test the performances of a lot of clients subscribed
  to a subscription.
- So a reasonable number of clients could be the one shown in table 
+ So a reasonable number of clients, considering the environments previously
+ defined, could be the one shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Realtime-chat-clients"
 
 \end_inset
 
-.
+, where we have #readers>>#writers.
  In that table is shown also the number of rooms.
 \end_layout
 
@@ -1484,14 +1433,19 @@ As we said previously, we expect #reads
 
 #writes.
  This example is useful to test the performances of concurrent writes.
- So a reasonable number of clients could be the one shown in table 
+ So a reasonable number of clients, considering the environments previously
+ defined, could be the one shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Collaborative-software-clients"
 
 \end_inset
 
-.
+, where we have #readers 
+\begin_inset Formula $\simeq$
+\end_inset
+
+ #writers.
 \end_layout
 
 \begin_layout Standard
@@ -1673,7 +1627,7 @@ Data generation
 
 \begin_layout Standard
 After a trial data initialization (e.g.
- users creation), to do tests we have just to create changes.
+ users creation), to do tests we have just to create changes elements.
  A change is a JSON object of the structure shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1682,8 +1636,11 @@ reference "lis:Collaborative-sw-te"
 \end_inset
 
 .
- We can consider everything static except start and change that should be
- respectively faker number and text.
+ There are two elements: start, i.e.
+ the start position of the change and change, i.e.
+ the new text that replaces the old one starting from the start position.
+ We can consider everything static except for start and change that should
+ be respectively fake number and text.
 \end_layout
 
 \begin_layout Standard
@@ -1779,19 +1736,22 @@ Clients
 As we said previously we expect #reads >> #writes.
  This example is useful to test the performances of a lot of clients subscribed
  to multiple subscriptions.
- So a reasonable number of clients could be the one shown in table 
+ So a reasonable number of clients, considering the environments previously
+ defined, could be the one shown in table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:Social-clients"
 
 \end_inset
 
-.
+, where we have #readers >>#writers.
 \begin_inset Newline newline
 \end_inset
 
-In a social for each person there are a lot of users that see the write:
- followers and sometimes also followers of their directly followers.
+In a social application for each person there are a lot of users that see
+ the writes.
+ These users are followers and sometimes also followers of their direct
+ followers.
 \end_layout
 
 \begin_layout Standard
