@@ -78,8 +78,7 @@ In this chapter we analyze the main use cases with related real study cases,
  where the CS-NoSQL are suggested and where they should perform very well.
  So these are the cases for which the CS-NoSQL are designed.
  Of course, since there is no literature, the information are taken from
- the vendors.
- As vendors we  use 
+ the vendors, vendors used are 
 \begin_inset Quotes fld
 \end_inset
 
@@ -134,9 +133,10 @@ reference "sec:Use-Cases-class"
 \end_inset
 
 .
- We also highlight the characteristics that should use much more the advantages
+ We also highlight the characteristics that better exploit the advantages
  of CS-NoSQL from a theoretical point of view.
- The use cases analyzed are: realtime chat, collaborative software and social.
+ The use cases analyzed are: realtime chat, collaborative software and social
+ applications.
 \begin_inset Newline newline
 \end_inset
 
@@ -164,9 +164,9 @@ Use Cases
 
 \begin_layout Standard
 We have different elements to consider.
- The most important is the number of reads, if #reads>>#writes, but also
- the structure of data is very important, if JSON could increase performance/rea
-dability.
+ The most important one is the number of reads, i.e.
+ if #reads>>#writes, but also the structure of data is very important, i.e.
+ if JSON could increase performance/readability.
  Of course we need to consider also things such as subscriptions granularity,
  notifications structure and constraints, modifications, permissions needed
  by the server.
@@ -174,21 +174,6 @@ dability.
 \end_inset
 
 Now we  analyze some use cases, they are the most common according to vendors.
- The things explained in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:technologies"
-
-\end_inset
-
- and in 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "chap:A-traditional-approach"
-
-\end_inset
-
- are considered implicit.
  More use cases could be found on pubnub solutions site 
 \begin_inset Foot
 status collapsed
@@ -213,8 +198,8 @@ https://www.pubnub.com/solutions/
 \begin_inset Newline newline
 \end_inset
 
-We  see that the traditional approach can be adapted to a solution, but
- this adaption requires time.
+We  see that the traditional comparing approach can be adapted to every
+ use case, but this adaption requires time.
  In fact CS-NoSQL adapt themselves automatically, we  see in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -222,12 +207,15 @@ reference "sec:Study-Cases-class"
 
 \end_inset
 
- that this is a key of its success.
+ that this is a key of their success.
 \begin_inset Newline newline
 \end_inset
 
-We  see that we use ID references, of course in NoSQL databases we do not
- have referential integrity checks 
+We need to use unique ID references as shown in the use cases, it is one
+ of the few references supported by most NoSQL databases (all databases
+ we use support it).
+ In fact in NoSQL databases we do not have referential integrity checks
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RefIntegrity"
@@ -235,9 +223,8 @@ key "RefIntegrity"
 \end_inset
 
  (some databases try to implement it with some explicit checks but it is
- not standard).
- So also in the traditional approach we do not use the referential integrity
- check (it  slows the application down).
+ not standard), so also in the traditional approach we do not use the referentia
+l integrity check (it  slows the application down).
 \end_layout
 
 \begin_layout Subsection
@@ -447,10 +434,12 @@ Chat data structure
 
 \begin_layout Standard
 We can see that we need to link every message to a room and to a user.
- Of course with JSON we can link directly (child of) with only one element,
- so room is chosen since the users subscribe to it and want to receive notificat
-ions based on it (they want messages of a room not messages of a user).
- The user is linked using ID reference.
+ Of course with JSON we can make a direct link (child of) with only one
+ element, so we need to choose if we want to link with room (all messages
+ of a room) or with users (all messages of a user).
+ Room is chosen since the users subscribe to it and want to receive notification
+s based on it (they want messages of a room not messages of a user), while
+ the user is linked using ID reference.
 \begin_inset Newline newline
 \end_inset
 
@@ -478,8 +467,9 @@ So we have three tables: messages, rooms and users, for every row of messages
 \end_inset
 
 So permissions and notifications are managed analogously with a traditional
- approach, we expect small improvements given only by the fact that architecture
- and delivery are optimized to have #reads>>#writes.
+ approach, we expect small improvements comparing with traditional approach
+ given only by the fact that architecture and delivery are optimized to
+ have #reads>>#writes.
 \begin_inset Newline newline
 \end_inset
 
@@ -515,15 +505,7 @@ Collaborative software
 \begin_layout Standard
 A collaborative software is a software that allows to more than one person
  to work together in the same document, one of the most famous collaborative
- softwares is 
-\begin_inset Quotes fld
-\end_inset
-
-Google Docs
-\begin_inset Quotes frd
-\end_inset
-
- 
+ softwares is Google Docs 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "GoogleDocs"
@@ -540,8 +522,8 @@ key "FirePad"
 
 .
  Since the data structure is not simple we keep in consideration a simplified
- version (we do not consider a lot of things such as multiple documents
- or permissions) in 
+ version (we do not consider aspects such as multiple documents or permissions)
+ in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Collaborative-sw-struc"
@@ -775,21 +757,14 @@ We work using history of changes, in fact since there is no lock users cannot
 The structure of history is simple: we can add a text (first change), we
  can add a font to a portion of text (second change), we can remove some
  chars (third change).
- Moreover we can see that we can subscribe to users to their cursor position.
+ Moreover we can see that we can subscribe to users to see their realtime
+ cursor position.
 \begin_inset Newline newline
 \end_inset
 
 It is easy to see how the JSON structure is perfect for this kind of application
-s, it is easy to think to extend this application adding childes detailed
- fields in 
-\begin_inset Quotes fld
-\end_inset
-
-change
-\begin_inset Quotes frd
-\end_inset
-
-.
+s, it is easy to think to extend this application adding children detailed
+ fields in change.
  Of course in the traditional application we can do the same thing serializing
  something (also JSON) to a string.
 \begin_inset Newline newline
@@ -809,7 +784,7 @@ But of course we can manage them with a traditional approach, in fact they
 \end_inset
 
 We only add data that we know to be unique, NoSQL databases should be better
- with this kind of things.
+ with this kind of constraints.
  Since we have #reads 
 \begin_inset Formula $\simeq$
 \end_inset
@@ -824,11 +799,11 @@ name "subsec:Social-class"
 
 \end_inset
 
-Social
+Social Applications
 \end_layout
 
 \begin_layout Standard
-A social application is a classical use case, shown as examples by different
+A social application is a classical use case, shown as example by different
  vendors
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -837,8 +812,8 @@ key "PubNubBlogging,FriendlyPix"
 \end_inset
 
 .
- It is done by classical elements: users, relationships (followers), posts,
- comments, likes.
+ It is composed by classical elements: users, relationships (followers),
+ posts, comments, likes.
  A data structure that uses the power of JSON could be the one shown in
  the listing 
 \series bold
@@ -851,18 +826,17 @@ reference "lis:Social-inner-JSON"
 
 
 \series default
-.
- But the structure used 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "FriendlyPixStructure"
-
-\end_inset
-
- is different as shown in the listing 
+, but the structure really used is different as shown in the listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Social-structure"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FriendlyPixStructure"
 
 \end_inset
 
@@ -1236,13 +1210,14 @@ For simplicity permissions and related things are skipped.
 \begin_inset Newline newline
 \end_inset
 
-But we could have some problems due to the absence of the integrity constraints
- (for example for likes).
+But we could have some problems due to the absence of the integrity constraints.
+ For example for likes, we could add a reference to a post in the likes
+ object while the post is deleting itself (in fact we do not even have lock).
 \begin_inset Newline newline
 \end_inset
 
-We can see that if we want to retrieve efficiently each users posts we can
- do it easily with a traditional approach (it is a query on users table),
+We can see that if we want to retrieve efficiently each user's posts we
+ can do it easily with a traditional approach (it is a query on users table),
  but to do it with NoSQL (since we do not have queries) we have to replicate
  data (posts under users) as shown in listing 
 \begin_inset CommandInset ref
@@ -1269,7 +1244,7 @@ name "sec:Study-Cases-class"
 
 \end_inset
 
-Study Cases
+Examples of Real CS-NoSQL Applications
 \end_layout
 
 \begin_layout Standard
@@ -1291,8 +1266,8 @@ Adobe DPS
 \end_layout
 
 \begin_layout Standard
-Adobe DPS (Digital Publishing Solution) is a collaborative software to publish
- mobile app experiences.
+Adobe DPS (Digital Publishing Solution) is a collaborative software used
+ for publishing mobile app experiences.
  It is developed over pubnub 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1326,7 +1301,7 @@ Solution
 \end_layout
 
 \begin_layout Standard
-After having analyzed the developing costs of custom solution built over
+After having analyzed the developing costs of custom solutions built over
  classical systems a commercial CS-NoSQL solution was chosen.
  It sends notifications about changes of the projects to all the connected
  devices.
@@ -1349,7 +1324,8 @@ reference "subsec:Collaborative-Software-class"
 \end_inset
 
 .
- Of course the structure of data changes, but not the idea of save changes.
+ Of course the structure of data is different, but the idea of saving changes
+ is not.
  The flexibility of JSON gives us the possibility to use the same previous
  model in things more complex than a simple text document (we only need
  to change the content of change field as explained previously).
@@ -1361,7 +1337,7 @@ Logitech Harmony Ultimate Home
 
 \begin_layout Standard
 Logitech harmony ultimate home is a home automation hub that allows controlling
- home from the app and by other means.
+ house from the app and by other means.
  It is developed over pubnub 
 \begin_inset CommandInset citation
 LatexCommand cite
