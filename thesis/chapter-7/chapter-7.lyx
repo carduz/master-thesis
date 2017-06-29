@@ -141,22 +141,23 @@ In the table we reported results for different numbers of clients and for
 \end_layout
 
 \begin_layout Standard
-For each system we do a short analysis of the results for: scalability,
+For each system we run a short analysis of the results for: scalability,
  data volume adaptability (what happens to the entire system if the data
  stored increase), latency stability and write performances (what is possible
  to deduct from indirect measurements that do).
 \begin_inset Newline newline
 \end_inset
 
-Then we do observations for each class of applications, remember that the
- main things to test for each of them are: chat (we test subscription delivery
- efficiency), collaborative (we test the concurrent writes efficiency),
+Then we come to some observations for each class of applications, remember
+ that the main things to test for each of them are: chat (we test subscription
+ delivery efficiency), collaborative (we test the concurrent writes efficiency),
  social (we test multiple subscription efficiency, we also remind that the
  number of subscriptions increases during the time).
 \begin_inset Newline newline
 \end_inset
 
-The tests were executed for 30 seconds, more to finish all the executions.
+The tests were executed for 30 seconds, more seconds were necessary to finish
+ all the executions.
  The environment was stable and we do not needed to execute the same test
  more than one time (to take an average value).
 \end_layout
@@ -164,10 +165,7 @@ The tests were executed for 30 seconds, more to finish all the executions.
 \begin_layout Standard
 For each configuration of number of clients, for each class of applications
  and for systems we had to find the right value of concurrency.
-\begin_inset Newline newline
-\end_inset
-
-It is the number of concurrent executions, an execution is the write/read
+ It is the number of concurrent executions, an execution is the write/read
  data according to the number of writers/readers specified by the model.
  When an execution is finished another is started (to keep the same consistency
  value).
@@ -175,11 +173,7 @@ It is the number of concurrent executions, an execution is the write/read
 \end_inset
 
 So the total number of writes/reads started together is equal to #writes/reads
- in the model 
-\begin_inset Formula $\cdot$
-\end_inset
-
- concurrency.
+ in the model multiplied for concurrency.
 \begin_inset Newline newline
 \end_inset
 
@@ -211,7 +205,7 @@ So, for example, if writers are slow we do not know if the problem is the
 
 
 \series default
-Some tests were not executed, since they have not be setuped in a reasonable
+Some tests were not executed, since they have not be setup in a reasonable
  time (>60seconds) or the server has died.
 \end_layout
 
@@ -253,8 +247,8 @@ Latency stability
 \end_layout
 
 \begin_layout Standard
-The couchbase latency is stable in time for all classes of applications
- and for all executions.
+The couchbase latency is stable during the entire process for all classes
+ of applications and for all executions.
  Of course there are some small errors in the measurements that are due
  to different things, such as the time to send all initial data.
 \end_layout
@@ -280,13 +274,44 @@ At the same time it seems that the concurrent writes are not so critical
 Classes of applications
 \end_layout
 
+\begin_layout Standard
+We observe the throughput obtained for the different configurations and
+ environments.
+ For each class of application we have a separate table.
+\begin_inset Newline newline
+\end_inset
+
+At the same time we observe the latency during the entire process for the
+ best environment for each configuration, shown with different colors (the
+ legend shows the couple #writers-#readers).
+ It is shown as a chart, in the abscissa we have the relative time (in seconds)
+ into the process whereas in the ordinate we have the latency value (in
+ seconds).
+ For each class of application we have a separate chart.
+\end_layout
+
 \begin_layout Paragraph
 Chat
 \end_layout
 
 \begin_layout Standard
-Latency is very high when we have more writes (configuration 1 for high
- concurrency and case 3), but a big amount of readers are well managed.
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests1-1"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-1-1"
+
+\end_inset
+
+.
+ Latency is very high when we have more writes (configuration 1 for high
+ concurrency and case 3), but a big amount of readers is well managed.
 \end_layout
 
 \begin_layout Paragraph
@@ -294,7 +319,21 @@ Collaborative
 \end_layout
 
 \begin_layout Standard
-Since we have more total writes the latency is higher in the first configuration
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests1-2"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-1-2"
+
+\end_inset
+
+.Since we have more total writes the latency is higher in the first configuration
 , but it seems that concurrent writes are well managed if they are few.
  If we have a lot of concurrent writes like in the third configuration we
  have very bad performances.
@@ -305,7 +344,22 @@ Social
 \end_layout
 
 \begin_layout Standard
-When we have more readers and so a lot of subscriptions things go bad.
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests1-3"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-1-3"
+
+\end_inset
+
+.
+ When we have more readers and so a lot of subscriptions things go bad.
 \end_layout
 
 \begin_layout Standard
@@ -319,6 +373,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests1-1"
+
+\end_inset
+
 Chat (couchbase) benchmarks
 \end_layout
 
@@ -1265,7 +1325,7 @@ status open
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1283,6 +1343,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-1-1"
+
+\end_inset
+
 Chat (couchbase) benchmarks
 \end_layout
 
@@ -1307,6 +1373,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests1-2"
+
+\end_inset
+
 Collaborative (couchbase) benchmarks
 \end_layout
 
@@ -2271,6 +2343,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-1-2"
+
+\end_inset
+
 Collaborative (couchbase) benchmarks
 \end_layout
 
@@ -2295,6 +2373,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests1-3"
+
+\end_inset
+
 Social (couchbase) benchmarks
 \end_layout
 
@@ -3259,6 +3343,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-1-3"
+
+\end_inset
+
 Social (couchbase) benchmarks
 \end_layout
 
@@ -3306,7 +3396,7 @@ Latency stability
 \end_layout
 
 \begin_layout Standard
-The latency is not stable in time.
+The latency is not stable during the entire process.
  We can easily observe this in the first executions for each class of applicatio
 n, in fact in that case we have a high level of concurrency and a high throughpu
 t.
@@ -3326,13 +3416,44 @@ They are very slow, increasing the latency.
 Classes of applications
 \end_layout
 
+\begin_layout Standard
+We observe the throughput obtained for the different configurations and
+ environments.
+ For each class of application we have a separate table.
+\begin_inset Newline newline
+\end_inset
+
+At the same time we observe the latency during the entire process for the
+ best environment for each configuration, shown with different colors (the
+ legend shows the couple #writers-#readers).
+ It is shown as a chart, in the abscissa we have the relative time (in seconds)
+ into the process whereas in the ordinate we have the latency value (in
+ seconds).
+ For each class of application we have a separate chart.
+\end_layout
+
 \begin_layout Paragraph
 Chat
 \end_layout
 
 \begin_layout Standard
-Latency is high when we have more writers, but a big amount of readers are
- well managed (latency is not influenced).
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests2-1"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-2-1"
+
+\end_inset
+
+.
+ Latency is high when we have more writers, but a big amount of readers
+ is well managed (latency is not influenced).
 \end_layout
 
 \begin_layout Paragraph
@@ -3340,7 +3461,22 @@ Collaborative
 \end_layout
 
 \begin_layout Standard
-Concurrent writes are not well managed, the latency increases and throughput
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests2-2"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-2-2"
+
+\end_inset
+
+.
+ Concurrent writes are not well managed, the latency increases and throughput
  decreases.
 \end_layout
 
@@ -3349,7 +3485,22 @@ Social
 \end_layout
 
 \begin_layout Standard
-When we have more readers and so a lot of subscriptions things go bad.
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests2-3"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-2-3"
+
+\end_inset
+
+.
+ When we have more readers and so a lot of subscriptions things go bad.
 \end_layout
 
 \begin_layout Standard
@@ -3363,6 +3514,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests2-1"
+
+\end_inset
+
 Chat (pouchdb) benchmarks
 \end_layout
 
@@ -4327,6 +4484,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-2-1"
+
+\end_inset
+
 Chat (pouchdb) benchmarks
 \end_layout
 
@@ -4351,6 +4514,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests2-2"
+
+\end_inset
+
 Collaborative (pouchdb) benchmarks
 \end_layout
 
@@ -5315,6 +5484,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-2-2"
+
+\end_inset
+
 Collaborative (pouchdb) benchmarks
 \end_layout
 
@@ -5339,6 +5514,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests2-3"
+
+\end_inset
+
 Social (pouchdb) benchmarks
 \end_layout
 
@@ -6303,6 +6484,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-2-3"
+
+\end_inset
+
 Social (pouchdb) benchmarks
 \end_layout
 
@@ -6365,8 +6552,8 @@ Latency stability
 \end_layout
 
 \begin_layout Standard
-The latency is stable in time, it is influenced by data volume (but regularly)
- as said previously.
+The latency is stable during the entire process, it is influenced by data
+ volume (but regularly) as said previously.
  All tests do not show significant oscillations.
 \end_layout
 
@@ -6384,12 +6571,43 @@ They are very slow, increasing the latency.
 Classes of applications
 \end_layout
 
+\begin_layout Standard
+We observe the throughput obtained for the different configurations and
+ environments.
+ For each class of application we have a separate table.
+\begin_inset Newline newline
+\end_inset
+
+At the same time we observe the latency during the entire process for the
+ best environment for each configuration, shown with different colors (the
+ legend shows the couple #writers-#readers).
+ It is shown as a chart, in the abscissa we have the relative time (in seconds)
+ into the process whereas in the ordinate we have the latency value (in
+ seconds).
+ For each class of application we have a separate chart.
+\end_layout
+
 \begin_layout Paragraph
 Chat
 \end_layout
 
 \begin_layout Standard
-A big amount of readers are well managed (latency is not influenced).
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests3-1"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-3-1"
+
+\end_inset
+
+.
+ A big amount of readers is well managed (latency is not influenced).
 \end_layout
 
 \begin_layout Paragraph
@@ -6397,7 +6615,22 @@ Collaborative
 \end_layout
 
 \begin_layout Standard
-Concurrent writes are not well managed, the latency increases and throughput
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests3-2"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-3-2"
+
+\end_inset
+
+.
+ Concurrent writes are not well managed, the latency increases and throughput
  decreases.
 \end_layout
 
@@ -6406,7 +6639,22 @@ Social
 \end_layout
 
 \begin_layout Standard
-When we have more readers and so a lot of subscriptions things do not go
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests3-3"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-3-3"
+
+\end_inset
+
+.
+ When we have more readers and so a lot of subscriptions things do not go
  so bad, so multiple subscriptions are well managed (not perfectly but better
  than in other systems).
 \end_layout
@@ -6422,6 +6670,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests3-1"
+
+\end_inset
+
 Chat (gun.js) benchmarks
 \end_layout
 
@@ -6918,6 +7172,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-3-1"
+
+\end_inset
+
 Chat (gun.js) benchmarks
 \end_layout
 
@@ -6942,6 +7202,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests3-2"
+
+\end_inset
+
 Collaborative (gun.js) benchmarks
 \end_layout
 
@@ -7438,6 +7704,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-3-2"
+
+\end_inset
+
 Collaborative (gun.js) benchmarks
 \end_layout
 
@@ -7462,6 +7734,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests3-3"
+
+\end_inset
+
 Social (gun.js) benchmarks
 \end_layout
 
@@ -7958,6 +8236,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-3-3"
+
+\end_inset
+
 Social (gun.js) benchmarks
 \end_layout
 
@@ -8012,7 +8296,7 @@ Latency stability
 \end_layout
 
 \begin_layout Standard
-The latency is not so stable.
+The latency is not so stable during the entire process.
  In fact for all classes of applications and for all executions we have
  big oscillations.
  At the same time we should consider that we have also a big concurrency
@@ -8035,12 +8319,43 @@ They are very quick.
 Classes of applications
 \end_layout
 
+\begin_layout Standard
+We observe the throughput obtained for the different configurations and
+ environments.
+ For each class of application we have a separate table.
+\begin_inset Newline newline
+\end_inset
+
+At the same time we observe the latency during the entire process for the
+ best environment for each configuration, shown with different colors (the
+ legend shows the couple #writers-#readers).
+ It is shown as a chart, in the abscissa we have the relative time (in seconds)
+ into the process whereas in the ordinate we have the latency value (in
+ seconds).
+ For each class of application we have a separate chart.
+\end_layout
+
 \begin_layout Paragraph
 Chat
 \end_layout
 
 \begin_layout Standard
-A big amount of readers are well managed (latency is not influenced).
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests4-1"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-4-1"
+
+\end_inset
+
+.
+ A big amount of readers is well managed (latency is not influenced).
  At the same time the latency is not influenced by the number of writers.
 \end_layout
 
@@ -8049,7 +8364,22 @@ Collaborative
 \end_layout
 
 \begin_layout Standard
-It seems that concurrent writes are managed not so bad.
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests4-2"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-4-2"
+
+\end_inset
+
+.
+ It seems that concurrent writes are managed not so bad.
  The increase of the latency is not so big (compared with other systems)
  and the decrease of the throughput is not so big.
 \end_layout
@@ -8059,7 +8389,22 @@ Social
 \end_layout
 
 \begin_layout Standard
-When we have more readers and so a lot of subscriptions things go well,
+The throughput is shown in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tests4-3"
+
+\end_inset
+
+, whereas the latency is shown in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tests-4-3"
+
+\end_inset
+
+.
+ When we have more readers and so a lot of subscriptions things go well,
  so multiple subscriptions are well managed.
 \end_layout
 
@@ -8074,6 +8419,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests4-1"
+
+\end_inset
+
 Chat (traditional) benchmarks
 \end_layout
 
@@ -8570,6 +8921,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-4-1"
+
+\end_inset
+
 Chat (traditional) benchmarks
 \end_layout
 
@@ -8594,6 +8951,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests4-2"
+
+\end_inset
+
 Collaborative (traditional) benchmarks
 \end_layout
 
@@ -9090,6 +9453,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-4-2"
+
+\end_inset
+
 Collaborative (traditional) benchmarks
 \end_layout
 
@@ -9114,6 +9483,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tests4-3"
+
+\end_inset
+
 Social (traditional) benchmarks
 \end_layout
 
@@ -9610,6 +9985,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tests-4-3"
+
+\end_inset
+
 Social (traditional) benchmarks
 \end_layout
 
