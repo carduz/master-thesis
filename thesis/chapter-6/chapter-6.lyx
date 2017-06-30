@@ -83,7 +83,7 @@ reference "chap:Benchmarks"
 \end_inset
 
 .
- We see how to test the classes of applications analyzed in the previous
+ We show how to test the classes of applications analyzed in the previous
  chapter, how to test scalability of different systems and which indices
  to take to compare systems.
  So we show theoretical concepts and we design our test framework from a
@@ -152,7 +152,7 @@ Scaling Test
 \begin_layout Standard
 In this section we show how we can test the scaling of different solutions.
  We analyze the scaling that we do and the reasons of those choices.
- Then we see different test environments based on the previous choices.
+ Then we show different test environments based on the previous choices.
 \end_layout
 
 \begin_layout Subsection
@@ -184,14 +184,14 @@ Moreover since, often, strong consistency constraints are relaxed, also
 \begin_inset Newline newline
 \end_inset
 
-Both things bring to have horizontal scalability (also called out/in) 
+Both aspects bring to have horizontal scalability (also called out/in) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Scaling"
 
 \end_inset
 
-, since we increase the number of servers (not things like the power of
+, since we increase the number of servers (not aspects like the power of
  them).
 \begin_inset Newline newline
 \end_inset
@@ -203,7 +203,7 @@ Furthermore, since CS-NoSQL are a full stack solution, also the internal
 
 \begin_layout Standard
 So in order to keep simplicity, to make standard things (partition is implemente
-d in different ways based on the data model) and to avoid to add an additional
+d in different ways based on the data model) and to avoid adding an additional
  level to test, we decided to skip this part.
  So we test without horizontal scaling.
 \begin_inset Newline newline
@@ -980,7 +980,7 @@ key "YCSB"
 
 , we realize our framework that tests only what we need and in the way we
  want.
- The framework with tests prepared (and related things like SQL tables)
+ The framework with tests prepared (and related aspects like SQL tables)
  could be found on github 
 \begin_inset Foot
 status collapsed
@@ -1125,7 +1125,7 @@ Tests sets
 \end_layout
 
 \begin_layout Standard
-In this section we  see what every element of the classes of applications
+In this section we  analyze what every element of the classes of applications
  (analyzed previously) needs.
  We  also define for each of them the number of clients to be used for tests,
  for some of them we can define more versions (e.g.
@@ -1395,10 +1395,11 @@ Data generation
 
 \begin_layout Standard
 After a trial data initialization (e.g.
- users creation or room creation), to do tests we have just to create messages.
- So our generator is simply a faker text generator, other things like the
- user can be static.
- As we  see in the next section, we have to manage the room where to write.
+ users creation or room creation), to run tests we have just to create messages.
+ So our generator is simply a fake text generator, other data like the user
+ can be static.
+ As we  analyze in the next section, we have to manage the room where to
+ write.
  
 \end_layout
 
@@ -1627,7 +1628,7 @@ Data generation
 
 \begin_layout Standard
 After a trial data initialization (e.g.
- users creation), to do tests we have just to create changes elements.
+ users creation), to run tests we have just to create changes elements.
  A change is a JSON object of the structure shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1933,7 +1934,7 @@ Data generation
 
 \begin_layout Standard
 After a trial data initialization (e.g.
- users creation), we have different things:
+ users creation), we have different elements:
 \end_layout
 
 \begin_layout Itemize
@@ -1947,7 +1948,7 @@ Comments: we should link users to posts.
 \end_layout
 
 \begin_layout Itemize
-Likes: we can see that they are like comments.
+Likes: we can observe that they are like comments.
  So, to simplify, we can skip them.
 \end_layout
 

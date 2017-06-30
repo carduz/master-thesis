@@ -316,7 +316,7 @@ key "CAPNoSQL"
 \end_inset
 
 , data can be written to the disk every fixed amount of time.
- It allows implementing a lot of different things: cache system 
+ It allows implementing a lot of different elements: cache system 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RedisCache"
@@ -442,7 +442,7 @@ https://github.com/socketio/engine.io
 
  that is like the transportation level in the ISO/OSI stack, it is very
  efficient but it is only a websocket implementation.
- As we  see socket.io has a lot of integrations and a native implementation
+ As we  show socket.io has a lot of integrations and a native implementation
  (since the protocol is open 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -486,7 +486,7 @@ key "SocketIOP2P"
 
  that could be useful to implement a system like gun.js.
  Moreover messages are sent in FIFO order, it is an important property to
- have eventual consistency as we  see in the next sections.
+ have eventual consistency as we  show in the next sections.
 \begin_inset Newline newline
 \end_inset
 
@@ -570,8 +570,8 @@ reference "fig:Traditional-Architecture-propose"
 
 
 \series default
- we can see the architecture proposed, every part is explained in the following
- sections.
+ we can observe the architecture proposed, every part is explained in the
+ following sections.
 \begin_inset Newline newline
 \end_inset
 
@@ -588,13 +588,13 @@ key "RFCCN,CDNBook"
 \begin_inset Newline newline
 \end_inset
 
-In fact as we  see in the architecture that we propose we can have more
+In fact as we  observe in the architecture that we propose we can have more
  than one socket.io server, but there is no system to route users.
 \begin_inset Newline newline
 \end_inset
 
 Since we do not need it in the tests phase, we skip this level to avoid
- to insert other levels to test.
+ inserting other levels to test.
 \begin_inset Newline newline
 \end_inset
 
@@ -621,7 +621,7 @@ reference "subsec:Realtime-retrieve"
 
 \end_inset
 
-, client best practices, related needed things and what can be useful to
+, client best practices, related needed aspects and what can be useful to
  emulate CS-NoSQL approach.
 \begin_inset Newline newline
 \end_inset
@@ -701,7 +701,7 @@ key "PostgreNotifyListenExample"
 \end_inset
 
  was modified and used in our final configuration published on github, we
- can see that this approach is like a key-value approach.
+ can observe that this approach is like a key-value approach.
 \end_layout
 
 \begin_layout Subsection
@@ -858,10 +858,10 @@ reference "subsec:Custom-logic-appendix"
 \begin_inset Newline newline
 \end_inset
 
-The two main things to do in this level are: send data to database, we can
- define different events for different database operations and for each
- of them mapping the event with the database library method and manage subscript
-ions to rooms, this depends on the role of rooms.
+The two main operations to do in this level are: send data to database,
+ we can define different events for different database operations and for
+ each of them mapping the event with the database library method and manage
+ subscriptions to rooms, this depends on the role of rooms.
  But if we use them for authorizations a simple solution is catching an
  event (sent by client) auth where we subscribe that client only to some
  rows based on the authentication result.
@@ -880,7 +880,7 @@ The only problem with this solution is that there is no persistence of data
 \end_inset
 
 The only critical thing in our approach is the authentication, in fact if
- we are able to identify the client we can store other things (like rooms
+ we are able to identify the client we can store other elements (like rooms
  joined) in other places.
  A simple and standard approach, that is not centralized (so it does not
  need persistence), to authenticate clients is JWT (Json Web Token) 
@@ -1035,7 +1035,7 @@ Database listener is very simple and follows the structure previously explained.
 \begin_inset Newline newline
 \end_inset
 
-This listener sends an event to clients of a specif room (we  see logic
+This listener sends an event to clients of a specif room (we  analyze logic
  of rooms below) for every action done in the table (insert, update, delete)
  as socket.io event (the event name is the SQL action).
  As we said previously the table is specified as namespace.
@@ -1054,7 +1054,7 @@ Websocket server is explained below since it is very complex.
 \begin_inset Newline newline
 \end_inset
 
-Finally we quickly see below what the client does.
+Finally we quickly observe below what the client does.
 \end_layout
 
 \begin_layout Subsection
@@ -1191,7 +1191,7 @@ We have two main classes: socket.io client, this class simply maps to socket.io
 \begin_inset Newline newline
 \end_inset
 
-The general local database has to do the following things: keep a local
+The general local database has to do the following operations: keep a local
  copy of data, when a change is requested it updates local data then sends
  update to the server retrying to send it if there are network delays, when
  a notification of change is received it updates local data and calls a

@@ -167,7 +167,7 @@ We have different elements to consider.
  The most important one is the number of reads, i.e.
  if #reads>>#writes, but also the structure of data is very important, i.e.
  if JSON could increase performance/readability.
- Of course we need to consider also things such as subscriptions granularity,
+ Of course we need to consider also aspects such as subscriptions granularity,
  notifications structure and constraints, modifications, permissions needed
  by the server.
 \begin_inset Newline newline
@@ -198,9 +198,9 @@ https://www.pubnub.com/solutions/
 \begin_inset Newline newline
 \end_inset
 
-We  see that the traditional comparing approach can be adapted to every
+We  observe that the traditional comparing approach can be adapted to every
  use case, but this adaption requires time.
- In fact CS-NoSQL adapt themselves automatically, we  see in 
+ In fact CS-NoSQL adapt themselves automatically, we  show in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Study-Cases-class"
@@ -433,7 +433,7 @@ Chat data structure
 \end_layout
 
 \begin_layout Standard
-We can see that we need to link every message to a room and to a user.
+We can observe that we need to link every message to a room and to a user.
  Of course with JSON we can make a direct link (child of) with only one
  element, so we need to choose if we want to link with room (all messages
  of a room) or with users (all messages of a user).
@@ -474,15 +474,15 @@ So permissions and notifications are managed analogously with a traditional
 \end_inset
 
 Moreover we only add data that we know to be unique, NoSQL databases should
- be better with this kind of things.
+ be better with this kind of aspects.
  But since we have #reads>>#writes we should not see effects of it.
 \begin_inset Newline newline
 \end_inset
 
-We can see that if we want to retrieve efficiently the users of a room we
- can do it easily with a traditional approach (it is a query on users table),
- but to do it with NoSQL (since we do not have queries) we have to replicate
- data (room-users) as shown in listing 
+We can observe that if we want to retrieve efficiently the users of a room
+ we can do it easily with a traditional approach (it is a query on users
+ table), but to do it with NoSQL (since we do not have queries) we have
+ to replicate data (room-users) as shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Chat-data-structure"
@@ -757,14 +757,14 @@ We work using history of changes, in fact since there is no lock users cannot
 The structure of history is simple: we can add a text (first change), we
  can add a font to a portion of text (second change), we can remove some
  chars (third change).
- Moreover we can see that we can subscribe to users to see their realtime
+ Moreover we can observe that we can subscribe to users to see their realtime
  cursor position.
 \begin_inset Newline newline
 \end_inset
 
-It is easy to see how the JSON structure is perfect for this kind of application
-s, it is easy to think to extend this application adding children detailed
- fields in change.
+It is easy to observe how the JSON structure is perfect for this kind of
+ applications, it is easy to think to extend this application adding children
+ detailed fields in change.
  Of course in the traditional application we can do the same thing serializing
  something (also JSON) to a string.
 \begin_inset Newline newline
@@ -1202,7 +1202,7 @@ Even if the first data structure seems good, the second is better.
 \begin_inset Newline newline
 \end_inset
 
-For simplicity permissions and related things are skipped.
+For simplicity permissions and related aspects are skipped.
  Like the previous use case, even if we have more than one subscription
  we can manage them easily (with different tables).
  We  have: users, likes (with reference to user and to post), comments (with
@@ -1216,10 +1216,10 @@ But we could have some problems due to the absence of the integrity constraints.
 \begin_inset Newline newline
 \end_inset
 
-We can see that if we want to retrieve efficiently each user's posts we
- can do it easily with a traditional approach (it is a query on users table),
- but to do it with NoSQL (since we do not have queries) we have to replicate
- data (posts under users) as shown in listing 
+We can observe that if we want to retrieve efficiently each user's posts
+ we can do it easily with a traditional approach (it is a query on users
+ table), but to do it with NoSQL (since we do not have queries) we have
+ to replicate data (posts under users) as shown in listing 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lis:Social-structure"
@@ -1249,8 +1249,8 @@ Examples of Real CS-NoSQL Applications
 
 \begin_layout Standard
 In this section we analyze quickly some real stories of application of CS-NoSQL.
- For each case we see the problem solution and link with the use cases shown
- previously.
+ For each case we show the problem solution and link with the use cases
+ shown previously.
 \begin_inset Newline newline
 \end_inset
 
@@ -1305,7 +1305,7 @@ After having analyzed the developing costs of custom solutions built over
  classical systems a commercial CS-NoSQL solution was chosen.
  It sends notifications about changes of the projects to all the connected
  devices.
- It also allows, in the future, to introduce new features like server-server
+ It also allows, in the future, introducing new features like server-server
  notifications.
  The system chosen offers also global redundancy.
  
@@ -1316,7 +1316,7 @@ Use case
 \end_layout
 
 \begin_layout Standard
-We can easily see that this is the use case shown in 
+We can easily observe that this is the use case shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Collaborative-Software-class"
@@ -1327,7 +1327,7 @@ reference "subsec:Collaborative-Software-class"
  Of course the structure of data is different, but the idea of saving changes
  is not.
  The flexibility of JSON gives us the possibility to use the same previous
- model in things more complex than a simple text document (we only need
+ model in more complex situations than a simple text document (we only need
  to change the content of change field as explained previously).
 \end_layout
 
@@ -1422,7 +1422,7 @@ Solution
 After having analyzed developing costs of custom solution built over classical
  systems and after having tried free plans, a commercial CS-NoSQL solution
  was chosen.
- Because it allowed to build a chat system in few time and in a reliable
+ Because it allowed building a chat system in few time and in a reliable
  way.
  In fact the CS-NoSQL is a full stack system that takes care of every step
  needed, so there is no need to think about scalability and communications
@@ -1436,7 +1436,7 @@ Use case
 \end_layout
 
 \begin_layout Standard
-We can easily see that this is the use case shown in 
+We can easily observe that this is the use case shown in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Realtime-Chat-class"
@@ -1446,7 +1446,7 @@ reference "subsec:Realtime-Chat-class"
 .
  Of course it is a little different, since we do not have chat rooms, but
  we have only private messages between two users.
- So some things change: it is not true that #reads >> #writes, the version
+ So some aspects change: it is not true that #reads >> #writes, the version
  for traditional approach is not still valid (minor changes are needed)
  and so on.
 \end_layout

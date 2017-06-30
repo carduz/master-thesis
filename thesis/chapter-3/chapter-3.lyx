@@ -191,7 +191,7 @@ Then we  keep in consideration, to distinguish different systems, different
 \end_layout
 
 \begin_layout Standard
-As previously explained the CAP theorem is not enough for a lot of things
+As previously explained the CAP theorem is not enough for a lot of aspects
  but, as explained, today is not possible to make a classification under
  other systems for a lot of systems.
 \begin_inset Newline newline
@@ -204,7 +204,7 @@ reference "tab:Realtime-Databases-comparison"
 
 \end_inset
 
- we see the main characteristics of the databases selected for a further
+ we show the main characteristics of the databases selected for a further
  analysis in the next chapters, the selection is done taking systems with
  different characteristics.
 \end_layout
@@ -716,7 +716,7 @@ Some SaaS systems are very famous and used but they do not allow doing all
  tests and performance measurements needed for our study, since we do not
  know the internal structure and replication, so we  analyze only opensource
  systems.
- Of course we  see quickly the characteristics of the main SaaS systems.
+ Of course we  quickly analyze the characteristics of the main SaaS systems.
 \begin_inset Newline newline
 \end_inset
 

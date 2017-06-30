@@ -74,7 +74,7 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we  see all the theoretical knowledge needed to understand
+In this chapter we show all the theoretical knowledge needed to understand
  the next chapters, in this chapter and in chapter 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -86,7 +86,7 @@ reference "chap:State-of-Art"
 \end_layout
 
 \begin_layout Standard
-We  see in 
+We  analyze in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Traditional-HTTP-Application"
@@ -99,14 +99,14 @@ reference "sec:Traditional-HTTP-Application"
  applications of CS-NoSQL are web applications.
  In that section we  analyze the entire stack of a classical HTTP application,
  then we  use it to introduce and explain main HTPP versions (1.0, 1.1, 2.0)
- then we  see the main HTTP based protocols that we  use in this master
+ then we  describe the main HTTP based protocols that we  use in this master
  thesis: websocket (the most important one for this master thesis' topic
  that allows sending realtime notifications to clients) and RESTful (a standard
  protocol to exchange messages between client and server).
 \begin_inset Newline newline
 \end_inset
 
-Then we  see basic concepts and issues of data management, in particularly
+Then we  describe basic concepts and issues of data management, in particularly
  in a distributed system in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -117,12 +117,12 @@ reference "sec:Data-Management"
 , talking also about publish/subscribe and optimistic replication.
  We  also analyze the database itself, because in traditional databases
  there is no native event notification system: we have to check it every
- time (polling) or we have to create a trigger to do that as we  see in
+ time (polling) or we have to create a trigger to do that as we  show in
  the next sections.
  We  also analyze how to send realtime notifications of changes and the
  limits that are the causes of the creation of CS-NoSQL.
- We  see basic concepts of realtime data retrieve (trigger, publish/subscribe
- and high level steps needed), then we  see the CAP theorem (with eventual
+ We  analyze basic concepts of realtime data retrieve (trigger, publish/subscrib
+e and high level steps needed), then we  show the CAP theorem (with eventual
  consistency and validity today with the new applications) and finally distribut
 ed systems with related issues and basic concepts: distribution & partitioning,
  replication (master-slaves & multi master) and standard framework to elaborate
@@ -130,7 +130,7 @@ ed systems with related issues and basic concepts: distribution & partitioning,
 \begin_inset Newline newline
 \end_inset
 
-Finally we  quickly see concepts behind cloud computing from the user's
+Finally we  quickly analyze concepts behind cloud computing from the user's
  point of view in 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -144,7 +144,7 @@ reference "sec:Serverless"
 \begin_layout Standard
 After this chapter, we  have all the elements needed to understand all the
  topics of this master thesis, except for the topics directly related to
- CS-NoSQL such as of course NoSQL databases that we see in the next chapter.
+ CS-NoSQL such as of course NoSQL databases that we show in the next chapter.
 \end_layout
 
 \begin_layout Section
@@ -431,7 +431,7 @@ key "HTTP2.0"
 \end_inset
 
 .
- These features allow also to increase the energy efficiency
+ These features allow also increasing the energy efficiency
 \begin_inset CommandInset citation
 LatexCommand cite
 key "HTTP2.0Energy"
@@ -651,8 +651,9 @@ key "CRUD"
 \end_inset
 
 .
- The idea is to do simple actions on resources that return immediately an
- answer (like GET call) or to execute immediately an action (like POST call).
+ The idea is to make simple actions on resources that return immediately
+ an answer (like GET call) or to execute immediately an action (like POST
+ call).
 \begin_inset Newline newline
 \end_inset
 
@@ -747,20 +748,20 @@ Data Management
 
 \begin_layout Standard
 In this section we shortly describe the basic concepts of database systems
- to retrieve data in a realtime way, we  see basic concepts such as triggers
- and Publish/Subscribe then the high level steps needed to retrieve data
- in a realtime way.
+ to retrieve data in a realtime way, we  analyze basic concepts such as
+ triggers and Publish/Subscribe then the high level steps needed to retrieve
+ data in a realtime way.
 \begin_inset Newline newline
 \end_inset
 
-We  see basic concepts and issues of data in a distributed system: consistency,
- partition tolerance and availability (CAP theorem), we  also see useful
- variations such as eventual consistency and how the original CAP theorem
- is changed with the new applications.
+We  describe basic concepts and issues of data in a distributed system:
+ consistency, partition tolerance and availability (CAP theorem), we  also
+ analyze useful variations such as eventual consistency and how the original
+ CAP theorem is changed with the new applications.
 \begin_inset Newline newline
 \end_inset
 
-Finally we  see the general idea behind a distributed system, analyzing
+Finally we  show the general idea behind a distributed system, analyzing
  the meaning and consequences of partitioning and distributing, standard
  framework such as mapReduce and replication (master-slaves & multi master).
 \end_layout
@@ -1079,7 +1080,7 @@ Today validity
 \end_layout
 
 \begin_layout Standard
-Today there are new things to consider like partitioned cluster over WAN,
+Today there are new aspects to consider like partitioned cluster over WAN,
  that can cause different issues such as high latency, so CAP theorem is
  not enough to classify these new situations.
  New classifications are proposed like PACELC to solve these issues 
@@ -1327,7 +1328,7 @@ A serverless is a cloud computing architecture, where the developer does
 \end_inset
 
 The serverless idea is a general idea that can be implemented for different
- things, a classical implementation is for file systems 
+ cases, a classical implementation is for file systems 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ServerlessFilesystem"
@@ -1380,7 +1381,7 @@ s we have the facility to configure and develop the server but we do not
 \end_layout
 
 \begin_layout Standard
-After we  see the sections below we  know how the difference among these
+After we see the sections below we  know how the difference among these
  three kinds of architectures is minimal and that often there is overlapping
  among the architectures.
 \begin_inset Newline newline
@@ -1459,8 +1460,8 @@ key "AWSLambdaPricing"
 
 \end_inset
 
- we can see that in heroku we pay for the number of nodes per second, while
- in AWS Lambda we pay just for the execution time.
+ we can observe that in heroku we pay for the number of nodes per second,
+ while in AWS Lambda we pay just for the execution time.
  In AWS Lambda we do not have to do anything to execute just one function
  per second or thousands per second, while on heroku we have to set the
  right number of nodes or to set a correct strategy to dynamically create/remove
@@ -1472,7 +1473,7 @@ key "AWSLambdaPricing"
 \begin_layout Standard
 For what concerns the concept of platform ready to use to develop the serverless
  architecture is similar to Platform as a Service but it is different for
- other things like scalability as we have seen with AWS Lambda example.
+ other aspects like scalability as we have seen with AWS Lambda example.
 \end_layout
 
 \begin_layout Subsection

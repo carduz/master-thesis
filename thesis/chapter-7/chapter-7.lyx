@@ -74,8 +74,8 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we see the benchmark tests that we have done according to
- what we have seen in the previous chapter, for the classes of applications
+In this chapter we show the benchmark tests that we have done according
+ to what we have seen in the previous chapter, for the classes of applications
  and for the systems we previously defined.
 \end_layout
 
@@ -117,7 +117,7 @@ Tests
 
 \begin_layout Standard
 Here we show data of the execution of the tests.
- We tried, when possible, to simplify them to avoid to do some tests.
+ We tried, when possible, to simplify them to avoid to run some tests.
 \begin_inset Newline newline
 \end_inset
 
@@ -149,7 +149,7 @@ For each system we run a short analysis of the results for: scalability,
 \end_inset
 
 Then we come to some observations for each class of applications, remember
- that the main things to test for each of them are: chat (we test subscription
+ that the main aspects to test for each of them are: chat (we test subscription
  delivery efficiency), collaborative (we test the concurrent writes efficiency),
  social (we test multiple subscription efficiency, we also remind that the
  number of subscriptions increases during the time).
@@ -196,7 +196,7 @@ We do tests as a black box, we do not know details of the systems.
 
 So, for example, if writers are slow we do not know if the problem is the
  database itself or the realtime delivery level.
- But if we see that concurrent writes have the same time of non concurrent
+ But if we observe that concurrent writes have the same time of non concurrent
  writes we can expect that the bottleneck is the realtime delivery level.
 \series bold
 
@@ -250,7 +250,7 @@ Latency stability
 The couchbase latency is stable during the entire process for all classes
  of applications and for all executions.
  Of course there are some small errors in the measurements that are due
- to different things, such as the time to send all initial data.
+ to different aspects, such as the time to send all initial data.
 \end_layout
 
 \begin_layout Paragraph*
@@ -260,8 +260,8 @@ Write performances
 \begin_layout Standard
 If we have a big amount of writes (not necessarily concurrent) they are
  very slow, increasing the latency.
- We can easily see this for the collaborative benchmark when we have 100
- writers.
+ We can easily observe this for the collaborative benchmark when we have
+ 100 writers.
 \begin_inset Newline newline
 \end_inset
 
@@ -6542,9 +6542,9 @@ Data volume adaptability
 
 \begin_layout Standard
 It seems that Gun.js strongly depends on the volume of data.
- We can see in all tests, but particularly in the social one (where the
- data increase in time), that the latency increases in time with the increase
- of data.
+ We can observe in all tests, but particularly in the social one (where
+ the data increase in time), that the latency increases in time with the
+ increase of data.
 \end_layout
 
 \begin_layout Paragraph
@@ -8262,7 +8262,7 @@ Traditional
 \begin_layout Standard
 We remind that we use only 1 CPU for socket.io server.
  Moreover, after some tests, we have seen that postgreSQL is not the bottleneck,
- so we can avoid to test different environments for it.
+ so we can avoid testing different environments for it.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -8277,7 +8277,7 @@ Scalability
 It does not depend on the RAM.
  Analyzing the machine we have seen that it saturated the only core used,
  so the core becomes the bottleneck and it is not possible to scale it.
- We can see that there is no difference with different RAM configurations,
+ We can observe that there is no difference with different RAM configurations,
  this since the limit imposed by the CPU is reached before, so RAM issues
  should become visible only with few RAM.
 \end_layout
@@ -10015,7 +10015,7 @@ Analysis of the Results and Lesson Learned
 \end_layout
 
 \begin_layout Standard
-We can see that there is not a real advantage in using CS-NoSQL.
+We can observe that there is not a real advantage in using CS-NoSQL.
  The traditional solution proposed is, often, better, it has:
 \end_layout
 

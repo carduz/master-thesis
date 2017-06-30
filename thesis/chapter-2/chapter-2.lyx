@@ -74,7 +74,7 @@
 \begin_body
 
 \begin_layout Standard
-In this chapter we  see CS-NoSQL databases and client best practices.
+In this chapter we  analyze CS-NoSQL databases and client best practices.
  In the previous chapter we have analyzed all the elements needed to understand
  these topics, we have also seen the limits of traditional technologies
  which led to the creation of CS-NoSQL.
@@ -84,14 +84,14 @@ In this chapter we  see CS-NoSQL databases and client best practices.
 \begin_inset Newline newline
 \end_inset
 
-As we  see the concepts behind CS-NoSQL are well-known concepts with a lot
- of academic references, but the idea behind CS-NoSQL that joins all of
- these knowledge is not.
+As we  show the concepts behind CS-NoSQL are well-known concepts with a
+ lot of academic references, but the idea behind CS-NoSQL that joins all
+ of these knowledge is not.
  In fact, it is based on the common technologies best practices.
 \end_layout
 
 \begin_layout Standard
-We see the key aspects of CS-NoSQL in 
+We analyze the key aspects of CS-NoSQL in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Realtime-databases-stack"
@@ -100,12 +100,12 @@ reference "sec:Realtime-databases-stack"
 
 , their relationship with NoSQL databases.
  We  analyze the main data models, distributed issues, publish/subscribe
- applied to CS-NoSQL with their advantages and other non trivial things
+ applied to CS-NoSQL with their advantages and other non trivial aspects
  such as constraints, permissions and queries.
 \begin_inset Newline newline
 \end_inset
 
-Then we see the best practices from the client to receive notifications
+Then we describe the best practices from the client to receive notifications
  (using publish/subscribe) in a transparent way for the final user's point
  of view in 
 \begin_inset CommandInset ref
@@ -115,7 +115,7 @@ reference "subsec:Client-best-practices"
 \end_inset
 
 .
- We  see event driven approach, an analysis of the client language used,
+ We  show event driven approach, an analysis of the client language used,
  RESTful approach and last but not least the local database.
 \end_layout
 
@@ -176,7 +176,7 @@ realtime databases
 These databases have some advantages.
  They can be easily partitioned and distributed over different nodes, an
  important property.
- Moreover they allow easily to subscribe to different granularities of data
+ Moreover they easily allow subscribing to different granularities of data
  and to receive notifications of changes using publish/subscribe.
  This is done without writing any line of code in the server.
  They implement also the publish/subscribe broker server.
@@ -223,7 +223,7 @@ reference "fig:-Database-triangle"
 
 \end_inset
 
-, we  see more details analyzing real applications in 
+, we  show more details analyzing real applications in 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "chap:technologies"
@@ -235,18 +235,18 @@ reference "chap:technologies"
 \end_inset
 
 Data are stored in unstructured formats.
- We  see two main formats: key-value and JSON, we  use JSON when possible
+ We  describe two main formats: key-value and JSON, we  use JSON when possible
  in our applications, but as we  see key-value is very important in some
  applications and it is a sort base of JSON for some aspects.
 \begin_inset Newline newline
 \end_inset
 
-Then we  see distributed issues with pros and cons, we  analyze the CAP
- theorem and distribution and partitioning applied to CS-NoSQL.
+Then we  analyze distributed issues with pros and cons, we  analyze the
+ CAP theorem and distribution and partitioning applied to CS-NoSQL.
 \begin_inset Newline newline
 \end_inset
 
-Moreover we  see publish/subscribe implemented in these databases
+Moreover we  show publish/subscribe implemented in these databases
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "subsec:Publish/subscribeNOSQL"
@@ -285,8 +285,8 @@ key "CAPNoSQL"
 \end_inset
 
 Each collection can be organized according to different ways, we  see the
- two most used ways: key-value and document, for document we  see the JSON
- that is one possible format for document type.
+ two most used ways: key-value and document, for document we  analyze the
+ JSON that is one possible format for document type.
 \begin_inset Newline newline
 \end_inset
 
@@ -585,8 +585,8 @@ We can also see that the expressiveness power is the same of key-value since
 \begin_inset Newline newline
 \end_inset
 
-We see better what it means to subscribe to a specif path of the JSON structure
- below.
+We analyze better what it means to subscribe to a specif path of the JSON
+ structure below.
 \begin_inset Newline newline
 \end_inset
 
@@ -656,7 +656,7 @@ reference "chap:technologies"
 
 \end_inset
 
- we  see NoSQL databases of both types.
+ we  analyze NoSQL databases of both types.
 \begin_inset Newline newline
 \end_inset
 
@@ -810,7 +810,7 @@ Queries
 
 \begin_layout Standard
 There are no standards for queries in NoSQL databases, since they depend
- on different things: data model used, database used, MapReduce with query
+ on different elements: data model used, database used, MapReduce with query
  support and so on 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -845,8 +845,8 @@ Client Best Practices
 \end_layout
 
 \begin_layout Standard
-In this sub section we see the best practices used in these kinds of application
-s from the client's point of view.
+In this sub section we analyze the best practices used in these kinds of
+ applications from the client's point of view.
  Some choices, like data returned in some cases, can be imposed by the server
  technology chosen.
  In figure 
@@ -923,7 +923,7 @@ We can summarize them in some points.
  client catches them using an event driven approach.
  The client specifies which data he needs, so he receives notifications
  only for them.
- Moreover the client uses a language that allows easily to work with event
+ Moreover the client uses a language that easily allow working with event
  driven approach.
  Also the client framework uses RESTful to send/receive synchronously data.
  Finally the client framework implements a local database, it stores all
@@ -1244,9 +1244,9 @@ What we said previously for path is valid also for RESTful URI.
  RESTful is useful to post/put/delete data and to retrieve them synchronously,
  synchronous retrieve can be useful to populate local databases at the beginning
 , in fact RESTful is not compatible with asynchronous requests.
- There is no reason to do this kind of operations in an asynchronous way,
- of course they can be done via a websocket connection, but they are done
- in a sort of synchronous way.
+ There is no reason to execute this kind of operations in an asynchronous
+ way, of course they can be done via a websocket connection, but they are
+ done in a sort of synchronous way.
 \begin_inset Newline newline
 \end_inset
 

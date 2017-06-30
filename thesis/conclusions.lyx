@@ -122,7 +122,7 @@ They do not have a standard (there is not literature about them), this means
  that there are lots of problems if we want to use them commercially.
  There are no standard ways for tests, additional development skills should
  be required and the support to this system could be dropped anytime.
- So, if we consider these things (that are a cost) and the not so impressive
+ So, if we consider these elements (that are a cost) and the not so impressive
  performances, it seems that this kind of systems are only a higher cost
  for companies, of course more dedicated studies should be done.
 \begin_inset Newline newline
@@ -141,7 +141,7 @@ In fact, cloud solutions could be very good also for the cost model.
  (like other cloud solutions), if the support to them is dropped the entire
  application is lost.
  Of course, a study to this should be done, but is not so easy since as
- said previously we can manage only few things.
+ said previously we can manage only few elements.
 \end_layout
 
 \begin_layout Standard
@@ -161,7 +161,7 @@ reference "subsec:Jepsen-framework"
 We should also do better tests that go inside the infrastructure of CS-NoSQL
  so we are able to measure the single time of every action: time required
  to update the local database, to deliver realtime notifications, time to
- do a write, time to publish new data and so on.
+ process a write, time to publish new data and so on.
 \begin_inset Newline newline
 \end_inset
 

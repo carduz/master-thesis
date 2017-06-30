@@ -265,8 +265,8 @@ We analyze the theory behind these databases, then we classify and analyze
 \end_inset
 
 Moreover, we develop an alternative system based on a traditional database
- that allows doing the same things of native CS-NoSQL databases and we use
- it as a comparative system.
+ that allows doing the same operations of native CS-NoSQL databases and
+ we use it as a comparative system.
 \begin_inset Newline newline
 \end_inset
 
@@ -297,7 +297,7 @@ Besides CS-NoSQL are very efficient, in some cases, for development processes,
  fails all data are lost and there is no way to replicate the system in
  another server so a new development is needed.
  So lots of CS-NoSQL issues are related to the fact that solutions are proprieta
-ry, we have issues like non standard way to do tests, non standard development
+ry, we have issues like non standard way to run tests, non standard development
  processes and so on.
  This is a big cost for companies that want to use this kind of systems
  since they need a different training for each system used.
@@ -370,7 +370,7 @@ e and optimistic replication) and finally the concepts behind cloud computing
 In Chapter 2, we describe the state of art of CS-NoSQL.
  Of course, as we said previously, there are no academic references to them,
  but references to technologies used, so we show NoSQL databases from a
- theoretical point of view with all the related things that we need (such
+ theoretical point of view with all the related aspects that we need (such
  as distribution).
  Then we show the best practices to implement the local database on the
  client side.
@@ -384,25 +384,25 @@ In Chapter 3, we analyze some real CS-NoSQL, both opensource and in cloud
 \begin_inset Newline newline
 \end_inset
 
-In Chapter 4, we see our proposed comparing solution.
- We describe all the things to build it from the database to the client
+In Chapter 4, we show our proposed comparing solution.
+ We describe all the elements to build it from the database to the client
  such as the system to deliver realtime messages and so on.
 \begin_inset Newline newline
 \end_inset
 
 In Chapter 5, we analyze the classes of applications for which CS-NoSQL
  are designed according to vendors.
- We see use cases, and for each of them we see a real case study.
+ We analyze use cases, and for each of them we show a real case study.
 \begin_inset Newline newline
 \end_inset
 
-In Chapter 6, we define our strategy to do benchmark tests.
- We see what we need to do, what we need to measure, which tests we need
- to do and we also shortly explain the framework we have implemented.
+In Chapter 6, we define our strategy to run benchmark tests.
+ We analyze what we need to do, what we need to measure, which tests we
+ need to execute and we also shortly explain the framework we have implemented.
 \begin_inset Newline newline
 \end_inset
 
-In Chapter 7, we see the results of benchmark tests and we comment them.
+In Chapter 7, we show the results of benchmark tests and we comment them.
 \begin_inset Newline newline
 \end_inset
 
