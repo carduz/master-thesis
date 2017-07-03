@@ -75,7 +75,7 @@
 
 \begin_layout Standard
 In this chapter we analyze some commercial CS-NoSQL both opensource and
- in cloud.
+ proprietary in cloud located.
  We select some of them for a future analysis, all the systems selected
  are open source systems since we have much more control and we can do better
  tests.
@@ -1431,8 +1431,8 @@ https://firebase.google.com/
 
 \end_inset
 
- is one of the most famous commercial in cloud CS-NoSQL, it is owned by
- Google.
+ is one of the most famous commercial in cloud located CS-NoSQL, it is owned
+ by Google.
  It gives just a JSON document where you can subscribe to any level.
 \begin_inset Newline newline
 \end_inset
@@ -1513,8 +1513,8 @@ key "Socketio"
 \end_inset
 
 .
- Pubnub has the advantage to be in cloud, so it resolves also scalability
- issues.
+ Pubnub has the advantage to be in cloud located, so it resolves also scalabilit
+y issues.
  
 \end_layout
 

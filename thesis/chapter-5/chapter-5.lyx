@@ -1255,10 +1255,10 @@ In this section we analyze quickly some real stories of application of CS-NoSQL.
 \end_inset
 
 Of course since the cases are taken from vendors, the technologies used
- are in cloud technologies so there can be some differences compared to
- tests we can do with opensource technologies.
- In fact technologies in cloud sometimes have extra features or extra performanc
-es in some particular conditions.
+ are proprietary in cloud located ones so there can be some differences
+ compared to tests we can do with opensource technologies.
+ In fact proprietary in cloud located technologies sometimes have extra
+ features or extra performances in some particular conditions.
 \end_layout
 
 \begin_layout Subsection
@@ -1427,8 +1427,8 @@ After having analyzed developing costs of custom solution built over classical
  In fact the CS-NoSQL is a full stack system that takes care of every step
  needed, so there is no need to think about scalability and communications
  among internal components.
- Moreover, since a commercial system in cloud was used, the company does
- not have to think about the maintenance of the infrastructure.
+ Moreover, since a commercial system proprietary in cloud located was used,
+ the company does not have to think about the maintenance of the infrastructure.
 \end_layout
 
 \begin_layout Paragraph

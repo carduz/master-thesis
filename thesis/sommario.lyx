@@ -161,9 +161,9 @@ Il dispositivo tipico che usa questo tipo di applicazione è lo smartphone,
 \end_layout
 
 \begin_layout Standard
-Sono state proposte diverse soluzioni basate sui database NoSQL (sia in
- cloud che opensource), ma anche soluzioni personalizzate basate su RDBMS
- sono fattibili.
+Sono state proposte diverse soluzioni basate sui database NoSQL (sia opensource
+ che proprietarie in cloud), ma anche soluzioni personalizzate basate su
+ RDBMS sono fattibili.
  Le soluzioni basate sui NoSQL non sono standardizzate e non hanno un nome
  definito quindi le chiamiamo CS-NoSQL (NoSQL lato client).
 \begin_inset Newline newline
@@ -180,13 +180,12 @@ Uno dei principali vantaggi dei CS-NoSQL è che sono un ambiente completo
 \end_layout
 
 \begin_layout Standard
-In questa tesi analizziamo alcuni CS-NoSQL che implementano la replicazione
- sui client.
- Ne verifichiamo performance e stabilità per le classi di applicazioni per
- cui sono progettati, comparandoli con una soluzione basata su RDBMS.
-\end_layout
+L'obiettivo di questa tesi è verificare le performance dei CS-NoSQL per
+ le classi di applicazioni per cui sono progettati, comparandoli con una
+ soluzione basata su RDBMS.
+\begin_inset Newline newline
+\end_inset
 
-\begin_layout Standard
 Per far ciò, abbiamo implementato una soluzione comparata basata su postgreSQL
  (un server RDBMS) che replica i dati sui client usando websocket, implementato
  un semplice database locale per esso, creato un framework personalizzato

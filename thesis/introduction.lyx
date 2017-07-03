@@ -223,16 +223,8 @@ key "bigData2,CAPNoSQL"
 
 .
  So solutions to replicate the databases in realtime are based on them,
- they can be in cloud or opensource, one of the most famous cloud solution
- is 
-\begin_inset Quotes fld
-\end_inset
-
-firebase
-\begin_inset Quotes frd
-\end_inset
-
- 
+ they can be opensource or proprietary in cloud located, one of the most
+ famous cloud solution is firebase 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "firebaseArticle"
@@ -248,10 +240,10 @@ These solutions are not standardized, so there is no name even for them
 \end_layout
 
 \begin_layout Standard
-In this master thesis we want to verify the performances of CS-NoSQL for
+Goal of this master thesis is to verify the performances of CS-NoSQL for
  the class of applications they are designed for.
- We also want to analyze issues related to the development process, scalability
- and other related issues.
+ Another objective is exploring issues related to the development process,
+ scalability and other related issues.
 \begin_inset Newline newline
 \end_inset
 
@@ -292,10 +284,10 @@ Besides CS-NoSQL are very efficient, in some cases, for development processes,
  in fact since they were born only for this purpose they are a full-stack
  environment (with other solutions we need to create the entire infrastructure)
  and this allows creating a simpler application with zero code.
- This is very common in cloud systems but there is the disadvantage that
- it is a proprietary solution and if the system goes down or the cloud company
- fails all data are lost and there is no way to replicate the system in
- another server so a new development is needed.
+ This is very common proprietary in cloud located systems but there is the
+ disadvantage that it is a proprietary solution and if the system goes down
+ or the cloud company fails all data are lost and there is no way to replicate
+ the system in another server so a new development is needed.
  So lots of CS-NoSQL issues are related to the fact that solutions are proprieta
 ry, we have issues like non standard way to run tests, non standard development
  processes and so on.
@@ -377,8 +369,8 @@ In Chapter 2, we describe the state of art of CS-NoSQL.
 \begin_inset Newline newline
 \end_inset
 
-In Chapter 3, we analyze some real CS-NoSQL, both opensource and in cloud
- ones.
+In Chapter 3, we analyze some real CS-NoSQL, both opensource and proprietary
+ in cloud located ones.
  We classify them in a common way, as said previously, to compare them.
  Then we select a set of them to be used in the benchmark tests.
 \begin_inset Newline newline
