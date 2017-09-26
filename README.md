@@ -1,4 +1,5 @@
 # master-thesis
 M.Sc. in Computer Science & Engineering thesis
 
-Double side version
+PDF link: http://hdl.handle.net/10589/135078
+
